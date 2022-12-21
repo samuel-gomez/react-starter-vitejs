@@ -1,6 +1,6 @@
 import Counter from 'shared/components/Counter';
 import reactLogo from './assets/react.svg'
-import './App.css'
+import './App.scss'
 
 const App = () => (
     <div className="App">
