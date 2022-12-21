@@ -1,23 +1,22 @@
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vitest/config';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [react(), tsconfigPaths()],  
+  plugins: [react(), tsconfigPaths()],
+  build: {
+    outDir: 'build',
+  },
   test: {
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.tsx'],
     outputFile: 'test-report.xml',
+    testTimeout: 10000,
     coverage: {
-      reporter: [
-        "json",
-        "lcov",
-        "text",
-        "clover",
-        "html"
-      ],            
+      100: true,
+      reporter: ['json', 'lcov', 'text', 'clover', 'html'],
       exclude: ['src/setupTests.tsx', 'src/shared/testsUtils/**/*.{ts,tsx}', 'src/**/index.{ts,tsx}', 'src/**/__tests__/*.{ts,tsx}'],
     },
-  }
-})
+  },
+});
