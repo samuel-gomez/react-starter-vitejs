@@ -1,5 +1,5 @@
 import { render, screen, userEvent } from 'shared/testsUtils';
-import App from './App';
+import App from '../App';
 
 describe('Simple working test', () => {
   it('the title is visible', () => {

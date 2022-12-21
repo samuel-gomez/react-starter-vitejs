@@ -17,7 +17,7 @@ export default defineConfig({
         "clover",
         "html"
       ],            
-      exclude: ['src/setupTests.tsx', 'src/shared/testsUtils/**/*.{ts,tsx}', 'src/**/index.{ts,tsx}'],
+      exclude: ['src/setupTests.tsx', 'src/shared/testsUtils/**/*.{ts,tsx}', 'src/**/index.{ts,tsx}', 'src/**/__tests__/*.{ts,tsx}'],
     },
   }
 })
