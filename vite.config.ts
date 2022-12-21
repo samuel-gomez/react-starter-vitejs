@@ -1,8 +1,9 @@
 import { defineConfig } from 'vitest/config'
+import tsconfigPaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [react()],  
+  plugins: [react(), tsconfigPaths()],  
   test: {
     globals: true,
     environment: 'jsdom',
@@ -16,7 +17,7 @@ export default defineConfig({
         "clover",
         "html"
       ],            
-      exclude: ['src/setupTests.tsx', 'src/shared/testsUtils/**/*.{ts,tsx}'],
+      exclude: ['src/setupTests.tsx', 'src/shared/testsUtils/**/*.{ts,tsx}', 'src/**/index.{ts,tsx}'],
     },
   }
 })
