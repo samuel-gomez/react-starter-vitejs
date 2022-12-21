@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 function Counter() {
   const [count, setCount] = useState(0);
 
   return (
-    <button onClick={() => setCount((count) => count + 1)}>
-      count is {count}
+    <button type="button" onClick={() => setCount((prevcount) => prevcount + 1)}>
+      count is { count }
     </button>
   );
 }
