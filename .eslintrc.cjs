@@ -11,7 +11,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
-  overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -21,7 +20,27 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'react/react-in-jsx-scope': 0,
-    'import/no-extraneous-dependencies': ['warn', { devDependencies: true }],
+    'import/no-extraneous-dependencies': ['off', { devDependencies: true }],
     'no-restricted-exports': 'off',
+    'react/jsx-props-no-spreading': 0,
+    'react/require-default-props': 'off',
+    'react/function-component-definition': 'off',
+    'react/jsx-no-useless-fragment': ['warn', { allowExpressions: true }],
+    '@typescript-eslint/naming-convention': [
+      'warn',
+      {
+        selector: 'enum',
+        format: ['PascalCase', 'UPPER_CASE'],
+      },
+    ],
   },
+  overrides: [
+    {
+      files: ['**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts', '**/*.spec.tsx', '**/*.steps.ts', '**/*.steps.tsx', 'src/shared/testsUtils/**/*'],
+      rules: {
+        'import/no-extraneous-dependencies': ['off'],
+        'react/display-name': 0,
+      },
+    },
+  ],
 };

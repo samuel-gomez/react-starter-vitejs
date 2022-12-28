@@ -1,0 +1,54 @@
+// Vitest Snapshot v1
+
+exports[`<Unauthorize page/> > Renders Unauthorize page component without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="af-title-bar af-title-bar--hasstepper"
+  >
+    <div
+      class="container af-title-bar__wrapper"
+    >
+      <h1
+        class="af-title-bar__title"
+      >
+        403 Forbidden
+      </h1>
+    </div>
+  </div>
+  <div
+    aria-label="page error 403"
+    class="container af-container af-container--resilience-page af-container--unauthorize"
+    role="main"
+  >
+    <h1
+      class="af-resilience-page__title"
+    >
+      <div
+        class="af-resilience-page__title-covernumber"
+      >
+        <span
+          class="af-resilience-page__title-number"
+        >
+          403
+        </span>
+      </div>
+      <div
+        class="af-resilience-page__title-covernot"
+      >
+        <span
+          class="af-resilience-page__title-not"
+        >
+          forbidden
+          <br />
+          found
+        </span>
+      </div>
+    </h1>
+    <p
+      class="af-resilience-page__message"
+    >
+      The page you are looking for is forbidden !
+    </p>
+  </div>
+</DocumentFragment>
+`;

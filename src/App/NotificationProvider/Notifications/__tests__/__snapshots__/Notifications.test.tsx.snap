@@ -1,0 +1,47 @@
+// Vitest Snapshot v1
+
+exports[`Notifications > Render <Notifications/> 1`] = `
+<DocumentFragment>
+  <aside
+    class="af-notifications"
+  />
+</DocumentFragment>
+`;
+
+exports[`Notifications > Should contain Notification when array notifications is NOT empty 1`] = `
+<DocumentFragment>
+  <aside
+    class="af-notifications"
+  >
+    <div
+      class="af-alert af-alert--notification af-alert--error"
+      role="alert"
+    >
+      <div
+        class="af-alert__title"
+      >
+        <div
+          class="af-alert__title-icon"
+        >
+          <i
+            class="glyphicon glyphicon-minus-sign"
+          />
+        </div>
+        <div
+          class="af-alert__title-text"
+        >
+          titleerror
+        </div>
+        <button
+          class="af-alert__title-icon-close"
+          type="button"
+        >
+          <i
+            class="glyphicon glyphicon-close"
+          />
+        </button>
+      </div>
+    </div>
+  </aside>
+</DocumentFragment>
+`;

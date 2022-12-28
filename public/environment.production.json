@@ -1,0 +1,28 @@
+{
+  "apiUrl": {
+    "base": "https://react-starter-api.vercel.app/api/",
+    "github": "https://raw.githubusercontent.com/"
+  },
+  "baseUrl": "/",
+  "fetchConfig": {
+    "crossDomain": true,
+    "withCredentials": true,
+    "method": "GET",
+    "Access-Control-Allow-Origin": "*",
+    "headers": {
+      "accept": "application/json"
+    }
+  },
+  "oidc": {
+    "isEnabled": true,
+    "client_id": "interactive.public",
+    "redirect_uri": "https://react-starter-toolkit.netlify.app/authentication/callback",
+    "response_type": "code",
+    "post_logout_redirect_uri": "https://react-starter-toolkit.netlify.app/",
+    "scope": "openid profile email api offline_access",
+    "authority": "https://demo.duendesoftware.com",
+    "silent_redirect_uri": "https://react-starter-toolkit.netlify.app/authentication/silent_callback",
+    "automaticSilentRenew": true,
+    "loadUserInfo": true
+  }
+}

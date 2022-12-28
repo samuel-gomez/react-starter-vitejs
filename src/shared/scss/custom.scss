@@ -1,0 +1,376 @@
+@import '@axa-fr/react-toolkit-core/dist/assets/scss/core.scss';
+@import './variables.scss';
+@import './mixins.scss';
+
+/* FIX : LINK ***********************************************************/
+.af-link {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  text-decoration: underline;
+  &:focus,
+  &:active {
+    outline: none;
+    color: $color-azur;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+  &--hasIconLeft,
+  &--hasIconRight {
+    text-decoration: none;
+    .af-link__text {
+      text-decoration: underline;
+    }
+    &:hover {
+      .af-link__text {
+        text-decoration: none;
+      }
+    }
+  }
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    .af-link__text {
+      text-decoration: none;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      .af-link__text,
+      .glyphicon {
+        text-decoration: none;
+        color: $white;
+      }
+    }
+  }
+}
+
+/* FIX : HEADER *************************************************************/
+.af-header__title {
+  color: $color-axa;
+}
+
+@include media-breakpoint-down(sm) {
+  .af-info-user__name {
+    display: block;
+  }
+  .af-header__name {
+    flex-basis: inherit;
+    align-self: inherit;
+  }
+}
+
+/* CUSTOM : LAYOUT *************************************************************/
+.af-main {
+  padding: 1rem;
+  min-height: calc(100vh - (calc(var(--fullheaderHeight) + var(--footerHeight))));
+  background: $color-gray-2;
+}
+
+@include media-breakpoint-down(sm) {
+  .af-main {
+    padding: 0;
+  }
+  .container {
+    max-width: 100%;
+  }
+}
+
+/* CUSTOM : TITLE CONTENT ******************************************************/
+.af-title--content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* CUSTOM : BTN CIRCLE SMALL ****************************************************/
+.af-btn--circle-small {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* FIX/CUSTOM : TABLE ***********************************************************/
+.af-table__th--sortable {
+  padding: 0 1rem 0 0;
+  cursor: pointer;
+  &:hover {
+    background-color: $color-table-sorting;
+  }
+  .af-table__th-label {
+    padding: 1rem;
+  }
+}
+
+.af-table__th--active {
+  background-color: $color-table-sorting;
+}
+
+.af-table__cell--actions {
+  padding: 0.2rem 0.5rem;
+  text-align: center;
+}
+
+.af-btn.af-btn--table-sorting {
+  box-shadow: none;
+  padding: 1em;
+  &:hover {
+    padding: 1em;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .af-table__tr:nth-child(2n + 1) .af-table__cell {
+    background-color: rgba(205, 205, 205, 0.5);
+  }
+  .af-table {
+    display: block;
+    margin: 0 auto;
+    @include scroll-horizontal-shadow(100%);
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .af-paging__pager {
+    margin-top: 2rem;
+  }
+  .af-paging__limit {
+    margin: 1rem auto;
+    text-align: center;
+    width: 100%;
+    [class^='col'] {
+      padding: inherit;
+      flex-basis: inherit;
+      flex-grow: inherit;
+      width: inherit;
+    }
+    .af-form__group {
+      justify-content: space-evenly;
+    }
+  }
+}
+
+/* FIX MODAL ***************************************************************/
+.af-modal {
+  position: absolute;
+  &__body {
+    max-height: 78vh;
+    overflow: auto;
+  }
+
+  &__header-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* FIX : POPOVER **********************************************************/
+.af-popover__container-pop {
+  width: auto;
+}
+
+/* CUSTOM : ALERT SIMPLE **************************************************/
+.af-alert {
+  &--simple {
+    border: 0;
+    margin: 0 0 0.3rem 0;
+    background: none;
+    padding: 0.6rem 0;
+    line-height: 1.5;
+    .af-alert {
+      &__title {
+        font-size: 0.9rem;
+
+        &-icon {
+          background: none;
+          padding: 0;
+          margin-right: 0;
+          min-width: auto;
+          &:after {
+            display: none;
+          }
+        }
+        &-text {
+          margin-left: 1rem;
+          padding: 0;
+          font-weight: normal;
+        }
+      }
+      &__content {
+        &__left {
+          display: none;
+        }
+        &__right {
+          display: flex;
+          padding-left: 0.5rem;
+          &::before {
+            margin-right: 0.5rem;
+          }
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+    &.af-alert {
+      &--error {
+        .glyphicon {
+          color: $color-alertError-leftBgColor;
+        }
+      }
+      &--success {
+        .glyphicon {
+          color: $color-alertSucces-leftBgColor;
+        }
+      }
+      &--info {
+        .glyphicon {
+          color: $color-alertInfo-leftBgColor;
+        }
+      }
+      &--danger {
+        .glyphicon {
+          color: $color-alertDanger-leftBgColor;
+        }
+      }
+    }
+  }
+}
+
+/* ************************************************************************/
+/* FORM *******************************************************************/
+/* ************************************************************************/
+
+/* CHECKBOX TOGGLE *********************************************************/
+.af-form__checkbox-toggle {
+  .af-form__input-checkbox {
+    visibility: inherit;
+    &:focus + .af-form__label {
+      box-shadow: 0 0 5px $color-axa;
+    }
+  }
+}
+
+/* CUSTOM : REQUIRED FIELDS **************************************************/
+.af-form__group {
+  &--required &-label {
+    &:after {
+      content: '*';
+      color: $color-red-error;
+    }
+  }
+}
+
+/* FIX : TEXTAREA ************************************************************/
+.af-form__input-textarea {
+  font-size: 1rem;
+}
+
+/* CUSTOM/FIX : INLINE FIELDS *************************************************/
+.af-form__group--inline {
+  margin-bottom: 0;
+}
+
+.af-filter-inline {
+  margin-bottom: 2rem;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+  &:has(.af-link--toggle-filter) {
+    padding-bottom: 4rem;
+  }
+
+  &__hidden {
+    overflow: hidden;
+    height: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &--more &__hidden {
+    height: 80px;
+  }
+
+  &__default {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin-bottom: 1rem;
+    align-items: flex-end;
+    .af-form__group-label {
+      display: block;
+    }
+    .af-btn {
+      padding: 0.625rem 0.3125rem;
+    }
+  }
+
+  .af-btn--submit {
+    height: 50px;
+  }
+  .af-link--clear {
+    width: 6rem;
+    line-height: 1.3rem;
+    height: 50px;
+    font-size: 0.9rem;
+    .af-btn__text {
+      text-decoration: underline;
+      text-align: left;
+    }
+
+    &:hover {
+      .af-btn__text {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .af-filter-inline {
+    padding-bottom: 0;
+    &__default {
+      flex-direction: column;
+      align-items: center;
+      .af-btn {
+        padding: 0.8rem 1.2rem;
+      }
+    }
+    &__field {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+/* CUSTOM/FIX : MOBILE MENU *************************************************/
+.mask {
+  background: rgba(48, 50, 191, 0.62);
+  backdrop-filter: blur(5px);
+  &:after {
+    content: 'Fermer le menu';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    color: $color-axa;
+    background: white;
+    border-radius: 20px;
+    line-height: 1;
+    padding: 0.1rem;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .af-menu-open {
+    overflow-y: auto;
+  }
+}
+
+// FIX: RESTITUTION
+.af-restitution {
+  & :where(&__listul-item, &__listdef-value) {
+    text-align: left;
+  }
+}
