@@ -1,18 +1,20 @@
+import ROUTE_URL from 'App/Routes/constants';
+
 export const CLASS_BODY_MENU_OPEN = 'af-menu-open';
 
 const MENU_ITEMS = [
   {
     label: 'Accueil',
-    url: '/',
+    url: ROUTE_URL.HOME,
   },
   {
     label: 'Démos',
-    url: '/demos',
-    basePathChildren: '/demos',
+    url: ROUTE_URL.DEMOS,
+    basePathChildren: ROUTE_URL.DEMOS,
     children: [
       {
         label: 'Membres',
-        url: 'members',
+        url: ROUTE_URL.MEMBERS,
       },
       {
         label: 'Rechercher',
@@ -30,8 +32,8 @@ const MENU_ITEMS = [
   },
   {
     label: 'Toolkit components',
-    url: '/demos',
-    basePathChildren: '/demos',
+    url: ROUTE_URL.DEMOS,
+    basePathChildren: ROUTE_URL.DEMOS,
     children: [
       {
         label: 'Button',
@@ -89,8 +91,8 @@ const MENU_ITEMS = [
   },
   {
     label: 'Toolkit structure',
-    url: '/demos',
-    basePathChildren: '/demos',
+    url: ROUTE_URL.DEMOS,
+    basePathChildren: ROUTE_URL.DEMOS,
     children: [
       {
         label: 'Header',
@@ -120,8 +122,8 @@ const MENU_ITEMS = [
   },
   {
     label: 'Toolkit form components',
-    url: '/demos',
-    basePathChildren: '/demos',
+    url: ROUTE_URL.DEMOS,
+    basePathChildren: ROUTE_URL.DEMOS,
     children: [
       {
         label: 'Text Input',

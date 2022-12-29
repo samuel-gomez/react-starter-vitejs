@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { mergeObj, manageConfig } from 'shared/helpers';
 import { API_URL, STATUS_API, STATUS_HTTP_MESSAGES } from 'shared/constants';
 import { useOidcAccessToken } from '@axa-fr/react-oidc';
+import fetch from 'cross-fetch';
 import setResponseError from './setResponseError';
 
 export type FetchContextType = {

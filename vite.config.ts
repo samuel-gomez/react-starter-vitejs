@@ -39,8 +39,5 @@ export default defineConfig(({ mode }) => ({
         'src/**/constants.ts',
       ],
     },
-    deps: {
-      inline: ['whatwg-fetch'],
-    },
   },
 }));

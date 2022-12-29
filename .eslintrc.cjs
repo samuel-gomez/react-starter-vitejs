@@ -20,12 +20,13 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'react/react-in-jsx-scope': 0,
-    'import/no-extraneous-dependencies': ['off', { devDependencies: true }],
-    'no-restricted-exports': 'off',
+    'react/prop-types': 0,
     'react/jsx-props-no-spreading': 0,
     'react/require-default-props': 'off',
-    'react/function-component-definition': 'off',
     'react/jsx-no-useless-fragment': ['warn', { allowExpressions: true }],
+    'import/no-extraneous-dependencies': ['off', { devDependencies: true }],
+    'no-restricted-exports': 'off',
+    'react/function-component-definition': 'off',
     '@typescript-eslint/naming-convention': [
       'warn',
       {

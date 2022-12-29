@@ -1,6 +1,8 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import { screen, configure } from '@testing-library/react';
-import { render, userEvent } from 'shared/testsUtils/customRender';
+import { render } from 'shared/testsUtils/customRender';
+import expectTitle from 'shared/testsUtils/expectTitle';
+import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnTexteEstVisible, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
 import Home from '../Home';
 
 configure({ defaultHidden: true });
@@ -8,30 +10,36 @@ configure({ defaultHidden: true });
 const feature = loadFeature('features/Home/Home.feature');
 
 defineFeature(feature, test => {
-  test('Render Home', ({ given, then }) => {
-    given('I render my home', () => {
-      render(<Home />);
-    });
+  let role: string;
 
-    then(/^I see : "(.*)"$/, async text => {
-      await screen.findByText(text);
-    });
-  });
+  const setRoleMock = (roleMock: string) => {
+    role = roleMock;
+  };
 
-  test('Render Home and click counter', ({ given, when, then }) => {
-    given('I render my home', () => {
-      render(<Home />);
-    });
+  const renderPage = async () => {
+    render(<Home />, {}, { role });
+    expect(await screen.findByText('Samuel Gomez')).toBeInTheDocument();
+  };
 
-    when(/^I click on button: "(.*)"$/, async labelBtn => {
-      const button = await screen.findByRole('button', {
-        name: RegExp(labelBtn),
+  test("Affichage de la page d'accueil", ({ given, when, then, and }) => {
+    JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
+    when("J'accède à la page accueil", renderPage);
+    UnTitreEstVisible(then);
+    UnTitreEstVisible(and, 2);
+    UnTexteEstVisible(and);
+    UnTitreEstVisible(and, 2);
+    UnTexteEstVisible(and);
+    UnTitreEstVisible(and, 2);
+    UnTexteEstVisible(and);
+    UnTitreEstVisible(and, 2);
+    UnTexteEstVisible(and);
+    UnTitreEstVisible(and, 2);
+    UnTexteEstVisible(and);
+    and('la liste des packages est visible', packages => {
+      packages.forEach(({ titleItem, linkItem }: { titleItem: string; linkItem: string; imageItem: string }) => {
+        expectTitle({ name: titleItem, level: 3 });
+        expect(screen.getByTitle(`Voir ${titleItem}`)).toHaveAttribute('href', linkItem);
       });
-      userEvent.click(button);
-    });
-
-    then(/^I see : "(.*)"$/, async text => {
-      await screen.findByText(text);
     });
   });
 });

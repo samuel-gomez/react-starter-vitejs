@@ -1,13 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
-import ResilienceSubstitut, { Empty, setClassModifier, setClassName } from '../ResilienceSubstitut';
-
-describe('<Empty/>', () => {
-  it('Render <Empty/>', () => {
-    const { asFragment } = render(<Empty />);
-    expect(asFragment()).toMatchSnapshot();
-  });
-});
+import ResilienceSubstitut, { setClassModifier, setClassName } from '../ResilienceSubstitut';
 
 describe('<ResilienceSubstitut/>', () => {
   const defaultProps = {

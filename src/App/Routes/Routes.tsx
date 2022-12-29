@@ -1,9 +1,12 @@
 /* eslint-disable max-lines-per-function */
 import { useContext, ComponentProps } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+
 import Home from 'pages/Home';
 import PageNotFound from 'pages/NotFound';
 import PageUnauthorize from 'pages/Unauthorize';
+import Members from 'pages/Demos/Members';
+
 import ROUTE_URL from 'App/Routes/constants';
 import { UserContext } from 'App/UserProvider';
 import Loader, { MODES } from 'shared/components/Loader';
@@ -36,12 +39,16 @@ export const withAuth = <T extends object>(
 type TRoutesCmpt = {
   HomeCmpt?: typeof Home;
   PageUnauthorizeCmpt?: typeof PageUnauthorize;
+  MembersCmpt?: typeof Members;
   withAuthFn?: typeof withAuth;
 };
 
-const RoutesCmpt = ({ HomeCmpt = Home, PageUnauthorizeCmpt = PageUnauthorize, withAuthFn = withAuth }: TRoutesCmpt) => (
+const RoutesCmpt = ({ HomeCmpt = Home, PageUnauthorizeCmpt = PageUnauthorize, MembersCmpt = Members, withAuthFn = withAuth }: TRoutesCmpt) => (
   <Routes>
     <Route path={ROUTE_URL.HOME} element={withAuthFn(HomeCmpt)} />
+    <Route path="demos">
+      <Route path={ROUTE_URL.MEMBERS} element={withAuthFn(MembersCmpt)} />
+    </Route>
     <Route path={ROUTE_URL.UNAUTHORIZE} element={<PageUnauthorizeCmpt />} />
     <Route path="*" element={<PageNotFound />} />
   </Routes>
