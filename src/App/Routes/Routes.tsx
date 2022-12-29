@@ -6,6 +6,7 @@ import Home from 'pages/Home';
 import PageNotFound from 'pages/NotFound';
 import PageUnauthorize from 'pages/Unauthorize';
 import Members from 'pages/Demos/Members';
+import SearchMembers from 'pages/Demos/SearchMembers';
 
 import ROUTE_URL from 'App/Routes/constants';
 import { UserContext } from 'App/UserProvider';
@@ -40,14 +41,22 @@ type TRoutesCmpt = {
   HomeCmpt?: typeof Home;
   PageUnauthorizeCmpt?: typeof PageUnauthorize;
   MembersCmpt?: typeof Members;
+  SearchMembersCmpt?: typeof SearchMembers;
   withAuthFn?: typeof withAuth;
 };
 
-const RoutesCmpt = ({ HomeCmpt = Home, PageUnauthorizeCmpt = PageUnauthorize, MembersCmpt = Members, withAuthFn = withAuth }: TRoutesCmpt) => (
+const RoutesCmpt = ({
+  HomeCmpt = Home,
+  PageUnauthorizeCmpt = PageUnauthorize,
+  MembersCmpt = Members,
+  SearchMembersCmpt = SearchMembers,
+  withAuthFn = withAuth,
+}: TRoutesCmpt) => (
   <Routes>
     <Route path={ROUTE_URL.HOME} element={withAuthFn(HomeCmpt)} />
     <Route path="demos">
       <Route path={ROUTE_URL.MEMBERS} element={withAuthFn(MembersCmpt)} />
+      <Route path={ROUTE_URL.SEARCHMEMBERS} element={withAuthFn(SearchMembersCmpt)} />
     </Route>
     <Route path={ROUTE_URL.UNAUTHORIZE} element={<PageUnauthorizeCmpt />} />
     <Route path="*" element={<PageNotFound />} />

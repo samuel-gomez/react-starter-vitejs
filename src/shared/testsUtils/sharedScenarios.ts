@@ -16,6 +16,11 @@ export const UnBoutonEstVisible = (instruction: DefineStepFunction) =>
     expectButton({ name, beDisabled: false });
   });
 
+export const UnBoutonEstDesactive = (instruction: DefineStepFunction) =>
+  instruction(/^un bouton "(.*)" est désactivé$/, name => {
+    expectButton({ name });
+  });
+
 export const UnLienEstMasque = (instruction: DefineStepFunction, role = 'link') =>
   instruction(/^un lien "(.*)" est masqué$/, name => {
     expectLink({ name, role, isQueryByRole: true, beInDoc: false });
@@ -38,6 +43,11 @@ export const UnTitreEstVisible = (instruction: DefineStepFunction, level = 1) =>
 
 export const UnTexteEstVisible = (instruction: DefineStepFunction) =>
   instruction(/^un texte "(.*)" est visible$/, text => {
+    expect(screen.getByText(RegExp(text))).toBeInTheDocument();
+  });
+
+export const UnAideALaSaisieEstVisible = (instruction: DefineStepFunction) =>
+  instruction(/^une aide à la saisie "(.*)" est visible$/, text => {
     expect(screen.getByText(RegExp(text))).toBeInTheDocument();
   });
 

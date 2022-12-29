@@ -18,7 +18,7 @@ const MENU_ITEMS = [
       },
       {
         label: 'Rechercher',
-        url: 'search-members',
+        url: ROUTE_URL.SEARCHMEMBERS,
       },
       {
         label: 'Modal',
