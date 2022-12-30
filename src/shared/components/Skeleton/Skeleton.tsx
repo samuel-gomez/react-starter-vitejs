@@ -1,4 +1,4 @@
-import { withClassDefault, withClassModifier, WithClassModifierOptions, compose, identity } from '@axa-fr/react-toolkit-core';
+import { withClassDefault, withClassModifier, WithClassModifierOptions, compose, identity } from '@axa-fr/react-toolkit-core/dist/esm/index';
 import './Skeleton.scss';
 
 type TSkeleton = {

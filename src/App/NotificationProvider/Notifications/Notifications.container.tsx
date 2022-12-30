@@ -1,4 +1,4 @@
-import { ClassManager } from '@axa-fr/react-toolkit-core';
+import ClassManager from '@axa-fr/react-toolkit-core/dist/esm/ClassManager';
 import Notifications, { TNotifications } from './Notifications';
 import { DEFAULT_CLASS_NOTIFICATION, MODIFIER_OPEN } from './constants';
 

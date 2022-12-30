@@ -22,7 +22,7 @@ const MENU_ITEMS = [
       },
       {
         label: 'Modal',
-        url: 'modal-custom',
+        url: ROUTE_URL.MODAL_CUSTOM,
       },
       {
         label: 'Notification',

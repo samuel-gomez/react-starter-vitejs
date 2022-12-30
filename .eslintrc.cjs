@@ -31,7 +31,7 @@ module.exports = {
       'warn',
       {
         selector: 'enum',
-        format: ['PascalCase', 'UPPER_CASE'],
+        format: ['PascalCase', 'UPPER_CASE', 'camelCase'],
       },
     ],
   },

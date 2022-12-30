@@ -7,6 +7,7 @@ import PageNotFound from 'pages/NotFound';
 import PageUnauthorize from 'pages/Unauthorize';
 import Members from 'pages/Demos/Members';
 import SearchMembers from 'pages/Demos/SearchMembers';
+import ModalCustom from 'pages/Demos/ModalCustom';
 
 import ROUTE_URL from 'App/Routes/constants';
 import { UserContext } from 'App/UserProvider';
@@ -42,6 +43,7 @@ type TRoutesCmpt = {
   PageUnauthorizeCmpt?: typeof PageUnauthorize;
   MembersCmpt?: typeof Members;
   SearchMembersCmpt?: typeof SearchMembers;
+  ModalCustomCmpt?: typeof ModalCustom;
   withAuthFn?: typeof withAuth;
 };
 
@@ -50,6 +52,7 @@ const RoutesCmpt = ({
   PageUnauthorizeCmpt = PageUnauthorize,
   MembersCmpt = Members,
   SearchMembersCmpt = SearchMembers,
+  ModalCustomCmpt = ModalCustom,
   withAuthFn = withAuth,
 }: TRoutesCmpt) => (
   <Routes>
@@ -57,6 +60,7 @@ const RoutesCmpt = ({
     <Route path="demos">
       <Route path={ROUTE_URL.MEMBERS} element={withAuthFn(MembersCmpt)} />
       <Route path={ROUTE_URL.SEARCHMEMBERS} element={withAuthFn(SearchMembersCmpt)} />
+      <Route path={ROUTE_URL.MODAL_CUSTOM} element={withAuthFn(ModalCustomCmpt)} />
     </Route>
     <Route path={ROUTE_URL.UNAUTHORIZE} element={<PageUnauthorizeCmpt />} />
     <Route path="*" element={<PageNotFound />} />

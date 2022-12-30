@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useMemo } from 'react';
 import { emptyFunction } from 'shared/helpers';
-import Notifications, { TNotification } from './Notifications';
+import Notifications from './Notifications';
 import useNotifications, { TaddNotification } from './Notifications.hook';
 
 export type TNotificationContext = {

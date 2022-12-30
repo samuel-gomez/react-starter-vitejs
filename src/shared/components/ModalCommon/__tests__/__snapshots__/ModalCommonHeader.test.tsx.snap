@@ -1,0 +1,49 @@
+// Vitest Snapshot v1
+
+exports[`ModalCommonHeader > Should render ModalCommonHeader with title 1`] = `
+<DocumentFragment>
+  <div
+    class="af-modal__header"
+  >
+    <h4
+      class="af-modal__header-title"
+    >
+      my title
+    </h4>
+    <button
+      aria-label="Close"
+      class="af-modal__header-close-btn"
+      type="button"
+    >
+      <span
+        aria-hidden="true"
+        class="glyphicon glyphicon-close"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModalCommonHeader > Should render ModalCommonHeader without title 1`] = `
+<DocumentFragment>
+  <div
+    class="af-modal__header"
+  >
+    <h4
+      class="af-modal__header-title"
+    >
+      Title of modal
+    </h4>
+    <button
+      aria-label="Close"
+      class="af-modal__header-close-btn"
+      type="button"
+    >
+      <span
+        aria-hidden="true"
+        class="glyphicon glyphicon-close"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;
