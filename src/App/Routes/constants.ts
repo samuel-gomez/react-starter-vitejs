@@ -3,6 +3,7 @@ import { ROUTE_URL_UNAUTHORIZE as UNAUTHORIZE } from 'pages/Unauthorize/constant
 import { ROUTE_URL_MEMBERS as MEMBERS } from 'pages/Demos/Members/constants';
 import { ROUTE_URL_SEARCHMEMBERS as SEARCHMEMBERS } from 'pages/Demos/SearchMembers/constants';
 import { ROUTE_URL_MODAL_CUSTOM as MODAL_CUSTOM } from 'pages/Demos/ModalCustom/constants';
+import { ROUTE_URL_NOTIFICATION as NOTIFICATION } from 'pages/Demos/Notification/constants';
 
 const DEMOS = '/demos';
 
@@ -11,6 +12,7 @@ const ROUTE_URL = {
   MEMBERS,
   SEARCHMEMBERS,
   MODAL_CUSTOM,
+  NOTIFICATION,
   UNAUTHORIZE,
   DEMOS,
 };

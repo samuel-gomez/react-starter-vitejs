@@ -4,7 +4,7 @@ import Notifications from './Notifications';
 import useNotifications, { TaddNotification } from './Notifications.hook';
 
 export type TNotificationContext = {
-  addNotification?: TaddNotification;
+  addNotification: TaddNotification;
 };
 
 export const NotificationContext = createContext<TNotificationContext>({ addNotification: emptyFunction });
