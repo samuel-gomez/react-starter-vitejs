@@ -23,6 +23,7 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-props-no-spreading': 0,
     'react/require-default-props': 'off',
+    'react/display-name': 'off',
     'react/jsx-no-useless-fragment': ['warn', { allowExpressions: true }],
     'import/no-extraneous-dependencies': ['off', { devDependencies: true }],
     'no-restricted-exports': 'off',

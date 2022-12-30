@@ -1,0 +1,16 @@
+// Vitest Snapshot v1
+
+exports[`<CodeEditor/> > Should render CodeEditor 1`] = `
+<DocumentFragment>
+  <button
+    class="btn af-btn af-btn--editor"
+    type="submit"
+  >
+    <span
+      class="af-btn__text"
+    >
+      Edit children
+    </span>
+  </button>
+</DocumentFragment>
+`;
