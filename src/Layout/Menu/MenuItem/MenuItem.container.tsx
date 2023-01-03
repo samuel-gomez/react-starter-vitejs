@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 import { AriaAttributes } from 'react';
 import Authorize from 'shared/components/Authorize';
 import { MenuItem } from './MenuItem';

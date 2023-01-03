@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useMemo } from 'react';
-import { useOidcUser } from '@axa-fr/react-oidc';
-import { isEmpty } from 'lodash';
+import { useOidcUser } from '@axa-fr/react-oidc/dist/User';
+import isEmpty from 'lodash/isEmpty';
 import { PROFILS } from 'shared/constants';
 
 export type TUserContext = ReturnType<typeof extractDataFromOAuthToken> & {

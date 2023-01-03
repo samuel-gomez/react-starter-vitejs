@@ -1,9 +1,11 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
+import { type PluginOption } from 'vite';
 import { defineConfig } from 'vitest/config';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig(({ mode }) => ({
   define: {
@@ -12,7 +14,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     port: 3000,
   },
-  plugins: [react(), tsconfigPaths()],
+  plugins: [react(), tsconfigPaths(), visualizer() as PluginOption],
   build: {
     outDir: 'build',
   },

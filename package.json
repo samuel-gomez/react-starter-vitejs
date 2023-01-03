@@ -18,7 +18,8 @@
     "prettier:fix": "prettier --write src",
     "check": "npm run prettier && npm run lint",
     "fix": "npm run prettier:fix && npm run lint:fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cz": "cz"
   },
   "dependencies": {
     "@axa-fr/react-oidc": "6.11.1",
@@ -75,6 +76,7 @@
     "lint-staged": "13.1.0",
     "msw": "0.49.2",
     "prettier": "2.8.1",
+    "rollup-plugin-visualizer": "5.9.0",
     "sass": "1.57.1",
     "typescript": "4.9.3",
     "vite": "4.0.0",

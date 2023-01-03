@@ -1,4 +1,4 @@
-import { isNull } from 'lodash';
+import isNull from 'lodash/isNull';
 import { defineFeature, DefineStepFunction, loadFeature } from 'jest-cucumber';
 import { render, screen, within } from 'shared/testsUtils/customRender';
 import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil } from 'shared/testsUtils/sharedScenarios';

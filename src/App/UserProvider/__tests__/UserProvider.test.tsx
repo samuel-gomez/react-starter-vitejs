@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { useContext } from 'react';
 import { render } from '@testing-library/react';
-import { omit } from 'lodash';
+import omit from 'lodash/omit';
 import UserProvider, { UserContext, getAuthName, getAuthRole, setAuthRole, getAuthUid } from '../UserProvider';
 
 type TBase = {
