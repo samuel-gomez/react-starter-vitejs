@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/dom';
 
 type TexpectTitle = {
-  name: string;
+  name: string | RegExp;
   isQueryByRole?: boolean;
   beInDoc?: boolean;
   level?: number;

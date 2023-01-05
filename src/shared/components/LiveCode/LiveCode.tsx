@@ -19,7 +19,6 @@ type TLiveCode = {
   onChange?: (arg: string) => void;
   styleLiveEditor?: React.CSSProperties;
   styleLivePreview?: React.CSSProperties;
-  modalProps?: TReturnUseToggleModal;
   hideCode?: boolean;
   hideAccessibility?: boolean;
   hideReadme?: boolean;
@@ -36,13 +35,12 @@ const LiveCode = withClassNameModifier(
     className,
     styleLivePreview = {},
     theme = vsDark,
-    modalProps,
     hideCode = false,
     hideAccessibility = false,
     hideReadme = false,
   }: TLiveCode) => (
     <article className={className}>
-      <LiveProvider theme={theme} code={`<>${code}</>`} scope={{ ...reactTookitAll, ...scope, modalProps }}>
+      <LiveProvider theme={theme} code={`<>${code}</>`} scope={{ ...reactTookitAll, ...scope }}>
         <LivePreview aria-label={ariaLabel} style={{ ...styleLivePreviewDefault, ...styleLivePreview }} />
         <LiveError />
       </LiveProvider>

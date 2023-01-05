@@ -1,0 +1,10 @@
+.af-livecode--navbar {
+  .af-nav {
+    &.af-drawer.left {
+      z-index: 2;
+    }
+    > .container {
+      width: 100%;
+    }
+  }
+}

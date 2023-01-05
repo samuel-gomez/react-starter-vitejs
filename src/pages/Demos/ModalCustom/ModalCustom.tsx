@@ -1,8 +1,7 @@
 import Alert from '@axa-fr/react-toolkit-alert/dist/esm/index';
 import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
 import Modal from '@axa-fr/react-toolkit-modal-default/dist/esm/index';
-import { TLayoutPage } from 'shared/types';
-import Layout from 'Layout';
+import Layout, { TLayoutPage } from 'Layout';
 import LiveCode from 'shared/components/LiveCode';
 import { ModalCommonHeader, ModalCommonBody, ModalCommonFooter, TReturnUseToggleModal } from 'shared/components/ModalCommon';
 import { TITLE_BAR, TITLE } from './constants';

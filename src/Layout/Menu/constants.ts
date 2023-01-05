@@ -26,7 +26,7 @@ const MENU_ITEMS = [
       },
       {
         label: 'Notification',
-        url: 'notification',
+        url: ROUTE_URL.NOTIFICATION,
       },
     ],
   },
@@ -36,16 +36,36 @@ const MENU_ITEMS = [
     basePathChildren: ROUTE_URL.DEMOS,
     children: [
       {
-        label: 'Button',
-        url: 'button',
+        label: 'Accordion',
+        url: ROUTE_URL.ACCORDION,
       },
       {
         label: 'Action',
-        url: 'action',
+        url: ROUTE_URL.ACTION,
       },
       {
         label: 'Alert',
-        url: 'alert',
+        url: ROUTE_URL.ALERT,
+      },
+      {
+        label: 'Badge',
+        url: ROUTE_URL.BADGE,
+      },
+      {
+        label: 'Button',
+        url: ROUTE_URL.BUTTON,
+      },
+      {
+        label: 'Help',
+        url: ROUTE_URL.HELP,
+      },
+      {
+        label: 'Loader',
+        url: ROUTE_URL.LOADER,
+      },
+      {
+        label: 'Modal',
+        url: ROUTE_URL.MODAL,
       },
       {
         label: 'Restitution',
@@ -55,18 +75,12 @@ const MENU_ITEMS = [
         label: 'Tabs',
         url: 'tabs',
       },
-      {
-        label: 'Badge',
-        url: 'badge',
-      },
+
       {
         label: 'Title',
         url: 'title',
       },
-      {
-        label: 'Help',
-        url: 'help',
-      },
+
       {
         label: 'Table',
         url: 'table',
@@ -74,18 +88,6 @@ const MENU_ITEMS = [
       {
         label: 'Popover',
         url: 'popover',
-      },
-      {
-        label: 'Accordion',
-        url: 'accordion',
-      },
-      {
-        label: 'Loader',
-        url: 'loader',
-      },
-      {
-        label: 'Modal',
-        url: 'modal',
       },
     ],
   },
@@ -95,28 +97,28 @@ const MENU_ITEMS = [
     basePathChildren: ROUTE_URL.DEMOS,
     children: [
       {
+        label: 'Footer',
+        url: ROUTE_URL.FOOTER,
+      },
+      {
+        label: 'Footer Client',
+        url: ROUTE_URL.FOOTER_CLIENT,
+      },
+      {
         label: 'Header',
-        url: 'header',
+        url: ROUTE_URL.HEADER,
+      },
+      {
+        label: 'Infos',
+        url: ROUTE_URL.INFOS,
+      },
+      {
+        label: 'NavBar',
+        url: ROUTE_URL.NAVBAR,
       },
       {
         label: 'TitleBar',
         url: 'titlebar',
-      },
-      {
-        label: 'NavBar',
-        url: 'navbar',
-      },
-      {
-        label: 'Infos',
-        url: 'infos',
-      },
-      {
-        label: 'Footer Client',
-        url: 'footer-client',
-      },
-      {
-        label: 'Footer',
-        url: 'footer',
       },
     ],
   },
@@ -125,6 +127,18 @@ const MENU_ITEMS = [
     url: ROUTE_URL.DEMOS,
     basePathChildren: ROUTE_URL.DEMOS,
     children: [
+      {
+        label: 'Checkbox Input',
+        url: ROUTE_URL.CHECKBOX_INPUT,
+      },
+      {
+        label: 'Date Input',
+        url: ROUTE_URL.DATE_INPUT,
+      },
+      {
+        label: 'File',
+        url: ROUTE_URL.FILE_INPUT,
+      },
       {
         label: 'Text Input',
         url: 'text-input',
@@ -162,10 +176,6 @@ const MENU_ITEMS = [
         url: 'switch',
       },
       {
-        label: 'File',
-        url: 'file-input',
-      },
-      {
         label: 'Select Multi',
         url: 'select-multi',
       },
@@ -180,17 +190,17 @@ const MENU_ITEMS = [
     children: [
       {
         label: 'Not found',
-        url: 'notfound',
+        url: ROUTE_URL.NOTFOUND,
       },
       {
         label: 'Forbidden',
-        url: 'forbidden',
+        url: ROUTE_URL.UNAUTHORIZE,
       },
     ],
   },
   {
     label: 'Layout',
-    url: `/layout`,
+    url: `/${ROUTE_URL.LAYOUT}`,
   },
 ];
 

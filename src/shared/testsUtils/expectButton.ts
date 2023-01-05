@@ -1,14 +1,16 @@
-import { screen } from '@testing-library/dom';
+import { screen, within } from '@testing-library/dom';
 
 type TexpectButton = {
   name: string;
   isQueryByRole?: boolean;
   beDisabled?: boolean;
   beInDoc?: boolean;
+  parentLabel?: string;
 };
 
-const expectButton = ({ isQueryByRole = false, name, beDisabled = true, beInDoc = true }: TexpectButton) => {
-  const button = isQueryByRole ? screen.queryByRole('button', { name: RegExp(name) }) : screen.getByRole('button', { name: RegExp(name) });
+const expectButton = ({ isQueryByRole = false, name, beDisabled = true, beInDoc = true, parentLabel = '' }: TexpectButton) => {
+  const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
+  const button = isQueryByRole ? base.queryByRole('button', { name: RegExp(name) }) : base.getByRole('button', { name: RegExp(name) });
   if (beInDoc) {
     expect(button).toBeInTheDocument();
     if (beDisabled) {

@@ -26,10 +26,4 @@ describe('<ModalPageContainer/>', () => {
       {},
     );
   });
-
-  it('Should render ModalPageContainer and called functions', () => {
-    const { baseElement } = renderWithWrapperStaticRouter(<ModalPageContainer />);
-
-    expect(baseElement).toMatchSnapshot();
-  });
 });

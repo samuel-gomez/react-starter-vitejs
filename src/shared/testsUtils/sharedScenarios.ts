@@ -6,19 +6,33 @@ import expectButton from './expectButton';
 import expectLink from './expectLink';
 import expectTitle from './expectTitle';
 
-export const UnBoutonEstMasque = (instruction: DefineStepFunction) =>
+export const UnBoutonEstMasque = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^un bouton "(.*)" est masqué$/, name => {
-    expectButton({ name, isQueryByRole: true, beInDoc: false });
+    expectButton({ name, isQueryByRole: true, beInDoc: false, parentLabel });
   });
 
-export const UnBoutonEstVisible = (instruction: DefineStepFunction) =>
+export const UnBoutonEstVisible = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^un bouton "(.*)" est visible$/, name => {
-    expectButton({ name, beDisabled: false });
+    expectButton({ name, beDisabled: false, parentLabel });
   });
 
-export const UnBoutonEstDesactive = (instruction: DefineStepFunction) =>
+export const UnBoutonEstDesactive = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^un bouton "(.*)" est désactivé$/, name => {
-    expectButton({ name });
+    expectButton({ name, parentLabel });
+  });
+
+export const UnBoutonSansLabelEstVisible = (instruction: DefineStepFunction, instructionName = /^un bouton est visible$/, parentLabel = '') =>
+  instruction(instructionName, () => {
+    const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
+    const button = base.queryByRole('button');
+    expect(button).toBeInTheDocument();
+  });
+
+export const UnBoutonSansLabelEstMasque = (instruction: DefineStepFunction, instructionName = /^un bouton est masqué$/, parentLabel = '') =>
+  instruction(instructionName, () => {
+    const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
+    const button = base.queryByRole('button');
+    expect(button).not.toBeInTheDocument();
   });
 
 export const UnLienEstMasque = (instruction: DefineStepFunction, role = 'link') =>
@@ -26,9 +40,9 @@ export const UnLienEstMasque = (instruction: DefineStepFunction, role = 'link') 
     expectLink({ name, role, isQueryByRole: true, beInDoc: false });
   });
 
-export const UnLienEstVisible = (instruction: DefineStepFunction, role = 'link') =>
+export const UnLienEstVisible = (instruction: DefineStepFunction, role = 'link', parentLabel = '') =>
   instruction(/^un lien "(.*)" est visible avec un href "(.*)"$/, (name, href) => {
-    expectLink({ name, href, role });
+    expectLink({ name, href, role, parentLabel });
   });
 
 export const JeSuisUnUtilisateurConnuEtConnecteAvecleProfil = (instruction: DefineStepFunction, callback: (arg: string) => void) =>
@@ -38,12 +52,19 @@ export const JeSuisUnUtilisateurConnuEtConnecteAvecleProfil = (instruction: Defi
 
 export const UnTitreEstVisible = (instruction: DefineStepFunction, level = 1) =>
   instruction(/^un titre "(.*)" est visible$/, title => {
-    expectTitle({ name: title, level });
+    expectTitle({ name: RegExp(title), level });
   });
 
-export const UnTexteEstVisible = (instruction: DefineStepFunction) =>
-  instruction(/^un texte "(.*)" est visible$/, text => {
-    expect(screen.getByText(RegExp(text))).toBeInTheDocument();
+export const UnTexteEstVisible = (instruction: DefineStepFunction, parentLabel = '', instructionName = /^un texte "(.*)" est visible$/) =>
+  instruction(instructionName, text => {
+    const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
+    expect(base.getByText(RegExp(text))).toBeInTheDocument();
+  });
+
+export const UnIconeEstVisible = (instruction: DefineStepFunction, parentLabel = '') =>
+  instruction(/^un icone "(.*)" est visible$/, name => {
+    const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
+    expect(base.getByRole('img', { name })).toBeInTheDocument();
   });
 
 export const UnAideALaSaisieEstVisible = (instruction: DefineStepFunction) =>
@@ -203,7 +224,6 @@ export const JeSelectionneUneValeurSurleChamp = (instruction: DefineStepFunction
   instruction(/^Je sélectionne la valeur "(.*)" sur le champ "(.*)"$/, async (type, fieldName) => {
     const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
     const selectInput = base.getByRole('combobox', { name: RegExp(fieldName) });
-    await waitFor(() => userEvent.selectOptions(selectInput, type === 'error' ? 'success' : 'error'));
     await waitFor(() => userEvent.selectOptions(selectInput, type));
     await waitFor(() => expect(base.getByDisplayValue(RegExp(type))).toBeInTheDocument());
   });

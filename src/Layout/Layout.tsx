@@ -22,6 +22,16 @@ export type TLayout = {
   propsTitle?: ComponentPropsWithoutRef<typeof TitleBar>;
   propsFooter?: ComponentPropsWithoutRef<typeof Footer>;
   propsA11yMenu?: ComponentPropsWithoutRef<typeof A11yMenu>;
+  A11yMenuCmpt?: typeof A11yMenu;
+  HeaderCmpt?: typeof Header;
+  MenuCmpt?: typeof Menu;
+  TitleBarCmpt?: typeof TitleBar;
+  FooterCmpt?: typeof Footer;
+};
+
+export type TLayoutPage = TLayout & {
+  titleBar?: string;
+  title?: ReactNode;
 };
 
 const disabledDefault = {
@@ -35,16 +45,31 @@ const disabledDefault = {
 const DEFAULT_CLASSNAME = 'af-main';
 
 const Layout = withClassNameModifier(
-  ({ className, children, propsHeader, propsMenu, propsTitle, propsFooter, propsA11yMenu, fullScreen, disabled = disabledDefault }: TLayout) => (
+  ({
+    className,
+    children,
+    propsHeader,
+    propsMenu,
+    propsTitle,
+    propsFooter,
+    propsA11yMenu,
+    fullScreen,
+    disabled = disabledDefault,
+    A11yMenuCmpt = A11yMenu,
+    HeaderCmpt = Header,
+    MenuCmpt = Menu,
+    TitleBarCmpt = TitleBar,
+    FooterCmpt = Footer,
+  }: TLayout) => (
     <>
-      {!disabled.a11yMenu && <A11yMenu {...propsA11yMenu} />}
-      {!disabled.header && <Header {...propsHeader} fullScreen={fullScreen} />}
-      {!disabled.menu && <Menu {...propsMenu} fullScreen={fullScreen} isVisible />}
-      {!disabled.title && <TitleBar {...propsTitle} fullScreen={fullScreen} />}
+      {!disabled.a11yMenu && <A11yMenuCmpt {...propsA11yMenu} />}
+      {!disabled.header && <HeaderCmpt {...propsHeader} fullScreen={fullScreen} />}
+      {!disabled.menu && <MenuCmpt {...propsMenu} fullScreen={fullScreen} isVisible />}
+      {!disabled.title && <TitleBarCmpt {...propsTitle} fullScreen={fullScreen} />}
       <main id="main-content" className={className}>
         {fullScreen ? children : <section className="container">{children}</section>}
       </main>
-      {!disabled.footer && <Footer {...propsFooter} fullScreen={fullScreen} />}
+      {!disabled.footer && <FooterCmpt {...propsFooter} fullScreen={fullScreen} />}
     </>
   ),
   DEFAULT_CLASSNAME,
