@@ -1,0 +1,29 @@
+// Vitest Snapshot v1
+
+exports[`<LasyImage/> > Should render LasyImage 1`] = `
+<DocumentFragment>
+  <img
+    alt="alt_accordion"
+    src="/public/images/accordion.svg"
+  />
+</DocumentFragment>
+`;
+
+exports[`<LasyImage/> > Should render LasyImage unknown image 1`] = `
+<DocumentFragment>
+  <img
+    alt="alt_unknown"
+    src="/public/images/unknown.svg"
+  />
+</DocumentFragment>
+`;
+
+exports[`<LasyImage/> > Should render LasyImage when loading 1`] = `
+<DocumentFragment>
+  <img
+    alt="loading..."
+    class="af-lasyimage"
+    src="/src/assets/puff.svg"
+  />
+</DocumentFragment>
+`;

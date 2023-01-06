@@ -3,7 +3,6 @@ import React from 'react';
 import { LiveProviderProps, LiveProvider, LiveError, LivePreview } from 'react-live';
 import * as reactTookitAll from 'shared/toolkit';
 import withClassNameModifier from 'shared/hoc/WithClassNameModifier';
-import { TReturnUseToggleModal } from '../ModalCommon';
 import TabsLiveCode from './TabsLiveCode';
 import Accessibility from './Accessibility';
 import Code from './Code';

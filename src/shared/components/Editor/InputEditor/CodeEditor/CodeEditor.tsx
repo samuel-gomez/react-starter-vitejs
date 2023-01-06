@@ -3,7 +3,7 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import ReactCodeEditor from '@uiw/react-textarea-code-editor/esm/index';
 import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
 import Modal from '@axa-fr/react-toolkit-modal-default/dist/esm/index';
-import { ClickEvent } from '@axa-fr/react-toolkit-core/dist/esm/index';
+import type { ClickEvent } from '@axa-fr/react-toolkit-core/dist/esm/index';
 import { ModalCommonHeader, ModalCommonBody, ModalCommonFooter, useToggleModal } from 'shared/components/ModalCommon';
 import '@uiw/react-textarea-code-editor/dist.css';
 import { TEvent, TonChange } from '../../Editor';
@@ -96,6 +96,7 @@ const CodeEditor = ({
         <ModalCommonBody>
           <Templates list={list} submitTemplate={submitTemplate} onClearCodeEditor={onClearCodeEditor} />
           <ReactCodeEditor
+            aria-label="Jsx Code Editor Input"
             value={code}
             language="jsx"
             placeholder="Please enter JSX code."

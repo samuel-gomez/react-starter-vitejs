@@ -66,7 +66,7 @@ const Layout = withClassNameModifier(
       {!disabled.header && <HeaderCmpt {...propsHeader} fullScreen={fullScreen} />}
       {!disabled.menu && <MenuCmpt {...propsMenu} fullScreen={fullScreen} isVisible />}
       {!disabled.title && <TitleBarCmpt {...propsTitle} fullScreen={fullScreen} />}
-      <main id="main-content" className={className}>
+      <main aria-label="Main Content" id="main-content" className={className}>
         {fullScreen ? children : <section className="container">{children}</section>}
       </main>
       {!disabled.footer && <FooterCmpt {...propsFooter} fullScreen={fullScreen} />}

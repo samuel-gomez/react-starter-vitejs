@@ -3,6 +3,13 @@ export * from '@axa-fr/react-toolkit-form-input-text/dist/esm/index';
 export * from '@axa-fr/react-toolkit-form-input-checkbox/dist/esm/index';
 export * from '@axa-fr/react-toolkit-form-input-date/dist/esm/index';
 export * from '@axa-fr/react-toolkit-form-input-file/dist/esm/index';
+export * from '@axa-fr/react-toolkit-form-input-number/dist/esm/index';
+export * from '@axa-fr/react-toolkit-form-input-radio/dist/esm/index';
+export * from '@axa-fr/react-toolkit-form-input-select/dist/esm/index';
+export * from '@axa-fr/react-toolkit-form-input-select-multi/dist/esm/index';
+export * from '@axa-fr/react-toolkit-form-input-slider/dist/esm/index';
+export * from '@axa-fr/react-toolkit-form-steps/dist/esm/index';
+export * from '@axa-fr/react-toolkit-form-input-switch/dist/esm/index';
 export { default as Button } from '@axa-fr/react-toolkit-button/dist/esm/index';
 export { default as Alert } from '@axa-fr/react-toolkit-alert/dist/esm/index';
 export { default as Modal } from '@axa-fr/react-toolkit-modal-default/dist/esm/index';
@@ -16,3 +23,4 @@ export { Accordion, CollapseCard } from '@axa-fr/react-toolkit-collapse/dist/esm
 export { default as Badge } from '@axa-fr/react-toolkit-badge/dist/esm/index';
 export { default as HelpButton } from '@axa-fr/react-toolkit-help/dist/esm/index';
 export { default as Loader } from '@axa-fr/react-toolkit-loader/dist/esm/index';
+export * from '@axa-fr/react-toolkit-restitution/dist/esm/index';

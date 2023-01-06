@@ -68,8 +68,16 @@ const MENU_ITEMS = [
         url: ROUTE_URL.MODAL,
       },
       {
+        label: 'Popover',
+        url: ROUTE_URL.POPOVER,
+      },
+      {
         label: 'Restitution',
-        url: 'restitution',
+        url: ROUTE_URL.RESTITUTION,
+      },
+      {
+        label: 'Table',
+        url: ROUTE_URL.TABLE,
       },
       {
         label: 'Tabs',
@@ -79,15 +87,6 @@ const MENU_ITEMS = [
       {
         label: 'Title',
         url: 'title',
-      },
-
-      {
-        label: 'Table',
-        url: 'table',
-      },
-      {
-        label: 'Popover',
-        url: 'popover',
       },
     ],
   },
@@ -140,44 +139,44 @@ const MENU_ITEMS = [
         url: ROUTE_URL.FILE_INPUT,
       },
       {
-        label: 'Text Input',
-        url: 'text-input',
+        label: 'Number Input',
+        url: ROUTE_URL.NUMBER_INPUT,
       },
       {
-        label: 'Number Input',
-        url: 'number-input',
+        label: 'Radio Input',
+        url: ROUTE_URL.RADIO_INPUT,
+      },
+      {
+        label: 'Select Input',
+        url: ROUTE_URL.SELECT_INPUT,
+      },
+      {
+        label: 'Select Multi',
+        url: ROUTE_URL.SELECT_MULTI,
+      },
+      {
+        label: 'Slider',
+        url: ROUTE_URL.SLIDER,
+      },
+      {
+        label: 'Stepper',
+        url: ROUTE_URL.STEPPER,
+      },
+      {
+        label: 'Switch',
+        url: ROUTE_URL.SWITCH,
+      },
+      {
+        label: 'Text Input',
+        url: 'text-input',
       },
       {
         label: 'Textarea Input',
         url: 'textarea-input',
       },
       {
-        label: 'Radio Input',
-        url: 'radio-input',
-      },
-      {
         label: 'Checkbox Input',
         url: 'checkbox-input',
-      },
-      {
-        label: 'Select Input',
-        url: 'select-input',
-      },
-      {
-        label: 'Stepper',
-        url: 'stepper',
-      },
-      {
-        label: 'Slider',
-        url: 'slider',
-      },
-      {
-        label: 'Switch',
-        url: 'switch',
-      },
-      {
-        label: 'Select Multi',
-        url: 'select-multi',
       },
       {
         label: 'Date Input',

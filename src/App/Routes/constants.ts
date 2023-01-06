@@ -21,18 +21,32 @@ import { ROUTE_URL_LAYOUT as LAYOUT } from 'pages/Demos/Layout/constants';
 import { ROUTE_URL_LOADER as LOADER } from 'pages/Demos/Loader/constants';
 import { ROUTE_URL_MODAL as MODAL } from 'pages/Demos/Modal/constants';
 import { ROUTE_URL_NAVBAR as NAVBAR } from 'pages/Demos/NavBar/constants';
+import { ROUTE_URL_NUMBER_INPUT as NUMBER_INPUT } from 'pages/Demos/NumberInput/constants';
+import { ROUTE_URL_POPOVER as POPOVER } from 'pages/Demos/Popover/constants';
+import { ROUTE_URL_RADIO_INPUT as RADIO_INPUT } from 'pages/Demos/RadioInput/constants';
+import { ROUTE_URL_RESTITUTION as RESTITUTION } from 'pages/Demos/Restitution/constants';
+import { ROUTE_URL_SELECT_INPUT as SELECT_INPUT } from 'pages/Demos/SelectInput/constants';
+import { ROUTE_URL_SELECT_MULTI as SELECT_MULTI } from 'pages/Demos/SelectMulti/constants';
+import { ROUTE_URL_SLIDER as SLIDER } from 'pages/Demos/Slider/constants';
+import { ROUTE_URL_STEPPER as STEPPER } from 'pages/Demos/Stepper/constants';
+import { ROUTE_URL_SWITCH as SWITCH } from 'pages/Demos/Switch/constants';
+import { ROUTE_URL_TABLE as TABLE } from 'pages/Demos/Table/constants';
 
+import { ROUTE_URL_SLASH as SLASH } from 'pages/Demos/SlashDesignSystem/constants';
 import { ROUTE_URL_NOTFOUND as NOTFOUND } from 'pages/NotFound/constants';
 import { ROUTE_URL_UNAUTHORIZE as UNAUTHORIZE } from 'pages/Unauthorize/constants';
 
 const DEMOS = '/demos';
 
-const ROUTE_URL = {
+const URLS_FULL_DEMOS = {
   HOME,
   MEMBERS,
   SEARCHMEMBERS,
   MODAL_CUSTOM,
   NOTIFICATION,
+};
+
+const URLS_TOOLKIT_DEMOS = {
   DEMOS,
   ACCORDION,
   ACTION,
@@ -50,9 +64,29 @@ const ROUTE_URL = {
   LOADER,
   MODAL,
   NAVBAR,
+  NUMBER_INPUT,
+  POPOVER,
+  RADIO_INPUT,
+  RESTITUTION,
+  SELECT_INPUT,
+  SELECT_MULTI,
+  SLASH,
+  SLIDER,
+  STEPPER,
+  SWITCH,
+  TABLE,
+};
+
+const URLS_OTHER_PAGES = {
   NOTFOUND,
   UNAUTHORIZE,
   LAYOUT,
+};
+
+const ROUTE_URL = {
+  ...URLS_FULL_DEMOS,
+  ...URLS_TOOLKIT_DEMOS,
+  ...URLS_OTHER_PAGES,
 };
 
 export default ROUTE_URL;

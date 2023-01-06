@@ -115,7 +115,7 @@ export const withEditor =
                   Props Editor
                   <div className="af-draggable__tools">
                     <i className="glyphicon glyphicon-move" />
-                    <Button aria-label="Suppression du code" className="af-btn--circle" classModifier="close-editor" onClick={closeEditor}>
+                    <Button aria-label="close Editor" className="af-btn--circle" classModifier="close-editor" onClick={closeEditor}>
                       <i className="glyphicon glyphicon-close" />
                     </Button>
                   </div>
@@ -132,7 +132,7 @@ export const withEditor =
     );
   };
 
-export const setValue = (value: string) => {
+export const setValue = (value: string | number) => {
   if (value === 'false') return true;
   if (value === 'true') return false;
 

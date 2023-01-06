@@ -60,7 +60,7 @@ exports[`withEditor > Should render Component with FormEditor when apply withEdi
               class="glyphicon glyphicon-move"
             />
             <button
-              aria-label="Suppression du code"
+              aria-label="close Editor"
               class="af-btn--circle af-btn--circle--close-editor"
               type="button"
             >

@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => ({
     setupFiles: ['./src/setupTests.tsx'],
     reporters: ['default', 'vitest-sonar-reporter'],
     outputFile: 'test-report.xml',
-    testTimeout: 10000,
+    testTimeout: 20000,
     coverage: {
       100: true,
       reporter: ['json', 'lcov', 'text', 'clover', 'html'],

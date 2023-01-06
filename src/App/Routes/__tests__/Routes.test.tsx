@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { ComponentType, createContext } from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { render, waitFor } from '@testing-library/react';
+import { render, waitFor, act } from '@testing-library/react';
 import UserProvider from 'App/UserProvider';
 import { renderWithWrapperStaticRouter } from 'shared/testsUtils';
 import { TUserContext } from 'App/UserProvider/UserProvider';
@@ -60,8 +60,12 @@ describe('<Routes />', () => {
   it.each`
     route
     ${'/no-exist-route'}
-  `('Should render 404 when election route: $route is not correct', async ({ route }) => {
+  `('Should render 404 when route: $route is not correct', async ({ route }) => {
     const { getByText } = renderRoute({ route, role: '', name: 'samuel' });
+    await act(() => {
+      getByText('Chargement de la page...');
+    });
+
     await waitFor(() => expect(getByText('404')).toBeInTheDocument());
   });
 });

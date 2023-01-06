@@ -15,6 +15,7 @@ exports[`Layout > Should render when disabled: { footer: true } 1`] = `
     TitleBarCmpt
   </p>
   <main
+    aria-label="Main Content"
     class="af-main"
     id="main-content"
   >
@@ -37,6 +38,7 @@ exports[`Layout > Should render when disabled: { header: true } 1`] = `
     TitleBarCmpt
   </p>
   <main
+    aria-label="Main Content"
     class="af-main"
     id="main-content"
   >
@@ -56,6 +58,7 @@ exports[`Layout > Should render when disabled: { header: true, title: true, …(
     A11yMenuCmpt
   </p>
   <main
+    aria-label="Main Content"
     class="af-main"
     id="main-content"
   />
@@ -74,6 +77,7 @@ exports[`Layout > Should render when disabled: { menu: true } 1`] = `
     TitleBarCmpt
   </p>
   <main
+    aria-label="Main Content"
     class="af-main"
     id="main-content"
   >
@@ -99,6 +103,7 @@ exports[`Layout > Should render when disabled: { title: true } 1`] = `
     MenuCmpt
   </p>
   <main
+    aria-label="Main Content"
     class="af-main"
     id="main-content"
   >

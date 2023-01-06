@@ -2,16 +2,6 @@
 import { useContext, ComponentProps, lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-// import Home from 'pages/Home';
-// import PageNotFound from 'pages/NotFound';
-// import PageUnauthorize from 'pages/Unauthorize';
-// import Members from 'pages/Demos/Members';
-// import SearchMembers from 'pages/Demos/SearchMembers';
-// import ModalCustom from 'pages/Demos/ModalCustom';
-// import Notification from 'pages/Demos/Notification';
-// import Button from 'pages/Demos/Button';
-// import Accordion from 'pages/Demos/Accordion';
-
 import ROUTE_URL from 'App/Routes/constants';
 import { UserContext } from 'App/UserProvider';
 import Loader, { MODES } from 'shared/components/Loader';
@@ -40,6 +30,17 @@ const Layout = lazy(() => import('pages/Demos/Layout'));
 const LoaderPage = lazy(() => import('pages/Demos/Loader'));
 const Modal = lazy(() => import('pages/Demos/Modal'));
 const NavBar = lazy(() => import('pages/Demos/NavBar'));
+const NumberInput = lazy(() => import('pages/Demos/NumberInput'));
+const Popover = lazy(() => import('pages/Demos/Popover'));
+const RadioInput = lazy(() => import('pages/Demos/RadioInput'));
+const Restitution = lazy(() => import('pages/Demos/Restitution'));
+const SelectInput = lazy(() => import('pages/Demos/SelectInput'));
+const SelectMulti = lazy(() => import('pages/Demos/SelectMulti'));
+const SlashDesignSystem = lazy(() => import('pages/Demos/SlashDesignSystem'));
+const Slider = lazy(() => import('pages/Demos/Slider'));
+const Stepper = lazy(() => import('pages/Demos/Stepper'));
+const Switch = lazy(() => import('pages/Demos/Switch'));
+const Table = lazy(() => import('pages/Demos/Table'));
 
 const PageUnauthorize = lazy(() => import('pages/Unauthorize'));
 const PageNotFound = lazy(() => import('pages/NotFound'));
@@ -91,6 +92,17 @@ type TRoutesCmpt = {
   LoaderPageCmpt?: typeof LoaderPage;
   ModalCmpt?: typeof Modal;
   NavBarCmpt?: typeof NavBar;
+  NumberInputCmpt?: typeof NumberInput;
+  PopoverCmpt?: typeof Popover;
+  RadioInputCmpt?: typeof RadioInput;
+  RestitutionCmpt?: typeof Restitution;
+  SelectInputCmpt?: typeof SelectInput;
+  SelectMultiCmpt?: typeof SelectMulti;
+  SlashDesignSystemCmpt?: typeof SlashDesignSystem;
+  SliderCmpt?: typeof Slider;
+  StepperCmpt?: typeof Stepper;
+  SwitchCmpt?: typeof Switch;
+  TableCmpt?: typeof Table;
   PageUnauthorizeCmpt?: typeof PageUnauthorize;
   withAuthFn?: typeof withAuth;
 };
@@ -118,13 +130,25 @@ const RoutesCmpt = ({
   LoaderPageCmpt = LoaderPage,
   ModalCmpt = Modal,
   NavBarCmpt = NavBar,
+  NumberInputCmpt = NumberInput,
+  PopoverCmpt = Popover,
+  RadioInputCmpt = RadioInput,
+  RestitutionCmpt = Restitution,
+  SelectInputCmpt = SelectInput,
+  SelectMultiCmpt = SelectMulti,
+  SlashDesignSystemCmpt = SlashDesignSystem,
+  SliderCmpt = Slider,
+  StepperCmpt = Stepper,
+  SwitchCmpt = Switch,
+  TableCmpt = Table,
   PageUnauthorizeCmpt = PageUnauthorize,
   withAuthFn = withAuth,
 }: TRoutesCmpt) => (
   <Suspense fallback={<Loader text="Chargement de la page..." mode={MODES.get} classModifier="fullscreen" />}>
     <Routes>
       <Route index path={ROUTE_URL.HOME} element={withAuthFn(HomeCmpt)} />
-      <Route path="demos">
+      <Route path={ROUTE_URL.DEMOS}>
+        <Route index element={withAuthFn(SlashDesignSystemCmpt)} />
         <Route path={ROUTE_URL.MEMBERS} element={withAuthFn(MembersCmpt)} />
         <Route path={ROUTE_URL.SEARCHMEMBERS} element={withAuthFn(SearchMembersCmpt)} />
         <Route path={ROUTE_URL.MODAL_CUSTOM} element={withAuthFn(ModalCustomCmpt)} />
@@ -145,6 +169,16 @@ const RoutesCmpt = ({
         <Route path={ROUTE_URL.LOADER} element={withAuthFn(LoaderPageCmpt)} />
         <Route path={ROUTE_URL.MODAL} element={withAuthFn(ModalCmpt)} />
         <Route path={ROUTE_URL.NAVBAR} element={withAuthFn(NavBarCmpt)} />
+        <Route path={ROUTE_URL.NUMBER_INPUT} element={withAuthFn(NumberInputCmpt)} />
+        <Route path={ROUTE_URL.POPOVER} element={withAuthFn(PopoverCmpt)} />
+        <Route path={ROUTE_URL.RADIO_INPUT} element={withAuthFn(RadioInputCmpt)} />
+        <Route path={ROUTE_URL.RESTITUTION} element={withAuthFn(RestitutionCmpt)} />
+        <Route path={ROUTE_URL.SELECT_INPUT} element={withAuthFn(SelectInputCmpt)} />
+        <Route path={ROUTE_URL.SELECT_MULTI} element={withAuthFn(SelectMultiCmpt)} />
+        <Route path={ROUTE_URL.SLIDER} element={withAuthFn(SliderCmpt)} />
+        <Route path={ROUTE_URL.STEPPER} element={withAuthFn(StepperCmpt)} />
+        <Route path={ROUTE_URL.SWITCH} element={withAuthFn(SwitchCmpt)} />
+        <Route path={ROUTE_URL.TABLE} element={withAuthFn(TableCmpt)} />
       </Route>
       <Route path={ROUTE_URL.LAYOUT} element={withAuthFn(LayoutCmpt)} />
       <Route path={ROUTE_URL.UNAUTHORIZE} element={<PageUnauthorizeCmpt />} />

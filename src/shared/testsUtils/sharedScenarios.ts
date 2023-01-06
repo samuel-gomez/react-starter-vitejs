@@ -50,9 +50,9 @@ export const JeSuisUnUtilisateurConnuEtConnecteAvecleProfil = (instruction: Defi
     callback(role);
   });
 
-export const UnTitreEstVisible = (instruction: DefineStepFunction, level = 1) =>
+export const UnTitreEstVisible = (instruction: DefineStepFunction, level = 1, parentLabel = '') =>
   instruction(/^un titre "(.*)" est visible$/, title => {
-    expectTitle({ name: RegExp(title), level });
+    expectTitle({ name: RegExp(title), level, parentLabel });
   });
 
 export const UnTexteEstVisible = (instruction: DefineStepFunction, parentLabel = '', instructionName = /^un texte "(.*)" est visible$/) =>
