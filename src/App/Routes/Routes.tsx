@@ -41,6 +41,11 @@ const Slider = lazy(() => import('pages/Demos/Slider'));
 const Stepper = lazy(() => import('pages/Demos/Stepper'));
 const Switch = lazy(() => import('pages/Demos/Switch'));
 const Table = lazy(() => import('pages/Demos/Table'));
+const Tabs = lazy(() => import('pages/Demos/Tabs'));
+const TextareaInput = lazy(() => import('pages/Demos/TextareaInput'));
+const TextInput = lazy(() => import('pages/Demos/TextInput'));
+const Title = lazy(() => import('pages/Demos/Title'));
+const TitleBar = lazy(() => import('pages/Demos/TitleBar'));
 
 const PageUnauthorize = lazy(() => import('pages/Unauthorize'));
 const PageNotFound = lazy(() => import('pages/NotFound'));
@@ -103,6 +108,11 @@ type TRoutesCmpt = {
   StepperCmpt?: typeof Stepper;
   SwitchCmpt?: typeof Switch;
   TableCmpt?: typeof Table;
+  TabsCmpt?: typeof Tabs;
+  TextareaInputCmpt?: typeof TextareaInput;
+  TextInputCmpt?: typeof TextInput;
+  TitleCmpt?: typeof Title;
+  TitleBarCmpt?: typeof TitleBar;
   PageUnauthorizeCmpt?: typeof PageUnauthorize;
   withAuthFn?: typeof withAuth;
 };
@@ -141,6 +151,11 @@ const RoutesCmpt = ({
   StepperCmpt = Stepper,
   SwitchCmpt = Switch,
   TableCmpt = Table,
+  TabsCmpt = Tabs,
+  TextareaInputCmpt = TextareaInput,
+  TextInputCmpt = TextInput,
+  TitleCmpt = Title,
+  TitleBarCmpt = TitleBar,
   PageUnauthorizeCmpt = PageUnauthorize,
   withAuthFn = withAuth,
 }: TRoutesCmpt) => (
@@ -179,6 +194,11 @@ const RoutesCmpt = ({
         <Route path={ROUTE_URL.STEPPER} element={withAuthFn(StepperCmpt)} />
         <Route path={ROUTE_URL.SWITCH} element={withAuthFn(SwitchCmpt)} />
         <Route path={ROUTE_URL.TABLE} element={withAuthFn(TableCmpt)} />
+        <Route path={ROUTE_URL.TABS} element={withAuthFn(TabsCmpt)} />
+        <Route path={ROUTE_URL.TEXTAREA_INPUT} element={withAuthFn(TextareaInputCmpt)} />
+        <Route path={ROUTE_URL.TEXT_INPUT} element={withAuthFn(TextInputCmpt)} />
+        <Route path={ROUTE_URL.TITLE} element={withAuthFn(TitleCmpt)} />
+        <Route path={ROUTE_URL.TITLE_BAR} element={withAuthFn(TitleBarCmpt)} />
       </Route>
       <Route path={ROUTE_URL.LAYOUT} element={withAuthFn(LayoutCmpt)} />
       <Route path={ROUTE_URL.UNAUTHORIZE} element={<PageUnauthorizeCmpt />} />

@@ -1,5 +1,4 @@
-import { ReactNode } from 'react';
-import Layout, { TLayout } from 'Layout';
+import Layout, { TLayoutPage } from 'Layout';
 import Loader, { TLoaderContainer } from 'shared/components/Loader';
 import Resilience from 'shared/components/Resilience';
 import Table from 'shared/components/Table';
@@ -32,10 +31,8 @@ export const DownloadLinkEnhanced = ({
   <DownloadLink path={getDownloadPathFn(idKey)} fileName={setFileNameFn({ memberId: idKey, name: `${firstname}-${lastname}` })} />
 );
 
-type TSearchMembers = TLayout &
+type TSearchMembers = TLayoutPage &
   Omit<TReturnUseSearchMembers, 'isLoading'> & {
-    titleBar?: string;
-    title?: ReactNode;
     loaderMode: TLoaderContainer['mode'];
     submitFormSearchMembers: TReturnUseFormSearchMembers['submitFormSearchMembers'];
   };

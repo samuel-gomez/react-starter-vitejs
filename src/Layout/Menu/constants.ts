@@ -81,12 +81,12 @@ const MENU_ITEMS = [
       },
       {
         label: 'Tabs',
-        url: 'tabs',
+        url: ROUTE_URL.TABS,
       },
 
       {
         label: 'Title',
-        url: 'title',
+        url: ROUTE_URL.TITLE,
       },
     ],
   },
@@ -117,7 +117,7 @@ const MENU_ITEMS = [
       },
       {
         label: 'TitleBar',
-        url: 'titlebar',
+        url: ROUTE_URL.TITLE_BAR,
       },
     ],
   },
@@ -167,20 +167,12 @@ const MENU_ITEMS = [
         url: ROUTE_URL.SWITCH,
       },
       {
-        label: 'Text Input',
-        url: 'text-input',
-      },
-      {
         label: 'Textarea Input',
-        url: 'textarea-input',
+        url: ROUTE_URL.TEXTAREA_INPUT,
       },
       {
-        label: 'Checkbox Input',
-        url: 'checkbox-input',
-      },
-      {
-        label: 'Date Input',
-        url: 'date-input',
+        label: 'Text Input',
+        url: ROUTE_URL.TEXT_INPUT,
       },
     ],
   },

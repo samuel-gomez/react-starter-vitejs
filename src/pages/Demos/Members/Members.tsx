@@ -1,16 +1,13 @@
-import { ReactNode } from 'react';
 import Resilience from 'shared/components/Resilience';
 import { Paging } from '@axa-fr/react-toolkit-table/dist/esm/index';
-import Layout, { TLayout } from 'Layout';
+import Layout, { TLayoutPage } from 'Layout';
 import { Tanomaly } from 'shared/types';
 import Loader, { TLoaderContainer } from 'shared/components/Loader';
 import Table from 'shared/components/Table';
 import { TITLE_BAR, TITLE, TABLE_HEADERS_MEMBERS } from './constants';
 import { TReturnUseMembers } from './Members.hook';
 
-export type TMembers = TLayout & {
-  titleBar?: string;
-  title?: ReactNode;
+export type TMembers = TLayoutPage & {
   loaderMode: TLoaderContainer['mode'];
   refetch: TReturnUseMembers['refetch'];
   pagination: TReturnUseMembers['pagination'];

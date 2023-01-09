@@ -31,6 +31,11 @@ import { ROUTE_URL_SLIDER as SLIDER } from 'pages/Demos/Slider/constants';
 import { ROUTE_URL_STEPPER as STEPPER } from 'pages/Demos/Stepper/constants';
 import { ROUTE_URL_SWITCH as SWITCH } from 'pages/Demos/Switch/constants';
 import { ROUTE_URL_TABLE as TABLE } from 'pages/Demos/Table/constants';
+import { ROUTE_URL_TABS as TABS } from 'pages/Demos/Tabs/constants';
+import { ROUTE_URL_TEXTAREA_INPUT as TEXTAREA_INPUT } from 'pages/Demos/TextareaInput/constants';
+import { ROUTE_URL_TEXT_INPUT as TEXT_INPUT } from 'pages/Demos/TextInput/constants';
+import { ROUTE_URL_TITLE as TITLE } from 'pages/Demos/Title/constants';
+import { ROUTE_URL_TITLE_BAR as TITLE_BAR } from 'pages/Demos/TitleBar/constants';
 
 import { ROUTE_URL_SLASH as SLASH } from 'pages/Demos/SlashDesignSystem/constants';
 import { ROUTE_URL_NOTFOUND as NOTFOUND } from 'pages/NotFound/constants';
@@ -75,6 +80,11 @@ const URLS_TOOLKIT_DEMOS = {
   STEPPER,
   SWITCH,
   TABLE,
+  TABS,
+  TEXTAREA_INPUT,
+  TEXT_INPUT,
+  TITLE,
+  TITLE_BAR,
 };
 
 const URLS_OTHER_PAGES = {

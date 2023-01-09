@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { ReactNode } from 'react';
-import JsxParser from 'react-jsx-parser';
 import Layout, { TLayoutPage } from 'Layout';
 import LiveCode from 'shared/components/LiveCode';
 import { withEditor, useEditable, TEvent, Tknobs, EditorHeader, TReturnUseToggleEditor } from 'shared/components/Editor';
@@ -20,7 +19,7 @@ const INITIAL_STATE = {
   classModifier: '',
   className: 'af-table',
   headers: [
-    { label: 'Prénom', id: 'firstname' },
+    { label: 'Prénomlll', id: 'firstname' },
     {
       label: `<span><strong>Nom</strong>
     <i className="glyphicon glyphicon-ok"></i></span>`,
@@ -41,19 +40,17 @@ type Theaders = {
   id: string;
 }[];
 
-const parseHeaders = (headers: Theaders) =>
-  headers?.map(header => ({
-    ...header,
-    // @ts-ignore: Unreachable code error
-    label: <JsxParser jsx={`${header.label}`} />,
-  }));
-
-const code = ({ className, classModifier }: Props) => `<Table className="${className}" classModifier="${classModifier}">
+const code = ({ className, classModifier, headers }: Props) => `<Table className="${className}" classModifier="${classModifier}">
   <Table.Header>
     <Table.Tr>
-      {headers.map(item => <Table.Th key={item.id}>
-        <span className="af-table-th-content">{item.label}</span>
-      </Table.Th>)}
+      ${headers
+        .map(
+          item => `<Table.Th key="${item.id}">
+        <span className="af-table-th-content">${item.label}</span>
+      </Table.Th>
+    `,
+        )
+        .join('')}
     </Table.Tr>
   </Table.Header>
   <Table.Body>
@@ -66,10 +63,8 @@ const code = ({ className, classModifier }: Props) => `<Table className="${class
 </Table>
   `;
 
-const TableWithEditor = withEditor<Props & Partial<TReturnUseToggleEditor>>(({ openEditor, ...props }) => {
-  const parsedHeaders = parseHeaders(props.headers as Theaders);
-
-  return (
+const TableWithEditor = withEditor<Props & Partial<TReturnUseToggleEditor>>(
+  ({ openEditor, ...props }) => (
     <>
       <EditorHeader
         storybookPath={STORYBOOK_PATH}
@@ -78,10 +73,11 @@ const TableWithEditor = withEditor<Props & Partial<TReturnUseToggleEditor>>(({ o
         npmName={NPM_NAME}
         openEditor={openEditor}
       />
-      <LiveCode code={code(props)} scope={{ ...props, headers: parsedHeaders }} githubPackage={GITHUB_PACKAGE} />
+      <LiveCode code={code(props)} scope={{ ...props }} githubPackage={GITHUB_PACKAGE} />
     </>
-  );
-}, knobs as unknown as Tknobs);
+  ),
+  knobs as unknown as Tknobs,
+);
 
 const TableEditable = () => {
   const { state, onChange } = useEditable<typeof INITIAL_STATE>({ initialState: INITIAL_STATE });
