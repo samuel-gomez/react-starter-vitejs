@@ -28,6 +28,7 @@ export default defineConfig(({ mode }) => ({
     reporters: ['default', 'vitest-sonar-reporter'],
     outputFile: 'test-report.xml',
     testTimeout: 20000,
+    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     coverage: {
       100: true,
       reporter: ['json', 'lcov', 'text', 'clover', 'html'],
@@ -39,6 +40,7 @@ export default defineConfig(({ mode }) => ({
         'src/**/*.test.{js,ts}',
         'src/**/__tests__/*.{ts,tsx}',
         'src/**/constants.ts',
+        'scripts/**',
       ],
     },
   },

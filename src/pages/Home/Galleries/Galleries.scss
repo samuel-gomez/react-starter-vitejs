@@ -155,7 +155,7 @@
 
   @each $image in $images {
     &__#{nth($image, 1)} {
-      background-image: url('../../../assets/#{nth($image, 1)}.svg');
+      background-image: url('../../../assets/demo/#{nth($image, 1)}.svg');
     }
   }
 }

@@ -41,7 +41,7 @@
 
 <h2 align="center">Demo 😎</h2>
 <p align="center">
-  <img src="src/shared/images/screenshot-demo.png" style="width: 70%;">
+  <img src="src/assets/screenshot-demo.png" style="width: 70%;">
 </p>
 <p align="center"><a href="https://react-starter-toolkit.netlify.app/">You can see a demo here</a></p>
 
@@ -110,10 +110,6 @@ Launches the test runner with coverage and all warnings.
 ### `npm run cover` ☂
 
 Launches the test runner with coverage and no warning (silent mode).
-
-### `npm run test:sonar` 🗼
-
-Launches the test runner for sonar report.
 
 ### `npm run build` 📦
 
