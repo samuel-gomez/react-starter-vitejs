@@ -84,7 +84,8 @@
     "vite": "4.0.0",
     "vite-tsconfig-paths": "4.0.3",
     "vitest": "0.26.1",
-    "vitest-sonar-reporter": "0.3.3"
+    "vitest-sonar-reporter": "0.3.3",
+    "whatwg-fetch": "3.6.2"
   },
   "config": {
     "commitizen": {

@@ -75,7 +75,6 @@ const pathsReplace = [
   'public/environment.development.json',
   'index.html',
   '.eslintrc.cjs',
-  'tsconfig.json',
 ];
 
 console.log('Cleaning files...');
