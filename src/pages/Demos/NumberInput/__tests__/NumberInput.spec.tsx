@@ -185,7 +185,9 @@ defineFeature(feature, test => {
     UnEditeurEstVisible(then);
     JeCliqueSurLeBouton(when);
     UneModaleApparaitAvecLeTitre(then);
-    UnChampTextEstVisible(and);
+    and(/^un champ texte "(.*)" est visible avec la valeur "(.*)"$/, (fieldName, value) => {
+      expect(screen.getByLabelText('Jsx Code Editor Input')).toHaveValue(value);
+    });
     JeCliqueSurLeBoutonIcone(when);
     JeCliqueSurLeBoutonIcone(and);
     UnLabelEstVisible(and, SCOPE_PREVIEW);

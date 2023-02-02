@@ -1,0 +1,25 @@
+// Vitest Snapshot v1
+
+exports[`<SkeletonInputField/> > Render <SkeletonInputField/> 1`] = `
+<DocumentFragment>
+  <div
+    class="row af-form__group"
+  >
+    <div
+      class="col-md-2"
+    >
+      <label
+        class="af-form__group-label"
+      >
+        hello
+      </label>
+    </div>
+    <div
+      aria-busy="true"
+      aria-label="loader"
+      class="af-skeleton"
+      role="status"
+    />
+  </div>
+</DocumentFragment>
+`;
