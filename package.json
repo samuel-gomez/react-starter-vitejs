@@ -42,7 +42,7 @@
     "react-hook-form": "7.41.2",
     "react-live": "2.4.1",
     "react-markdown": "8.0.4",
-    "react-router-dom": "6.5.0",
+    "react-router-dom": "6.9.0",
     "rehype-slug": "5.1.0",
     "remark-gfm": "3.0.1"
   },
