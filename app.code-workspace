@@ -7,12 +7,12 @@
   "settings": {
     "sonarlint.connectedMode.project": {
       "connectionId": "SonarCloud",
-      "projectKey": "samuel-gomez_react-starter-toolkit"
+      "projectKey": "samuel-gomez_react-starter-vitejs"
     },
     "workbench.colorCustomizations": {
-      "activityBar.background": "#051a49",
-      "titleBar.activeBackground": "#01329d",
-      "titleBar.activeForeground": "#bfe3ff"
+      "activityBar.background": "#190549",
+      "titleBar.activeBackground": "#35019d",
+      "titleBar.activeForeground": "#e1bfff"
     },
     "typescript.tsdk": "node_modules/typescript/lib"
   }
