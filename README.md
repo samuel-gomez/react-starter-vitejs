@@ -7,35 +7,35 @@
       href="https://axaguildev.github.io/react-toolkit/latest/storybook/?path=/story/alert-alert--default">Storybook</a>)</strong>
   <br><br>
 <p align="center">
-  <a href="https://github.com/samuel-gomez/react-starter-toolkit/actions/workflows/build.yml">
-    <img alt="Build" src="https://github.com/samuel-gomez/react-starter-toolkit/actions/workflows/build.yml/badge.svg">
+  <a href="https://github.com/samuel-gomez/react-starter-vitejs/actions/workflows/build.yml">
+    <img alt="Build" src="https://github.com/samuel-gomez/react-starter-vitejs/actions/workflows/build.yml/badge.svg">
   </a>
   <a href="http://commitizen.github.io/cz-cli/">
     <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg">
   </a>
   </a>
-  <a href="https://codecov.io/gh/samuel-gomez/react-starter-toolkit">
+  <a href="https://codecov.io/gh/samuel-gomez/react-starter-vitejs">
     <img alt="codecov"
-      src="https://codecov.io/gh/samuel-gomez/react-starter-toolkit/branch/master/graph/badge.svg?token=N75VO37VG7">
+      src="https://codecov.io/gh/samuel-gomez/react-starter-vitejs/branch/master/graph/badge.svg?token=N75VO37VG7">
   </a>
   </a>
-  <a href="https://app.netlify.com/sites/react-starter-toolkit/deploys">
+  <a href="https://app.netlify.com/sites/react-starter-vitejs/deploys">
     <img alt="Netlify Status"
       src="https://api.netlify.com/api/v1/badges/c496aa9a-8801-4a32-9571-547bd4ea5ea3/deploy-status">
   </a>
   </a>
-  <a href="https://sonarcloud.io/dashboard?id=samuel-gomez_react-starter-toolkit">
+  <a href="https://sonarcloud.io/dashboard?id=samuel-gomez_react-starter-vitejs">
     <img alt="Quality Gate Status"
-      src="https://sonarcloud.io/api/project_badges/measure?project=samuel-gomez_react-starter-toolkit&metric=alert_status">
+      src="https://sonarcloud.io/api/project_badges/measure?project=samuel-gomez_react-starter-vitejs&metric=alert_status">
   </a>
   </a>
-  <a href="https://sonarcloud.io/component_measures?id=samuel-gomez_react-starter-toolkit&metric=reliability_rating">
+  <a href="https://sonarcloud.io/component_measures?id=samuel-gomez_react-starter-vitejs&metric=reliability_rating">
     <img alt="Reliability"
-      src="https://sonarcloud.io/api/project_badges/measure?project=samuel-gomez_react-starter-toolkit&metric=reliability_rating">
+      src="https://sonarcloud.io/api/project_badges/measure?project=samuel-gomez_react-starter-vitejs&metric=reliability_rating">
   </a>
-  <a href="https://sonarcloud.io/component_measures?id=samuel-gomez_react-starter-toolkit&metric=security_rating">
+  <a href="https://sonarcloud.io/component_measures?id=samuel-gomez_react-starter-vitejs&metric=security_rating">
     <img alt="Security"
-      src="https://sonarcloud.io/api/project_badges/measure?project=samuel-gomez_react-starter-toolkit&metric=security_rating">
+      src="https://sonarcloud.io/api/project_badges/measure?project=samuel-gomez_react-starter-vitejs&metric=security_rating">
   </a>
 </p>
 
@@ -43,14 +43,14 @@
 <p align="center">
   <img src="src/assets/screenshot-demo.png" style="width: 70%;">
 </p>
-<p align="center"><a href="https://react-starter-toolkit.netlify.app/">You can see a demo here</a></p>
+<p align="center"><a href="https://react-starter-vitejs.netlify.app/">You can see a demo here</a></p>
 
 ## Installation 🚀
 
 ### Cloning
 
 ```
-git clone https://github.com/samuel-gomez/react-starter-toolkit.git
+git clone https://github.com/samuel-gomez/react-starter-vitejs.git
 ```
 
 > For VSCode users, you can open the workspace directly by double clicking on the app.code-workspace file
@@ -166,13 +166,13 @@ Script to launch husky installation, it's launched during the global installatio
 ## Issues 🐞
 
 If you detect a bug, please create an issue :
-https://github.com/samuel-gomez/react-starter-toolkit/issues
+https://github.com/samuel-gomez/react-starter-vitejs/issues
 
 ## Quality 💎
 
 ### SonarCloud
 
-https://sonarcloud.io/project/overview?id=samuel-gomez_react-starter-toolkit
+https://sonarcloud.io/project/overview?id=samuel-gomez_react-starter-vitejs
 
 ## Structure
 
