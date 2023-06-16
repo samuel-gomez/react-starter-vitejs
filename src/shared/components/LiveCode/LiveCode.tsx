@@ -1,5 +1,6 @@
-import vsDark from 'prism-react-renderer/themes/vsDark';
 import React from 'react';
+import { themes } from 'prism-react-renderer/dist/index';
+import type { PrismTheme } from 'prism-react-renderer';
 import { LiveProviderProps, LiveProvider, LiveError, LivePreview } from 'react-live';
 import * as reactTookitAll from 'shared/toolkit';
 import withClassNameModifier, { TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
@@ -33,7 +34,7 @@ const LiveCode = withClassNameModifier(
     githubPackage,
     className,
     styleLivePreview = {},
-    theme = vsDark,
+    theme = themes.vsDark as PrismTheme,
     hideCode = false,
     hideAccessibility = false,
     hideReadme = false,

@@ -10,7 +10,7 @@ import {
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
 import { defineFeature, loadFeature } from 'jest-cucumber';
-import { SCOPE_PREVIEW } from 'shared/testsUtils/constants';
+import { SCOPE_EDITOR, SCOPE_PREVIEW } from 'shared/testsUtils/constants';
 import ButtonPage from '../Button';
 
 configure({ defaultHidden: true });
@@ -45,7 +45,7 @@ defineFeature(feature, test => {
     when('J’accède à la page démo du Button', renderPage);
     JeCliqueSurLeBouton(and);
     UnEditeurEstVisible(then);
-    JeSelectionneUneValeurSurleChamp(when);
+    JeSelectionneUneValeurSurleChamp(when, SCOPE_EDITOR);
     UnIconeEstVisible(then, SCOPE_PREVIEW);
   });
 });
