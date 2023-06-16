@@ -1,4 +1,4 @@
-import { NONE, DESCENDING, ASCENDING } from '../../../constants';
+import { NONE, ASCENDING, DESCENDING } from 'shared/components/Table/constants';
 import ThSortable, { TThSortable } from './ThSortable';
 
 export type Torder = typeof ASCENDING | typeof DESCENDING | typeof NONE;

@@ -24,7 +24,7 @@ describe('Line', () => {
     'Should render <Line/> when columns: $columns, className: $className, modifier: $modifier, children: $children',
     ({ columns, className, modifier, children }) => {
       const { baseElement } = renderWithContainer(
-        <Line className={className} columns={columns} modifier={modifier}>
+        <Line className={className} columns={columns} classModifier={modifier}>
           {children}
         </Line>,
         container,

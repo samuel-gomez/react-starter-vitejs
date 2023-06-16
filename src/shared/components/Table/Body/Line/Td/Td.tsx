@@ -1,20 +1,26 @@
 import { ReactNode } from 'react';
-import withClassNameModifier from 'shared/hoc/WithClassNameModifier';
+import HelpHover, { THelpInfo } from 'shared/components/HelpInfo';
+import withClassNameModifier, { TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
+import TableTk from '@axa-fr/react-toolkit-table';
 
-export type TTd = {
-  className?: string;
+export type TTdContainer = Omit<THelpInfo, 'children'> & {
   children?: ReactNode;
-};
+  label?: ReactNode;
+  hover?: ReactNode;
+  TdCmpt?: typeof TableTk.Td;
+  HelpHoverCmpt?: typeof HelpHover;
+} & TwithClassNameModifier;
 
-const DEFAULT_CLASSNAME = 'af-table__cell';
-
-const Td = withClassNameModifier(
-  ({ className, children, ...rest }: TTd) => (
+const TdContainer = withClassNameModifier(
+  ({ children, label, hover, className, HelpHoverCmpt = HelpHover, ...rest }: TTdContainer) => (
     <td {...rest} className={className}>
-      {children}
+      <HelpHoverCmpt content={hover} classModifier="content">
+        {label}
+        {children}
+      </HelpHoverCmpt>
     </td>
   ),
-  DEFAULT_CLASSNAME,
+  { defaultClassName: 'af-table__cell' },
 );
 
-export default Td;
+export default TdContainer;
