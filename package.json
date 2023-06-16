@@ -74,7 +74,7 @@
     "husky": "8.0.0",
     "jest-cucumber": "3.0.1",
     "jsdom": "20.0.3",
-    "lint-staged": "13.1.0",
+    "lint-staged": "13.2.2",
     "msw": "0.49.2",
     "prettier": "2.8.1",
     "rollup-plugin-visualizer": "5.9.0",
