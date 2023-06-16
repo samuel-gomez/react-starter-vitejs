@@ -9,7 +9,7 @@ export type TwithClassNameModifier = {
 
 const withClassNameModifier = <P extends object>(
   Component: ComponentType<P>,
-  defaultProps?: Partial<P>,
+  defaultProps: Partial<P> = {},
   displayName = '',
 ): ComponentType<P & TwithClassNameModifier> => {
   const Hoc = ({ className = '', classModifier = '', defaultClassName = '', ...props }: TwithClassNameModifier & P) => (
@@ -17,7 +17,7 @@ const withClassNameModifier = <P extends object>(
   );
 
   Hoc.displayName = `WithClassModifier(${Component.name || Component.displayName || displayName}`;
-  Hoc.defaultProps = defaultProps || {};
+  Hoc.defaultProps = defaultProps;
   return Hoc;
 };
 
