@@ -1,6 +1,6 @@
 import { createId } from '@axa-fr/react-toolkit-core/dist/esm/useId';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import { LiveProviderProps } from 'react-live';
+import { Highlight, Prism as defautProps } from 'prism-react-renderer/dist/index';
+import type { LiveProviderProps } from 'react-live';
 import ClipBoard from '../ClipBoard';
 
 type TCode = {
@@ -14,7 +14,7 @@ type TCode = {
 const ariaLabel = 'af-accessibility-code' as const;
 
 const Code = ({ theme, code }: TCode) => (
-  <Highlight {...defaultProps} theme={theme} code={code} language="jsx">
+  <Highlight {...defautProps} theme={theme} code={code} language="jsx">
     {({ className, style, tokens, getLineProps, getTokenProps }) => (
       <>
         <ClipBoard content={code} />

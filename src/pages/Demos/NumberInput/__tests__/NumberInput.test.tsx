@@ -418,7 +418,7 @@ describe('NumberInput', () => {
       await waitFor(() => expect(inputCheckboxtoggle).toBeChecked());
 
       // And Je sélectionne la valeur "<type>" sur le champ "messageType"
-      const selectInput = scopeEditor.getByRole('combobox', { name: /messageType/ });
+      const selectInput = scopeEditor.getByLabelText(/messageType/);
       await waitFor(() => userEvent.selectOptions(selectInput, type));
       await waitFor(() => expect(scopeEditor.getByDisplayValue(RegExp(type))).toBeInTheDocument());
 
