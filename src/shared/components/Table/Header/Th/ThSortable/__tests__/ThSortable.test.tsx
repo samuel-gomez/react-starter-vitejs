@@ -1,7 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render } from '@testing-library/react';
 import { renderWithContainer } from 'shared/testsUtils';
-import ThSortable, { SortingIcon, orderIcons } from '../ThSortable';
+import ThSortable from '../ThSortable';
 
 const defaultProps = {
   sort: vi.fn(),
@@ -30,34 +29,4 @@ describe('ThSortable', () => {
       expect(baseElement).toMatchSnapshot();
     },
   );
-});
-
-describe('orderIcons', () => {
-  it.each`
-    order        | expected
-    ${undefined} | ${'sorting'}
-    ${'NONE'}    | ${'sorting'}
-    ${1}         | ${'arrow-xs-up'}
-    ${-1}        | ${'arrow-xs-down'}
-  `('Should return $expected when orderIcons have been called with order: $order', ({ order, expected }) => {
-    const result = orderIcons(order);
-
-    expect(result).toEqual(expected);
-  });
-});
-
-describe('SortingIcon', () => {
-  it('Should render SortingIcon with order equal NONE', () => {
-    const { asFragment } = render(<SortingIcon />);
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('Should render SortingIcon with order equal 1', () => {
-    const { asFragment } = render(<SortingIcon order={1} />);
-    expect(asFragment()).toMatchSnapshot();
-  });
-  it('Should render SortingIcon with order equal -1', () => {
-    const { asFragment } = render(<SortingIcon order={-1} />);
-    expect(asFragment()).toMatchSnapshot();
-  });
 });

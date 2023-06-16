@@ -22,30 +22,24 @@ describe('LineContainer', () => {
 
     expect(LineCmpt).toHaveBeenCalledWith(
       {
-        className: undefined,
         columns: [
           {
-            hover: undefined,
             keyCol: 'firstname',
             label: 'Antonius',
           },
           {
-            hover: undefined,
             keyCol: 'lastname',
             label: 'Panketh',
           },
           {
-            hover: undefined,
             keyCol: 'birthdate',
             label: '20/12/1968',
           },
           {
-            hover: undefined,
             keyCol: 'sexe',
             label: 'F',
           },
         ],
-        modifier: '',
       },
       {},
     );
