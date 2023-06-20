@@ -1,7 +1,6 @@
 import React from 'react';
 import { themes } from 'prism-react-renderer/dist/index';
-import type { PrismTheme } from 'prism-react-renderer';
-import { LiveProviderProps, LiveProvider, LiveError, LivePreview } from 'react-live';
+import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import * as reactTookitAll from 'shared/toolkit';
 import withClassNameModifier, { TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
 import TabsLiveCode from './TabsLiveCode';
@@ -9,6 +8,8 @@ import Accessibility from './Accessibility';
 import Code from './Code';
 import ReadMe from './ReadMe';
 import './Livecode.scss';
+
+type LiveProviderProps = Parameters<typeof LiveProvider>[0];
 
 type TLiveCode = {
   code: string;
@@ -34,7 +35,7 @@ const LiveCode = withClassNameModifier(
     githubPackage,
     className,
     styleLivePreview = {},
-    theme = themes.vsDark as PrismTheme,
+    theme = themes.vsDark,
     hideCode = false,
     hideAccessibility = false,
     hideReadme = false,

@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, act } from '@testing-library/react';
+import { render, act, waitFor } from '@testing-library/react';
 import { ReactNode } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import App from '../App';
 
 const useOidcUserMock = vi.fn().mockReturnValue({
@@ -24,6 +25,8 @@ const envMock = {
   },
 };
 
+beforeAll(() => import('pages/Home'));
+
 describe('<App/>', () => {
   it('Should render App with default props', async () => {
     const { getByText } = render(<App {...envMock} />);
@@ -35,11 +38,18 @@ describe('<App/>', () => {
   const OidcProviderCmpt = vi.fn().mockImplementation(({ children }: { children: ReactNode }) => <>OidcProviderCmpt : {children}</>);
   const OidcSecureCmpt = vi.fn().mockImplementation(({ children }: { children: ReactNode }) => <>OidcSecureCmpt : {children}</>);
   const FetchProviderCmpt = vi.fn().mockImplementation(({ children }: { children: ReactNode }) => <>FetchProviderCmpt : {children}</>);
+  const Home = () => <>Home</>;
+  const RoutesCmpt = () => (
+    <Routes>
+      <Route index path="/" element={<Home />} />
+    </Routes>
+  );
 
   const optionalProps = {
     OidcProviderCmpt,
     OidcSecureCmpt,
     FetchProviderCmpt,
+    RoutesCmpt,
     useOidcUserFn: useOidcUserMock,
   };
 
@@ -53,7 +63,7 @@ describe('<App/>', () => {
   it('Should render App with all props and authentication enabled', async () => {
     const { getByText } = render(<App {...envMock} {...optionalProps} />);
 
-    await act(() => expect(getByText(/OidcProviderCmpt/)).toBeInTheDocument());
+    await waitFor(() => expect(getByText(/OidcProviderCmpt/)).toBeInTheDocument());
     expect(getByText(/OidcSecureCmpt/)).toBeInTheDocument();
     expect(getByText(/FetchProviderCmpt/)).toBeInTheDocument();
   });

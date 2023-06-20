@@ -1,7 +1,10 @@
 import { createId } from '@axa-fr/react-toolkit-core/dist/esm/useId';
 import { Highlight, Prism as defautProps } from 'prism-react-renderer/dist/index';
-import type { LiveProviderProps } from 'react-live';
+import { LiveProvider } from 'react-live';
+
 import ClipBoard from '../ClipBoard';
+
+type LiveProviderProps = Parameters<typeof LiveProvider>[0];
 
 type TCode = {
   hideComponent?: boolean;

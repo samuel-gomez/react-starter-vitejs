@@ -83,7 +83,7 @@ const VERSION_TOOLKIT = 'master';
  * DEMO CONSTANTS
  ************************************************************************ */
 
-export const STORYBOOK = 'https://axaguildev.github.io/react-toolkit/latest/storybook/?path=/story/';
-export const DESIGN_SYSTEM = 'https://axaguildev.github.io/design-system/';
+export const STORYBOOK = 'https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/';
+export const DESIGN_SYSTEM = 'https://axafrance.github.io/design-system/';
 export const GITHUB = `https://github.com/AxaGuilDEv/react-toolkit/tree/v${packageJson.dependencies['@axa-fr/react-toolkit-all']}/packages/`;
 export const GITHUB_API = `AxaGuilDEv/react-toolkit/${VERSION_TOOLKIT}/packages/`;

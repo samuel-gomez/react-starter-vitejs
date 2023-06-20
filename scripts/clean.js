@@ -40,7 +40,7 @@ const pathsDelete = [
   'renovate.json',
   'netlify.toml',
   'LICENSE',
-  './docs/CLEAN.md',
+  './docs',
   '.github',
   'package-lock.json',
 ];

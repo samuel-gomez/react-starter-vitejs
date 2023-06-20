@@ -4,7 +4,7 @@ import ReactCodeEditor from '@uiw/react-textarea-code-editor/esm/index';
 import '@uiw/react-textarea-code-editor/dist.css';
 import { ChangeEvent, useCallback, useState } from 'react';
 import { ModalCommonHeader, ModalCommonBody, ModalCommonFooter, useToggleModal } from 'shared/components/ModalCommon';
-import { TEvent, TonChange } from '../../Editor';
+import type { TEvent, TonChange } from '../../Editor';
 import './JsonEditor.scss';
 
 type TuseJsonEditor = TEvent & {

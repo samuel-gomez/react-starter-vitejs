@@ -13,8 +13,13 @@
       },
       {
         "titleItem": "Slash DS",
-        "linkItem": "https://axaguildev.github.io/design-system/",
+        "linkItem": "https://axafrance.github.io/design-system/",
         "imageItem": "slash"
+      },
+      {
+        "titleItem": "Vite",
+        "linkItem": "https://vitejs.dev/",
+        "imageItem": "vite"
       }
     ]
   },
@@ -35,9 +40,9 @@
         "imageItem": "jest-cucumber"
       },
       {
-        "titleItem": "Jest",
-        "linkItem": "https://jestjs.io/fr/",
-        "imageItem": "jest"
+        "titleItem": "Vitest",
+        "linkItem": "https://vitest.dev/",
+        "imageItem": "vitest"
       },
       {
         "titleItem": "MSW",

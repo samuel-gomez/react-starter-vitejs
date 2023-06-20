@@ -3,7 +3,7 @@ import HelpHover, { THelpInfo } from 'shared/components/HelpInfo';
 import withClassNameModifier, { TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
 import TableTk from '@axa-fr/react-toolkit-table';
 
-export type TTdContainer = Omit<THelpInfo, 'children'> & {
+export type TTdContainer = Omit<THelpInfo, 'children' | 'content'> & {
   children?: ReactNode;
   label?: ReactNode;
   hover?: ReactNode;

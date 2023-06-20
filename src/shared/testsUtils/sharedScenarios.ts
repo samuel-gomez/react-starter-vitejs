@@ -58,6 +58,7 @@ export const UnTitreEstVisible = (instruction: DefineStepFunction, level = 1, pa
 export const UnTexteEstVisible = (instruction: DefineStepFunction, parentLabel = '', instructionName = /^un texte "(.*)" est visible$/) =>
   instruction(instructionName, text => {
     const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
+
     expect(base.getByText(RegExp(text))).toBeInTheDocument();
   });
 

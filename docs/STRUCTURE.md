@@ -16,6 +16,7 @@
 │   ├─── tsconfig.json (Fichier de configuration pour Typescript)
 │   ├─── package.json (Scripts, dependances, config Jest, config Commitlint, ...)
 │   ├─── index.html
+│   ├─── vite.config.json (Fichier de configuration Vite)
 ```
 
 ## .husky
