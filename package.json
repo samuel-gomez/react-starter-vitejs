@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "build": "tsc && vite build",
-    "preview": "tsc && vite build -m production.local && serve -s build -p 5002",
+    "build": "tsc && vite build && npm run copy",
+    "preview": "tsc && vite build -m production.local && npm run copy && serve -s build -p 5002",
     "test": "vitest run",
     "test:dev": "vitest",
     "cover:local": "vitest run --coverage",
@@ -20,7 +20,8 @@
     "fix": "npm run prettier:fix && npm run lint:fix",
     "prepare": "husky install",
     "cz": "cz",
-    "clean": "cd ./scripts && npm i && npm start && cd .. && npx rimraf ./scripts"
+    "clean": "cd ./scripts && npm i && npm start && cd .. && npx rimraf ./scripts",
+    "copy": "cd ./scripts && npm i && npm run copy"
   },
   "dependencies": {
     "@axa-fr/react-oidc": "6.20.0",
