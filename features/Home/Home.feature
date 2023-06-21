@@ -19,10 +19,11 @@ Feature: Page d'accueil
     And la liste des packages est visible
       | titleItem       | linkItem                                             |
       | React           | https://fr.reactjs.org/                              |
-      | Slash DS        | https://axaguildev.github.io/design-system/          |
+      | Slash DS        | https://axafrance.github.io/design-system/           |
+      | Vite            | https://vitejs.dev/                                  |
       | Testing Library | https://testing-library.com/                         |
       | Jest Cucumber   | https://github.com/bencompton/jest-cucumber          |
-      | Jest            | https://jestjs.io/fr/                                |
+      | Vitest          | https://vitest.dev/                                  |
       | MSW             | https://mswjs.io/                                    |
       | Typescript      | https://www.typescriptlang.org/                      |
       | Eslint          | https://eslint.org/                                  |

@@ -6,7 +6,7 @@ import Modal from '@axa-fr/react-toolkit-modal-default/dist/esm/index';
 import type { ClickEvent } from '@axa-fr/react-toolkit-core/dist/esm/index';
 import { ModalCommonHeader, ModalCommonBody, ModalCommonFooter, useToggleModal } from 'shared/components/ModalCommon';
 import '@uiw/react-textarea-code-editor/dist.css';
-import { TEvent, TonChange } from '../../Editor';
+import type { TEvent, TonChange } from '../../Editor';
 import './CodeEditor.scss';
 import Templates, { Tlistelements } from './Templates';
 

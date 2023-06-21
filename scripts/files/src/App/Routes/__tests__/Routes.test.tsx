@@ -57,7 +57,6 @@ describe('<Routes />', () => {
     expect(getByText('PageUnauthorizeCmpt')).toBeInTheDocument();
   });
 
-  vi.useFakeTimers();
   it.each`
     route
     ${'/no-exist-route'}
@@ -66,7 +65,6 @@ describe('<Routes />', () => {
     await act(() => {
       getByText('Chargement de la page...');
     });
-    vi.advanceTimersByTime(1000);
 
     await waitFor(() => expect(getByText('404')).toBeInTheDocument());
   });

@@ -58,17 +58,13 @@ export const withAuth = <T extends object>(
   LoaderCmpt = Loader,
 ) => {
   const NewComp = (props: ComponentProps<typeof Component> | object) => {
-    const userContext = useContext(UserContextObj);
+    const { isEnabled, isLoading, authRole } = useContext(UserContextObj);
 
-    if (userContext.isEnabled && userContext.isLoading) {
+    if (isEnabled && isLoading) {
       return <LoaderCmpt text="Chargement des données utilisateur..." mode={MODES.get} classModifier="fullscreen" />;
     }
 
-    return authorized.includes(userContext?.authRole) || !userContext.isEnabled ? (
-      <Component {...(props as T)} />
-    ) : (
-      <NavigateCmpt to={ROUTE_URL.UNAUTHORIZE} />
-    );
+    return authorized.includes(authRole) || !isEnabled ? <Component {...(props as T)} /> : <NavigateCmpt to={ROUTE_URL.UNAUTHORIZE} />;
   };
 
   return <NewComp />;

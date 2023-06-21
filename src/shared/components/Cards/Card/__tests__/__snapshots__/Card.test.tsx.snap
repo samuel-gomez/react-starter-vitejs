@@ -24,7 +24,7 @@ exports[`<Card/> > Should render Card when image loaded 1`] = `
     >
       <a
         class="btn af-btn--circle af-btn--svg"
-        href="https://axaguildev.github.io/design-system/"
+        href="https://axafrance.github.io/design-system/"
         rel="noopener noreferrer"
         target="_blank"
         title=""
@@ -45,7 +45,7 @@ exports[`<Card/> > Should render Card when image loaded 1`] = `
       </a>
       <a
         class="btn af-btn--circle af-btn--storybook"
-        href="https://axaguildev.github.io/react-toolkit/latest/storybook/?path=/story/"
+        href="https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/"
         rel="noopener noreferrer"
         target="_blank"
         title=""
@@ -93,7 +93,7 @@ exports[`<Card/> > Should render Card when image loading 1`] = `
     >
       <a
         class="btn af-btn--circle af-btn--svg"
-        href="https://axaguildev.github.io/design-system/"
+        href="https://axafrance.github.io/design-system/"
         rel="noopener noreferrer"
         target="_blank"
         title=""
@@ -114,7 +114,7 @@ exports[`<Card/> > Should render Card when image loading 1`] = `
       </a>
       <a
         class="btn af-btn--circle af-btn--storybook"
-        href="https://axaguildev.github.io/react-toolkit/latest/storybook/?path=/story/"
+        href="https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/"
         rel="noopener noreferrer"
         target="_blank"
         title=""

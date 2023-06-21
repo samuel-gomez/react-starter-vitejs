@@ -6,8 +6,8 @@ Feature: Playground TextInput
     Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
     When J’accède à la page démo du TextInput
     Then un titre "TextInput playground" est visible
-    And un lien "Guidelines" est visible avec un href "https://axaguildev.github.io/design-system/molecules/form-text/"
-    And un lien "Storybook" est visible avec un href "https://axaguildev.github.io/react-toolkit/latest/storybook/?path=/story/form-input-text--textinput"
+    And un lien "Guidelines" est visible avec un href "https://axafrance.github.io/design-system/molecules/form-text/"
+    And un lien "Storybook" est visible avec un href "https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/form-input-text--textinput"
     And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.0.0/packages/Form/Input/text"
     And un bouton "Edit props" est visible
     And un label "My Label Text" est visible
