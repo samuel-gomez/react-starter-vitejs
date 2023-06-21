@@ -73,6 +73,12 @@ After that, you can run :
 npm i
 ```
 
+you have to update snapshots
+
+```
+npm t -- -u
+```
+
 ### Remote
 
 ```
