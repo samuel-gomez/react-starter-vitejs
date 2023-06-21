@@ -31,7 +31,7 @@ const pathsDelete = [
   './src/assets/demo',
   './src/shared/components/LiveCode',
   './src/shared/components/Cards',
-  './src/shared/components/LasyImage',
+  './src/shared/components/LazyImage',
   './src/shared/components/DownloadLink',
   './src/shared/components/Editor',
   './src/shared/components/testsUtils/clearString.ts',

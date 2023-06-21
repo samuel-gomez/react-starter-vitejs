@@ -35,7 +35,7 @@
 - [ ] Suppression du dossier src/shared/images
 - [ ] Suppression du dossier src/shared/components/LiveCode
 - [ ] Suppression du dossier src/shared/components/Cards
-- [ ] Suppression du dossier src/shared/components/LasyImage
+- [ ] Suppression du dossier src/shared/components/LazyImage
 - [ ] Suppression du dossier src/shared/components/DownloadLink
 - [ ] Suppression du dossier src/shared/components/Editor
 
