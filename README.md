@@ -14,10 +14,9 @@
     <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg">
   </a>
   </a>
-  <a href="https://codecov.io/gh/samuel-gomez/react-starter-vitejs">
-    <img alt="codecov"
-      src="https://codecov.io/gh/samuel-gomez/react-starter-vitejs/branch/main/graph/badge.svg">
-  </a>
+ <a href="https://codecov.io/gh/samuel-gomez/react-starter-vitejs" > 
+ <img src="https://codecov.io/gh/samuel-gomez/react-starter-vitejs/branch/main/graph/badge.svg?token=pSOetPjFk7"/> 
+ </a>
   </a>
   <a href="https://app.netlify.com/sites/react-starter-vitejs/deploys">
     <img alt="Netlify Status"

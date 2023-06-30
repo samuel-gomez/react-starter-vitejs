@@ -10,7 +10,7 @@ import type { TEvent, TonChange } from '../../Editor';
 import './CodeEditor.scss';
 import Templates, { Tlistelements } from './Templates';
 
-export const getPathTemplate = (temlateName = 'add-text') => `../../../../../../public/templates/${temlateName}.js`;
+export const getPathTemplate = (temlateName = 'add-text') => `../../../../../templates/${temlateName}.js`;
 
 export const getTemplate = (temlateName = 'add-text', getPathTemplateFn = getPathTemplate) => import(getPathTemplateFn(temlateName));
 

@@ -24,7 +24,7 @@ function deleteFolderRecursive(path) {
 }
 
 const pathsDelete = [
-  './public/templates',
+  './src/templates',
   './public/images',
   './public/_redirect',
   './src/pages/Home/Galleries',

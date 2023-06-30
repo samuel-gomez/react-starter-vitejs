@@ -49,7 +49,7 @@
   - [ ] Modifier les fichiers logo192.png et logo512.png
   - [ ] Modifier le manifest : changer le nom, supprimer les objets des images supprimées
   - [ ] Modifier le fichier index.html : le title et les métadonnées
-  - [ ] Supprimer le dossier public/templates
+  - [ ] Supprimer le dossier src/templates
 
 ### Docs
 

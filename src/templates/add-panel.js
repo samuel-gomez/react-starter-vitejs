@@ -29,4 +29,4 @@ const basic = `<article className="af-panel">
 </footer>
 </article>`;
 
-export { basic };
+export default basic;

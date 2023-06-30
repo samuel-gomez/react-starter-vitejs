@@ -82,11 +82,11 @@ describe('getTemplate', () => {
 describe('getPathTemplate', () => {
   it('Should return list template path when getPathTemplate have been called with "add-list"', () => {
     const result = getPathTemplate('add-list');
-    expect(clearString(result)).toEqual('../../../../../../public/templates/add-list.js');
+    expect(clearString(result)).toEqual('../../../../../templates/add-list.js');
   });
 
   it('Should return text template path when getPathTemplate have been called with empty param', () => {
     const result = getPathTemplate();
-    expect(clearString(result)).toEqual('../../../../../../public/templates/add-text.js');
+    expect(clearString(result)).toEqual('../../../../../templates/add-text.js');
   });
 });

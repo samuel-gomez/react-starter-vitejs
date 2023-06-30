@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+
+# If everything passes... Now we can commit
+echo '🏗️👷 Testing and building your project before pushing.'
+
+# Check units tests (Jest & React Testing)
+npm test ||
+(
+    echo '🔬 ❌ Units Tests Check Failed. Run npm run test, add changes and try commit again.';
+    false;
+)
+
+npm run build ||
+(
+    echo '📦 ❌ Next build failed: View the errors above to see why.'
+    false;
+)
+
+# If everything passes... Now we can push
+echo '✅ You win this time... I am pushing this now.'
