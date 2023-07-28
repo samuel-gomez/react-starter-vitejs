@@ -24,7 +24,7 @@
     "copy": "cd ./scripts && npm i && npm run copy"
   },
   "dependencies": {
-    "@axa-fr/react-oidc": "6.20.0",
+    "@axa-fr/react-oidc": "6.26.6",
     "@axa-fr/react-toolkit-all": "2.0.0",
     "@axa-fr/react-toolkit-core": "2.0.0",
     "@popperjs/core": "2.11.8",
