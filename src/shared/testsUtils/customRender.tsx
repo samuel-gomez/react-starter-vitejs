@@ -1,32 +1,44 @@
 import { vi } from 'vitest';
 import { render, RenderOptions } from '@testing-library/react';
-import { StaticRouter } from 'react-router-dom/server';
+import { MemoryRouter } from 'react-router-dom';
 import FetchProvider from 'App/FetchProvider';
 import UserProvider from 'App/UserProvider';
+import EnvironmentProvider from 'App/EnvironmentProvider';
 import { ReactElement, ReactNode } from 'react';
 import MOCK_API_URL from './constants';
 
 type TMockProvider = {
-  [x: string]: Record<string, unknown | number | string> | string;
+  [x: string]: Record<string, unknown | number | string> | string | boolean;
 };
 
 const MockProviders =
-  ({ role = '', ...testMock }: TMockProvider) =>
+  ({ role = '', isEnabled = true, route = '/', ...testMock }: TMockProvider) =>
   ({ children }: { children: ReactNode }) => {
     const useOidcAccessTokenFn = vi.fn().mockReturnValue({ accessToken: 'accessToken' });
     const useOidcUserFn = vi.fn().mockReturnValueOnce({ oidcUser: { member_of: [`CN=${role}`], name: 'Samuel Gomez' } });
-    return (
-      <UserProvider useOidcUserFn={useOidcUserFn}>
-        <FetchProvider
-          apiUrl={MOCK_API_URL}
-          fetchConfig={{
+
+    const useEnvFn = vi.fn().mockReturnValueOnce({
+      envState: {
+        environment: {
+          apiUrl: MOCK_API_URL,
+          fetchConfig: {
             headers: { testMock: JSON.stringify(testMock) },
-          }}
-          useOidcAccessTokenFn={useOidcAccessTokenFn}
-        >
-          <StaticRouter location="">{children}</StaticRouter>
-        </FetchProvider>
-      </UserProvider>
+          },
+          oidc: {
+            isEnabled,
+          },
+        },
+      },
+    });
+
+    return (
+      <EnvironmentProvider useEnvFn={useEnvFn}>
+        <UserProvider useOidcUserFn={useOidcUserFn}>
+          <FetchProvider useOidcAccessTokenFn={useOidcAccessTokenFn}>
+            <MemoryRouter initialEntries={[`${route}`]}>{children}</MemoryRouter>
+          </FetchProvider>
+        </UserProvider>
+      </EnvironmentProvider>
     );
   };
 

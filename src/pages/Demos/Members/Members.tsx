@@ -5,7 +5,7 @@ import { Tanomaly } from 'shared/types';
 import Loader, { TLoaderContainer } from 'shared/components/Loader';
 import Table from 'shared/components/Table';
 import { TITLE_BAR, TITLE, TABLE_HEADERS_MEMBERS } from './constants';
-import { TReturnUseMembers } from './Members.hook';
+import type { TReturnUseMembers } from './Members.hook';
 
 export type TMembers = TLayoutPage & {
   loaderMode: TLoaderContainer['mode'];

@@ -93,10 +93,10 @@ const URLS_OTHER_PAGES = {
   LAYOUT,
 };
 
-const ROUTE_URL = {
+const ROUTE_URLS = {
   ...URLS_FULL_DEMOS,
   ...URLS_TOOLKIT_DEMOS,
   ...URLS_OTHER_PAGES,
 };
 
-export default ROUTE_URL;
+export default ROUTE_URLS;

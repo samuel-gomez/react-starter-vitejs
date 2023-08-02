@@ -66,7 +66,12 @@ describe('useEnv', () => {
     const environment = {
       apiUrl: API_URL,
       fetchConfig: {},
-      oidc: {},
+      oidc: {
+        client_id: 'client_id',
+        redirect_uri: 'redirect_uri',
+        scope: 'scope',
+        authority: 'authority',
+      },
     };
     const { result } = renderHook(() => useEnv(fetchEnvFn, { environment }));
 

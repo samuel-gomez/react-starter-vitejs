@@ -15,7 +15,7 @@ const MembersContext = createContext<TMembersContext>({
   sorting: INITIAL_STATE_SORTING,
 });
 
-type TMembersEnhanced = TMembers & {
+type TMembersEnhanced = Pick<TMembers, 'headers'> & {
   useMembersFn?: typeof useMembers;
   setLoaderModeFn?: typeof setLoaderMode;
   MembersCmpt?: typeof Members;

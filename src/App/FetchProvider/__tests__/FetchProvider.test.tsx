@@ -3,6 +3,8 @@ import { useContext } from 'react';
 import { render } from '@testing-library/react';
 import { STATUS_HTTP_MESSAGES } from 'shared/constants';
 import { QueryKey } from '@tanstack/react-query';
+import EnvironmentProvider from 'App/EnvironmentProvider';
+import { MOCK_API_URL } from 'shared/testsUtils';
 import FetchProvider, {
   buildResponse,
   FetchContext,
@@ -50,10 +52,20 @@ const useOidcAccessTokenMock = vi.fn().mockReturnValue({
 
 describe('FetchProvider', () => {
   it('Should Base have fetchCustom props when render FetchProvider with required props', async () => {
+    const useEnvFn = vi.fn().mockReturnValueOnce({
+      envState: {
+        environment: {
+          apiUrl: MOCK_API_URL,
+          fetchConfig: {},
+        },
+      },
+    });
     const { asFragment, getByText } = render(
-      <FetchProvider apiUrl={apiMock} fetchConfig={fetchConfigMock} useOidcAccessTokenFn={useOidcAccessTokenMock}>
-        <BaseWithFetch />
-      </FetchProvider>,
+      <EnvironmentProvider useEnvFn={useEnvFn}>
+        <FetchProvider useOidcAccessTokenFn={useOidcAccessTokenMock}>
+          <BaseWithFetch />
+        </FetchProvider>
+      </EnvironmentProvider>,
     );
 
     expect(getByText(/haveFetchCustom/)).toBeInTheDocument();

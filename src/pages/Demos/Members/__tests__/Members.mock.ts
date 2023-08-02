@@ -15,17 +15,6 @@ export const oneMember = {
   sexe: 'M',
 };
 
-export const defaultProps = {
-  loaderMode: MODES.none,
-  anomaly: null,
-  refetch: emptyFunction as unknown as TReturnUseMembers['refetch'],
-  onChangePaging: emptyFunction as unknown as TReturnUseMembers['onChangePaging'],
-  onChangeSorting: emptyFunction as unknown as TReturnUseMembers['onChangeSorting'],
-  pagination: DEFAULT_STATE_VALUE.pagination,
-  members: [] as TReturnUseMembers['members'],
-  sorting: INITIAL_STATE_SORTING,
-};
-
 export const membersMock = [
   {
     _id: '99999',
