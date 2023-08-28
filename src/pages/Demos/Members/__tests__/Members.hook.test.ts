@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { TCols } from 'shared/components/Table/Body/Body';
 import { emptyFunction } from 'shared/testsUtils';
 import { SERVICE_NAME } from '../constants';

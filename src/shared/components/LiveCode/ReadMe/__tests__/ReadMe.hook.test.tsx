@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { waitFor } from '@testing-library/dom';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { WrapperQuery } from 'shared/testsUtils';
 import { useGithubReadme } from '../ReadMe.hook';
 

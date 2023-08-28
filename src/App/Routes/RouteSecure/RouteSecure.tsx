@@ -8,15 +8,22 @@ import { PROFILS } from 'shared/constants';
 import { EnvironmentContext } from 'App/EnvironmentProvider';
 import { UserContext } from 'App/UserProvider';
 
-export const AuthorizedProfile = ({ UserContextObj = UserContext, authorized = PROFILS, NavigateCmpt = Navigate, LoaderCmpt = Loader }) => {
+export const AuthorizedProfile = ({
+  UserContextObj = UserContext,
+  authorized = PROFILS,
+  OutletCmpt = Outlet,
+  NavigateCmpt = Navigate,
+  LoaderCmpt = Loader,
+  loaderText = 'Chargement des données utilisateur...',
+}) => {
   const { isLoading, authRole } = useContext(UserContextObj);
   const { environment } = useContext(EnvironmentContext);
 
   if (environment?.oidc?.isEnabled && isLoading) {
-    return <LoaderCmpt text="Chargement des données utilisateur..." mode={MODES.get} classModifier="fullscreen" />;
+    return <LoaderCmpt text={loaderText} mode={MODES.get} classModifier="fullscreen" />;
   }
 
-  return authorized.includes(authRole) || !environment?.oidc?.isEnabled ? <Outlet /> : <NavigateCmpt to={ROUTE_URL.UNAUTHORIZE} />;
+  return authorized.includes(authRole) || !environment?.oidc?.isEnabled ? <OutletCmpt /> : <NavigateCmpt to={ROUTE_URL.UNAUTHORIZE} />;
 };
 
 const RouteSecure = ({ OidcSecureCmpt = OidcSecure }) => (

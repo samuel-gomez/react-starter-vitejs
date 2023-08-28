@@ -8,15 +8,21 @@ import { ReactElement, ReactNode } from 'react';
 import MOCK_API_URL from './constants';
 
 type TMockProvider = {
-  [x: string]: Record<string, unknown | number | string> | string | boolean;
+  [x: string]: Record<string, unknown | number | string> | string | boolean | null;
 };
 
 const MockProviders =
-  ({ role = '', isEnabled = true, route = '/', ...testMock }: TMockProvider) =>
+  ({
+    role = '',
+    isEnabled = true,
+    route = '/',
+    oidcUser = { member_of: [`CN=${role}`], name: 'Samuel Gomez' },
+    accessToken = 'accessToken',
+    ...testMock
+  }: TMockProvider) =>
   ({ children }: { children: ReactNode }) => {
-    const useOidcAccessTokenFn = vi.fn().mockReturnValue({ accessToken: 'accessToken' });
-    const useOidcUserFn = vi.fn().mockReturnValueOnce({ oidcUser: { member_of: [`CN=${role}`], name: 'Samuel Gomez' } });
-
+    const useOidcAccessTokenFn = vi.fn().mockReturnValue({ accessToken });
+    const useOidcUserFn = vi.fn().mockReturnValueOnce({ oidcUser });
     const useEnvFn = vi.fn().mockReturnValueOnce({
       envState: {
         environment: {

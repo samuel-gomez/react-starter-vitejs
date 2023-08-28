@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { TNotificationContext } from 'App/NotificationProvider/NotificationProvider';
 import { createContext } from 'react';
 import useNotify from '../Notification.hook';

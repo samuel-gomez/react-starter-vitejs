@@ -14,6 +14,7 @@
       "titleBar.activeBackground": "#35019d",
       "titleBar.activeForeground": "#e1bfff"
     },
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "liveServer.settings.port": 5501
   }
 }

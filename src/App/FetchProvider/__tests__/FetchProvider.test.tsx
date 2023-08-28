@@ -71,6 +71,26 @@ describe('FetchProvider', () => {
     expect(getByText(/haveFetchCustom/)).toBeInTheDocument();
     expect(asFragment()).toMatchSnapshot();
   });
+
+  it('Should setFetchCustomFn to have been called with apiUrl = {} when environment is null', () => {
+    const useEnvFn = vi.fn().mockReturnValueOnce({
+      envState: {
+        environment: null,
+      },
+    });
+
+    const mergeObjFn = vi.fn().mockReturnValueOnce({});
+    const setFetchCustomFn = vi.fn();
+    render(
+      <EnvironmentProvider useEnvFn={useEnvFn}>
+        <FetchProvider useOidcAccessTokenFn={useOidcAccessTokenMock} mergeObjFn={mergeObjFn} setFetchCustomFn={setFetchCustomFn}>
+          <BaseWithFetch />
+        </FetchProvider>
+      </EnvironmentProvider>,
+    );
+
+    expect(setFetchCustomFn).toHaveBeenCalledWith({ apiUrl: {}, fetchAuthConfig: {} });
+  });
 });
 
 describe('setQuery', () => {

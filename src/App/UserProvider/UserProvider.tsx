@@ -108,6 +108,8 @@ type TUserProvider = {
 
 const UserProvider = ({ children, useOidcUserFn = useOidcUser, extractDataFromOAuthTokenFn = extractDataFromOAuthToken, ...rest }: TUserProvider) => {
   const { oidcUser } = useOidcUserFn();
+
+  // console.log('UserProvider', oidcUser);
   const value = useMemo(() => ({ ...extractDataFromOAuthTokenFn({ oidcUser }), ...rest }), [extractDataFromOAuthTokenFn, oidcUser, rest]);
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

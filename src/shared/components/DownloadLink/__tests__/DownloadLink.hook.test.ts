@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { SUCCESS_DOWNLOAD_MESSAGE } from '../constants';
 import { useDownload, useSubmitDownload, setDownloadFile, onSuccess, onError } from '../DownloadLink.hook';
 

@@ -1,7 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { useContext } from 'react';
-import { renderHook } from '@testing-library/react-hooks';
-import { render } from '@testing-library/react';
+import { render, renderHook } from '@testing-library/react';
 import EnvironmentProvider, { useEnv, EnvironmentContext, fetchEnv, getFileEnv } from '..';
 import type { TEnvironment } from '..';
 
