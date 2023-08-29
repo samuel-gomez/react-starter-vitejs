@@ -3,7 +3,8 @@ import { setLoaderMode } from 'shared/components/Loader';
 import { emptyFunction } from 'shared/helpers';
 
 import Members, { TMembers } from './Members';
-import { INITIAL_STATE_SORTING, TReturnUseMembers, useMembers } from './Members.hook';
+import { TReturnUseMembers, useMembers } from './Members.hook';
+import { INITIAL_STATE_SORTING } from './constants';
 
 export type TMembersContext = {
   onChangeSorting: TReturnUseMembers['onChangeSorting'];
