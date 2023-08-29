@@ -1,3 +1,3 @@
-const emptyFuncion = () => null;
+const emptyFunction = () => null;
 
-export default emptyFuncion;
+export default emptyFunction;

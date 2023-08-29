@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render } from 'shared/testsUtils/customRender';
-import { totals, oneMember, defaultProps } from './Members.mock';
+import { totals, oneMember } from './Members.mock';
 import MembersContainer from '../Members.container';
 
 describe('<MembersContainer />', () => {
@@ -32,7 +32,7 @@ describe('<MembersContainer />', () => {
     ${[]}          | ${{ ...returnValueWithOneMember, anomaly: { label: 'Info : Aucune donnée trouvée' }, members: [] }}
   `('Should call MembersCmpt with calculed props when useMembersFn return responseBody: $responseBody', ({ data, returnValue }) => {
     useMembersFn.mockReturnValue({ ...returnValue, isLoading: false });
-    render(<MembersContainer {...defaultProps} MembersCmpt={MembersCmpt} useMembersFn={useMembersFn} />, {}, { responseBody: { totals, data } });
+    render(<MembersContainer MembersCmpt={MembersCmpt} useMembersFn={useMembersFn} />, {}, { responseBody: { totals, data } });
     expect(MembersCmpt).toBeCalledWith(
       {
         ...returnValue,

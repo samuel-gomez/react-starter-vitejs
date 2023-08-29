@@ -7,7 +7,7 @@ type TAppContainer = { EnvironmentContextObj?: typeof EnvironmentContext; AppCmp
 
 export const AppContainer = ({ EnvironmentContextObj = EnvironmentContext, AppCmpt = App }: TAppContainer) => {
   const { environment } = useContext(EnvironmentContextObj);
-  return !environment ? <Loader text="Chargement de l'environnement..." mode={MODES.get} classModifier="fullscreen" /> : <AppCmpt {...environment} />;
+  return !environment ? <Loader text="Chargement de l'environnement..." mode={MODES.get} classModifier="fullscreen" /> : <AppCmpt />;
 };
 
 const AppWithEnvironment = () => (

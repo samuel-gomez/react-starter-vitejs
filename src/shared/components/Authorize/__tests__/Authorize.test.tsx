@@ -56,7 +56,6 @@ describe('<Authorize/>', () => {
       authName: '',
       authRole: 'admin',
       authUid: '',
-      isEnabled: true,
       isLoading: true,
     });
     const { asFragment } = render(

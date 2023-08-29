@@ -1,3 +1,5 @@
+import { ASCENDING, Torder } from 'shared/components/Table';
+
 export const TITLE_BAR = 'Gestion des membres';
 export const TITLE = 'Liste des membres';
 export const ROUTE_URL_MEMBERS = 'members';
@@ -10,3 +12,22 @@ export const TABLE_HEADERS_MEMBERS = [
 ];
 
 export const SERVICE_NAME = 'members';
+
+export const DEFAULT_STATE_VALUE = {
+  pagination: {
+    total: 0,
+    currentPage: 1,
+    numberPages: 1,
+  },
+  data: [],
+};
+
+export const INITIAL_STATE_SORTING = {
+  field: 'firstname',
+  order: ASCENDING as Torder,
+};
+
+export const INITIAL_STATE_PAGING = {
+  numberItems: 50,
+  page: 1,
+};

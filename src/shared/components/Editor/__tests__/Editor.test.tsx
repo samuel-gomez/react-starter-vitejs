@@ -1,7 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { ComponentPropsWithoutRef, FocusEvent } from 'react';
-import { render } from '@testing-library/react';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { render, renderHook, act } from '@testing-library/react';
 import { Text } from '@axa-fr/react-toolkit-form-input-text/dist/esm/index';
 import { mergePropsAndKnobs, withEditor, setValue, useEditable, useToggleEditor, TEvent, LabelEditor } from '../Editor';
 

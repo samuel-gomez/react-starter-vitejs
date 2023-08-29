@@ -1,9 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { screen, configure, within, waitFor } from '@testing-library/react';
 import { render, userEvent } from 'shared/testsUtils/customRender';
-import expectButton from 'shared/testsUtils/expectButton';
-import expectLink from 'shared/testsUtils/expectLink';
-import expectTitle from 'shared/testsUtils/expectTitle';
+import { expectButton, expectLink, expectTitle } from 'shared/testsUtils/sharedScenarios';
 import { ROLE_NUMBER, SCOPE_PREVIEW, SCOPE_CODE, SCOPE_EDITOR } from 'shared/testsUtils/constants';
 import NumberInput from '../NumberInput';
 

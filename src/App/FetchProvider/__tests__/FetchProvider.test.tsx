@@ -3,6 +3,8 @@ import { useContext } from 'react';
 import { render } from '@testing-library/react';
 import { STATUS_HTTP_MESSAGES } from 'shared/constants';
 import { QueryKey } from '@tanstack/react-query';
+import EnvironmentProvider from 'App/EnvironmentProvider';
+import { MOCK_API_URL } from 'shared/testsUtils';
 import FetchProvider, {
   buildResponse,
   FetchContext,
@@ -50,14 +52,44 @@ const useOidcAccessTokenMock = vi.fn().mockReturnValue({
 
 describe('FetchProvider', () => {
   it('Should Base have fetchCustom props when render FetchProvider with required props', async () => {
+    const useEnvFn = vi.fn().mockReturnValueOnce({
+      envState: {
+        environment: {
+          apiUrl: MOCK_API_URL,
+          fetchConfig: {},
+        },
+      },
+    });
     const { asFragment, getByText } = render(
-      <FetchProvider apiUrl={apiMock} fetchConfig={fetchConfigMock} useOidcAccessTokenFn={useOidcAccessTokenMock}>
-        <BaseWithFetch />
-      </FetchProvider>,
+      <EnvironmentProvider useEnvFn={useEnvFn}>
+        <FetchProvider useOidcAccessTokenFn={useOidcAccessTokenMock}>
+          <BaseWithFetch />
+        </FetchProvider>
+      </EnvironmentProvider>,
     );
 
     expect(getByText(/haveFetchCustom/)).toBeInTheDocument();
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('Should setFetchCustomFn to have been called with apiUrl = {} when environment is null', () => {
+    const useEnvFn = vi.fn().mockReturnValueOnce({
+      envState: {
+        environment: null,
+      },
+    });
+
+    const mergeObjFn = vi.fn().mockReturnValueOnce({});
+    const setFetchCustomFn = vi.fn();
+    render(
+      <EnvironmentProvider useEnvFn={useEnvFn}>
+        <FetchProvider useOidcAccessTokenFn={useOidcAccessTokenMock} mergeObjFn={mergeObjFn} setFetchCustomFn={setFetchCustomFn}>
+          <BaseWithFetch />
+        </FetchProvider>
+      </EnvironmentProvider>,
+    );
+
+    expect(setFetchCustomFn).toHaveBeenCalledWith({ apiUrl: {}, fetchAuthConfig: {} });
   });
 });
 

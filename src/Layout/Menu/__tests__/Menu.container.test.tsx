@@ -1,6 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { screen, fireEvent } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
+import { screen, fireEvent, renderHook } from '@testing-library/react';
 import { renderWithWrapperStaticRouter } from 'shared/testsUtils';
 import MenuEnhanced, { setPositionInit, setToggleMenu, computeMenuItems, useMenuVisible } from '../Menu.container';
 import { CLASS_BODY_MENU_OPEN } from '../constants';

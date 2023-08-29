@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { SERVICE_NAME } from '../constants';
 import { DownloadLinkEnhanced } from '../SearchMembers';
 import { computeInfos, useSearchMembers, computeSuccess, useFormSearchMembers, computeDataQuery } from '../SearchMembers.hook';

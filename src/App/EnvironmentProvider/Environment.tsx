@@ -1,9 +1,10 @@
+import { OidcConfiguration } from '@axa-fr/react-oidc';
 import { useState, useEffect, createContext, Dispatch, SetStateAction } from 'react';
 
 export type TEnvironment = {
   apiUrl: Record<string, string>;
   fetchConfig: object;
-  oidc: Record<string, boolean | string>;
+  oidc: OidcConfiguration & { isEnabled?: boolean };
 };
 
 export type TEnvironmentState = {
@@ -61,6 +62,7 @@ export const useEnv = (fetchEnvFn = fetchEnv, initStateCt = initState) => {
  */
 const EnvironmentProvider = ({ children, useEnvFn = useEnv }: { children: JSX.Element; useEnvFn?: typeof useEnv }) => {
   const { envState } = useEnvFn();
+
   return <EnvironmentContext.Provider value={envState}>{children}</EnvironmentContext.Provider>;
 };
 

@@ -1,28 +1,9 @@
 import { Dispatch, SetStateAction, useCallback, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { ASCENDING, setDisplay, Torder } from 'shared/components/Table';
+import { setDisplay, Torder } from 'shared/components/Table';
 import { Tanomaly } from 'shared/types';
 import { setAnomalyEmptyItems, setDate } from 'shared/helpers';
-import { SERVICE_NAME } from './constants';
-
-export const DEFAULT_STATE_VALUE = {
-  pagination: {
-    total: 0,
-    currentPage: 1,
-    numberPages: 1,
-  },
-  data: [],
-};
-
-export const INITIAL_STATE_SORTING = {
-  field: 'firstname',
-  order: ASCENDING as Torder,
-};
-
-const INITIAL_STATE_PAGING = {
-  numberItems: 50,
-  page: 1,
-};
+import { DEFAULT_STATE_VALUE, INITIAL_STATE_PAGING, INITIAL_STATE_SORTING, SERVICE_NAME } from './constants';
 
 export const setNumberPages = ({ total = 1, max = 1 }) => Math.ceil(max >= total ? 1 : Number(total / max) - 1);
 export const setCurrentPage = ({ max, skip }: { max: number; skip: number }) => (+max !== 0 && Math.ceil(Number(skip / max))) || 1;

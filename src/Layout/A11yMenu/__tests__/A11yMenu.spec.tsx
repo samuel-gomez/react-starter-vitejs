@@ -1,7 +1,7 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import { screen, configure } from '@testing-library/react';
 import { render } from 'shared/testsUtils/customRender';
-import expectLink from 'shared/testsUtils/expectLink';
+import expectLink from 'shared/testsUtils/sharedScenarios/link/expectLink';
 import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil } from 'shared/testsUtils/sharedScenarios';
 import A11yMenu from '../A11yMenu';
 

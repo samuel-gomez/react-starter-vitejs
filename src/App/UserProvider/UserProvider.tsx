@@ -4,7 +4,6 @@ import isEmpty from 'lodash/isEmpty';
 import { PROFILS } from 'shared/constants';
 
 export type TUserContext = ReturnType<typeof extractDataFromOAuthToken> & {
-  isEnabled?: boolean;
   isLoading?: boolean;
 };
 
@@ -12,7 +11,6 @@ export const UserContext = createContext<TUserContext>({
   authName: '',
   authRole: '',
   authUid: '',
-  isEnabled: true,
   isLoading: true,
 });
 UserContext.displayName = 'UserContext';
@@ -45,7 +43,7 @@ type TsetAuthRole = {
 };
 
 export const setAuthRole = ({ memberOf, profils = PROFILS }: TsetAuthRole) =>
-  profils.map(profil => (memberOf.search(`${profil}`) !== -1 ? profil : '')).join('');
+  profils.map(profil => (memberOf.search(`${profil}`) !== -1 ? profil : '')).join('') || memberOf;
 
 /**
  * getAuthRole
@@ -56,7 +54,8 @@ type TgetAuthRole = {
   setAuthRoleFn?: typeof setAuthRole;
 };
 
-export const getAuthRole = ({ oidcUser, setAuthRoleFn = setAuthRole }: TgetAuthRole) => setAuthRoleFn({ memberOf: oidcUser?.member_of?.[0] ?? '' });
+export const getAuthRole = ({ oidcUser, setAuthRoleFn = setAuthRole }: TgetAuthRole) =>
+  setAuthRoleFn({ memberOf: oidcUser?.member_of?.[0].replace('CN=', '') ?? '' });
 
 /**
  * getAuthUid
@@ -102,23 +101,15 @@ const extractDataFromOAuthToken = ({
 
 type TUserProvider = {
   children: ReactNode;
-  useOidcUserFn: typeof useOidcUser;
+  useOidcUserFn?: typeof useOidcUser;
   extractDataFromOAuthTokenFn?: typeof extractDataFromOAuthToken;
   isEnabled?: boolean;
 };
 
-const UserProvider = ({
-  children,
-  useOidcUserFn,
-  extractDataFromOAuthTokenFn = extractDataFromOAuthToken,
-  isEnabled = true,
-  ...rest
-}: TUserProvider) => {
+const UserProvider = ({ children, useOidcUserFn = useOidcUser, extractDataFromOAuthTokenFn = extractDataFromOAuthToken, ...rest }: TUserProvider) => {
   const { oidcUser } = useOidcUserFn();
-  const value = useMemo(
-    () => ({ ...extractDataFromOAuthTokenFn({ oidcUser }), isEnabled, ...rest }),
-    [extractDataFromOAuthTokenFn, isEnabled, oidcUser, rest],
-  );
+
+  const value = useMemo(() => ({ ...extractDataFromOAuthTokenFn({ oidcUser }), ...rest }), [extractDataFromOAuthTokenFn, oidcUser, rest]);
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 

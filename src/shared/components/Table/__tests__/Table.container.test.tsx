@@ -35,6 +35,7 @@ describe('TableContainer', () => {
         children: undefined,
         headers,
         items,
+        'aria-label': 'Tableau de données',
       },
       {},
     );
@@ -47,6 +48,7 @@ describe('TableContainer', () => {
         children: undefined,
         headers: [],
         items,
+        'aria-label': 'Tableau de données',
       },
       {},
     );
@@ -74,6 +76,7 @@ describe('TableContainer', () => {
         ),
         headers,
         items,
+        'aria-label': 'Tableau de données',
       },
       {},
     );

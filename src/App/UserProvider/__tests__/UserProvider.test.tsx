@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { useContext } from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import omit from 'lodash/omit';
 import UserProvider, { UserContext, getAuthName, getAuthRole, setAuthRole, getAuthUid } from '../UserProvider';
 
@@ -8,13 +8,11 @@ type TBase = {
   authName: string | undefined;
   authRole: string;
   authUid: string;
-  isEnabled?: boolean;
   isLoading?: boolean;
 };
 
-const Base = ({ authName, authRole, authUid, isEnabled, isLoading }: TBase) => (
+const Base = ({ authName, authRole, authUid, isLoading }: TBase) => (
   <ul>
-    <li>{isEnabled ? 'have isEnabled' : 'notHave isEnabled'}</li>
     <li>{isLoading ? 'have isLoading' : 'notHave isLoading'}</li>
     <li>{authName ? 'have authName' : 'notHave authName'}</li>
     <li>{authRole ? 'have authRole' : 'notHave authRole'}</li>
@@ -53,13 +51,12 @@ const App = () => (
 
 describe('Render App with Base have user props', () => {
   it('Should Base have user props when render App with UserProvider', () => {
-    const { asFragment, getByText } = render(<App />);
-    expect(asFragment()).toMatchSnapshot();
-    expect(getByText('have authName')).toBeDefined();
-    expect(getByText('have authRole')).toBeDefined();
-    expect(getByText('have authUid')).toBeDefined();
-    expect(getByText('have isEnabled')).toBeDefined();
-    expect(getByText('notHave isLoading')).toBeDefined();
+    render(<App />);
+
+    expect(screen.getByText('have authName')).toBeDefined();
+    expect(screen.getByText('have authRole')).toBeDefined();
+    expect(screen.getByText('have authUid')).toBeDefined();
+    expect(screen.getByText('notHave isLoading')).toBeDefined();
   });
 });
 
@@ -81,7 +78,7 @@ describe('getAuthRole', () => {
     const result = getAuthRole({ oidcUser, setAuthRoleFn });
 
     expect(result).toEqual('Admin');
-    expect(setAuthRoleFn).toHaveBeenCalledWith({ memberOf: oidcUser.member_of[0] });
+    expect(setAuthRoleFn).toHaveBeenCalledWith({ memberOf: 'Admin' });
   });
 
   it('Should return "" when getAuthRole called with no profile member_of', () => {
@@ -112,12 +109,12 @@ describe('getAuthUid', () => {
 
 describe('setAuthRole', () => {
   it('Should return Admin when memberOf contain Admin ', () => {
-    const result = setAuthRole({ memberOf: 'CN=Admin', profils });
+    const result = setAuthRole({ memberOf: 'Admin', profils });
     expect(result).toEqual('Admin');
   });
 
   it('Should return "" when memberOf not autorized', () => {
-    const result = setAuthRole({ memberOf: 'CN=OTHER', profils });
-    expect(result).toEqual('');
+    const result = setAuthRole({ memberOf: 'OTHER', profils });
+    expect(result).toEqual('OTHER');
   });
 });
