@@ -1,7 +1,3 @@
-import { MODES } from 'shared/components/Loader';
-import { emptyFunction } from 'shared/testsUtils';
-import { DEFAULT_STATE_VALUE, INITIAL_STATE_SORTING, TReturnUseMembers } from '../Members.hook';
-
 export const totals = { total: 1001, count: 50, skip: 50, max: 50 };
 
 export const oneMember = {

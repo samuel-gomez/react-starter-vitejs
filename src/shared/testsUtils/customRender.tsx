@@ -8,7 +8,7 @@ import { ReactElement, ReactNode } from 'react';
 import MOCK_API_URL from './constants';
 
 type TMockProvider = {
-  [x: string]: Record<string, unknown | number | string> | string | boolean | null;
+  [x: string]: Record<string, string[] | number | string> | string | boolean | null;
 };
 
 const MockProviders =
