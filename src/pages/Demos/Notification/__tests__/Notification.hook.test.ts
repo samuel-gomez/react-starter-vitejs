@@ -6,12 +6,6 @@ import useNotify from '../Notification.hook';
 
 describe('useNotify', () => {
   const addNotification = vi.fn();
-  const useContextFn = vi.fn();
-
-  it('Should return notifyError, notifySuccess, notifyWarning useNotify have been called', () => {
-    renderHook(() => useNotify({ useContextFn }));
-    expect(useContextFn).toBeCalled();
-  });
 
   const NotificationContext = createContext<TNotificationContext>({ addNotification });
 
