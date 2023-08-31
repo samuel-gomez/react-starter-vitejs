@@ -1,46 +1,24 @@
-import { useContext, ComponentProps, lazy, Suspense } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-
-import ROUTE_URL from 'App/Routes/constants';
-import { UserContext } from 'App/UserProvider';
+import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Loader, { MODES } from 'shared/components/Loader';
-import { PROFILS } from 'shared/constants';
+import ROUTE_URLS from './constants';
+import { RouteSecure } from './RouteSecure';
 
 const Home = lazy(() => import('pages/Home'));
 const PageUnauthorize = lazy(() => import('pages/Unauthorize'));
 const PageNotFound = lazy(() => import('pages/NotFound'));
 
-export const withAuth = <T extends object>(
-  Component: React.ComponentType<T>,
-  UserContextObj = UserContext,
-  authorized = PROFILS,
-  NavigateCmpt = Navigate,
-  LoaderCmpt = Loader,
-) => {
-  const NewComp = (props: ComponentProps<typeof Component> | object) => {
-    const { isEnabled, isLoading, authRole } = useContext(UserContextObj);
-
-    if (isEnabled && isLoading) {
-      return <LoaderCmpt text="Chargement des données utilisateur..." mode={MODES.get} classModifier="fullscreen" />;
-    }
-
-    return authorized.includes(authRole) || !isEnabled ? <Component {...(props as T)} /> : <NavigateCmpt to={ROUTE_URL.UNAUTHORIZE} />;
-  };
-
-  return <NewComp />;
-};
-
 type TRoutesCmpt = {
-  HomeCmpt?: typeof Home;
-  PageUnauthorizeCmpt?: typeof PageUnauthorize;
-  withAuthFn?: typeof withAuth;
+  RouteSecureCmpt?: typeof RouteSecure;
 };
 
-const RoutesCmpt = ({ HomeCmpt = Home, PageUnauthorizeCmpt = PageUnauthorize, withAuthFn = withAuth }: TRoutesCmpt) => (
+const RoutesCmpt = ({ RouteSecureCmpt = RouteSecure }: TRoutesCmpt) => (
   <Suspense fallback={<Loader text="Chargement de la page..." mode={MODES.get} classModifier="fullscreen" />}>
     <Routes>
-      <Route path={ROUTE_URL.HOME} element={withAuthFn(HomeCmpt)} />
-      <Route path={ROUTE_URL.UNAUTHORIZE} element={<PageUnauthorizeCmpt />} />
+      <Route element={<RouteSecureCmpt />}>
+        <Route index path={ROUTE_URLS.HOME} element={<Home />} />
+      </Route>
+      <Route path={ROUTE_URLS.UNAUTHORIZE} element={<PageUnauthorize />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   </Suspense>

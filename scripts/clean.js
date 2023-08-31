@@ -56,7 +56,7 @@ function replaceContentsSync(file, replacement) {
 
 const pathsReplace = [
   'package.json',
-  'app.code-workspace',
+  'starter.code-workspace',
   'README.md',
   'features/Home/Home.feature',
   'src/shared/constants.ts',

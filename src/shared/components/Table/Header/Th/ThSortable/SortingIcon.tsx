@@ -6,7 +6,7 @@ export const orderIcons = (order: Torder = NONE) =>
     [NONE]: 'sorting',
     [ASCENDING]: 'arrow-xs-up',
     [DESCENDING]: 'arrow-xs-down',
-  }[order]);
+  })[order];
 
 export type TSortingIcon = {
   orderIconsFn?: typeof orderIcons;

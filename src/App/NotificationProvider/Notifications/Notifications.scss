@@ -24,7 +24,10 @@ $typesLite: (
     overflow: hidden;
     max-height: 300px;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
-    transition: opacity 0.3s ease-out, max-height 0.3s ease-out 0.3s, margin 0.3s ease-out 0.3s;
+    transition:
+      opacity 0.3s ease-out,
+      max-height 0.3s ease-out 0.3s,
+      margin 0.3s ease-out 0.3s;
     opacity: 1;
     &.af-alert--hide {
       opacity: 0;

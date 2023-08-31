@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useMemo } from 'react';
-import { useOidcUser } from '@axa-fr/react-oidc/dist/User';
+import { useOidcUser } from '@axa-fr/react-oidc';
 import isEmpty from 'lodash/isEmpty';
 import { PROFILS } from 'shared/constants';
 
