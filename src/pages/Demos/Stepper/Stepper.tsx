@@ -99,20 +99,23 @@ const code = ({
 </Steps>
   `;
 
-const StepperWithEditor = withEditor<Props & Partial<TReturnUseToggleEditor>>(({ openEditor, ...props }) => {
-  return (
-    <>
-      <EditorHeader
-        storybookPath={STORYBOOK_PATH}
-        designSystemPath={DESIGN_SYSTEM_PATH}
-        githubPackage={GITHUB_PACKAGE}
-        npmName={NPM_NAME}
-        openEditor={openEditor}
-      />
-      <LiveCode code={code(props)} scope={props} githubPackage={GITHUB_PACKAGE} />
-    </>
-  );
-}, knobs as unknown as Tknobs);
+const StepperWithEditor = withEditor<Props & Partial<TReturnUseToggleEditor>>(
+  ({ openEditor, ...props }) => {
+    return (
+      <>
+        <EditorHeader
+          storybookPath={STORYBOOK_PATH}
+          designSystemPath={DESIGN_SYSTEM_PATH}
+          githubPackage={GITHUB_PACKAGE}
+          npmName={NPM_NAME}
+          openEditor={openEditor}
+        />
+        <LiveCode code={code(props)} scope={props} githubPackage={GITHUB_PACKAGE} />
+      </>
+    );
+  },
+  knobs as unknown as Tknobs,
+);
 
 const StepperEditable = () => {
   const { state, onChange, onClick } = useEditable<typeof INITIAL_STATE>({ initialState: INITIAL_STATE });

@@ -19,8 +19,11 @@ type TsetClassName = {
   resilienceModifier: string;
 };
 
-export const setClassName = ({ resilienceModifier, classAlertCt = DEFAULT_CLASS_ALERT, classContainerCt = DEFAULT_CLASS_CONTAINER }: TsetClassName) =>
-  resilienceModifier === classContainerCt ? `${classContainerCt} ${classAlertCt}` : classAlertCt;
+export const setClassName = ({
+  resilienceModifier,
+  classAlertCt = DEFAULT_CLASS_ALERT,
+  classContainerCt = DEFAULT_CLASS_CONTAINER,
+}: TsetClassName) => (resilienceModifier === classContainerCt ? `${classContainerCt} ${classAlertCt}` : classAlertCt);
 
 type TResilienceSubstitut<Trefetch> = {
   anomaly: Tanomaly;

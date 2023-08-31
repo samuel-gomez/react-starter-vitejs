@@ -2,7 +2,7 @@ import { createContext, ReactNode, useMemo, useContext } from 'react';
 import { QueryClient, QueryClientProvider, QueryKey } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { API_URL, STATUS_API, STATUS_HTTP_MESSAGES } from 'shared/constants';
-import { useOidcAccessToken } from '@axa-fr/react-oidc/dist/ReactOidc';
+import { useOidcAccessToken } from '@axa-fr/react-oidc';
 import fetch from 'cross-fetch';
 import { EnvironmentContext } from 'App/EnvironmentProvider';
 import { mergeObj, manageConfig } from 'shared/helpers';

@@ -35,25 +35,28 @@ const code = ({ fullScreen, titleBar, children, className, classModifier, disabl
 </Layout> 
 `;
 
-const LayoutWithEditor = withEditor<Props & Partial<TReturnUseToggleEditor>>(({ openEditor, ...props }) => {
-  const modalProps = useToggleModal();
-  return (
-    <>
-      <EditorHeader openEditor={openEditor} />
-      <LiveCode
-        styleLivePreview={{ padding: '0' }}
-        classModifier="layout"
-        code={code(props)}
-        scope={{
-          Layout,
-          modalProps,
-          ...props,
-        }}
-        hideReadme
-      />
-    </>
-  );
-}, knobs as unknown as Tknobs);
+const LayoutWithEditor = withEditor<Props & Partial<TReturnUseToggleEditor>>(
+  ({ openEditor, ...props }) => {
+    const modalProps = useToggleModal();
+    return (
+      <>
+        <EditorHeader openEditor={openEditor} />
+        <LiveCode
+          styleLivePreview={{ padding: '0' }}
+          classModifier="layout"
+          code={code(props)}
+          scope={{
+            Layout,
+            modalProps,
+            ...props,
+          }}
+          hideReadme
+        />
+      </>
+    );
+  },
+  knobs as unknown as Tknobs,
+);
 
 const LayoutEditable = () => {
   const { state, onChange, onClick } = useEditable<typeof INITIAL_STATE>({ initialState: INITIAL_STATE });

@@ -50,14 +50,21 @@
     border-radius: 50%;
     position: relative;
     transition: all 0.4s ease-in-out;
-    box-shadow: 0 30px 20px 10px #00008f38, 0px 14px 20px 0px #00008fa9, inset 5px 3px 20px 20px rgb(0 0 0 / 50%);
+    box-shadow:
+      0 30px 20px 10px #00008f38,
+      0px 14px 20px 0px #00008fa9,
+      inset 5px 3px 20px 20px rgb(0 0 0 / 50%);
     text-align: center;
 
     &:hover {
-      box-shadow: 0 80px 20px 10px #00008f0f, 1px 43px 42px 16px #00008f38;
+      box-shadow:
+        0 80px 20px 10px #00008f0f,
+        1px 43px 42px 16px #00008f38;
       transform: scale(1.2);
       & .af-gallery__item-info-wrap {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8), inset 0 0 3px rgba(115, 23, 23, 0.8);
+        box-shadow:
+          0 0 0 0 rgba(255, 255, 255, 0.8),
+          inset 0 0 3px rgba(115, 23, 23, 0.8);
       }
       & .af-gallery__item-info {
         transform: rotate3d(0, 1, 0, -180deg);
@@ -78,7 +85,9 @@
       top: 20px;
       left: 20px;
       background: white;
-      box-shadow: 0 0 0 20px rgba(1, 1, 32, 0.459), inset 0 0 3px rgba(115, 114, 23, 0.8);
+      box-shadow:
+        0 0 0 20px rgba(1, 1, 32, 0.459),
+        inset 0 0 3px rgba(115, 114, 23, 0.8);
     }
 
     &-info {
@@ -113,7 +122,9 @@
       margin: 0 15px;
       padding: 40px 5px 0 5px;
       height: 90px;
-      text-shadow: 0 0 1px #fff, 0 1px 2px rgba(0, 0, 0, 0.3);
+      text-shadow:
+        0 0 1px #fff,
+        0 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     &-link {
