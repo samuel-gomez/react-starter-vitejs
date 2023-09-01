@@ -8,6 +8,7 @@ import {
   UnTexteEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
 import { defineFeature, loadFeature } from 'jest-cucumber';
+import { expect } from 'vitest';
 import PopoverPage from '../Popover';
 
 const feature = loadFeature('features/Demos/Popover/Popover.feature');

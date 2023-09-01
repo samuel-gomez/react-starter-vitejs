@@ -1,6 +1,7 @@
 import { screen, within, waitFor } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { DefineStepFunction } from 'jest-cucumber';
+import { expect } from 'vitest';
 
 export const JeSelectionneUneValeurSurleChamp = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^Je sélectionne la valeur "(.*)" sur le champ "(.*)"$/, async (type, fieldName) => {

@@ -3,6 +3,7 @@ import { screen, configure } from '@testing-library/react';
 import { render } from 'shared/testsUtils/customRender';
 import { SCOPE_MAIN } from 'shared/testsUtils/constants';
 import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
+import { expect } from 'vitest';
 import SlashDesignSystem from '../SlashDesignSystem';
 
 configure({ defaultHidden: true });

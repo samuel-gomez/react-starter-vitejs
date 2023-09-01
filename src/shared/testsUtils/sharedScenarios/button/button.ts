@@ -2,6 +2,7 @@ import { screen, within } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { fireEvent } from '@testing-library/react';
 import { DefineStepFunction } from 'jest-cucumber';
+import { expect } from 'vitest';
 import expectButton from './expectButton';
 
 export const UnBoutonEstMasque = (instruction: DefineStepFunction, parentLabel = '') =>

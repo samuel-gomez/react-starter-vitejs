@@ -1,4 +1,5 @@
 import { screen, within } from '@testing-library/dom';
+import { expect } from 'vitest';
 
 type TexpectTitle = {
   name: string | RegExp;

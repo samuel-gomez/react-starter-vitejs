@@ -1,4 +1,5 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
+import { expect } from 'vitest';
 import { screen, configure } from '@testing-library/react';
 import { render } from 'shared/testsUtils/customRender';
 import expectLink from 'shared/testsUtils/sharedScenarios/link/expectLink';

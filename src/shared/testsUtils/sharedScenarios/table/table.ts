@@ -1,6 +1,7 @@
 import { DefineStepFunction } from 'jest-cucumber';
 import isNull from 'lodash/isNull';
 import { screen, within } from '@testing-library/dom';
+import { expect } from 'vitest';
 import { getTableByRole } from './utils';
 
 export const LeTableauPresenteDesEntetesDeColonnesDansLOrdreSuivant = (

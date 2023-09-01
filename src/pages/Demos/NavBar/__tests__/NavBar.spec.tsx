@@ -2,6 +2,7 @@ import { configure, render, screen } from 'shared/testsUtils/customRender';
 import { SCOPE_PREVIEW } from 'shared/testsUtils/constants';
 import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnLienEstVisible, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
 import { defineFeature, loadFeature } from 'jest-cucumber';
+import { expect } from 'vitest';
 import NavBarPage from '../NavBar';
 
 configure({ defaultHidden: true });

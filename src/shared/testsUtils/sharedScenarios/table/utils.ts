@@ -1,4 +1,5 @@
 import { within, screen } from '@testing-library/react';
+import { expect } from 'vitest';
 
 export const getTableByRole = async (tableName: string) => {
   const table = await screen.findByRole('table', { name: RegExp(tableName) });
