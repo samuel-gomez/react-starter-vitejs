@@ -2,6 +2,7 @@ import { defineFeature, loadFeature } from 'jest-cucumber';
 import { screen, configure } from '@testing-library/react';
 import { render } from 'shared/testsUtils/customRender';
 import { expectTitle, JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnTexteEstVisible, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
+import { expect } from 'vitest';
 import Home from '../Home';
 
 configure({ defaultHidden: true });

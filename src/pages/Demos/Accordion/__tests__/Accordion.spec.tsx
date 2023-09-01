@@ -6,6 +6,7 @@ import {
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
 import { defineFeature, loadFeature } from 'jest-cucumber';
+import { expect } from 'vitest';
 import AccordionPage from '../Accordion';
 
 const feature = loadFeature('features/Demos/Accordion/Accordion.feature');

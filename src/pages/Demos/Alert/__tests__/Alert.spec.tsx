@@ -15,6 +15,7 @@ import {
   UnBoutonSansLabelEstMasque,
 } from 'shared/testsUtils/sharedScenarios';
 import { defineFeature, loadFeature } from 'jest-cucumber';
+import { expect } from 'vitest';
 import AlertPage from '../Alert';
 
 const feature = loadFeature('features/Demos/Alert/Alert.feature');

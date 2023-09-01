@@ -80,11 +80,7 @@ describe('useEnv', () => {
 
 describe('fetchEnv', () => {
   const resolvedValue = { json: () => ({ data: 'data' }), blob: () => ({ blob: 'blob' }), status: 200 };
-  const fetchMock = vi.fn(() =>
-    Promise.resolve({
-      json: () => Promise.resolve({ data: 'data' }),
-    }),
-  ) as Partial<typeof fetch> as jest.Mock;
+  const fetchMock = vi.fn().mockResolvedValue(resolvedValue);
 
   const setEnvStateMock = vi.fn();
   const getFileEnvFnMock = vi.fn();

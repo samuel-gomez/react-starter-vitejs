@@ -1,6 +1,7 @@
 import { render, screen } from 'shared/testsUtils/customRender';
 import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnBoutonEstVisible, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
 import { defineFeature, loadFeature } from 'jest-cucumber';
+import { expect } from 'vitest';
 import ModalCustom from '..';
 
 const feature = loadFeature('features/Demos/ModalCustom/ModalCustom.feature');

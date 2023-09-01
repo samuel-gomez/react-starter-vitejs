@@ -15,6 +15,7 @@ import {
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
 import { defineFeature, loadFeature } from 'jest-cucumber';
+import { expect } from 'vitest';
 import RadioInputPage from '../RadioInput';
 
 configure({ defaultHidden: true });

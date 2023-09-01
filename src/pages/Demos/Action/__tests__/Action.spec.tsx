@@ -6,6 +6,7 @@ import {
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
 import { defineFeature, loadFeature } from 'jest-cucumber';
+import { expect } from 'vitest';
 import ActionPage from '../Action';
 
 const feature = loadFeature('features/Demos/Action/Action.feature');

@@ -1,6 +1,7 @@
 import { screen, within, waitFor } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { DefineStepFunction } from 'jest-cucumber';
+import { expect } from 'vitest';
 
 export const UnChampCheckboxToggleAvecUnLabelEtUneValeurNonSelectionne = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^un champ checkbox toggle "(.*)" avec le label "(.*)" non sélectionné$/, async (id, label) => {
