@@ -1,30 +1,31 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Title } from '@axa-fr/react-toolkit-layout-header/dist/esm/index';
-import { withClassDefault, withClassModifier, WithClassModifierOptions, compose, identity } from '@axa-fr/react-toolkit-core';
+import withClassNameModifier, { TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
 import './TitleBar.scss';
 
-type TTitleBar = WithClassModifierOptions & {
+type TTitleBar = {
   backHome?: boolean;
   children?: ReactNode;
   className?: string;
   title?: string;
   handleClick?: () => void;
-};
+} & TwithClassNameModifier;
 
 export const DEFAULT_CLASSNAME = 'af-title-bar';
 
-const TitleBar = ({ title = 'title', handleClick, children, backHome = false, className }: TTitleBar) => (
-  <Title className={className} toggleMenu={handleClick} title={title}>
-    {backHome && (
-      <Link aria-label="Retour à l'accueil" className="btn af-btn--circle" to="/">
-        <i className="glyphicon glyphicon-home" />
-      </Link>
-    )}
-    {children}
-  </Title>
+const TitleBar = withClassNameModifier(
+  ({ title = 'title', handleClick, children, backHome = false, className }: TTitleBar) => (
+    <Title className={className} toggleMenu={handleClick} title={title}>
+      {backHome && (
+        <Link aria-label="Retour à l'accueil" className="btn af-btn--circle" to="/">
+          <i className="glyphicon glyphicon-home" />
+        </Link>
+      )}
+      {children}
+    </Title>
+  ),
+  { defaultClassName: DEFAULT_CLASSNAME },
 );
 
-const enhance = compose(identity<TTitleBar>(), withClassDefault(DEFAULT_CLASSNAME), withClassModifier());
-
-export default enhance(TitleBar);
+export default TitleBar;
