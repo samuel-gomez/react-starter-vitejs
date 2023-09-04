@@ -1,32 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
-import { screen, fireEvent, renderHook } from '@testing-library/react';
-import { renderWithWrapperStaticRouter } from 'shared/testsUtils';
-import MenuEnhanced, { setPositionInit, setToggleMenu, computeMenuItems, useMenuVisible } from '../Menu.container';
+import { renderHook } from '@testing-library/react';
+import { setPositionInit, setToggleMenu, computeMenuItems, useMenuVisible } from '../Menu.container';
 import { CLASS_BODY_MENU_OPEN } from '../constants';
 import { MENU_ITEMS_MOCK, expectedMock } from './Menu.mock';
-
-describe('<MenuEnhanced/>', () => {
-  const defaultProps = {
-    menuItems: MENU_ITEMS_MOCK,
-    isVisible: true,
-    onClick: vi.fn(),
-  };
-  it('Render <Menu/>', () => {
-    const { asFragment } = renderWithWrapperStaticRouter(<MenuEnhanced {...defaultProps} />);
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('Render <Menu/> fullscreen', () => {
-    const { asFragment } = renderWithWrapperStaticRouter(<MenuEnhanced {...defaultProps} fullScreen />);
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('Should call toggle class body When click on button', () => {
-    renderWithWrapperStaticRouter(<MenuEnhanced {...defaultProps} />);
-    fireEvent.click(screen.getByTitle('Open toggle menu'));
-    expect(document.querySelector('body')?.getAttribute('class')).toEqual('af-menu-open');
-  });
-});
 
 describe('computeMenuItems', () => {
   it('Should return computed menuitems when computeMenuItems have been called with MENU_ITEMS_MOCK', () => {

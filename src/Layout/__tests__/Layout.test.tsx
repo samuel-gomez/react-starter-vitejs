@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { renderWithWrapperStaticRouter } from 'shared/testsUtils';
+import { render, screen } from 'shared/testsUtils';
 import Layout from '../Layout';
 
 const defautlProps = {
@@ -12,14 +12,15 @@ const defautlProps = {
 
 describe('Layout', () => {
   it.each`
-    fullScreen | disabled
-    ${false}   | ${{ header: true }}
-    ${false}   | ${{ title: true }}
-    ${false}   | ${{ footer: true }}
-    ${false}   | ${{ menu: true }}
-    ${true}    | ${{ header: true, title: true, menu: true, footer: true }}
-  `('Should render when disabled: $disabled', ({ disabled, fullScreen }) => {
-    const { asFragment } = renderWithWrapperStaticRouter(<Layout disabled={disabled} fullScreen={fullScreen} {...defautlProps} />);
-    expect(asFragment()).toMatchSnapshot();
+    fullScreen | disabled                                                                   | expectedContent
+    ${false}   | ${{ header: true }}                                                        | ${['TitleBarCmpt', 'MenuCmpt', 'FooterCmpt', 'A11yMenuCmpt']}
+    ${false}   | ${{ title: true }}                                                         | ${['HeaderCmpt', 'MenuCmpt', 'FooterCmpt', 'A11yMenuCmpt']}
+    ${false}   | ${{ footer: true }}                                                        | ${['HeaderCmpt', 'TitleBarCmpt', 'MenuCmpt', 'A11yMenuCmpt']}
+    ${false}   | ${{ menu: true }}                                                          | ${['HeaderCmpt', 'TitleBarCmpt', 'FooterCmpt', 'A11yMenuCmpt']}
+    ${false}   | ${{ a11yMenu: true }}                                                      | ${['HeaderCmpt', 'TitleBarCmpt', 'MenuCmpt', 'FooterCmpt']}
+    ${true}    | ${{ header: true, title: true, menu: true, footer: true, a11yMenu: true }} | ${[]}
+  `('Should render when disabled: $disabled', ({ disabled, fullScreen, expectedContent }) => {
+    render(<Layout disabled={disabled} fullScreen={fullScreen} {...defautlProps} />);
+    expectedContent.forEach((content: string) => expect(screen.getByText(content)).toBeInTheDocument());
   });
 });

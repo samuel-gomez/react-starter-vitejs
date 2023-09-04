@@ -1,13 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { emptyFunction, renderWithWrapperStaticRouter } from 'shared/testsUtils';
+import { emptyFunction, render } from 'shared/testsUtils';
 import TitleBarEnhanced from '..';
 
 const defaultProps = { title: 'title', handleClick: emptyFunction };
-
-const createRender = (customProps = {}) => {
-  const actualProps = { ...defaultProps, ...customProps };
-  return renderWithWrapperStaticRouter(<TitleBarEnhanced {...actualProps} />);
-};
 
 describe('Component <TitleBarEnhanced />', () => {
   it.each`
@@ -20,8 +15,8 @@ describe('Component <TitleBarEnhanced />', () => {
     ${{ className: 'otherclassname', backHome: true, classModifier: 'custom' }}                   | ${'.otherclassname--backhome.otherclassname--custom'}
     ${{ className: 'otherclassname', backHome: true, classModifier: 'custom', fullScreen: true }} | ${'.otherclassname--backhome.otherclassname--custom.otherclassname--fullscreen'}
   `('Should render TitleBarEnhanced with customProps: $customProps', ({ customProps, classNameExpected }) => {
-    const { asFragment, container } = createRender(customProps);
+    const actualProps = { ...defaultProps, ...customProps };
+    const { container } = render(<TitleBarEnhanced {...actualProps} />);
     expect(container.querySelector(classNameExpected)).toBeDefined();
-    expect(asFragment()).toMatchSnapshot();
   });
 });

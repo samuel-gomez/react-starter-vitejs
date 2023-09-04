@@ -9,10 +9,18 @@ export type TMenu = Omit<ComponentPropsWithoutRef<typeof NavBar>, 'children' | '
   createMenuFn?: typeof createMenu;
   fullScreen?: boolean;
   onClick?: ComponentPropsWithoutRef<typeof NavBar>['onClick'];
+  ariaLabel?: string;
 };
 
-export const Menu = ({ fullScreen, menuItems, createMenuFn = createMenu, onClick = emptyFunction, ...navBarProps }: TMenu) => (
-  <section className={`af-menu${fullScreen ? ' af-menu--fullscreen' : ''}`}>
+export const Menu = ({
+  fullScreen,
+  menuItems,
+  ariaLabel = 'Section menu',
+  createMenuFn = createMenu,
+  onClick = emptyFunction,
+  ...navBarProps
+}: TMenu) => (
+  <section aria-label={ariaLabel} className={`af-menu${fullScreen ? ' af-menu--fullscreen' : ''}`}>
     <NavBar {...navBarProps} onClick={onClick}>
       {menuItems && createMenuFn(menuItems, onClick)}
     </NavBar>

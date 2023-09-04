@@ -1,66 +1,79 @@
 import { describe, it, expect } from 'vitest';
-import { render } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { HeaderApp as Header, HeaderInfo } from '../Header';
 
 const defaultProps = {
-  title: 'title',
-  subtitle: 'subtitle',
+  title: "titre de l'application",
+  subtitle: "Sous titre de l'application",
   infos: [],
   anomaly: null,
 };
+
+const checkContent = () => {
+  const header = screen.getByRole('banner');
+  expect(header).toBeDefined();
+  const headerScope = within(header);
+
+  expect(headerScope.getByText(/\[Profil\]/i)).toBeInTheDocument();
+  expect(headerScope.getByText(/Non Connecté/i)).toBeInTheDocument();
+  expect(headerScope.getByAltText(/titre de l'application/)).toBeInTheDocument();
+  expect(headerScope.getByRole('heading', { level: 2, name: RegExp(defaultProps.title) })).toBeInTheDocument();
+  expect(headerScope.getByText(defaultProps.subtitle)).toBeInTheDocument();
+  return header;
+};
+
 describe('<Header/>', () => {
-  it('Render <Header/>', () => {
-    const { asFragment } = render(<Header {...defaultProps} />);
-    expect(asFragment()).toMatchSnapshot();
+  it('Render <Header/>', async () => {
+    const { container } = render(<Header {...defaultProps} />);
+    checkContent();
+    expect(await axe(container)).toHaveNoViolations();
   });
 
   it('Render <Header/> fullscreen', () => {
-    const { asFragment } = render(<Header {...defaultProps} fullScreen />);
-    expect(asFragment()).toMatchSnapshot();
+    render(<Header {...defaultProps} fullScreen />);
+    const header = checkContent();
+    expect(header.closest('.af-header')).toHaveClass('af-header--fullscreen');
   });
 
   it('Should contain <Infos /> with "mydefinition" text when infos equal [{ word: "word", definition: "mydefinition" }]', () => {
-    const { getByText } = render(<Header {...defaultProps} infos={[{ word: 'word', definition: 'mydefinition' }]} />);
-    expect(getByText('mydefinition')).toBeDefined();
+    render(<Header {...defaultProps} infos={[{ word: 'word', definition: 'mydefinition' }]} />);
+    expect(screen.getByText('mydefinition')).toBeDefined();
   });
 
-  it('Should contain <User /> with when authName="FDS" authRole="ADMIN"', () => {
-    const { getByText } = render(<Header {...defaultProps} authName="FDS" authRole="ADMIN" />);
-    expect(getByText('FDS')).toBeDefined();
-    expect(getByText(/ADMIN/)).toBeDefined();
-  });
-
-  it('Should contain <User /> with "Non Connecté" and "Profil" when authName and/or authRole are undefined', () => {
-    const { getByText } = render(<Header {...defaultProps} />);
-    expect(getByText('Non Connecté')).toBeDefined();
-    expect(getByText(/Profil/)).toBeDefined();
-  });
-
-  it('Should contain <User /> with "Non Connecté" and "Profil" when authName undefined and authRole empty', () => {
-    const { getByText } = render(<Header {...defaultProps} authRole="" />);
-    expect(getByText('Non Connecté')).toBeDefined();
-    expect(getByText(/inconnu/)).toBeDefined();
-  });
+  it.each`
+    authName     | authRole     | expectedName      | expectedRole
+    ${'FDS'}     | ${'ADMIN'}   | ${'FDS'}          | ${'ADMIN'}
+    ${undefined} | ${undefined} | ${'Non Connecté'} | ${'Profil'}
+    ${undefined} | ${''}        | ${'Non Connecté'} | ${'inconnu'}
+  `(
+    'Should contain <User /> with expectedName: $expectedName, expectedRole: $expectedRole when authName= $authName, authRole= $authRole ',
+    ({ authName, authRole, expectedName, expectedRole }) => {
+      render(<Header {...defaultProps} authName={authName} authRole={authRole} />);
+      expect(screen.getByText(RegExp(expectedName))).toBeDefined();
+      expect(screen.getByText(RegExp(expectedRole))).toBeDefined();
+    },
+  );
 });
 
 describe('<HeaderInfo/>', () => {
   const Custom = () => <span>Mon composant</span>;
 
   it('Should contain Skeleton when isLoader false', () => {
-    const { getByRole } = render(
+    render(
       <HeaderInfo>
         <Custom />
       </HeaderInfo>,
     );
-    expect(getByRole('status')).toBeDefined();
+    expect(screen.getByRole('status')).toBeDefined();
   });
 
   it('Should contain Custom when isLoader true', () => {
-    const { getByText } = render(
+    render(
       <HeaderInfo isLoaded>
         <Custom />
       </HeaderInfo>,
     );
-    expect(getByText('Mon composant')).toBeDefined();
+    expect(screen.getByText('Mon composant')).toBeDefined();
   });
 });

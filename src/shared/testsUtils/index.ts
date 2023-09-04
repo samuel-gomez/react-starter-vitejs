@@ -1,4 +1,4 @@
-export { render, screen, userEvent } from './customRender';
+export * from './customRender';
 export { default as emptyFunction } from '../helpers/emptyFunction';
 export { default as clearString } from './clearString';
 export { default as WrapperStaticRouter } from './WrapperStaticRouter';

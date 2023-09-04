@@ -1,29 +1,37 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { emptyFunction, renderWithWrapperStaticRouter } from 'shared/testsUtils';
+import { emptyFunction, render, screen } from 'shared/testsUtils';
 import TitleBar from '../TitleBar';
 
-const defaultProps = { title: 'title', handleClick: emptyFunction };
+const defaultProps = { title: 'titre barre', handleClick: emptyFunction };
+
+const checkContent = (titleBarClass = '.af-title-bar') => {
+  const title = screen.getByRole('heading', { level: 1, name: RegExp(defaultProps.title) });
+  expect(title).toBeInTheDocument();
+  const titleBar = title.closest(titleBarClass);
+  return titleBar;
+};
 
 describe('<TitleBar/>', () => {
-  it('Render <TitleBar />', () => {
-    const { asFragment } = render(<TitleBar {...defaultProps} />);
-    expect(asFragment()).toMatchSnapshot();
+  it('Render <TitleBar />', async () => {
+    render(<TitleBar {...defaultProps} />);
+    checkContent();
+    // TODO: fix axe violations on Toolkit
+    // expect(await axe(container)).toHaveNoViolations();
   });
 
   it('Render <TitleBar /> with other classname and child', () => {
-    const { asFragment, getByText } = render(
+    render(
       <TitleBar {...defaultProps} className="other">
-        <p>child</p>
+        <p>child for titlebar</p>
       </TitleBar>,
     );
-    expect(getByText('child')).toBeDefined();
-    expect(asFragment()).toMatchSnapshot();
+    checkContent('other');
+    expect(screen.getByText('child for titlebar')).toBeDefined();
   });
 
   it('Should contain back home <Link /> when backHome is true', () => {
-    const { asFragment } = renderWithWrapperStaticRouter(<TitleBar {...defaultProps} backHome />);
+    render(<TitleBar {...defaultProps} backHome />);
+    checkContent();
     expect(screen.getByLabelText("Retour à l'accueil")).toBeDefined();
-    expect(asFragment()).toMatchSnapshot();
   });
 });

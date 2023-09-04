@@ -54,6 +54,7 @@ const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>
 // re-export everything
 export * from '@testing-library/react';
 export { default as userEvent } from '@testing-library/user-event';
+export { axe } from 'jest-axe';
 
 // override render method
 export { customRender as render };
