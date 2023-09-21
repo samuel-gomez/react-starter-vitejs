@@ -1,5 +1,7 @@
 import { ROUTE_URL_HOME as HOME } from 'pages/Home/constants';
 import { ROUTE_URL_MEMBERS as MEMBERS } from 'pages/Demos/Members/constants';
+import { ROUTE_URL_MEMBERSNEW as MEMBERSNEW } from 'pages/Demos/MembersNew/constants';
+import { ROUTE_URL_PROTECTEDPAGE as PROTECTEDPAGE } from 'pages/Demos/ProtectedPage/constants';
 import { ROUTE_URL_SEARCHMEMBERS as SEARCHMEMBERS } from 'pages/Demos/SearchMembers/constants';
 import { ROUTE_URL_MODAL_CUSTOM as MODAL_CUSTOM } from 'pages/Demos/ModalCustom/constants';
 import { ROUTE_URL_NOTIFICATION as NOTIFICATION } from 'pages/Demos/Notification/constants';
@@ -46,6 +48,7 @@ const DEMOS = '/demos';
 const URLS_FULL_DEMOS = {
   HOME,
   MEMBERS,
+  MEMBERSNEW,
   SEARCHMEMBERS,
   MODAL_CUSTOM,
   NOTIFICATION,
@@ -88,6 +91,7 @@ const URLS_TOOLKIT_DEMOS = {
 };
 
 const URLS_OTHER_PAGES = {
+  PROTECTEDPAGE,
   NOTFOUND,
   UNAUTHORIZE,
   LAYOUT,
