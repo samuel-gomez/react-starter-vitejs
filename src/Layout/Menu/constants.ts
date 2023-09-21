@@ -17,6 +17,10 @@ const MENU_ITEMS = [
         url: ROUTE_URL.MEMBERS,
       },
       {
+        label: 'Nouveau membre',
+        url: ROUTE_URL.MEMBERSNEW,
+      },
+      {
         label: 'Rechercher',
         url: ROUTE_URL.SEARCHMEMBERS,
       },
@@ -192,6 +196,10 @@ const MENU_ITEMS = [
   {
     label: 'Layout',
     url: `/${ROUTE_URL.LAYOUT}`,
+  },
+  {
+    label: 'Protected Page',
+    url: ROUTE_URL.PROTECTEDPAGE,
   },
 ];
 
