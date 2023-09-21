@@ -4,6 +4,7 @@ import packageJson from '../../package.json';
  * FORM CONSTANTS
  ************************************************************************ */
 export const MSG_REQUIRED = 'Le champ est obligatoire';
+
 export const MSG_LENGTH_3 = 'Le champ doit faire au moins 3 caractères';
 export const MSG_FORMAT = 'Format invalide';
 export const MSG_ERROR_FORMAT = 'Format de fichier incorrect';
@@ -12,6 +13,28 @@ export const DEFAULT_OPTION_LABEL = '- Sélectionner -';
 export const DEFAULT_OPTION = {
   value: '',
   label: DEFAULT_OPTION_LABEL,
+};
+
+// patterns
+export const patternEmail = /^[\w-+._]+@([\w-+]+\.)+[\w-]{2,}$/;
+export const patternPhoneNumber = /^[+0][0-9 ]*$/;
+export const patternZipCode = /^[0-9]{5}$/;
+export const patternSiret = /^[0-9]{14}$/;
+export const patternSiren = /^[0-9]{9}$/;
+export const patternSiretSiren = /^[0-9]{9,14}$/;
+
+export const phoneNumberRule = {
+  required: true,
+  minLength: 4,
+  maxLength: 20,
+  pattern: patternPhoneNumber,
+};
+
+export const emailRule = {
+  required: true,
+  minLength: 6,
+  maxLength: 60,
+  pattern: patternEmail,
 };
 
 /** ***********************************************************************
