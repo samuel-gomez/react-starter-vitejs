@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { useContext } from 'react';
 import { render } from '@testing-library/react';
 import { STATUS_HTTP_MESSAGES } from 'shared/constants';
@@ -14,6 +13,7 @@ import FetchProvider, {
   setQueryClient,
   setQuery,
   defaultQueryWithAuth,
+  TFetchCustom,
 } from '../FetchProvider';
 
 describe('defaultQueryWithAuth', () => {
@@ -36,7 +36,7 @@ const apiMock = {
 };
 
 type TBase = {
-  fetchCustom?: (path: string, customConfig: object) => Promise<Response> | null;
+  fetchCustom?: TFetchCustom;
 };
 
 const Base = ({ fetchCustom }: TBase) => <div>{fetchCustom ? 'haveFetchCustom' : 'notHaveFetchCustom'}</div>;

@@ -8,15 +8,17 @@ import { EnvironmentContext } from 'App/EnvironmentProvider';
 import { mergeObj, manageConfig } from 'shared/helpers';
 import setResponseError from './setResponseError';
 
+export type TFetchCustom = <T>(params: unknown[] | { path: string; customConfig: object }) => Promise<T>;
+
 export type FetchContextType = {
-  fetchCustom: (path: string, customConfig: object) => Promise<Response> | null;
+  fetchCustom: TFetchCustom;
   queryClient: QueryClient;
 };
 
 export const FetchContext = createContext<FetchContextType | object>({});
 FetchContext.displayName = 'FetchContext';
 
-export type TFetchCustom = {
+export type TsetFetchCustom = {
   apiUrl: Record<string, string>;
   fetchAuthConfig: object;
   fetchFn?: typeof fetch;
@@ -71,7 +73,7 @@ export const buildResponse = async (response: TResponse, config: TConfig, comput
 };
 
 export const setFetchCustom =
-  ({ apiUrl, fetchAuthConfig, fetchFn = fetch, mergeObjFn = mergeObj, manageConfigFn = manageConfig }: TFetchCustom) =>
+  ({ apiUrl, fetchAuthConfig, fetchFn = fetch, mergeObjFn = mergeObj, manageConfigFn = manageConfig }: TsetFetchCustom) =>
   async (queryKey: QueryKey) => {
     const [path, customConfig, apiName = API_URL.BASE]: QueryKey = queryKey;
     const url = `${apiUrl[apiName as string]}${path}`;
@@ -81,7 +83,7 @@ export const setFetchCustom =
     return buildResponse(response, config as TConfig);
   };
 
-export type TFetchProvider = Pick<TFetchCustom, 'mergeObjFn'> & {
+export type TFetchProvider = Pick<TsetFetchCustom, 'mergeObjFn'> & {
   children: ReactNode;
   useOidcAccessTokenFn?: typeof useOidcAccessToken;
   setQueryClientFn?: typeof setQueryClient;
