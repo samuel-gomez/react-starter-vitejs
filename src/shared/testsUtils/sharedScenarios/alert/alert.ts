@@ -1,5 +1,4 @@
 import { DefineStepFunction } from 'jest-cucumber';
-import { expect } from 'vitest';
 import { getBase } from '../utils';
 
 const expectAlertHaveTextContent = async ({ parentLabel = '', messageAlert }: { parentLabel: string; messageAlert: string }) => {
@@ -15,7 +14,7 @@ export const UneAlertErrorContenantLeMessage = (
   scenarioName = /^une alerte de type error contenant le message : "(.*)"$/,
 ) =>
   instruction(scenarioName, async messageAlert => {
-    const alert = expectAlertHaveTextContent({ parentLabel, messageAlert });
+    const alert = await expectAlertHaveTextContent({ parentLabel, messageAlert });
     expect(alert).toHaveClass('af-alert--error');
   });
 
@@ -25,7 +24,7 @@ export const UneAlertInfoContenantLeMessage = (
   scenarioName = /^une alerte de type info contenant le message : "(.*)"$/,
 ) =>
   instruction(scenarioName, async messageAlert => {
-    const alert = expectAlertHaveTextContent({ parentLabel, messageAlert });
+    const alert = await expectAlertHaveTextContent({ parentLabel, messageAlert });
     expect(alert).toHaveClass('af-alert--info');
   });
 
@@ -35,7 +34,7 @@ export const UneAlertDangerContenantLeMessage = (
   scenarioName = /^une alerte de type danger contenant le message : "(.*)"$/,
 ) =>
   instruction(scenarioName, async messageAlert => {
-    const alert = expectAlertHaveTextContent({ parentLabel, messageAlert });
+    const alert = await expectAlertHaveTextContent({ parentLabel, messageAlert });
     expect(alert).toHaveClass('af-alert--danger');
   });
 
@@ -45,6 +44,6 @@ export const UneAlertSuccessContenantLeMessage = (
   scenarioName = /^une alerte de type success contenant le message : "(.*)"$/,
 ) =>
   instruction(scenarioName, async messageAlert => {
-    const alert = expectAlertHaveTextContent({ parentLabel, messageAlert });
+    const alert = await expectAlertHaveTextContent({ parentLabel, messageAlert });
     expect(alert).toHaveClass('af-alert--success');
   });

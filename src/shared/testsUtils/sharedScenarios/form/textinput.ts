@@ -1,7 +1,6 @@
 import { screen, within, waitFor } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { DefineStepFunction } from 'jest-cucumber';
-import { expect } from 'vitest';
 
 export const UnChampTextEstVisibleAvecLaValeurEtUnPlaceholder = (instruction: DefineStepFunction, parentLabel = '', inputRole = 'textbox') =>
   instruction(/^un champ texte "(.*)" est visible avec la valeur "(.*)", un placeholder "(.*)"$/, (name, value, placeholder) => {
@@ -11,9 +10,15 @@ export const UnChampTextEstVisibleAvecLaValeurEtUnPlaceholder = (instruction: De
   });
 
 export const UnChampTextEstVisible = (instruction: DefineStepFunction, parentLabel = '', inputRole = 'textbox') =>
-  instruction(/^un champ texte "(.*)" est visible avec la valeur "(.*)"$/, (fieldName, value) => {
+  instruction(/^un champ texte "(.*)" est visible$/, fieldName => {
     const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
-    expect(base.getByRole(inputRole, { name: RegExp(fieldName) })).toHaveValue(value);
+    expect(base.getByRole(inputRole, { name: RegExp(fieldName) })).toBeInTheDocument();
+  });
+
+export const UnChampTextEstVisibleAvecLaValeur = (instruction: DefineStepFunction, parentLabel = '', inputRole = 'textbox') =>
+  instruction(/^un champ texte "(.*)" est visible avec la valeur "(.*)"$/, async (fieldName, value) => {
+    const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
+    await waitFor(() => expect(base.getByRole(inputRole, { name: RegExp(fieldName) })).toHaveValue(value));
   });
 
 export const UnChampTextEstMasque = (instruction: DefineStepFunction, parentLabel = '', inputRole = 'textbox') =>
