@@ -1,5 +1,4 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
-import { expect } from 'vitest';
 import { screen, configure } from '@testing-library/react';
 import { render } from 'shared/testsUtils/customRender';
 import {
@@ -22,7 +21,7 @@ import {
   UnChampTextEstMasque,
   UnChampTextEstOptionnel,
   UnChampTextEstRequis,
-  UnChampTextEstVisible,
+  UnChampTextEstVisibleAvecLaValeur,
   UnChampTextEstVisibleAvecLaValeurEtUnPlaceholder,
   UnChampTextEstVisibleAvecSonWrapper,
   UnCodeDecomposantEstVisible,
@@ -73,7 +72,7 @@ defineFeature(feature, test => {
     when("J'accède à la page playground NumberInput", renderPage);
     JeCliqueSurLeBouton(and);
     UnEditeurEstVisible(then);
-    UnChampTextEstVisible(and);
+    UnChampTextEstVisibleAvecLaValeur(and);
     JeSaisieDansLeChamp(when, SCOPE_EDITOR);
     JeSaisieDansLeChamp(and, SCOPE_EDITOR);
     JeSaisieDansLeChamp(and, SCOPE_EDITOR);
@@ -171,7 +170,7 @@ defineFeature(feature, test => {
     when("J'accède à la page playground NumberInput", renderPage);
     JeCliqueSurLeBouton(and);
     UnEditeurEstVisible(then);
-    UnChampTextEstVisible(and);
+    UnChampTextEstVisibleAvecLaValeur(and);
     JeSaisieDansLeChamp(when, SCOPE_EDITOR);
     JeCliqueSurLaCheckbox(and, SCOPE_EDITOR);
     JeSelectionneUneValeurSurleChamp(and, SCOPE_EDITOR);
