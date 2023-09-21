@@ -36,7 +36,6 @@ export default defineConfig(({ mode }) => ({
         'src/setupTests.tsx',
         'src/shared/testsUtils/**/*.{ts,tsx}',
         'src/**/index.{ts,tsx}',
-        'src/**/index.{ts,tsx}',
         'src/**/*.test.{js,ts}',
         'src/**/__tests__/*.{ts,tsx}',
         'src/**/constants.ts',
