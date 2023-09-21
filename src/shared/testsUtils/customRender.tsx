@@ -1,14 +1,14 @@
-import { vi } from 'vitest';
 import { render, RenderOptions } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import FetchProvider from 'App/FetchProvider';
 import UserProvider from 'App/UserProvider';
 import EnvironmentProvider from 'App/EnvironmentProvider';
+import NotificationProvider from 'App/NotificationProvider';
 import { ReactElement, ReactNode } from 'react';
 import MOCK_API_URL from './constants';
 
 type TMockProvider = {
-  [x: string]: Record<string, unknown | number | string> | string | boolean | null;
+  [x: string]: Record<string, unknown | number | string> | string | boolean | null | number;
 };
 
 const MockProviders =
@@ -41,7 +41,9 @@ const MockProviders =
       <EnvironmentProvider useEnvFn={useEnvFn}>
         <UserProvider useOidcUserFn={useOidcUserFn}>
           <FetchProvider useOidcAccessTokenFn={useOidcAccessTokenFn}>
-            <MemoryRouter initialEntries={[`${route}`]}>{children}</MemoryRouter>
+            <NotificationProvider>
+              <MemoryRouter initialEntries={[`${route}`]}>{children}</MemoryRouter>
+            </NotificationProvider>
           </FetchProvider>
         </UserProvider>
       </EnvironmentProvider>
