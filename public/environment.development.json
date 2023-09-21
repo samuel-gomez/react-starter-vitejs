@@ -5,12 +5,9 @@
   },
   "baseUrl": "",
   "fetchConfig": {
-    "crossDomain": true,
-    "withCredentials": true,
-    "method": "GET",
-    "Access-Control-Allow-Origin": "*",
+    "credentials": "include",
     "headers": {
-      "accept": "application/json"
+      "Content-type": "application/json; charset=UTF-8"
     }
   },
   "oidc": {
