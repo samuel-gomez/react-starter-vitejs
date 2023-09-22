@@ -1,6 +1,5 @@
 import { screen, within } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
-import { fireEvent } from '@testing-library/react';
 import { DefineStepFunction } from 'jest-cucumber';
 import { expect } from 'vitest';
 import expectButton from './expectButton';
@@ -37,7 +36,7 @@ export const UnBoutonSansLabelEstMasque = (instruction: DefineStepFunction, inst
 export const JeCliqueSurLeBouton = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^je clique sur le bouton "(.*)"$/, labelBtn => {
     const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
-    fireEvent.click(base.getByText(labelBtn));
+    userEvent.click(base.getByText(labelBtn));
   });
 
 export const JeCliqueSurLeBoutonIcone = (instruction: DefineStepFunction, parentLabel = '') =>

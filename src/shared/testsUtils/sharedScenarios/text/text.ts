@@ -1,12 +1,11 @@
 import { screen, within } from '@testing-library/dom';
 import { DefineStepFunction } from 'jest-cucumber';
-import { expect } from 'vitest';
 
 export const UnTexteEstVisible = (instruction: DefineStepFunction, parentLabel = '', instructionName = /^un texte "(.*)" est visible$/) =>
-  instruction(instructionName, text => {
+  instruction(instructionName, async content => {
     const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
-
-    expect(base.getByText(RegExp(text))).toBeInTheDocument();
+    const text = await base.findByText(RegExp(content));
+    expect(text).toBeInTheDocument();
   });
 
 export const UnMessageEstVisibleAvecLaClass = (instruction: DefineStepFunction, parentLabel = '') =>

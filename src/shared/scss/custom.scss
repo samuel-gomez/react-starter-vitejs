@@ -1,6 +1,7 @@
 @import '@axa-fr/react-toolkit-core/dist/assets/scss/core.scss';
 @import './variables.scss';
 @import './mixins.scss';
+@import './keyframes.scss';
 
 /* FIX : LINK ***********************************************************/
 .af-link {
@@ -90,6 +91,14 @@
 .af-btn--circle-small {
   width: 2rem;
   height: 2rem;
+}
+
+// Button loading state
+.af-btn[aria-disabled='true'] {
+  .glyphicon {
+    animation: rotating 2s linear infinite;
+    top: 33%;
+  }
 }
 
 /* FIX/CUSTOM : TABLE ***********************************************************/
