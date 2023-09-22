@@ -1,4 +1,4 @@
-import setRequiredFieldRule, { setRequiredMessage } from './setRequiredFieldRule';
+import setRequiredFieldRule, { setRequiredMessage, setFieldName } from './setRequiredFieldRule';
 
 describe('setRequiredFieldRule', () => {
   it('Should return rule with name field when setRequiredFieldRule called with name field', () => {
@@ -19,13 +19,26 @@ describe('setRequiredFieldRule', () => {
 
 describe('setRequiredMessage', () => {
   it('Should return message with name field when setRequiredMessage called with name field', () => {
-    const result = setRequiredMessage('Nom');
+    const result = setRequiredMessage('Nom ');
     const expected = 'Le champ Nom est obligatoire';
     expect(result).toEqual(expected);
   });
   it('Should return generic message when setRequiredMessage called without name field', () => {
-    const result = setRequiredMessage();
+    const result = setRequiredMessage('');
     const expected = 'Le champ est obligatoire';
+    expect(result).toEqual(expected);
+  });
+});
+
+describe('setFieldName', () => {
+  it('Should return name field with space when setFieldName called with name field', () => {
+    const result = setFieldName('Nom');
+    const expected = 'Nom ';
+    expect(result).toEqual(expected);
+  });
+  it('Should return empty string when setFieldName called without name field', () => {
+    const result = setFieldName();
+    const expected = '';
     expect(result).toEqual(expected);
   });
 });
