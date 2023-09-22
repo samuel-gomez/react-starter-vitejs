@@ -30,7 +30,7 @@
     "@popperjs/core": "2.11.8",
     "@tanstack/react-query": "4.35.3",
     "@tanstack/react-query-devtools": "4.35.3",
-    "@uiw/react-textarea-code-editor": "2.1.7",
+    "@uiw/react-textarea-code-editor": "2.1.9",
     "axe-core": "4.8.2",
     "cross-fetch": "4.0.0",
     "downloadjs": "1.4.7",
