@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
 import { Result } from 'axe-core';
 import AccordionResults from '../AccordionResults';

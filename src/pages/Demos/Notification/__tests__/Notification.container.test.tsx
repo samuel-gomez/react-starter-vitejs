@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { emptyFunction, renderWithWrapperStaticRouter } from 'shared/testsUtils';
 import NotificationContainer from '../Notification.container';
 

@@ -1,6 +1,6 @@
 import { render, screen } from 'shared/testsUtils/customRender';
 import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
-import { expect } from 'vitest';
+
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import Notification from '..';
 

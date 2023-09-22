@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import { renderWithWrapperStaticRouter, emptyFunction } from 'shared/testsUtils';
-import { expect } from 'vitest';
+
 import NotFound from '../NotFound';
 
 const feature = loadFeature('features/NotFound/NotFound.feature');

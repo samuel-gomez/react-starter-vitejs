@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from 'shared/testsUtils';
 import { Menu } from '../Menu';
 import { expectedMock } from './Menu.mock';

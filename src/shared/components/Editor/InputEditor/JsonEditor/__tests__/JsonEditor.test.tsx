@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { act, render, renderHook } from '@testing-library/react';
 import { ChangeEvent } from 'react';
 import JsonEditor, { useJsonEditor } from '..';

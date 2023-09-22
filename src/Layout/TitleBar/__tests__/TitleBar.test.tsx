@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { emptyFunction, render, screen } from 'shared/testsUtils';
 import TitleBar from '../TitleBar';
 

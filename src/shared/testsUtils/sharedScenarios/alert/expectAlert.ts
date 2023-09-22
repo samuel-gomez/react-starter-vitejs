@@ -1,4 +1,3 @@
-import { expect } from 'vitest';
 import { getBase } from '../utils';
 
 type TexpectAlert = {

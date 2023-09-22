@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import mergeObj from 'shared/helpers/mergeObj';
 
 const baseObjLevel0 = { label: 'label' };

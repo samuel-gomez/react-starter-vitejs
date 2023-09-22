@@ -15,7 +15,7 @@ import {
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
 import { defineFeature, loadFeature } from 'jest-cucumber';
-import { expect } from 'vitest';
+
 import DateInputPage from '../DateInput';
 
 configure({ defaultHidden: true });

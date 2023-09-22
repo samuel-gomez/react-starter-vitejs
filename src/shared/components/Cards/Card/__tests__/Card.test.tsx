@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { screen, render, act, waitFor } from '@testing-library/react';
 import Card from '../index';
 

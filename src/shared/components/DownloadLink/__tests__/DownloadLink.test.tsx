@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import { MODES } from 'shared/components/Loader';
 import DownloadLink from '../DownloadLink';

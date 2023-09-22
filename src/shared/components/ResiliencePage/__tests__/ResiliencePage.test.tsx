@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { screen } from '@testing-library/react';
 import { render } from 'shared/testsUtils';
 import ResiliencePage from '../ResiliencePage';

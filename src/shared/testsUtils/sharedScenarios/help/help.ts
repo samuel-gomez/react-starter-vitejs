@@ -1,6 +1,5 @@
 import { screen, within } from '@testing-library/dom';
 import { DefineStepFunction } from 'jest-cucumber';
-import { expect } from 'vitest';
 
 export const UnBoutonHelpEstVisible = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^un bouton Help est visible$/, () => {

@@ -15,7 +15,7 @@ import {
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
 import { defineFeature, loadFeature } from 'jest-cucumber';
-import { expect } from 'vitest';
+
 import TextInputPage from '../TextInput';
 
 configure({ defaultHidden: true });

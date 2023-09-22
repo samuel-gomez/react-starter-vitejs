@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { STATUS_HTTP_MESSAGES } from 'shared/constants';
 import setResponseError from '../setResponseError';
 
