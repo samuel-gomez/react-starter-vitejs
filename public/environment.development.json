@@ -1,6 +1,6 @@
 {
   "apiUrl": {
-    "base": "http://localhost:8888/api/",
+    "base": "https://react-starter-api.vercel.app/api/",
     "github": "https://raw.githubusercontent.com/"
   },
   "baseUrl": "",
