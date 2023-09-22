@@ -16,12 +16,12 @@ export const DEFAULT_OPTION = {
 };
 
 // patterns
-export const patternEmail = /^[\w-+_]+@([\w-+]+\.)+[\w-]{2,}$/;
+export const patternEmail = /^[\w-+]+@([\w-+]+\.)+[\w-]{2,}$/;
 export const patternPhoneNumber = /^[+0][\d ]*$/;
-export const patternZipCode = /^[\d]{5}$/;
-export const patternSiret = /^[\d]{14}$/;
-export const patternSiren = /^[\d]{9}$/;
-export const patternSiretSiren = /^[\d]{9,14}$/;
+export const patternZipCode = /^\d{5}$/;
+export const patternSiret = /^\d{14}$/;
+export const patternSiren = /^\d{9}$/;
+export const patternSiretSiren = /^\d{9,14}$/;
 
 export const phoneNumberRule = {
   required: true,
