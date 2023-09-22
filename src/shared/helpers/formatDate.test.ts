@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { setDate, TsetDate, isValidDate, TisValidDate, formatDate } from './formatDate';
 
 type TsetDateTest = TsetDate & {

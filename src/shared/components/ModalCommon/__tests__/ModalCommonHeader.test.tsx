@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
 import { emptyFunction } from 'shared/testsUtils';
 import ModalCommonHeader from '../ModalCommonHeader';

@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
 import Accessibility from '../Accessibility';
 import { TResults } from '../Accessibility.hook';

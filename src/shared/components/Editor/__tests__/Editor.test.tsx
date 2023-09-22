@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { ComponentPropsWithoutRef, FocusEvent } from 'react';
 import { render, renderHook, act } from '@testing-library/react';
 import { Text } from '@axa-fr/react-toolkit-form-input-text/dist/esm/index';

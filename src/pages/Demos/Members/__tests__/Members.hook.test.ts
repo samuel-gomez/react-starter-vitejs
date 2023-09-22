@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import { TCols } from 'shared/components/Table/Body/Body';
 import { emptyFunction } from 'shared/testsUtils';
@@ -42,7 +41,7 @@ const expectedData = [
     key: '99999',
   },
 ];
-const defaultAnomaly = { label: 'Info : Aucune donnée trouvée', type: 'info', iconName: 'exclamation-sign' } || null;
+const defaultAnomaly = { label: 'Info : Aucune donnée trouvée', type: 'info', iconName: 'exclamation-sign' };
 
 type TsetExpected = {
   anomaly?: typeof defaultAnomaly | null;

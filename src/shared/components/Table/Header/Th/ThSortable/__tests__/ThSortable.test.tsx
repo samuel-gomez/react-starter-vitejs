@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { renderWithContainer } from 'shared/testsUtils';
 import ThSortable from '../ThSortable';
 

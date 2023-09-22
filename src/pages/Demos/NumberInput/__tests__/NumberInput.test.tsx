@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { screen, configure, within, waitFor } from '@testing-library/react';
 import { render, userEvent } from 'shared/testsUtils/customRender';
 import { expectButton, expectLink, expectTitle } from 'shared/testsUtils/sharedScenarios';

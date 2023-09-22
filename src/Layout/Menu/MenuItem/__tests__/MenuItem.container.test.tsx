@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from 'shared/testsUtils';
 import { expectLink } from 'shared/testsUtils/sharedScenarios';
 import MenuItemEnhanced from '../MenuItem.container';

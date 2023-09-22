@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { HeaderApp as Header, HeaderInfo } from '../Header';

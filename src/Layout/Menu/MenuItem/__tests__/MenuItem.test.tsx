@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from 'shared/testsUtils';
 import { expectLink } from 'shared/testsUtils/sharedScenarios';
 import { MenuItem, ActionElt } from '../MenuItem';

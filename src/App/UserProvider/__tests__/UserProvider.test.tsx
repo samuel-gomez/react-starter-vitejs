@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { useContext } from 'react';
 import { render, screen } from '@testing-library/react';
 import omit from 'lodash/omit';
@@ -31,7 +30,7 @@ const oidcUser = {
   family_name: 'Smith',
   email: 'BobSmith@email.com',
   email_verified: true,
-  website: 'http://bob.com',
+  website: 'https://bob.com',
   sub: '11',
   member_of: ['CN=Admin'],
   axa_uid_racf: 'S000007',

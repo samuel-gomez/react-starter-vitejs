@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { renderHook } from '@testing-library/react';
 import { setPositionInit, setToggleMenu, computeMenuItems, useMenuVisible } from '../Menu.container';
 import { CLASS_BODY_MENU_OPEN } from '../constants';

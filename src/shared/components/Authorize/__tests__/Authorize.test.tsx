@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import UserProvider, { UserContext, TUserContext } from 'App/UserProvider';
 import { createContext } from 'react';
@@ -25,7 +24,7 @@ describe('<Authorize/>', () => {
     family_name: 'Smith',
     email: 'BobSmith@email.com',
     email_verified: true,
-    website: 'http://bob.com',
+    website: 'https://bob.com',
     sub: '11',
     member_of: ['CN=User'],
     axa_uid_racf: 'S000007',

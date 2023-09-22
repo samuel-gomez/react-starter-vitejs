@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import { renderWithWrapperStaticRouter, emptyFunction } from 'shared/testsUtils';
 import { defineFeature, loadFeature } from 'jest-cucumber';
-import { expect } from 'vitest';
+
 import Unauthorize from '../Unauthorize';
 
 const feature = loadFeature('features/Unauthorize/Unauthorize.feature');

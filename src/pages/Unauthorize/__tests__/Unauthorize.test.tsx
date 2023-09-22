@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { renderWithWrapperStaticRouter } from 'shared/testsUtils';
 import Unauthorize from '../Unauthorize';
 

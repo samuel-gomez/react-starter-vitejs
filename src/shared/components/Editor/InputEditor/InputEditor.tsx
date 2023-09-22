@@ -41,6 +41,7 @@ const InputEditorObject = ({ value, ...props }: TInputEditorObject) => (
         case !!value.type && value.type === 'date':
           return (
             <DateInput
+              crossOrigin={undefined}
               {...commonProps(props)}
               label={props.name}
               onChange={props.onChange as unknown as ComponentPropsWithoutRef<typeof DateInput>['onChange']}

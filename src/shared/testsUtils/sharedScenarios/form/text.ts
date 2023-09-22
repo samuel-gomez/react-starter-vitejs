@@ -1,6 +1,5 @@
 import { screen, within, waitFor } from '@testing-library/dom';
 import { DefineStepFunction } from 'jest-cucumber';
-import { expect } from 'vitest';
 
 export const UnAideALaSaisieEstVisible = (instruction: DefineStepFunction) =>
   instruction(/^une aide à la saisie "(.*)" est visible$/, text => {

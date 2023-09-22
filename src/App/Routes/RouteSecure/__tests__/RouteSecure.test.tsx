@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from 'shared/testsUtils/customRender';
 import { AuthorizedProfile } from '../RouteSecure';
 

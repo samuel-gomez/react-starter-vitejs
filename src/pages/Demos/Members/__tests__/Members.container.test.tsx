@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render } from 'shared/testsUtils/customRender';
 import { totals, oneMember } from './Members.mock';
 import MembersContainer from '../Members.container';

@@ -5,7 +5,6 @@
   },
   "baseUrl": "/",
   "fetchConfig": {
-    "credentials": "include",
     "headers": {
       "Content-type": "application/json; charset=UTF-8"
     }

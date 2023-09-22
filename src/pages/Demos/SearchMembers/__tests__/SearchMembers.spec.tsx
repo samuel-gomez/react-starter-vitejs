@@ -1,5 +1,5 @@
 import { render, screen } from 'shared/testsUtils/customRender';
-import { expect } from 'vitest';
+
 import { emptyFunction } from 'shared/testsUtils';
 import {
   JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,

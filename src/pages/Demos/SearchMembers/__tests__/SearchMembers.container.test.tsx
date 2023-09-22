@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { screen } from '@testing-library/react';
 import { MODES } from 'shared/components/Loader';
 import { render, renderWithWrapperStaticRouter } from 'shared/testsUtils';

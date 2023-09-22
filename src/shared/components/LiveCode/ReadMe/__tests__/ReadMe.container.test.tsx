@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import { WrapperQuery } from 'shared/testsUtils';
 import ReadMeContainer from '../ReadMe.container';

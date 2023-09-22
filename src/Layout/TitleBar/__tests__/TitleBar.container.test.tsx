@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { emptyFunction, render } from 'shared/testsUtils';
 import TitleBarEnhanced from '..';
 

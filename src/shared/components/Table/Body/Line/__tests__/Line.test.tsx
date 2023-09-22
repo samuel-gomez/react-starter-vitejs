@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { renderWithContainer } from 'shared/testsUtils';
 import Line from '../Line';
 

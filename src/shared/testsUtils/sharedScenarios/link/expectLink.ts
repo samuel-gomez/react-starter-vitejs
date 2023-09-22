@@ -1,5 +1,4 @@
 import { screen, within } from '@testing-library/dom';
-import { expect } from 'vitest';
 
 type TexpectLink = {
   name: string;
