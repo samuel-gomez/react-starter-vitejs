@@ -24,7 +24,7 @@ describe('<Authorize/>', () => {
     family_name: 'Smith',
     email: 'BobSmith@email.com',
     email_verified: true,
-    website: 'http://bob.com',
+    website: 'https://bob.com',
     sub: '11',
     member_of: ['CN=User'],
     axa_uid_racf: 'S000007',

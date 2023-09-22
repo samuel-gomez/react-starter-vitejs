@@ -30,7 +30,7 @@ const oidcUser = {
   family_name: 'Smith',
   email: 'BobSmith@email.com',
   email_verified: true,
-  website: 'http://bob.com',
+  website: 'https://bob.com',
   sub: '11',
   member_of: ['CN=Admin'],
   axa_uid_racf: 'S000007',
