@@ -1,10 +1,9 @@
 {
   "apiUrl": {
-    "base": "https://react-starter-api.vercel.app/api/"
+    "base": "https://your-url/api/"
   },
   "baseUrl": "",
   "fetchConfig": {
-    "credentials": "include",
     "headers": {
       "Content-type": "application/json; charset=UTF-8"
     }
