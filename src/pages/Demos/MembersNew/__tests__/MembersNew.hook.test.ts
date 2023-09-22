@@ -45,7 +45,7 @@ describe('onSuccess', () => {
     };
 
     const fetchOnSuccess = onSuccess({ addNotification, reset });
-    await fetchOnSuccess(data);
+    fetchOnSuccess(data);
     expect(addNotification).toHaveBeenCalledWith({
       id: 'addmember-123',
       label: `Membre sam gomez ajouté avec succès`,
