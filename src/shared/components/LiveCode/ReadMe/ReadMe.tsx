@@ -35,12 +35,12 @@ const HighlightWrapper = ({ className, style, child, getLineProps, getTokenProps
   </pre>
 );
 
-export type TcodeMarkdown = {
+export type TCodeMarkdown = {
   inline?: boolean;
   className?: string;
   children?: ReactNode;
 };
-export const codeMarkdown = ({ inline, className, children }: TcodeMarkdown) => {
+export const CodeMarkdown = ({ inline, className, children }: TCodeMarkdown) => {
   const match = regexLanguage(className);
   return !inline && match ? (
     <Highlight {...defautProps} code={String(children).replace(/\n$/, '')} language="jsx">
@@ -60,7 +60,7 @@ export const codeMarkdown = ({ inline, className, children }: TcodeMarkdown) => 
   );
 };
 
-const ReadMe = ({ markdownContent, isFetching, error, refetch, codeMarkdownFn = codeMarkdown }: TReadMe) => (
+const ReadMe = ({ markdownContent, isFetching, error, refetch, CodeMarkdownFn = CodeMarkdown }: TReadMe) => (
   <Loader mode={setLoaderMode({ isLoading: isFetching })}>
     <Resilience anomaly={error as Tanomaly} refetch={refetch as React.MouseEventHandler<HTMLButtonElement>}>
       <div className="markdown-body">
@@ -68,7 +68,7 @@ const ReadMe = ({ markdownContent, isFetching, error, refetch, codeMarkdownFn = 
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeSlug]}
           components={{
-            code: codeMarkdownFn,
+            code: CodeMarkdownFn,
           }}
         >
           {markdownContent as string}

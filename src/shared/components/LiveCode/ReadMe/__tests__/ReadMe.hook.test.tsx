@@ -1,6 +1,5 @@
 import { waitFor } from '@testing-library/dom';
-import { renderHook, act } from '@testing-library/react';
-import { WrapperQuery } from 'shared/testsUtils';
+import { customRenderHook, act } from 'shared/testsUtils';
 import { useGithubReadme } from '../ReadMe.hook';
 
 const useQueryFn = vi.fn();
@@ -10,17 +9,17 @@ useQueryFn.mockReturnValue({
   error: false,
   refetch: () => ({}),
 });
+
 describe('useGithubReadme', () => {
   it('Render useGithubReadme with githubPackage, useGithubReadmeFn', () => {
-    const { result } = renderHook(() => useGithubReadme({ githubPackage: 'test', useQueryFn }));
+    const { result } = customRenderHook()(() => useGithubReadme({ githubPackage: 'test', useQueryFn }));
     act(() => {
       expect(result.current.markdownContent).toEqual('test');
     });
   });
 
   it('Render useGithubReadme with only githubPackage', async () => {
-    const wrapper = ({ children }: { children: JSX.Element }) => <WrapperQuery queryData="test markdown">{children}</WrapperQuery>;
-    const { result } = renderHook(() => useGithubReadme({ githubPackage: 'test' }), { wrapper });
+    const { result } = customRenderHook({ queryData: 'test markdown' })(() => useGithubReadme({ githubPackage: 'test' }), {});
     await waitFor(() => expect(result.current.markdownContent).toEqual('test markdown'));
   });
 });

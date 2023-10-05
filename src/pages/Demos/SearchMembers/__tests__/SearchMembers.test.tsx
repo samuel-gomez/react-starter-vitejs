@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { MODES } from 'shared/components/Loader';
-import { emptyFunction, renderWithWrapperStaticRouter, WrapperQuery } from 'shared/testsUtils';
+import { emptyFunction, render } from 'shared/testsUtils';
 import SearchMembers, { getDownloadPath, setFileName, DownloadLinkEnhanced } from '../SearchMembers';
 
 describe('getDownloadPath', () => {
@@ -41,10 +41,8 @@ describe('<DownloadLinkEnhanced />', () => {
     lastname: 'gomez',
   };
   it('Should call getDownloadPathFn and setFileNameFn with proper params', () => {
-    const { asFragment } = renderWithWrapperStaticRouter(
-      <WrapperQuery>
-        <DownloadLinkEnhanced {...defaultDownloadProps} getDownloadPathFn={getDownloadPathFnMock} setFileNameFn={setFileNameFnMock} />
-      </WrapperQuery>,
+    const { asFragment } = render(
+      <DownloadLinkEnhanced {...defaultDownloadProps} getDownloadPathFn={getDownloadPathFnMock} setFileNameFn={setFileNameFnMock} />,
     );
     expect(asFragment()).toMatchSnapshot();
     expect(getDownloadPathFnMock).toBeCalledWith('09878817');
@@ -52,11 +50,7 @@ describe('<DownloadLinkEnhanced />', () => {
   });
 
   it('Should call getDownloadPathFn and setFileNameFn with proper params 2 ', () => {
-    const { asFragment } = renderWithWrapperStaticRouter(
-      <WrapperQuery>
-        <DownloadLinkEnhanced {...defaultDownloadProps} />
-      </WrapperQuery>,
-    );
+    const { asFragment } = render(<DownloadLinkEnhanced {...defaultDownloadProps} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });
@@ -70,7 +64,7 @@ const defaultProps = {
 
 describe('<SearchMembers/>', () => {
   it('Should render <SearchMembers /> with one member', () => {
-    renderWithWrapperStaticRouter(
+    render(
       <SearchMembers
         {...defaultProps}
         searchMembers={[

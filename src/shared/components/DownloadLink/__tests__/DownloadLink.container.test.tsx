@@ -1,15 +1,15 @@
-import { render } from '@testing-library/react';
-import { WrapperQuery } from 'shared/testsUtils';
+import { render, screen } from 'shared/testsUtils';
 import DownloadLinkContainer from '../DownloadLink.container';
 
 describe('DownloadLinkContainer', () => {
   it('Render <DownloadLinkContainer/> ', () => {
-    const { asFragment } = render(
-      <WrapperQuery>
-        <DownloadLinkContainer label="Télécharger les résultats" path="elecions/3/resultats" fileName="2_20220112_AAM-VIE_resultats.csv" />
-      </WrapperQuery>,
-    );
-    expect(asFragment()).toMatchSnapshot();
+    render(<DownloadLinkContainer label="Télécharger les résultats" path="elecions/3/resultats" fileName="2_20220112_AAM-VIE_resultats.csv" />);
+    const button = screen.getByLabelText('Télécharger les résultats');
+    expect(button).toBeInTheDocument();
+    const imageSvg = screen.getByRole('img');
+    expect(imageSvg).toHaveClass('af-download-link__icon');
+    const titleSvg = screen.getByText('download-csv');
+    expect(titleSvg).toBeInTheDocument();
   });
 
   it('Should call useDownloadFn with path: "elecions/3/resultats" and callsetLoaderModeFn with {isLoading: false} when render DownloadLinkContainer', () => {

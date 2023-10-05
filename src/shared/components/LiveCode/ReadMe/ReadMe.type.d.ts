@@ -1,4 +1,4 @@
-import { codeMarkdown } from './ReadMe';
+import { CodeMarkdown } from './ReadMe';
 import { TReturnUseGithubReadme } from './ReadMe.hook';
 
 export type TReadMe = {
@@ -6,7 +6,7 @@ export type TReadMe = {
   isFetching: TReturnUseGithubReadme['isFetching'];
   error: TReturnUseGithubReadme['error'];
   refetch: TReturnUseGithubReadme['refetch'];
-  codeMarkdownFn?: typeof codeMarkdown;
+  CodeMarkdownFn?: typeof CodeMarkdown;
 };
 
 export type THighlightWrapper = {

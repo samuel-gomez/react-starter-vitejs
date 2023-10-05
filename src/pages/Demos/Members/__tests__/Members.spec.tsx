@@ -1,5 +1,4 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
-
 import { render, screen } from 'shared/testsUtils/customRender';
 import {
   JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,

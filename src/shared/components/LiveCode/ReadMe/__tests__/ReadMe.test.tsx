@@ -1,37 +1,26 @@
-import { render } from '@testing-library/react';
-import ReadMe, { codeMarkdown, regexLanguage } from '../ReadMe';
+import { render, screen } from 'shared/testsUtils';
+import ReadMe, { CodeMarkdown, regexLanguage } from '../ReadMe';
 
 describe('<ReadMe />', () => {
   it('Render <ReadMe /> with markdownContent, isFetching, error, refetch', () => {
-    const { asFragment } = render(<ReadMe markdownContent="test" isFetching={false} error={null} refetch={vi.fn()} />);
-
-    expect(asFragment()).toMatchSnapshot();
+    render(<ReadMe markdownContent="test" isFetching={false} error={null} refetch={vi.fn()} />);
+    expect(screen.getByText('test')).toBeInTheDocument();
   });
 });
 
-describe('codeFn', () => {
+describe('CodeMarkdown', () => {
   const childrenMock = ['const Button = () => <SimpleButton>Lorem Ipsum</SimpleButton>;\nexport default Button;\n'];
 
-  it('Render codeFn with inline undefined', () => {
-    const { asFragment } = render(
-      codeMarkdown({
-        inline: undefined,
-        className: 'language-javascript',
-        children: childrenMock,
-      }),
-    );
-    expect(asFragment()).toMatchSnapshot();
+  it('Render codeMarkdown with inline undefined', () => {
+    render(<CodeMarkdown className="language-javascript">{childrenMock}</CodeMarkdown>);
+    const copyButton = screen.getByText('Copied !');
+    expect(copyButton).toBeInTheDocument();
+    expect(copyButton.closest('.prism-code.language-jsx')).toBeInTheDocument();
   });
 
-  it('Render codeFn with inline true', () => {
-    const { asFragment } = render(
-      codeMarkdown({
-        inline: true,
-        className: undefined,
-        children: childrenMock,
-      }),
-    );
-    expect(asFragment()).toMatchSnapshot();
+  it('Render codeMarkdown with inline true', () => {
+    render(<CodeMarkdown inline>{childrenMock}</CodeMarkdown>);
+    expect(screen.getByText(/export default Button/)).toBeInTheDocument();
   });
 });
 
