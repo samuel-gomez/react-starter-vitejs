@@ -1,19 +1,22 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from 'App/Routes';
+import Authentication from 'App/Authentication';
+import UserProvider from 'App/UserProvider';
 import FetchProvider from 'App/FetchProvider';
+import QueryProvider from 'App/QueryProvider';
 import NotificationProvider from 'App/NotificationProvider';
-import Authentication from './Authentication';
-import UserProvider from './UserProvider';
 
 const App = () => (
   <Authentication>
     <UserProvider>
       <FetchProvider>
-        <NotificationProvider>
-          <Router>
-            <Routes />
-          </Router>
-        </NotificationProvider>
+        <QueryProvider>
+          <NotificationProvider>
+            <Router>
+              <Routes />
+            </Router>
+          </NotificationProvider>
+        </QueryProvider>
       </FetchProvider>
     </UserProvider>
   </Authentication>

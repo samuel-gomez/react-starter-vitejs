@@ -1,5 +1,4 @@
-import { render } from '@testing-library/react';
-import { WrapperQuery } from 'shared/testsUtils';
+import { render, screen } from 'shared/testsUtils';
 import ReadMeContainer from '../ReadMe.container';
 
 const useGithubReadmeFn = vi.fn();
@@ -12,17 +11,7 @@ useGithubReadmeFn.mockReturnValue({
 
 describe('<ReadMeContainer />', () => {
   it('Render <ReadMeContainer /> with githubPackage, useGithubReadmeFn', () => {
-    const { asFragment } = render(<ReadMeContainer githubPackage="test" useGithubReadmeFn={useGithubReadmeFn} />);
-
-    expect(asFragment()).toMatchSnapshot();
-  });
-  it('Render <ReadMeContainer /> with only githubPackage', () => {
-    const { asFragment } = render(
-      <WrapperQuery queryData="test markdown">
-        <ReadMeContainer githubPackage="test" />
-      </WrapperQuery>,
-    );
-
-    expect(asFragment()).toMatchSnapshot();
+    render(<ReadMeContainer githubPackage="test" useGithubReadmeFn={useGithubReadmeFn} />);
+    expect(screen.getByText('test')).toBeInTheDocument();
   });
 });

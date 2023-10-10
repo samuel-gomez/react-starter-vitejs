@@ -15,8 +15,12 @@ export type TfetchCustomAddMember = {
   data: TData;
 };
 
+type TDataResponse = {
+  responseBody: TData;
+};
+
 export const fetchCustomAddMember = ({ data, fetchContextFn }: TfetchCustomAddMember) =>
-  fetchContextFn.fetchCustom<TData>([
+  fetchContextFn.fetchCustom<TDataResponse>([
     ENDPOINT,
     {
       method: 'POST',
@@ -40,8 +44,8 @@ type TonSuccess = TNotificationContext & {
 
 export const onSuccess =
   ({ addNotification, reset }: TonSuccess) =>
-  (data: TData) => {
-    const { firstname, lastname, id } = data.responseBody as TData;
+  (data: TDataResponse) => {
+    const { firstname, lastname, id } = data.responseBody;
     addNotification({
       id: `addmember-${id}`,
       label: `Membre ${firstname} ${lastname} ajouté avec succès`,
