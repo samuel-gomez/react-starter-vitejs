@@ -35,14 +35,7 @@ export const setResponseError = ({ response }: TsetResponseError) => {
   }
 };
 
-export type TResponse = {
-  status: number;
-  blob: () => Promise<Blob>;
-  text: () => Promise<string>;
-  json: () => Promise<object>;
-};
-
-export const computeDataError = async (response: TResponse, setResponseErrorFn = setResponseError) => {
+export const computeDataError = async (response: Response, setResponseErrorFn = setResponseError) => {
   try {
     const data = await response.json();
     return setResponseErrorFn({ response: { ...data, status: response.status } });
@@ -53,8 +46,9 @@ export const computeDataError = async (response: TResponse, setResponseErrorFn =
 
 type TConfig = Record<string, boolean>;
 
-export const buildResponse = async (response: TResponse, config: TConfig, computeDataErrorFn = computeDataError) => {
+export const buildResponse = async (response: Response, config: TConfig, computeDataErrorFn = computeDataError) => {
   const { status } = response;
+
   switch (true) {
     case `${status}`.startsWith(`${STATUS_API.ERROR}`):
     case `${status}`.startsWith(`${STATUS_API.WARNING}`): {

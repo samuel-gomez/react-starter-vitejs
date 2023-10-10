@@ -3,6 +3,7 @@ import { DefaultOptions, QueryClient, QueryClientProvider, QueryKey } from '@tan
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { FetchContext } from 'App/FetchProvider';
 import type { FetchContextType, TFetchCustom } from 'App/FetchProvider';
+import { CACHE_TIME, REFETCH_ON_WINDOWS_FOCUS, RETRY_REQUEST } from './constants';
 
 export const defaultQueryWithAuth = async (queryKey: QueryKey, fetchCustom: TFetchCustom) => fetchCustom(queryKey);
 
@@ -24,7 +25,9 @@ const queryClient = new QueryClient();
 export const setQueryClient = ({ fetchCustom, setQueryFn = setQuery, ...queriesOptions }: TsetQueryClient) =>
   queryClient.setDefaultOptions({
     queries: {
-      refetchOnWindowFocus: false,
+      refetchOnWindowFocus: REFETCH_ON_WINDOWS_FOCUS,
+      retry: RETRY_REQUEST,
+      cacheTime: CACHE_TIME,
       queryFn: setQueryFn(fetchCustom),
       ...queriesOptions,
     },

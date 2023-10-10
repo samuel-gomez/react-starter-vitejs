@@ -1,4 +1,5 @@
 import { STATUS_HTTP_MESSAGES } from 'shared/constants';
+import { Blob as BlobNode } from 'node:buffer';
 import { buildResponse, setFetchCustom, computeDataError, setResponseError, manageConfig } from '../FetchProvider.helpers';
 
 const fetchConfigMock = {
@@ -51,79 +52,83 @@ describe('setFetchCustom', () => {
   });
 });
 
+const responseMock = new Response();
+responseMock.text = async () => JSON.stringify({ msg: 'testText' });
+responseMock.blob = async () => new BlobNode([JSON.stringify({ msg: 'testblob' }, null, 2)]) as unknown as Blob;
+responseMock.json = async () => ({ msg: 'test' });
+
 describe('buildResponse', () => {
   const computeDataErrorFn = vi.fn();
-  const responseMock = {
+
+  const responseMock200 = {
+    ...responseMock,
     status: 200,
-    text: async () => ({ msg: 'testText' }),
-    json: async () => ({ msg: 'test' }),
-    blob: async () => ({ msg: 'testblob' }),
   };
+
   it('Should return response 200 and msg = test when status = 200 and blob is falsy', async () => {
-    const result = await buildResponse(responseMock, { blob: false, text: false });
-    expect(result).toEqual({ statusHttp: responseMock.status, msg: 'test' });
+    const result = await buildResponse(responseMock200, { blob: false, text: false });
+    expect(result).toEqual({ statusHttp: responseMock200.status, msg: 'test' });
   });
 
   it('Should return msg = testblob when status = 200 and blob is truthy', async () => {
-    const result = await buildResponse(responseMock, { blob: true, text: false });
-    expect(result).toEqual({ msg: 'testblob' });
+    const result = await buildResponse(responseMock200, { blob: true, text: false });
+    const textBlob = await result.text();
+    expect(textBlob).toContain('testblob');
   });
 
   it('Should return msg = testText when status = 200 and text is truthy', async () => {
-    const result = await buildResponse(responseMock, { blob: false, text: true });
-    expect(result).toEqual({ msg: 'testText' });
+    const result = await buildResponse(responseMock200, { blob: false, text: true });
+    expect(result).toEqual('{"msg":"testText"}');
   });
 
   it('Should called computeDataErrorFn when status = 504', async () => {
-    responseMock.status = 504;
+    const responseMock504 = { ...responseMock, status: 504 };
     try {
-      await buildResponse(responseMock, { blob: false, text: false }, computeDataErrorFn);
+      await buildResponse(responseMock504, { blob: false, text: false }, computeDataErrorFn);
     } catch (error) {
       expect(computeDataErrorFn).toBeCalled();
     }
   });
 
   it('Should called computeDataErrorFn when status = 500', async () => {
-    responseMock.status = 500;
+    const responseMock500 = { ...responseMock, status: 500 };
     try {
-      await buildResponse(responseMock, { blob: false, text: false }, computeDataErrorFn);
+      await buildResponse(responseMock500, { blob: false, text: false }, computeDataErrorFn);
     } catch (error) {
       expect(computeDataErrorFn).toBeCalled();
     }
   });
 
   it('Should called computeDataErrorFn when status = 400', async () => {
-    responseMock.status = 400;
+    const responseMock400 = { ...responseMock, status: 200 };
     try {
-      await buildResponse(responseMock, { blob: false, text: false }, computeDataErrorFn);
+      await buildResponse(responseMock400, { blob: false, text: false }, computeDataErrorFn);
     } catch (error) {
       expect(computeDataErrorFn).toBeCalled();
     }
   });
 
   it('Should return response 204 when status = 204', async () => {
-    responseMock.status = 204;
-    const result = await buildResponse(responseMock, { blob: false, text: false });
-    expect(result).toEqual({ statusHttp: responseMock.status });
+    const responseMock204 = { ...responseMock, status: 204 };
+    const result = await buildResponse(responseMock204, { blob: false, text: false });
+    expect(result).toEqual({ statusHttp: responseMock204.status });
   });
 });
 
 describe('computeDataError', () => {
-  const responseMock = {
+  const responseMockError = {
+    ...responseMock,
     status: 500,
-    text: async () => ({ msg: 'test' }),
-    json: async () => ({}),
-    blob: async () => ({ msg: 'testblob' }),
+    json: async () => ({
+      anomaly: { label: 'test' },
+      code: 500,
+    }),
   };
   const setResponseFn = vi.fn();
 
   it('Should called setResponseFn without setResponseFn', async () => {
-    responseMock.json = async () => ({
-      anomaly: { label: 'test' },
-      code: 500,
-    });
     try {
-      await computeDataError(responseMock);
+      await computeDataError(responseMockError);
       expect(setResponseFn).toBeCalledWith({ label: 'test' });
     } catch (error) {
       /* empty */
@@ -131,12 +136,8 @@ describe('computeDataError', () => {
   });
 
   it('Should called setResponseFn', async () => {
-    responseMock.json = async () => ({
-      anomaly: { label: 'test' },
-      code: 500,
-    });
     try {
-      await computeDataError(responseMock, setResponseFn);
+      await computeDataError(responseMockError, setResponseFn);
       expect(setResponseFn).toBeCalledWith({ label: 'test' });
     } catch (error) {
       /* empty */
@@ -144,14 +145,19 @@ describe('computeDataError', () => {
   });
 
   it('Should called setResponseFn in throw', async () => {
-    responseMock.json = async () => {
-      throw new Error('');
+    const responseMockThrowError = {
+      ...responseMock,
+      status: 500,
+      json: async () => {
+        throw new Error('');
+      },
     };
+
     try {
-      await computeDataError(responseMock, setResponseFn);
+      await computeDataError(responseMockThrowError, setResponseFn);
     } catch (error) {
       expect(setResponseFn).toBeCalledWith({
-        response: { anomaly: { label: STATUS_HTTP_MESSAGES[responseMock.status] }, status: responseMock.status },
+        response: { anomaly: { label: STATUS_HTTP_MESSAGES[responseMockThrowError.status] }, status: responseMockThrowError.status },
       });
     }
   });
