@@ -7,7 +7,6 @@
       href="https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/alert-alert--default">Storybook</a>)</strong>
   <br><br>
 
-  <iframe src="https://react-starter-vitejs-dojo.vercel.app" width="1000" height="400" align="center" />
 </p>
 <p align="center">
   <a href="https://github.com/samuel-gomez/react-starter-vitejs/actions/workflows/build.yml">
