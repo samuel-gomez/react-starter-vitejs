@@ -103,7 +103,7 @@
 
 /* FIX/CUSTOM : TABLE ***********************************************************/
 .af-table__th--sortable {
-  padding: 0 1rem 0 0;
+  padding: 1rem;
   cursor: pointer;
   &:hover {
     background-color: $color-table-sorting;
@@ -245,6 +245,9 @@
       }
     }
   }
+  &--with-action {
+    margin-bottom: 0;
+  }
 }
 
 /* ************************************************************************/
@@ -381,5 +384,10 @@
 .af-restitution {
   & :where(&__listul-item, &__listdef-value) {
     text-align: left;
+  }
+  &--with-action {
+    .af-restitution__content {
+      padding: 1.5rem 0.625rem 1.5rem 1.5rem;
+    }
   }
 }

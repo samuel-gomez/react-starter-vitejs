@@ -1,9 +1,8 @@
 import { createContext, ReactNode, useMemo, useContext } from 'react';
-import { useOidcAccessToken } from '@axa-fr/react-oidc';
 import type { QueryKey } from '@tanstack/react-query';
 import { EnvironmentContext } from 'App/EnvironmentProvider';
 import { mergeObj } from 'shared/helpers';
-import { setFetchCustom } from './FetchProvider.helpers';
+import { getAccessToken, setFetchCustom } from './FetchProvider.helpers';
 
 export type TFetchCustom = <T>(queryKey: QueryKey) => Promise<T>;
 
@@ -17,18 +16,13 @@ FetchContext.displayName = 'FetchContext';
 export type TFetchProvider = {
   mergeObjFn?: typeof mergeObj;
   children: ReactNode;
-  useOidcAccessTokenFn?: typeof useOidcAccessToken;
+  getAccessTokenFn?: typeof getAccessToken;
   setFetchCustomFn?: typeof setFetchCustom;
 };
 
-const FetchProvider = ({
-  children,
-  mergeObjFn = mergeObj,
-  setFetchCustomFn = setFetchCustom,
-  useOidcAccessTokenFn = useOidcAccessToken,
-}: TFetchProvider) => {
+const FetchProvider = ({ children, mergeObjFn = mergeObj, setFetchCustomFn = setFetchCustom, getAccessTokenFn = getAccessToken }: TFetchProvider) => {
   const { environment } = useContext(EnvironmentContext);
-  const { accessToken } = useOidcAccessTokenFn();
+  const { accessToken } = getAccessTokenFn({ isEnabled: environment?.oidc?.isEnabled })();
 
   const authConfig = {
     headers: {

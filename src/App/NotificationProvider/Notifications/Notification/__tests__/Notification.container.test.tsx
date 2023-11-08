@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { emptyFunction } from 'shared/testsUtils';
-import { EType } from '../Notification';
 import NotificationContainer from '../Notification.container';
+import { ALERT_TYPE } from '../../constants';
 
 describe('NotificationContainer', () => {
   const NotificationCmpt = vi.fn();
@@ -22,7 +22,7 @@ describe('NotificationContainer', () => {
     expect(NotificationCmpt).toHaveBeenCalledWith(
       {
         classModifier: 'error',
-        type: EType.error,
+        type: ALERT_TYPE.error,
         id: 'id',
         label: 'title',
         onClose: emptyFunction,
@@ -34,7 +34,7 @@ describe('NotificationContainer', () => {
   it('Render <NotificationContainer/> with all props', () => {
     const allProps = {
       ...defaultProps,
-      type: EType.success,
+      type: ALERT_TYPE.success,
       classModifier: 'mymodifier',
     };
     const { getByText } = render(<NotificationContainer {...allProps} />);
@@ -44,7 +44,7 @@ describe('NotificationContainer', () => {
     expect(NotificationCmpt).toHaveBeenCalledWith(
       {
         classModifier: 'success mymodifier',
-        type: EType.success,
+        type: ALERT_TYPE.success,
         id: 'id',
         label: 'title',
         onClose: emptyFunction,

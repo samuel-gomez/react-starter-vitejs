@@ -52,7 +52,7 @@ type TRoutesCmpt = {
 };
 
 const RoutesCmpt = ({ RouteSecureCmpt = RouteSecure }: TRoutesCmpt) => (
-  <Suspense fallback={<Loader text="Chargement de la page..." mode={MODES.get} classModifier="fullscreen" />}>
+  <Suspense fallback={<Loader mode={MODES.get} classModifier="fullscreen" message="Chargement de la page..." />}>
     <Routes>
       <Route index path={ROUTE_URLS.HOME} element={<Home />} />
       <Route path={ROUTE_URLS.DEMOS}>

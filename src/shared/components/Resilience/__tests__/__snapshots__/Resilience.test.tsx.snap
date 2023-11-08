@@ -1,3 +1,0 @@
-// Vitest Snapshot v1
-
-exports[`Resilience > Should render null when Resilience have been called with no anomaly and no child 1`] = `<DocumentFragment />`;

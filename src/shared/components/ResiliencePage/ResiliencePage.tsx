@@ -1,8 +1,8 @@
-import { withClassDefault, withClassModifier, WithClassModifierOptions, compose, identity } from '@axa-fr/react-toolkit-core/dist/esm/index';
 import TitleBar from 'Layout/TitleBar';
+import withClassNameModifier, { type TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
 import './ResiliencePage.scss';
 
-export type TResiliencePage = WithClassModifierOptions & {
+export type TResiliencePage = {
   title: string;
   message?: string;
   subtitlePartOne?: string;
@@ -10,43 +10,41 @@ export type TResiliencePage = WithClassModifierOptions & {
   backhome?: boolean;
   code?: string;
   ariaLabel?: string;
-};
+} & TwithClassNameModifier;
 
 const DEFAULT_CLASSNAME = 'af-container';
 
-const ResiliencePage = ({
-  title,
-  className,
-  message = '',
-  subtitlePartOne = '',
-  subtitlePartTwo = '',
-  code = '404',
-  backhome = true,
-  ariaLabel = `page error ${code}`,
-}: TResiliencePage) => (
-  <>
-    <TitleBar backHome={backhome} classModifier="hasstepper" title={title} />
-    <div role="main" aria-label={ariaLabel} className={`container ${className}`}>
-      <h1 className="af-resilience-page__title">
-        <div className="af-resilience-page__title-covernumber">
-          <span className="af-resilience-page__title-number">{code}</span>
-        </div>
-        <div className="af-resilience-page__title-covernot">
-          <span className="af-resilience-page__title-not">
-            {subtitlePartOne}
-            <br />
-            {subtitlePartTwo}
-          </span>
-        </div>
-      </h1>
-      {!!message && <p className="af-resilience-page__message">{message}</p>}
-    </div>
-  </>
+const ResiliencePage = withClassNameModifier(
+  ({
+    title,
+    className,
+    message = '',
+    subtitlePartOne = '',
+    subtitlePartTwo = '',
+    code = '404',
+    backhome = true,
+    ariaLabel = `page error ${code}`,
+  }: TResiliencePage) => (
+    <>
+      <TitleBar backHome={backhome} classModifier="hasstepper" title={title} />
+      <main aria-label={ariaLabel} className={`container ${className}`}>
+        <h1 className="af-resilience-page__title">
+          <div className="af-resilience-page__title-covernumber">
+            <span className="af-resilience-page__title-number">{code}</span>
+          </div>
+          <div className="af-resilience-page__title-covernot">
+            <span className="af-resilience-page__title-not">
+              {subtitlePartOne}
+              <br />
+              {subtitlePartTwo}
+            </span>
+          </div>
+        </h1>
+        {!!message && <p className="af-resilience-page__message">{message}</p>}
+      </main>
+    </>
+  ),
+  { defaultClassName: DEFAULT_CLASSNAME },
 );
 
-const enhance = compose(identity<TResiliencePage>(), withClassDefault(DEFAULT_CLASSNAME), withClassModifier());
-
-const Enhanced = enhance(ResiliencePage);
-Enhanced.displayName = ResiliencePage.name;
-
-export default Enhanced;
+export default ResiliencePage;

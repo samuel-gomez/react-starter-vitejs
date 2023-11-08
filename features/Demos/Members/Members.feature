@@ -11,8 +11,8 @@ Feature: Consultation des membres
       | 4   | Sophie    | Danneels | 1992-10-20T00:00:00 | F    |
     When J'accède à la page des membres
     Then la page contient un tableau répertoriant la liste des membres
-    And le tableau présente des entêtes de colonnes dans l’ordre suivant : "Nom", "Prénom", "Date de naissance", "Sexe"
-    And le tableau contient 4 lignes correspondant à un sociétaire avec 4 colonnes dans l'ordre suivant :
+    And le tableau présente des entêtes de tri de colonnes dans l’ordre suivant : "Prénom", "Nom", "Date de naissance", "Sexe"
+    And le tableau contient 4 lignes avec 4 colonnes dans l'ordre suivant :
       | firstname | lastname | birthdate  | sexe |
       | Samuel    | Gomez    | 20/10/1983 | M    |
       | John      | Doe      | 20/10/1978 | M    |

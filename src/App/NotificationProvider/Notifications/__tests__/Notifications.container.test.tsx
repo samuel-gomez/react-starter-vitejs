@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { emptyFunction } from 'shared/testsUtils';
 import NotificationsContainer from '../Notifications.container';
 
@@ -11,8 +11,9 @@ describe('NotificationsContainer', () => {
   };
 
   it('Render <NotificationsContainer/>', () => {
-    const { getByText } = render(<NotificationsContainer {...defaultProps} />);
-    expect(getByText('NotificationsCmpt')).toBeInTheDocument();
+    render(<NotificationsContainer {...defaultProps} />);
+
+    expect(screen.getByText('NotificationsCmpt')).toBeInTheDocument();
     expect(NotificationsCmpt).toHaveBeenCalledWith(
       {
         className: 'af-notifications',
@@ -29,8 +30,10 @@ describe('NotificationsContainer', () => {
       className: 'myclass',
       notifications: [{ id: 'id', label: 'label', onClose: emptyFunction }],
     };
-    const { getByText } = render(<NotificationsContainer {...customProps} />);
-    expect(getByText('NotificationsCmpt')).toBeInTheDocument();
+
+    render(<NotificationsContainer {...customProps} />);
+
+    expect(screen.getByText('NotificationsCmpt')).toBeInTheDocument();
     expect(NotificationsCmpt).toHaveBeenCalledWith(
       {
         className: 'myclass myclass--open',

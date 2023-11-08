@@ -64,7 +64,7 @@ describe('<HeaderInfo/>', () => {
         <Custom />
       </HeaderInfo>,
     );
-    expect(screen.getByRole('status')).toBeDefined();
+    expect(screen.getByRole('alert')).toBeDefined();
   });
 
   it('Should contain Custom when isLoader true', () => {

@@ -2,6 +2,8 @@ import { API_URL, STATUS_API, STATUS_HTTP_MESSAGES } from 'shared/constants';
 import fetch from 'cross-fetch';
 import { QueryKey } from '@tanstack/react-query';
 import { mergeObj } from 'shared/helpers';
+import { useOidcAccessToken } from '@axa-fr/react-oidc';
+import { useOidcAccessTokenMock } from './constants';
 
 type TsetResponseError = {
   response: {
@@ -77,21 +79,53 @@ export const manageConfig = (apiName: string, fetchAuthConfig: { headers?: objec
   return apiName === API_URL.BASE && headers ? { headers, ...restFetchAuthConfig } : restFetchAuthConfig;
 };
 
+export const catchErrorServer = (error: { message: string }) =>
+  Response.json(
+    {
+      anomaly: {
+        label: error.message,
+      },
+    },
+    {
+      status: 500,
+      statusText: error.message,
+    },
+  );
+
 export type TsetFetchCustom = {
   apiUrl: Record<string, string>;
   fetchAuthConfig: object;
   fetchFn?: typeof fetch;
   mergeObjFn?: typeof mergeObj;
   manageConfigFn?: typeof manageConfig;
+  catchErrorServerFn?: typeof catchErrorServer;
 };
 
 export const setFetchCustom =
-  ({ apiUrl, fetchAuthConfig, fetchFn = fetch, mergeObjFn = mergeObj, manageConfigFn = manageConfig }: TsetFetchCustom) =>
+  ({
+    apiUrl,
+    fetchAuthConfig,
+    fetchFn = fetch,
+    mergeObjFn = mergeObj,
+    manageConfigFn = manageConfig,
+    catchErrorServerFn = catchErrorServer,
+  }: TsetFetchCustom) =>
   async (queryKey: QueryKey) => {
     const [path, customConfig, apiName = API_URL.BASE]: QueryKey = queryKey;
     const url = `${apiUrl[apiName as string]}${path}`;
     const fetchAuthConfigCustom = manageConfigFn(apiName as string, fetchAuthConfig);
     const config = mergeObjFn(fetchAuthConfigCustom, customConfig);
-    const response = await fetchFn(url, config);
+
+    const response = await fetchFn(url, config).catch(catchErrorServerFn);
     return buildResponse(response, config);
   };
+
+export const getAccessToken = ({
+  isEnabled,
+  useOidcAccessTokenFn = useOidcAccessToken,
+  useOidcAccessTokenMockFn = useOidcAccessTokenMock,
+}: {
+  isEnabled?: boolean;
+  useOidcAccessTokenFn?: typeof useOidcAccessToken;
+  useOidcAccessTokenMockFn?: typeof useOidcAccessTokenMock;
+}) => (isEnabled ? useOidcAccessTokenFn : useOidcAccessTokenMockFn);

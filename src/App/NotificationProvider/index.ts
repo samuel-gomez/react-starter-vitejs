@@ -1,5 +1,3 @@
 export { default, NotificationContext } from './NotificationProvider';
-export { default as useNotifications } from './Notifications.hook';
-export type { TReturnUseNotification } from './Notifications.hook';
-export type { TaddNotification, TonDeleteNotification } from './Notifications.hook';
-export { EType } from './Notifications';
+export { default as useNotifications, type TReturnUseNotification, type TaddNotification, type TonDeleteNotification } from './Notifications.hook';
+export { ALERT_TYPE } from './Notifications';

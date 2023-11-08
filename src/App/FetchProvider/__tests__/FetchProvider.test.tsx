@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { render } from '@testing-library/react';
 import EnvironmentProvider from 'App/EnvironmentProvider';
 import { MOCK_API_URL } from 'shared/testsUtils';
-import FetchProvider, { FetchContext, TFetchCustom } from '../FetchProvider';
+import FetchProvider, { FetchContext, type TFetchCustom } from '../FetchProvider';
 
 type TBase = {
   fetchCustom?: TFetchCustom;
@@ -15,9 +15,9 @@ const BaseWithFetch = () => {
   return <Base {...fetchProps} />;
 };
 
-const useOidcAccessTokenMock = vi.fn().mockReturnValue({
+const getAccessTokenFnMock = vi.fn().mockReturnValue(() => ({
   accessToken: 'accessTokenfdsfdsqgvqvsqfs',
-});
+}));
 
 describe('FetchProvider', () => {
   it('Should Base have fetchCustom props when render FetchProvider with required props', async () => {
@@ -31,7 +31,7 @@ describe('FetchProvider', () => {
     });
     const { getByText } = render(
       <EnvironmentProvider useEnvFn={useEnvFn}>
-        <FetchProvider useOidcAccessTokenFn={useOidcAccessTokenMock}>
+        <FetchProvider getAccessTokenFn={getAccessTokenFnMock}>
           <BaseWithFetch />
         </FetchProvider>
       </EnvironmentProvider>,
@@ -51,7 +51,7 @@ describe('FetchProvider', () => {
     const setFetchCustomFn = vi.fn();
     render(
       <EnvironmentProvider useEnvFn={useEnvFn}>
-        <FetchProvider useOidcAccessTokenFn={useOidcAccessTokenMock} mergeObjFn={mergeObjFn} setFetchCustomFn={setFetchCustomFn}>
+        <FetchProvider getAccessTokenFn={getAccessTokenFnMock} mergeObjFn={mergeObjFn} setFetchCustomFn={setFetchCustomFn}>
           <BaseWithFetch />
         </FetchProvider>
       </EnvironmentProvider>,

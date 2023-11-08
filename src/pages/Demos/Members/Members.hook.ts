@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction, useCallback, useState } from 'react';
+import { Dispatch, type SetStateAction, useCallback, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { setDisplay, Torder } from 'shared/components/Table';
-import { Tanomaly } from 'shared/types';
+import { setDisplay, type Torder } from 'shared/components/Table';
+import type { Tanomaly } from 'shared/types';
 import { setAnomalyEmptyItems, setDate } from 'shared/helpers';
 import { DEFAULT_STATE_VALUE, INITIAL_STATE_PAGING, INITIAL_STATE_SORTING, SERVICE_NAME } from './constants';
 
@@ -15,7 +15,19 @@ export const setPagination = ({ total = 1, skip = 1, max = 1, setCurrentPageFn =
   currentPage: setCurrentPageFn({ max, skip }),
 });
 
-export const computeInfos = <T extends Record<string, string>[]>(data: T, setDateFn = setDate, setDisplayFn = setDisplay) =>
+export type TMemberData = Record<string, string>;
+
+export type TresponseBody = {
+  data?: TMemberData[];
+  totals?: {
+    total: number;
+    count: number;
+    skip: number;
+    max: number;
+  };
+};
+
+export const computeInfos = (data: TMemberData[], setDateFn = setDate, setDisplayFn = setDisplay) =>
   data.map(({ _id, firstname, lastname, birthdate, sexe }) => ({
     key: _id,
     cols: {
@@ -30,15 +42,7 @@ type TcomputeSuccess = {
   setAnomalyEmptyItemsFn?: typeof setAnomalyEmptyItems;
   computeInfosFn?: typeof computeInfos;
   setPaginationFn?: typeof setPagination;
-  responseBody: {
-    data?: Record<string, string>[];
-    totals?: {
-      total: number;
-      count: number;
-      skip: number;
-      max: number;
-    };
-  };
+  responseBody: TresponseBody;
 };
 
 export const computeSuccess = ({

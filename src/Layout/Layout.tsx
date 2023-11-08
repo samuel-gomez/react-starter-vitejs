@@ -1,5 +1,5 @@
-import { ComponentPropsWithoutRef, ReactNode } from 'react';
-import withClassNameModifier, { TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+import withClassNameModifier, { type TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
 import Header from 'Layout/Header';
 import Footer from 'Layout/Footer';
 import TitleBar from 'Layout/TitleBar';

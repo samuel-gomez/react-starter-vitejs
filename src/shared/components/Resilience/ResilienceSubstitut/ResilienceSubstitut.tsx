@@ -1,37 +1,36 @@
 import { ElementType, ReactNode } from 'react';
 import Alert from '@axa-fr/react-toolkit-alert/dist/esm/index';
 import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
+import { ArticleRestitution, SectionRestitution, SectionRestitutionRow } from '@axa-fr/react-toolkit-restitution/dist/esm/index';
 import type { Tanomaly } from 'shared/types';
 import { emptyFunction } from 'shared/helpers';
-import { ERESILIENCE_MODE, DEFAULT_CLASS_ALERT, DEFAULT_CLASS_CONTAINER } from './constants';
+import { RESILIENCE_MODE, DEFAULT_CLASS_ALERT, DEFAULT_CLASS_CONTAINER, WITH_ACTION_CLASS_MODIFIER } from './constants';
 
-type TsetClassModifier = {
+type TsetClassModifier<T> = {
   type: string;
-  resilienceModifier: string;
+  classModifier?: string;
+  refetch?: T;
 };
 
-export const setClassModifier = ({ type, resilienceModifier }: TsetClassModifier) =>
-  [type, resilienceModifier !== '' ? resilienceModifier : ''].join(' ').trim();
+export const setClassModifier = <T extends React.MouseEventHandler<HTMLButtonElement>>({ type, classModifier, refetch }: TsetClassModifier<T>) =>
+  [type, classModifier ?? '', refetch ? WITH_ACTION_CLASS_MODIFIER : ''].join(' ').trim();
 
 type TsetClassName = {
   classAlertCt?: string;
   classContainerCt?: string;
-  resilienceModifier: string;
+  newClassModifier: string;
 };
 
-export const setClassName = ({
-  resilienceModifier,
-  classAlertCt = DEFAULT_CLASS_ALERT,
-  classContainerCt = DEFAULT_CLASS_CONTAINER,
-}: TsetClassName) => (resilienceModifier === classContainerCt ? `${classContainerCt} ${classAlertCt}` : classAlertCt);
+export const setClassName = ({ newClassModifier, classAlertCt = DEFAULT_CLASS_ALERT, classContainerCt = DEFAULT_CLASS_CONTAINER }: TsetClassName) =>
+  newClassModifier === classContainerCt ? `${classContainerCt} ${classAlertCt}` : classAlertCt;
 
 type TResilienceSubstitut<Trefetch> = {
   anomaly: Tanomaly;
   refetch?: Trefetch;
   children?: ReactNode;
-  resilienceMode?: keyof typeof ERESILIENCE_MODE;
+  resilienceMode?: keyof typeof RESILIENCE_MODE;
   FallbackComponent?: ElementType;
-  resilienceModifier?: string;
+  classModifier?: string;
   setClassModifierFn?: typeof setClassModifier;
   setClassNameFn?: typeof setClassName;
 };
@@ -40,30 +39,39 @@ const ResilienceSubstitut = <Trefetch extends React.MouseEventHandler<HTMLButton
   anomaly,
   refetch,
   children,
-  resilienceMode = ERESILIENCE_MODE.alert,
+  resilienceMode = RESILIENCE_MODE.alert,
   FallbackComponent = emptyFunction,
-  resilienceModifier = '',
+  classModifier = '',
   setClassModifierFn = setClassModifier,
   setClassNameFn = setClassName,
 }: TResilienceSubstitut<Trefetch>) => {
   const { label, detail = '', type = 'error', iconName = 'exclamation-sign' } = anomaly;
-  const classModifier = setClassModifierFn?.({ type, resilienceModifier });
-  const className = setClassNameFn?.({ resilienceModifier });
+  const newClassModifier = setClassModifierFn?.<Trefetch>({ type, classModifier, refetch });
+  const className = setClassNameFn?.({ newClassModifier });
 
   return {
-    [ERESILIENCE_MODE.alert]: (
-      <Alert className={className} title={label} icon={iconName} classModifier={classModifier}>
-        {detail && <p>{detail}</p>}
+    [RESILIENCE_MODE.alert]: (
+      <>
+        <Alert className={className} title={label} icon={iconName} classModifier={newClassModifier}>
+          {detail && <p>{detail}</p>}
+          {children}
+        </Alert>
         {refetch && (
-          <Button aria-label="Réessayer" type="button" className="af-link" onClick={refetch}>
-            <span className="af-link__text">Réessayer</span>
-          </Button>
+          <ArticleRestitution classModifier={WITH_ACTION_CLASS_MODIFIER}>
+            <SectionRestitution>
+              <SectionRestitutionRow>
+                <Button aria-label="Réessayer" type="button" classModifier="hasiconRight" onClick={refetch}>
+                  <span className="af-link__text">Réessayer</span>
+                  <i className="glyphicon glyphicon-refresh" />
+                </Button>
+              </SectionRestitutionRow>
+            </SectionRestitution>
+          </ArticleRestitution>
         )}
-        {children}
-      </Alert>
+      </>
     ),
-    [ERESILIENCE_MODE.none]: null,
-    [ERESILIENCE_MODE.fallback]: <FallbackComponent />,
+    [RESILIENCE_MODE.none]: null,
+    [RESILIENCE_MODE.fallback]: <FallbackComponent />,
   }[resilienceMode];
 };
 

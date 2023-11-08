@@ -1,7 +1,6 @@
 export const TITLE_BAR = "Création d'un membre";
 export const TITLE = 'Ajouter un membre';
 export const ROUTE_URL_MEMBERSNEW = 'members/new';
-export const SERVICE_NAME = 'membersnew';
 
 export const LABEL_FIRSTNAME = 'Prénom';
 export const FIRSTNAME = 'firstname';

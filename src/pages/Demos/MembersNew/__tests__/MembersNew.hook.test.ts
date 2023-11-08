@@ -1,5 +1,5 @@
-import { FetchContextType } from 'App/FetchProvider';
-import { EType } from 'App/NotificationProvider';
+import type { FetchContextType } from 'App/FetchProvider';
+import { ALERT_TYPE } from 'App/NotificationProvider';
 import { fetchCustomAddMember, mutation, onSuccess, setTypeNotification } from '../MembersNew.hook';
 
 describe('fetchCustomAddMember', () => {
@@ -62,7 +62,7 @@ describe('setTypeNotification', () => {
   it('Should return empty object when setTypeNotification have been called with code 404', async () => {
     const type = setTypeNotification({ code: 404 });
     expect(type).toEqual({
-      type: `${EType.danger}`,
+      type: `${ALERT_TYPE.danger}`,
     });
   });
 });

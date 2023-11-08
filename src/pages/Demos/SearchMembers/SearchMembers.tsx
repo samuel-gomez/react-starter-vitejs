@@ -1,5 +1,5 @@
-import Layout, { TLayoutPage } from 'Layout';
-import Loader, { TLoaderContainer } from 'shared/components/Loader';
+import Layout, { type TLayoutPage } from 'Layout';
+import Loader, { type TLoader } from 'shared/components/Loader';
 import Resilience from 'shared/components/Resilience';
 import Table from 'shared/components/Table';
 import DownloadLink from 'shared/components/DownloadLink';
@@ -33,7 +33,7 @@ export const DownloadLinkEnhanced = ({
 
 type TSearchMembers = TLayoutPage &
   Omit<TReturnUseSearchMembers, 'isLoading'> & {
-    loaderMode: TLoaderContainer['mode'];
+    loaderMode: TLoader['mode'];
     submitFormSearchMembers: TReturnUseFormSearchMembers['submitFormSearchMembers'];
   };
 
@@ -41,7 +41,7 @@ const SearchMembers = ({ titleBar = TITLE_BAR, title = TITLE, loaderMode, search
   <Layout propsTitle={{ title: titleBar, backHome: true }}>
     <h1 className="af-title--content">{title}</h1>
     <SearchForm submitFormSearchMembers={submitFormSearchMembers} />
-    <Loader text="Recherche des membres en cours..." mode={loaderMode}>
+    <Loader message="Recherche des membres en cours..." mode={loaderMode}>
       <Resilience anomaly={anomaly}>
         <h2 className="af-title">{SUBTITLE}</h2>
         <Table items={searchMembers} headers={TABLE_HEADERS_SEARCHMEMBERS} />

@@ -1,6 +1,14 @@
 import { STATUS_HTTP_MESSAGES } from 'shared/constants';
 import { Blob as BlobNode } from 'node:buffer';
-import { buildResponse, setFetchCustom, computeDataError, setResponseError, manageConfig } from '../FetchProvider.helpers';
+import {
+  buildResponse,
+  setFetchCustom,
+  computeDataError,
+  setResponseError,
+  manageConfig,
+  catchErrorServer,
+  getAccessToken,
+} from '../FetchProvider.helpers';
 
 const fetchConfigMock = {
   headers: {
@@ -253,5 +261,35 @@ describe('manageConfig', () => {
     apiNameMock = 'other';
     const result = manageConfig(apiNameMock, fetchAuthConfigMock);
     expect(result).toEqual({});
+  });
+});
+
+describe('catchErrorServer', () => {
+  it('Should return object with headers', async () => {
+    const result = catchErrorServer({ message: 'servor error' });
+    const resultJson = await result.json();
+    expect(resultJson).toEqual({
+      anomaly: {
+        label: 'servor error',
+      },
+    });
+  });
+});
+
+describe('getAccessToken', () => {
+  const useOidcAccessTokenFn = vi.fn();
+  const useOidcAccessTokenMockFn = vi.fn();
+  const defaultProps = {
+    isEnabled: true,
+    useOidcAccessTokenFn,
+    useOidcAccessTokenMockFn,
+  };
+  it('Should useOidcAccessTokenFn when isEnabled true', async () => {
+    const result = getAccessToken(defaultProps);
+    expect(result).toEqual(useOidcAccessTokenFn);
+  });
+  it('Should useOidcAccessTokenMockFn when isEnabled true', async () => {
+    const result = getAccessToken({ ...defaultProps, isEnabled: false });
+    expect(result).toEqual(useOidcAccessTokenMockFn);
   });
 });

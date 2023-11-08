@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { MODIFIER_HIDE, DELAY_HIDE } from './Notifications/constants';
-import { TNotification } from './Notifications/Notification';
+import type { TNotification } from './Notifications/Notification';
 
 const useNotifications = (initState: TNotification[] = []) => {
   const [stateNotifications, setStateNotifications] = useState(initState);
