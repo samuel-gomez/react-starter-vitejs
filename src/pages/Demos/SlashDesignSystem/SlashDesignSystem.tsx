@@ -1,4 +1,4 @@
-import Layout, { TLayoutPage } from 'Layout';
+import Layout, { type TLayoutPage } from 'Layout';
 import Cards from 'shared/components/Cards';
 import COMPONENTS, { TITLE_BAR, TITLE } from './constants';
 

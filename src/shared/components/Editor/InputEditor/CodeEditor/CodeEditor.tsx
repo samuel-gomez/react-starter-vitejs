@@ -4,9 +4,10 @@ import ReactCodeEditor from '@uiw/react-textarea-code-editor/esm/index';
 import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
 import Modal from '@axa-fr/react-toolkit-modal-default/dist/esm/index';
 import type { ClickEvent } from '@axa-fr/react-toolkit-core/dist/esm/index';
+import type { TEvent } from 'shared/types';
 import { ModalCommonHeader, ModalCommonBody, ModalCommonFooter, useToggleModal } from 'shared/components/ModalCommon';
 import '@uiw/react-textarea-code-editor/dist.css';
-import type { TEvent, TonChange } from '../../Editor';
+import type { TonChange } from '../../Editor';
 import './CodeEditor.scss';
 import Templates, { Tlistelements } from './Templates';
 

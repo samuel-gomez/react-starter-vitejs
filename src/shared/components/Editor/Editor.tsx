@@ -4,16 +4,9 @@ import { useToggleModal } from 'shared/components/ModalCommon';
 import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
 import Icons from 'shared/components/Icons';
 import type { ClickEvent } from '@axa-fr/react-toolkit-core/dist/esm/withClickId.hoc';
+import type { TEvent } from 'shared/types';
 import { DESIGN_SYSTEM, GITHUB, STORYBOOK } from 'shared/constants';
 import InputEditor, { TInputEditor } from './InputEditor';
-import './Editor.scss';
-
-export type TEvent = {
-  value?: string;
-  id?: string;
-  name?: string;
-  values?: string[];
-};
 
 const omittedProps = ['onChange', 'knobs', 'onClick', 'values'];
 

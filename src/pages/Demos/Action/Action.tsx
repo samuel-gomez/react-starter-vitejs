@@ -1,6 +1,7 @@
-import Layout, { TLayoutPage } from 'Layout';
+import Layout, { type TLayoutPage } from 'Layout';
+import type { TEvent } from 'shared/types';
 import LiveCode from 'shared/components/LiveCode';
-import { withEditor, useEditable, TEvent, Tknobs, EditorHeader, TReturnUseToggleEditor } from 'shared/components/Editor';
+import { withEditor, useEditable, type Tknobs, EditorHeader, type TReturnUseToggleEditor } from 'shared/components/Editor';
 import { TITLE_BAR, TITLE, STORYBOOK_PATH, GITHUB_PACKAGE, NPM_NAME } from './constants';
 import knobs from './knobs.json';
 
