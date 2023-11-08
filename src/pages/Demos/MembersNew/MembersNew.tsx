@@ -42,11 +42,7 @@ const MembersNew = ({ rules, onSubmit, control, reset, titleBar = TITLE_BAR, tit
         </Col>
         <Col md={10}>
           <Button type="submit" classModifier="hasiconRight" aria-disabled={isLoading}>
-            {isLoading ? (
-              <span role="img" aria-label="is loading" className="glyphicon glyphicon-refresh" />
-            ) : (
-              <span role="img" aria-label="plus" className="glyphicon glyphicon-plus" />
-            )}
+            {isLoading ? <i className="glyphicon glyphicon-refresh" /> : <i className="glyphicon glyphicon-plus" />}
             <span className="af-btn__text">{LABEL_SUBMIT}</span>
           </Button>
         </Col>

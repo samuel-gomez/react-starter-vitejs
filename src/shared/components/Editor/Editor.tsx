@@ -7,6 +7,7 @@ import type { ClickEvent } from '@axa-fr/react-toolkit-core/dist/esm/withClickId
 import type { TEvent } from 'shared/types';
 import { DESIGN_SYSTEM, GITHUB, STORYBOOK } from 'shared/constants';
 import InputEditor, { TInputEditor } from './InputEditor';
+import './Editor.scss';
 
 const omittedProps = ['onChange', 'knobs', 'onClick', 'values'];
 
@@ -211,7 +212,7 @@ export const EditorHeader = ({ storybookPath = '', designSystemPath = '', github
     )}
 
     <button type="button" className="af-link" onClick={openEditor}>
-      <i role="img" aria-label="cog" className="glyphicon glyphicon-cog" />
+      <i className="glyphicon glyphicon-cog" />
       <span>Edit props</span>
     </button>
   </header>
