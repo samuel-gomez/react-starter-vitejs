@@ -1,6 +1,6 @@
 import { act, render, renderHook } from '@testing-library/react';
 import { ChangeEvent } from 'react';
-import { clearString } from 'shared/testsUtils';
+import clearString from 'shared/testsUtils/clearString';
 import CodeEditor, { useCodeEditor, getTemplate } from '..';
 import { getPathTemplate } from '../CodeEditor';
 
