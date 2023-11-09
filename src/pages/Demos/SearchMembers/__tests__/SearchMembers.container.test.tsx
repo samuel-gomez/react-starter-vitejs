@@ -1,6 +1,5 @@
-import { screen } from '@testing-library/react';
 import { MODES } from 'shared/components/Loader';
-import { render, renderWithWrapperStaticRouter } from 'shared/testsUtils';
+import { screen, render } from 'shared/testsUtils';
 import SearchMembersContainer from '../SearchMembers.container';
 
 const useSearchMembersFn = vi.fn();
@@ -26,7 +25,7 @@ describe('<SearchMembersContainer/>', () => {
     useFormSearchMembersFn.mockReturnValue({ submitFormSearchMembers, stateFormSearchMembers });
     useSearchMembersFn.mockReturnValue({ anomaly: null, isLoading: false, searchMembers: [] });
     setLoaderModeFn.mockReturnValue(MODES.none);
-    renderWithWrapperStaticRouter(<SearchMembersContainer {...defaultProps} />);
+    render(<SearchMembersContainer {...defaultProps} />);
     expect(useFormSearchMembersFn).toHaveBeenCalledWith({});
     expect(useSearchMembersFn).toHaveBeenCalledWith({ stateFormSearchMembers });
     expect(SearchMembersCmpt).toHaveBeenCalledWith({ submitFormSearchMembers, searchMembers: [], loaderMode: MODES.none, anomaly: null }, {});
@@ -47,7 +46,7 @@ describe('<SearchMembersContainer/>', () => {
     useFormSearchMembersFn.mockReturnValue({ submitFormSearchMembers, stateFormSearchMembers });
     useSearchMembersFn.mockReturnValue({ anomaly: null, isLoading: false, searchMembers });
     setLoaderModeFn.mockReturnValue(MODES.none);
-    renderWithWrapperStaticRouter(<SearchMembersContainer {...defaultProps} />);
+    render(<SearchMembersContainer {...defaultProps} />);
     expect(useFormSearchMembersFn).toHaveBeenCalledWith({});
     expect(useSearchMembersFn).toHaveBeenCalledWith({ stateFormSearchMembers });
     expect(SearchMembersCmpt).toHaveBeenCalledWith({ submitFormSearchMembers, searchMembers, loaderMode: MODES.none, anomaly: null }, {});

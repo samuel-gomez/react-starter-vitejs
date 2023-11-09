@@ -1,4 +1,4 @@
-import { emptyFunction, renderWithWrapperStaticRouter } from 'shared/testsUtils';
+import { emptyFunction, render } from 'shared/testsUtils';
 import NotificationContainer from '../Notification.container';
 
 describe('<NotificationContainer/>', () => {
@@ -8,7 +8,7 @@ describe('<NotificationContainer/>', () => {
   it('Should call useNotifyErrorFn when render NotificationContainer', () => {
     useNotifyErrorFn.mockReturnValue({ notifyError: emptyFunction, notifySuccess: emptyFunction, notifyWarning: emptyFunction });
 
-    renderWithWrapperStaticRouter(<NotificationContainer useNotifyErrorFn={useNotifyErrorFn} />);
+    render(<NotificationContainer useNotifyErrorFn={useNotifyErrorFn} />);
 
     expect(useNotifyErrorFn).toHaveBeenCalled();
   });
@@ -16,7 +16,7 @@ describe('<NotificationContainer/>', () => {
   it('Should call NotificationCmpt with notification functions when render NotificationContainer', () => {
     NotificationCmpt.mockReturnValue('NotificationCmpt');
 
-    renderWithWrapperStaticRouter(<NotificationContainer useNotifyErrorFn={useNotifyErrorFn} NotificationCmpt={NotificationCmpt} />);
+    render(<NotificationContainer useNotifyErrorFn={useNotifyErrorFn} NotificationCmpt={NotificationCmpt} />);
 
     expect(NotificationCmpt).toHaveBeenCalledWith(
       {
@@ -31,7 +31,7 @@ describe('<NotificationContainer/>', () => {
   it('Should call NotificationCmpt when render NotificationContainer', () => {
     NotificationCmpt.mockReturnValue('NotificationCmpt');
 
-    renderWithWrapperStaticRouter(<NotificationContainer NotificationCmpt={NotificationCmpt} />);
+    render(<NotificationContainer NotificationCmpt={NotificationCmpt} />);
 
     expect(NotificationCmpt).toHaveBeenCalled();
   });
