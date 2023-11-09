@@ -1,69 +1,38 @@
-import { render } from '@testing-library/react';
-import UserProvider, { UserContext, TUserContext } from 'App/UserProvider';
-import { createContext } from 'react';
+import { render, screen } from 'shared/testsUtils';
 import Authorize from '../Authorize';
 
 describe('<Authorize/>', () => {
-  it('Render <Authorize /> ', () => {
-    const { asFragment } = render(<Authorize />);
-    expect(asFragment()).toMatchSnapshot();
-  });
+  const text = 'protected content';
 
-  it('Render <Authorize /> with child', () => {
-    const { asFragment } = render(
-      <Authorize>
-        <p>child</p>
+  it.each`
+    childrenText | authorized   | role
+    ${text}      | ${['admin']} | ${undefined}
+    ${text}      | ${['admin']} | ${'Admin'}
+  `('Should render null, childrenText: $childrenText, authorized: $authorized, role: $role', async ({ childrenText, authorized, role }) => {
+    render(
+      <Authorize authorized={authorized}>
+        <p>{childrenText}</p>
       </Authorize>,
+      {},
+      { role },
     );
-    expect(asFragment()).toMatchSnapshot();
+
+    expect(screen.queryByText(childrenText)).toBeNull();
   });
 
-  const oidcUser = {
-    name: 'Bob Smith',
-    given_name: 'Bob',
-    family_name: 'Smith',
-    email: 'BobSmith@email.com',
-    email_verified: true,
-    website: 'https://bob.com',
-    sub: '11',
-    member_of: ['CN=User'],
-    axa_uid_racf: 'S000007',
-  };
-
-  it('Render null with child and unauthorize user role', () => {
-    const useOidcUserMock = vi.fn().mockReturnValue({
-      oidcUser,
-    });
-    const { asFragment } = render(
-      <UserProvider useOidcUserFn={useOidcUserMock}>
-        <Authorize authorized={['admin']} UserContextObj={UserContext}>
-          <p>child</p>
-        </Authorize>
-      </UserProvider>,
+  it.each`
+    childrenText | authorized           | role
+    ${text}      | ${undefined}         | ${undefined}
+    ${text}      | ${['Admin', 'User']} | ${'Admin'}
+  `('Should render children, childrenText: $childrenText, authorized: $authorized, role: $role', async ({ childrenText, authorized, role }) => {
+    render(
+      <Authorize authorized={authorized}>
+        <p>{childrenText}</p>
+      </Authorize>,
+      {},
+      { role },
     );
-    expect(asFragment()).toMatchSnapshot();
-  });
 
-  it('Render child when user role is authorized', () => {
-    const useOidcUserMock = vi.fn().mockReturnValue({
-      oidcUser: {
-        ...oidcUser,
-        member_of: ['CN=Admin'],
-      },
-    });
-    const UserContextMock = createContext<TUserContext>({
-      authName: '',
-      authRole: 'admin',
-      authUid: '',
-      isLoading: true,
-    });
-    const { asFragment } = render(
-      <UserProvider useOidcUserFn={useOidcUserMock}>
-        <Authorize authorized={['admin']} UserContextObj={UserContextMock}>
-          <p>child</p>
-        </Authorize>
-      </UserProvider>,
-    );
-    expect(asFragment()).toMatchSnapshot();
+    expect(screen.getByText(childrenText)).toBeInTheDocument();
   });
 });

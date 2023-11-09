@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { defineFeature, loadFeature } from 'jest-cucumber';
-import { renderWithWrapperStaticRouter, emptyFunction } from 'shared/testsUtils';
+import { render, emptyFunction } from 'shared/testsUtils';
 
 import NotFound from '../NotFound';
 
@@ -11,7 +11,7 @@ defineFeature(feature, test => {
     given('Je suis un utilisateur accédant à une page inconnue', emptyFunction);
 
     when('Je suis redirigé sur cette page', () => {
-      renderWithWrapperStaticRouter(<NotFound />);
+      render(<NotFound />);
     });
 
     then('La page m\'affiche un titre "404notfound"', () => {

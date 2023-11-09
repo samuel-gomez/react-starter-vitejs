@@ -40,7 +40,7 @@ export const HeaderApp = ({
   <Header classModifier={fullScreen ? 'fullscreen' : ''}>
     <Name title={title} img={logo} alt={title} subtitle={subtitle} />
     {infos && (
-      <Resilience anomaly={anomaly} resilienceModifier="simple infos">
+      <Resilience anomaly={anomaly} classModifier="simple infos">
         <HeaderInfo isLoaded={infos.length > 0}>
           <Infos infos={infos} />
         </HeaderInfo>

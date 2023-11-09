@@ -4,7 +4,7 @@ import Action from '@axa-fr/react-toolkit-action/dist/esm/index';
 import { ToggleButton } from '@axa-fr/react-toolkit-layout-header/dist/esm/index';
 import { Menu, TMenu } from './Menu';
 import MENU_ITEMS, { CLASS_BODY_MENU_OPEN } from './constants';
-import { TMenuItemBase } from './MenuItem';
+import type { TMenuItemBase } from './MenuItem';
 
 const isNotNull = (item: unknown) => item !== null;
 

@@ -1,5 +1,4 @@
-import { screen } from '@testing-library/react';
-import { renderWithWrapperStaticRouter, emptyFunction } from 'shared/testsUtils';
+import { render, screen, emptyFunction } from 'shared/testsUtils';
 import { defineFeature, loadFeature } from 'jest-cucumber';
 
 import Unauthorize from '../Unauthorize';
@@ -11,7 +10,7 @@ defineFeature(feature, test => {
     given('Je suis un utilisateur accédant à une page non autorisée', emptyFunction);
 
     when('Je suis redirigé sur cette page', () => {
-      renderWithWrapperStaticRouter(<Unauthorize />);
+      render(<Unauthorize />);
     });
 
     then(/^La page m'affiche un titre "403notauthorized"$/, () => {

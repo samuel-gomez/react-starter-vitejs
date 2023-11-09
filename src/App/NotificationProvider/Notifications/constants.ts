@@ -8,3 +8,9 @@ export const ALERT_ICON = {
   error: 'minus-sign',
   danger: 'alert',
 };
+
+export const ALERT_TYPE = {
+  success: 'success',
+  error: 'error',
+  danger: 'danger',
+} as const;

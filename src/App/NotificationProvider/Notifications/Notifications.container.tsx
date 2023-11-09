@@ -1,5 +1,5 @@
 import ClassManager from '@axa-fr/react-toolkit-core/dist/esm/ClassManager';
-import Notifications, { TNotifications } from './Notifications';
+import Notifications, { type TNotifications } from './Notifications';
 import { DEFAULT_CLASS_NOTIFICATION, MODIFIER_OPEN } from './constants';
 
 type TNotificationsContainer = Omit<TNotifications, 'notifications'> & {

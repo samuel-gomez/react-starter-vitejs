@@ -1,17 +1,21 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Resilience from '../Resilience';
 
 describe('Resilience', () => {
   const CustomComponent = () => <div>No anomaly</div>;
 
   const resilienceProps = {
-    resilienceModifier: '',
+    classModifier: '',
   };
 
   it('Should render null when Resilience have been called with no anomaly and no child', () => {
-    const EnhancedComponent = () => <Resilience {...resilienceProps} />;
-    const { asFragment } = render(<EnhancedComponent />);
-    expect(asFragment()).toMatchSnapshot();
+    const EnhancedComponent = () => (
+      <Resilience {...resilienceProps}>
+        <p>my content</p>
+      </Resilience>
+    );
+    render(<EnhancedComponent />);
+    expect(screen.getByText('my content')).toBeInTheDocument();
   });
 
   it('Should render child Component when Resilience have been called with no anomaly and child', () => {
@@ -20,8 +24,8 @@ describe('Resilience', () => {
         <CustomComponent />
       </Resilience>
     );
-    const { getByText } = render(<EnhancedComponent />);
-    expect(getByText('No anomaly')).toBeDefined();
+    render(<EnhancedComponent />);
+    expect(screen.getByText('No anomaly')).toBeDefined();
   });
 
   it('Should render FallbackComponent when Resilience have been called with anomaly and FallbackComponent', () => {
@@ -35,7 +39,7 @@ describe('Resilience', () => {
         <CustomComponent />
       </Resilience>
     );
-    const { getByText } = render(<EnhancedComponent />);
-    expect(getByText('There is an error')).toBeDefined();
+    render(<EnhancedComponent />);
+    expect(screen.getByText('There is an error')).toBeDefined();
   });
 });

@@ -1,6 +1,7 @@
 import { ElementType, ReactNode } from 'react';
 import { emptyFunction } from 'shared/helpers';
 import Table, { TTable } from './Table';
+import { DEFAULT_TABLE_ARIA_LABEL } from './constants';
 
 type TTableContainer = TTable & {
   children?: ReactNode;
@@ -15,7 +16,7 @@ const TableContainer = ({
   items = [],
   headers = [],
   Fallback = emptyFunction,
-  ariaLabel = 'Tableau de données',
+  ariaLabel = DEFAULT_TABLE_ARIA_LABEL,
   ...restTable
 }: TTableContainer) =>
   items.length > 0 ? (

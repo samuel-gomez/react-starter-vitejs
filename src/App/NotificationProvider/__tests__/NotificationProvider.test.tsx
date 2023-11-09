@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { render } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import NotificationProvider, { NotificationContext } from '../NotificationProvider';
 import type { TNotificationContext } from '../NotificationProvider';
 import useNotifications from '../Notifications.hook';
@@ -17,6 +17,7 @@ const BaseWithNotification = () => {
   const notificationProps = useContext(NotificationContext);
   return <Base {...notificationProps} />;
 };
+
 const addNotificationMock = vi.fn();
 const onDeleteNotificationMock = vi.fn();
 
@@ -33,9 +34,8 @@ describe('Render App with Base have addNotification props', () => {
       onDeleteNotification: onDeleteNotificationMock,
       stateNotifications: [],
     });
-    const { asFragment, getByText } = render(<App useNotificationsFn={useNotificationsMock} />);
-    expect(asFragment()).toMatchSnapshot();
-    expect(getByText('have addNotification')).toBeDefined();
+    render(<App useNotificationsFn={useNotificationsMock} />);
+    expect(screen.getByText('have addNotification')).toBeDefined();
   });
 
   it('Should Base have fetchCustom props when call setFetchCustom with 1 notification', () => {
@@ -52,10 +52,17 @@ describe('Render App with Base have addNotification props', () => {
       stateNotifications: [notification],
     });
 
-    const { asFragment, getByText, getByRole } = render(<App useNotificationsFn={useNotificationsMock} />);
-    expect(asFragment()).toMatchSnapshot();
-    expect(getByText('have addNotification')).toBeDefined();
-    expect(getByRole('alert')).toBeDefined();
-    expect(getByText('labeldemonalert')).toBeDefined();
+    render(<App useNotificationsFn={useNotificationsMock} />);
+
+    const aside = screen.getByRole('complementary');
+    expect(aside).toHaveClass('af-notifications--open');
+
+    const alert = within(aside).getByRole('alert');
+    expect(alert).toHaveClass('af-alert--notification');
+    expect(alert).toHaveClass('af-alert--error');
+
+    expect(within(alert).getByText('labeldemonalert')).toBeDefined();
+
+    expect(screen.getByText('have addNotification')).toBeDefined();
   });
 });

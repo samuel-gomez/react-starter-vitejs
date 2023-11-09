@@ -1,17 +1,15 @@
-import { withClassDefault, withClassModifier, WithClassModifierOptions, compose, identity } from '@axa-fr/react-toolkit-core/dist/esm/index';
+import withClassNameModifier, { type TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
 import './Skeleton.scss';
 
 type TSkeleton = {
   className?: string;
-} & WithClassModifierOptions;
+} & TwithClassNameModifier;
 
 const DEFAULT_CLASSNAME = 'af-skeleton';
 
-const Skeleton = ({ className }: TSkeleton) => <div aria-busy="true" aria-label="loader" role="status" className={className} />;
+const Skeleton = withClassNameModifier(
+  ({ className }: TSkeleton) => <div aria-busy="true" aria-label="Skeleton Loader" role="alert" className={className} />,
+  { defaultClassName: DEFAULT_CLASSNAME },
+);
 
-const enhance = compose(identity<TSkeleton>(), withClassDefault(DEFAULT_CLASSNAME), withClassModifier());
-
-const Enhanced = enhance(Skeleton);
-Enhanced.displayName = 'Skeleton';
-
-export default Enhanced;
+export default Skeleton;

@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import ResilienceSubstitut, { setClassModifier, setClassName } from '../ResilienceSubstitut';
 
 describe('<ResilienceSubstitut/>', () => {
@@ -10,28 +10,28 @@ describe('<ResilienceSubstitut/>', () => {
   };
 
   it('Render <ResilienceSubstitut/> with default props and return Alert resilience', () => {
-    const { asFragment, getByText, container } = render(<ResilienceSubstitut {...defaultProps} />);
-    expect(getByText('label')).toBeDefined();
-    expect(getByText('detail')).toBeDefined();
+    const { container } = render(<ResilienceSubstitut {...defaultProps} />);
+    expect(screen.getByText('label')).toBeDefined();
+    expect(screen.getByText('detail')).toBeDefined();
     expect(container.querySelector('.glyphicon-exclamation-sign')).toBeDefined();
-    expect(asFragment()).toMatchSnapshot();
   });
 
   it('Render <ResilienceSubstitut/> with default props and refetchMock', () => {
     const refetchMock = vi.fn();
-    const { asFragment, getByText } = render(<ResilienceSubstitut {...defaultProps} refetch={refetchMock} />);
-    expect(getByText('Réessayer')).toBeDefined();
-    expect(asFragment()).toMatchSnapshot();
+    const { container } = render(<ResilienceSubstitut {...defaultProps} refetch={refetchMock} />);
+    expect(screen.getByText('Réessayer')).toBeDefined();
+    expect(container.querySelector('.af-alert--with-action')).toBeDefined();
+    expect(container.querySelector('.af-restitution--with-action')).toBeDefined();
+    expect(container.querySelector('.af-btn--hasiconRight')).toBeDefined();
   });
 
   it('Render <ResilienceSubstitut/> with classModifier="simple" and return Alert resilience with simple classModifier', () => {
     const customProps = { ...defaultProps, classModifier: 'simple', anomaly: { ...defaultProps.anomaly, iconName: 'icon2', type: 'warning' } };
-    const { asFragment, getByText, container } = render(<ResilienceSubstitut {...customProps} />);
-    expect(getByText('label')).toBeDefined();
-    expect(getByText('detail')).toBeDefined();
-    expect(container.querySelector('.af-alert--warning')).toBeDefined();
+    const { container } = render(<ResilienceSubstitut {...customProps} />);
+    expect(screen.getByText('label')).toBeDefined();
+    expect(screen.getByText('detail')).toBeDefined();
+    expect(container.querySelector('.af-alert--simple')).toBeDefined();
     expect(container.querySelector('.glyphicon-icon2')).toBeDefined();
-    expect(asFragment()).toMatchSnapshot();
   });
 
   it('Render <ResilienceSubstitut/> with resilienceMode="none" and return {}', () => {
@@ -41,34 +41,38 @@ describe('<ResilienceSubstitut/>', () => {
 
   it('Render <ResilienceSubstitut/> with resilienceMode="fallback" and FallBackComponent = Custom and Should contain Custom element', () => {
     const Custom = () => <div>FallbackComponent</div>;
-    const { asFragment, getByText } = render(<ResilienceSubstitut {...defaultProps} resilienceMode="fallback" FallbackComponent={Custom} />);
-    expect(getByText('FallbackComponent')).toBeDefined();
-    expect(asFragment()).toMatchSnapshot();
+    render(<ResilienceSubstitut {...defaultProps} resilienceMode="fallback" FallbackComponent={Custom} />);
+    expect(screen.getByText('FallbackComponent')).toBeDefined();
   });
 });
 
 describe('setClassModifier', () => {
-  it('Should return "error" when setClassModifier called type="error" and resilienceModifier=""', () => {
-    const result = setClassModifier({ type: 'error', resilienceModifier: '' });
+  it('Should return "error" when setClassModifier called type="error" and classModifier=""', () => {
+    const result = setClassModifier({ type: 'error', classModifier: '' });
+    const expected = 'error';
+    expect(result).toEqual(expected);
+  });
+  it('Should return "error" when setClassModifier called type="error" and classModifier=undefined', () => {
+    const result = setClassModifier({ type: 'error' });
     const expected = 'error';
     expect(result).toEqual(expected);
   });
 
-  it('Should return "error mymodifier" when setClassModifier called type="error" and resilienceModifier="mymodifier"', () => {
-    const result = setClassModifier({ type: 'error', resilienceModifier: 'mymodifier' });
+  it('Should return "error mymodifier" when setClassModifier called type="error" and classModifier="mymodifier"', () => {
+    const result = setClassModifier({ type: 'error', classModifier: 'mymodifier' });
     const expected = 'error mymodifier';
     expect(result).toEqual(expected);
   });
 });
 
 describe('setClassName', () => {
-  it('Should return "af-alert" when setClassName called with resilienceModifier=""', () => {
-    const result = setClassName({ resilienceModifier: '' });
+  it('Should return "af-alert" when setClassName called with newClassModifier=""', () => {
+    const result = setClassName({ newClassModifier: '' });
     expect(result).toEqual('af-alert');
   });
 
-  it('Should return "container af-alert" when setClassName called with resilienceModifier="container"', () => {
-    const result = setClassName({ resilienceModifier: 'container' });
+  it('Should return "container af-alert" when setClassName called with newClassModifier="container"', () => {
+    const result = setClassName({ newClassModifier: 'container' });
     const expected = 'container af-alert';
     expect(result).toEqual(expected);
   });

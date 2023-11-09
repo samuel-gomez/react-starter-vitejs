@@ -1,7 +1,7 @@
 import { FetchContext, FetchContextType } from 'App/FetchProvider';
 import { useContext } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { EType, NotificationContext } from 'App/NotificationProvider';
+import { ALERT_TYPE, NotificationContext } from 'App/NotificationProvider';
 import { TNotificationContext } from 'App/NotificationProvider/NotificationProvider';
 import { FieldValues, UseFormReset } from 'react-hook-form';
 import type { Tanomaly } from 'shared/types';
@@ -57,7 +57,7 @@ export const onSuccess =
 type TonError = TNotificationContext;
 
 export const setTypeNotification = ({ code }: { code: Tanomaly['code'] }) =>
-  `${code}`.startsWith(`${STATUS_API.WARNING}`) ? { type: EType.danger } : {};
+  `${code}`.startsWith(`${STATUS_API.WARNING}`) ? { type: ALERT_TYPE.danger } : {};
 
 const onError =
   ({ addNotification }: TonError) =>

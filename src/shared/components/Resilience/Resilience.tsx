@@ -1,4 +1,4 @@
-import { ComponentProps, PropsWithChildren, ReactNode } from 'react';
+import type { ComponentProps, PropsWithChildren, ReactNode } from 'react';
 import ResilienceSubstitut from './ResilienceSubstitut';
 
 type TResilience<Trefetch> = Omit<ComponentProps<typeof ResilienceSubstitut>, 'anomaly'> & {
@@ -9,7 +9,7 @@ type TResilience<Trefetch> = Omit<ComponentProps<typeof ResilienceSubstitut>, 'a
 
 const Resilience = <Trefetch extends React.MouseEventHandler<HTMLButtonElement>>({
   resilienceMode,
-  resilienceModifier,
+  classModifier,
   FallbackComponent,
   refetch,
   anomaly = null,
@@ -20,7 +20,7 @@ const Resilience = <Trefetch extends React.MouseEventHandler<HTMLButtonElement>>
       anomaly={anomaly}
       refetch={refetch}
       resilienceMode={resilienceMode}
-      resilienceModifier={resilienceModifier}
+      classModifier={classModifier}
       FallbackComponent={FallbackComponent}
     />
   ) : (

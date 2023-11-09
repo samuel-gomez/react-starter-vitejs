@@ -9,7 +9,7 @@ import { ReactElement, ReactNode } from 'react';
 import MOCK_API_URL from './constants';
 
 type TMockProvider = {
-  [x: string]: Record<string, unknown | number | string> | string | boolean | null | number;
+  [x: string]: Record<string, unknown | number | string> | string | boolean | null | number | Record<string, number | string>[];
 };
 
 const MockProviders =
@@ -20,17 +20,19 @@ const MockProviders =
     oidcUser = { member_of: [`CN=${role}`], name: 'Samuel Gomez' },
     accessToken = 'accessToken',
     queryData,
-    ...testMock
+    headers = {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
   }: TMockProvider) =>
   ({ children }: { children: ReactNode }) => {
-    const useOidcAccessTokenFn = vi.fn().mockReturnValue({ accessToken });
-    const useOidcUserFn = vi.fn().mockReturnValueOnce({ oidcUser });
+    const getAccessTokenFn = vi.fn().mockReturnValue(() => ({ accessToken }));
+    const getUserInfosFn = vi.fn().mockReturnValueOnce(() => ({ oidcUser }));
     const useEnvFn = vi.fn().mockReturnValueOnce({
       envState: {
         environment: {
           apiUrl: MOCK_API_URL,
           fetchConfig: {
-            headers: { testMock: JSON.stringify(testMock) },
+            headers,
           },
           oidc: {
             isEnabled,
@@ -46,8 +48,8 @@ const MockProviders =
 
     return (
       <EnvironmentProvider useEnvFn={useEnvFn}>
-        <UserProvider useOidcUserFn={useOidcUserFn}>
-          <FetchProvider useOidcAccessTokenFn={useOidcAccessTokenFn}>
+        <UserProvider getUserInfosFn={getUserInfosFn}>
+          <FetchProvider getAccessTokenFn={getAccessTokenFn}>
             <QueryProvider queriesOptions={queriesOptions}>
               <NotificationProvider>
                 <MemoryRouter initialEntries={[`${route}`]}>{children}</MemoryRouter>

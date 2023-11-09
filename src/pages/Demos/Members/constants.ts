@@ -8,7 +8,7 @@ export const TABLE_HEADERS_MEMBERS = [
   { label: 'Prénom', field: 'firstname', id: 'firstname', key: 'firstname' },
   { label: 'Nom', field: 'lastname', id: 'lastname', key: 'lastname' },
   { label: 'Date de naissance', field: 'birthdate', id: 'birthdate', key: 'birthdate' },
-  { label: 'Sexe', id: 'sexe', key: 'sexe' },
+  { label: 'Sexe', field: 'sexe', id: 'sexe', key: 'sexe' },
 ];
 
 export const SERVICE_NAME = 'members';

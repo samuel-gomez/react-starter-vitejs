@@ -14,6 +14,7 @@ import {
   UnTexteEstVisible,
   UneAlertErrorContenantLeMessage,
 } from 'shared/testsUtils/sharedScenarios';
+import { serverUsePost } from 'shared/testsUtils/msw';
 import MembersNew from '..';
 
 const feature = loadFeature('features/Demos/MembersNew/MembersNew.feature');
@@ -66,10 +67,11 @@ defineFeature(feature, test => {
   test('Erreur serveur (500)', ({ given, when, and }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, (roleMock: string) => {
       role = roleMock;
+      serverUsePost({ route: 'members/add', code: 500 });
     });
 
     when("J'accède à la page ajout de membre", async () => {
-      render(<MembersNew />, {}, { role, code: 500 });
+      render(<MembersNew />, {}, { role });
       expect(await screen.findByText(/Samuel/)).toBeInTheDocument();
     });
 

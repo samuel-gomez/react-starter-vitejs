@@ -1,20 +1,27 @@
-import { withClassDefault, withClassModifier, WithClassModifierOptions, compose, identity } from '@axa-fr/react-toolkit-core/dist/esm/index';
-import { ReactNode } from 'react';
+import { type PropsWithChildren } from 'react';
+import withClassNameModifier, { type TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
+import { DEFAULT_CLASSNAME, MODES, TEXTS } from './constants';
 import './Loader.scss';
 
-type TLoader = WithClassModifierOptions & {
+export type TLoader = PropsWithChildren & {
   className?: string;
-  isVisible?: boolean;
   message?: string;
-  children?: ReactNode;
-};
+  mode?: keyof typeof MODES;
+} & TwithClassNameModifier;
 
-const Loader = ({ className, isVisible, message, children }: TLoader) => (
-  <div className={className}>{isVisible ? <p className="af-loader__spinner">{message}</p> : children}</div>
+const Loader = withClassNameModifier(
+  ({ className, mode = MODES.none, message = TEXTS[mode], children }: TLoader) => (
+    <>
+      {mode !== MODES.none ? (
+        <div role="alert" aria-label={message} aria-live="polite" aria-busy className={className}>
+          <p className={`${DEFAULT_CLASSNAME}__spinner`}>{message}</p>
+        </div>
+      ) : (
+        children
+      )}
+    </>
+  ),
+  { defaultClassName: DEFAULT_CLASSNAME },
 );
 
-const enhance = compose(identity<TLoader>(), withClassDefault('af-loader'), withClassModifier());
-const Enhanced = enhance(Loader);
-Enhanced.displayName = 'Skeleton';
-
-export default Enhanced;
+export default Loader;

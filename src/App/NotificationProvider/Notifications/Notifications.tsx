@@ -1,6 +1,6 @@
 import './Notifications.scss';
-import { DEFAULT_CLASS_NOTIFICATION } from './constants';
-import Notification, { TNotification, EType } from './Notification';
+import { ALERT_TYPE, DEFAULT_CLASS_NOTIFICATION } from './constants';
+import Notification, { type TNotification } from './Notification';
 import type { TonDeleteNotification } from '..';
 
 export type TNotifications = {
@@ -11,7 +11,7 @@ export type TNotifications = {
 
 const Notifications = ({ notifications, deleteNotification, className = DEFAULT_CLASS_NOTIFICATION }: TNotifications) => (
   <aside className={className}>
-    {notifications.map(({ id, label, type = EType.error, classModifier, ...rest }) => (
+    {notifications.map(({ id, label, type = ALERT_TYPE.error, classModifier, ...rest }) => (
       <Notification {...rest} key={id} id={id} label={label} type={type} classModifier={classModifier} onClose={() => deleteNotification?.(id)} />
     ))}
   </aside>

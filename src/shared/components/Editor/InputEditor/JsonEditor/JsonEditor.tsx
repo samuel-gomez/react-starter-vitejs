@@ -3,8 +3,9 @@ import Modal from '@axa-fr/react-toolkit-modal-default/dist/esm/index';
 import ReactCodeEditor from '@uiw/react-textarea-code-editor/esm/index';
 import '@uiw/react-textarea-code-editor/dist.css';
 import { ChangeEvent, useCallback, useState } from 'react';
+import type { TEvent } from 'shared/types';
 import { ModalCommonHeader, ModalCommonBody, ModalCommonFooter, useToggleModal } from 'shared/components/ModalCommon';
-import type { TEvent, TonChange } from '../../Editor';
+import type { TonChange } from '../../Editor';
 import './JsonEditor.scss';
 
 type TuseJsonEditor = TEvent & {

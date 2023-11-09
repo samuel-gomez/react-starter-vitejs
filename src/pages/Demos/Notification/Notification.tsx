@@ -2,7 +2,7 @@ import { themes } from 'prism-react-renderer/dist/index';
 import { LiveProvider, LiveEditor } from 'react-live';
 import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
 import { Accordion, CollapseCard } from '@axa-fr/react-toolkit-collapse/dist/esm/index';
-import Layout, { TLayoutPage } from 'Layout';
+import Layout, { type TLayoutPage } from 'Layout';
 import LiveCode from 'shared/components/LiveCode';
 import { TITLE_BAR, TITLE } from './constants';
 import { TReturnUseNotify } from './Notification.hook';

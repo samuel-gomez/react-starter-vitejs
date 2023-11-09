@@ -21,7 +21,7 @@ const DownloadLink = ({
   loaderClassModifier = 'fullscreen',
   loaderText = 'Téléchargement du fichier en cours...',
 }: TDownloadLink) => (
-  <Loader mode={loaderMode} classModifier={loaderClassModifier} text={loaderText}>
+  <Loader mode={loaderMode} classModifier={loaderClassModifier} message={loaderText}>
     <Button aria-label={label} disabled={isDisabled} type="button" className="af-link" classModifier="hasIconLeft download" onClick={onDownload}>
       <Icons className="af-download-link__icon" icon="download-csv" />
       <span className="af-link__text">{label}</span>

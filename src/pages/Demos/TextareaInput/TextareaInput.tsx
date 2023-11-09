@@ -2,8 +2,9 @@ import { FocusEvent, memo } from 'react';
 import isEqual from 'lodash/isEqual';
 import MessageTypes from '@axa-fr/react-toolkit-form-core/dist/esm/MessageTypes';
 import LiveCode from 'shared/components/LiveCode';
-import { withEditor, useEditable, TEvent, Tknobs, EditorHeader, TReturnUseToggleEditor } from 'shared/components/Editor';
-import Layout, { TLayoutPage } from 'Layout';
+import { withEditor, useEditable, type Tknobs, EditorHeader, type TReturnUseToggleEditor } from 'shared/components/Editor';
+import Layout, { type TLayoutPage } from 'Layout';
+import type { TEvent } from 'shared/types';
 import { TITLE_BAR, TITLE, DESIGN_SYSTEM_PATH, STORYBOOK_PATH, GITHUB_PACKAGE, NPM_NAME } from './constants';
 import knobs from './knobs.json';
 

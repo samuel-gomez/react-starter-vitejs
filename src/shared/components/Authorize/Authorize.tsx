@@ -3,7 +3,7 @@ import { UserContext } from 'App/UserProvider';
 
 type TAuthorize = {
   authorized?: string[];
-  children?: ReactNode;
+  children: ReactNode;
   UserContextObj?: typeof UserContext;
 };
 

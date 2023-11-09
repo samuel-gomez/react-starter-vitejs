@@ -1,39 +1,53 @@
 import { DefineStepFunction } from 'jest-cucumber';
-import isNull from 'lodash/isNull';
-import { screen, within } from '@testing-library/dom';
+import { within } from '@testing-library/dom';
+import { DEFAULT_TABLE_ARIA_LABEL } from 'shared/components/Table/constants';
+import { getTableHeadElements, expectTable, expectCellsContent, getTableBodyElements, getTbodyLineCellByRole } from './utils';
 
-import { getTableByRole } from './utils';
-
+/**
+ * Méthode de scénario permettant de vérifier le contenu des cellules du header d'un tableau
+ */
 export const LeTableauPresenteDesEntetesDeColonnesDansLOrdreSuivant = (
   instruction: DefineStepFunction,
-  headers?: string,
-  scenarioName = `le tableau présente des entêtes de colonnes dans l’ordre suivant : ${headers}`,
-  tableName = 'Tableau de données',
+  scenarioName: string | RegExp,
+  tableName = DEFAULT_TABLE_ARIA_LABEL,
 ) =>
   instruction(scenarioName, async (...args: string[]) => {
-    const table = await getTableByRole(tableName);
-    const thead = within(table).getByRole('rowgroup', { name: 'table-header' });
-    const theadLine = within(thead).getByRole('row', { name: 'table-header-line' });
-    const cells = within(theadLine).getAllByRole('button');
-    args
-      .filter(item => !isNull(item))
-      .forEach((headerLabel, index) => {
-        expect(cells[index]).toHaveTextContent(RegExp(headerLabel));
-      });
+    const expectedHeaders = args.filter(header => header !== '');
+    const { cells } = await getTableHeadElements({ tableName });
+    expectCellsContent(cells, ...expectedHeaders);
   });
 
+/**
+ * Méthode de scénario permettant de vérifier le contenu des cellules de tri du header d'un tableau
+ */
+export const LeTableauPresenteDesEntetesDeTriDeColonnesDansLOrdreSuivant = (
+  instruction: DefineStepFunction,
+  scenarioName: string | RegExp,
+  tableName = DEFAULT_TABLE_ARIA_LABEL,
+) =>
+  instruction(scenarioName, async (...args: string[]) => {
+    const expectedHeaders = args.filter(header => header !== '');
+    const { cells } = await getTableHeadElements({ tableName, isButton: true });
+    expectCellsContent(cells, ...expectedHeaders);
+  });
+
+/**
+ * Méthode de scénario permettant de vérifier le contenu des cellules du tbody d'un tableau
+ * Le nom du scénario doit contenir le nombre de lignes et de colonnes
+ */
 export const LeTableauContientLesLignesCorrespondantAuxDonneesRecues = (
   instruction: DefineStepFunction,
-  scenarioName = 'le tableau contient les informations suivantes :',
-  tableName = 'Tableau de données',
+  scenarioName: string | RegExp,
+  tableName = DEFAULT_TABLE_ARIA_LABEL,
 ) =>
-  instruction(scenarioName, async (items: string[]) => {
-    const table = await screen.findByRole('table', { name: RegExp(tableName) });
-    const tbody = within(table).getByRole('rowgroup', { name: 'table-body' });
-    const tbodyLines = within(tbody).getAllByRole('row', { name: 'table-body-line' });
+  instruction(scenarioName, async (lines, cols, items: string[]) => {
+    const { tbodyLines } = await getTableBodyElements({ tableName });
+    expect(tbodyLines).toHaveLength(lines);
 
     tbodyLines.forEach((tbodyLine, index) => {
-      const cells = within(tbodyLine).getAllByRole('cell');
+      const cells = getTbodyLineCellByRole(tbodyLine);
+      expect(cells).toHaveLength(cols);
+
       Object.values(items[index]).forEach((valueCell, indexCell) => {
         // il est nécessaire d'ajouter un classModifier="actions" sur les cellules concernées
         if (cells[indexCell].classList?.contains('af-table__cell--actions')) {
@@ -46,14 +60,14 @@ export const LeTableauContientLesLignesCorrespondantAuxDonneesRecues = (
     });
   });
 
+/**
+ * Méthode de scénario permettant de vérifier présence d'un tableau
+ */
 export const LaPageContientUnTableau = (
   instruction: DefineStepFunction,
   scenarioName = 'la page contient un tableau',
-  tableName = 'Tableau de données',
+  tableName = DEFAULT_TABLE_ARIA_LABEL,
 ) =>
-  instruction(scenarioName, () => {
-    const table = screen.getByRole('table', {
-      name: RegExp(tableName),
-    });
-    expect(table).toBeInTheDocument();
+  instruction(scenarioName, async () => {
+    await expectTable(tableName);
   });
