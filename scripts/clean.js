@@ -29,6 +29,7 @@ const pathsDelete = [
   './public/_redirect',
   './src/pages/Home/Galleries',
   './src/assets/demo',
+  './src/shared/testsUtils/clearString.ts',
   './src/shared/toolkit.ts',
   './src/shared/components/LiveCode',
   './src/shared/components/Cards',
