@@ -111,12 +111,10 @@ export const useMembers = ({
     [setOnChangePagingFn],
   );
 
-  const { data, isFetching, error, refetch } = useQueryFn(
-    [`members?max=${Number(numberItems)}&sort=${field}&dir=${order}&skip=${Number(page * numberItems)}`],
-    {
-      select: computeDataQueryFn,
-    },
-  );
+  const { data, isFetching, error, refetch } = useQueryFn({
+    queryKey: [`members?max=${Number(numberItems)}&sort=${field}&dir=${order}&skip=${Number(page * numberItems)}`],
+    select: computeDataQueryFn,
+  });
 
   return {
     members: data?.members?.data ?? DEFAULT_STATE_VALUE.data,

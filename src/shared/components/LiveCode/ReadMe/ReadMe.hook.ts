@@ -7,7 +7,8 @@ type TuseGithubReadme = {
 };
 
 export const useGithubReadme = ({ githubPackage, useQueryFn = useQuery }: TuseGithubReadme) => {
-  const { data, isFetching, error, refetch } = useQueryFn([`${GITHUB_API}${githubPackage}/README.md`, { text: true }, API_URL.GITHUB], {
+  const { data, isFetching, error, refetch } = useQueryFn({
+    queryKey: [`${GITHUB_API}${githubPackage}/README.md`, { text: true }, API_URL.GITHUB],
     staleTime: 10000,
   });
 

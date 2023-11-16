@@ -8,7 +8,7 @@ import { CACHE_TIME, REFETCH_ON_WINDOWS_FOCUS, RETRY_REQUEST } from './constants
 export const defaultQueryWithAuth = async (queryKey: QueryKey, fetchCustom: TFetchCustom) => fetchCustom(queryKey);
 
 export const showReactQueryDevtools = (process?: string) =>
-  process === 'development' && <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />;
+  process === 'development' && <ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-right" />;
 
 type TsetQueryClient = {
   fetchCustom: TFetchCustom;
@@ -27,7 +27,7 @@ export const setQueryClient = ({ fetchCustom, setQueryFn = setQuery, ...queriesO
     queries: {
       refetchOnWindowFocus: REFETCH_ON_WINDOWS_FOCUS,
       retry: RETRY_REQUEST,
-      cacheTime: CACHE_TIME,
+      gcTime: CACHE_TIME,
       queryFn: setQueryFn(fetchCustom),
       ...queriesOptions,
     },

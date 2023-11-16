@@ -3,8 +3,8 @@ import DownloadLinkContainer from '../DownloadLink.container';
 
 describe('DownloadLinkContainer', () => {
   it('Render <DownloadLinkContainer/> ', () => {
-    render(<DownloadLinkContainer label="Télécharger les résultats" path="elecions/3/resultats" fileName="2_20220112_AAM-VIE_resultats.csv" />);
-    const button = screen.getByLabelText('Télécharger les résultats');
+    render(<DownloadLinkContainer label="Télécharger" path="download/id" fileName="document.csv" />);
+    const button = screen.getByLabelText('Télécharger');
     expect(button).toBeInTheDocument();
     const imageSvg = screen.getByRole('img');
     expect(imageSvg).toHaveClass('af-download-link__icon');
@@ -12,7 +12,7 @@ describe('DownloadLinkContainer', () => {
     expect(titleSvg).toBeInTheDocument();
   });
 
-  it('Should call useDownloadFn with path: "elecions/3/resultats" and callsetLoaderModeFn with {isLoading: false} when render DownloadLinkContainer', () => {
+  it('Should call useDownloadFn with path: "download/id" and callsetLoaderModeFn with {isLoading: false} when render DownloadLinkContainer', () => {
     const clearSubmitDownloadMock = vi.fn();
     const setLoaderModeFnMock = vi.fn().mockReturnValue('none');
     const useSubmitDownloadFnMock = vi.fn().mockReturnValue({
@@ -31,15 +31,15 @@ describe('DownloadLinkContainer', () => {
       <DownloadLinkContainer
         setLoaderModeFn={setLoaderModeFnMock}
         useDownloadFn={useDownloadFnMock}
-        label="Télécharger les résultats"
-        path="elecions/3/resultats"
-        fileName="2_20220112_AAM-VIE_resultats.csv"
+        label="Télécharger"
+        path="download/id"
+        fileName="document.csv"
         useSubmitDownloadFn={useSubmitDownloadFnMock}
         useDownloadFileFn={useDownloadFileMock}
       />,
     );
 
     expect(setLoaderModeFnMock).toBeCalledWith({ isLoading: false });
-    expect(useDownloadFnMock).toBeCalledWith({ path: 'elecions/3/resultats', hasSubmit: false, clearSubmitDownload: clearSubmitDownloadMock });
+    expect(useDownloadFnMock).toBeCalledWith({ path: 'download/id', hasSubmit: false });
   });
 });

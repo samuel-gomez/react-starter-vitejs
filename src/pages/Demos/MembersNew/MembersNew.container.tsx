@@ -8,7 +8,7 @@ export type TMembersNewEnhanced = Partial<ComponentPropsWithoutRef<typeof Member
 
 const MembersNewEnhanced = (membersNewProps: TMembersNewEnhanced) => {
   const { handleSubmit, control, reset } = useForm();
-  const { mutate, isLoading } = useAddMember({ reset });
+  const { mutate, isPending } = useAddMember({ reset });
   const onSubmitHandler: SubmitHandler<FieldValues> = dataSubmitted => mutate(dataSubmitted);
   return (
     <MembersNew
@@ -17,7 +17,7 @@ const MembersNewEnhanced = (membersNewProps: TMembersNewEnhanced) => {
       onSubmit={handleSubmit(onSubmitHandler)}
       control={control}
       reset={reset}
-      isLoading={isLoading}
+      isLoading={isPending}
     />
   );
 };
