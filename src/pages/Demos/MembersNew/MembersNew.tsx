@@ -19,6 +19,16 @@ import {
 } from './constants';
 import type { TReturnSetRules } from './MembersNew.helper';
 
+export const ButtonIconLoading = ({ isLoading }: { isLoading: boolean }) => (
+  <>
+    {isLoading ? (
+      <i role="img" aria-label="refresh" className="glyphicon glyphicon-refresh" />
+    ) : (
+      <i role="img" aria-label="plus" className="glyphicon glyphicon-plus" />
+    )}
+  </>
+);
+
 export type TMembersNew = TLayoutPage & {
   rules: TReturnSetRules;
   reset: UseFormReset<FieldValues>;
@@ -30,23 +40,27 @@ export type TMembersNew = TLayoutPage & {
 const MembersNew = ({ rules, onSubmit, control, reset, titleBar = TITLE_BAR, title = TITLE, isLoading = false }: TMembersNew) => (
   <Layout propsTitle={{ title: titleBar, backHome: true }}>
     <h1 className="af-title--content">{title}</h1>
+
     <form onSubmit={onSubmit} id={FORM_ADD_MEMBERS}>
-      <FieldSelectInput control={control} rules={rules[CIVILITY]} name={CIVILITY} label={LABEL_CIVILITY} options={OPTIONS_CIVILITY} />
-      <FieldTextInput control={control} rules={rules[FIRSTNAME]} name={FIRSTNAME} label={LABEL_FIRSTNAME} />
-      <FieldTextInput control={control} rules={rules[LASTNAME]} name={LASTNAME} label={LABEL_LASTNAME} />
-      <Row>
-        <Col md={2}>
-          <Button type="reset" classModifier="reverse" onClick={reset}>
-            <span className="af-btn__text">{LABEL_CANCEL}</span>
-          </Button>
-        </Col>
-        <Col md={10}>
-          <Button type="submit" classModifier="hasiconRight" aria-disabled={isLoading}>
-            {isLoading ? <i className="glyphicon glyphicon-refresh" /> : <i className="glyphicon glyphicon-plus" />}
-            <span className="af-btn__text">{LABEL_SUBMIT}</span>
-          </Button>
-        </Col>
-      </Row>
+      <fieldset>
+        <legend>Informations générales</legend>
+        <FieldSelectInput control={control} rules={rules[CIVILITY]} name={CIVILITY} label={LABEL_CIVILITY} options={OPTIONS_CIVILITY} />
+        <FieldTextInput control={control} rules={rules[FIRSTNAME]} name={FIRSTNAME} label={LABEL_FIRSTNAME} />
+        <FieldTextInput control={control} rules={rules[LASTNAME]} name={LASTNAME} label={LABEL_LASTNAME} />
+        <Row>
+          <Col md={2}>
+            <Button type="reset" classModifier="reverse" onClick={reset}>
+              <span className="af-btn__text">{LABEL_CANCEL}</span>
+            </Button>
+          </Col>
+          <Col md={10}>
+            <Button type="submit" classModifier="hasiconRight" aria-disabled={isLoading}>
+              <ButtonIconLoading isLoading={isLoading} />
+              <span className="af-btn__text">{LABEL_SUBMIT}</span>
+            </Button>
+          </Col>
+        </Row>
+      </fieldset>
     </form>
   </Layout>
 );
