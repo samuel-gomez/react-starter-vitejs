@@ -43,11 +43,11 @@ const SearchMembers = ({ titleBar = TITLE_BAR, title = TITLE, loaderMode, search
     <h1 className="af-title--content">{title}</h1>
     <Alert title="Des cas sont prévus sur la démo. Voici les valeurs à saisir :" classModifier="info">
       <ul>
-        <li>Cas d'erreur 500 : saisir '500'</li>
-        <li>Cas d'erreur 404 : saisir '404'</li>
-        <li>Cas d'erreur 403 : saisir '403'</li>
-        <li>Cas vide : saisir 'vide'</li>
-        <li>Cas valide : saisir 'sam'</li>
+        <li>Cas erreur 500 : saisir `500`</li>
+        <li>Cas erreur 404 : saisir `404`</li>
+        <li>Cas erreur 403 : saisir `403`</li>
+        <li>Cas vide : saisir `vide`</li>
+        <li>Cas valide : saisir `sam`</li>
       </ul>
     </Alert>
     <SearchForm submitFormSearchMembers={submitFormSearchMembers} />

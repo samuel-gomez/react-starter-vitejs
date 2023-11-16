@@ -23,6 +23,7 @@ const Card = ({ storybook, designSystem, title, picture: { name, alt } }: TCard)
     </header>
     <section className="af-card__content">
       <a
+        aria-label="Voir le design system"
         className="btn af-btn--circle af-btn--svg"
         href={`${DESIGN_SYSTEM}${designSystem?.path ?? ''}`}
         title={storybook?.text ?? ''}
@@ -32,6 +33,7 @@ const Card = ({ storybook, designSystem, title, picture: { name, alt } }: TCard)
         <Icons icon="slash" viewBox="0 0 342.988 280" />
       </a>
       <a
+        aria-label="Voir le storybook"
         className="btn af-btn--circle af-btn--storybook"
         href={`${STORYBOOK}${storybook?.path ?? ''}`}
         title={storybook?.text ?? ''}
