@@ -26,6 +26,7 @@ exports[`<Cards/> > Should render Cards 1`] = `
         class="af-card__content"
       >
         <a
+          aria-label="Voir le design system"
           class="btn af-btn--circle af-btn--svg"
           href="https://axafrance.github.io/design-system/"
           rel="noopener noreferrer"
@@ -47,6 +48,7 @@ exports[`<Cards/> > Should render Cards 1`] = `
           </svg>
         </a>
         <a
+          aria-label="Voir le storybook"
           class="btn af-btn--circle af-btn--storybook"
           href="https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/"
           rel="noopener noreferrer"
@@ -90,6 +92,7 @@ exports[`<Cards/> > Should render Cards 1`] = `
         class="af-card__content"
       >
         <a
+          aria-label="Voir le design system"
           class="btn af-btn--circle af-btn--svg"
           href="https://axafrance.github.io/design-system/"
           rel="noopener noreferrer"
@@ -111,6 +114,7 @@ exports[`<Cards/> > Should render Cards 1`] = `
           </svg>
         </a>
         <a
+          aria-label="Voir le storybook"
           class="btn af-btn--circle af-btn--storybook"
           href="https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/"
           rel="noopener noreferrer"
