@@ -40,15 +40,14 @@ exports[`<Templates/> > Should render Templates 1`] = `
           role="presentation"
         >
           <button
-            aria-label="Ajout du code undefined"
+            aria-label="Ajout du code Liste"
             class="af-btn--circle"
             id="add-list"
             type="button"
           >
             <i
-              aria-label="Icone ajout du code undefined"
+              aria-label="Icone ajout du code Liste"
               class="glyphicon glyphicon-list"
-              role="img"
             />
           </button>
         </div>
@@ -65,7 +64,7 @@ exports[`<Templates/> > Should render Templates 1`] = `
           role="presentation"
         >
           <button
-            aria-label="Ajout du code H1"
+            aria-label="Ajout du code Titre h1"
             class="af-btn--circle"
             id="add-title__h1"
             type="button"
@@ -86,7 +85,7 @@ exports[`<Templates/> > Should render Templates 1`] = `
           role="presentation"
         >
           <button
-            aria-label="Ajout du code H2"
+            aria-label="Ajout du code Titre h2"
             class="af-btn--circle"
             id="add-title__h2"
             type="button"
@@ -107,7 +106,7 @@ exports[`<Templates/> > Should render Templates 1`] = `
           role="presentation"
         >
           <button
-            aria-label="Ajout du code H3"
+            aria-label="Ajout du code Titre h3"
             class="af-btn--circle"
             id="add-title__h3"
             type="button"
@@ -128,7 +127,7 @@ exports[`<Templates/> > Should render Templates 1`] = `
           role="presentation"
         >
           <button
-            aria-label="Ajout du code H4"
+            aria-label="Ajout du code Titre h4"
             class="af-btn--circle"
             id="add-title__h4"
             type="button"
@@ -149,7 +148,7 @@ exports[`<Templates/> > Should render Templates 1`] = `
           role="presentation"
         >
           <button
-            aria-label="Ajout du code P"
+            aria-label="Ajout du code Paragraph"
             class="af-btn--circle"
             id="add-text"
             type="button"
@@ -170,15 +169,14 @@ exports[`<Templates/> > Should render Templates 1`] = `
           role="presentation"
         >
           <button
-            aria-label="Ajout du code undefined"
+            aria-label="Ajout du code Restitution two columns"
             class="af-btn--circle"
             id="add-restitution__twoColumns"
             type="button"
           >
             <i
-              aria-label="Icone ajout du code undefined"
+              aria-label="Icone ajout du code Restitution two columns"
               class="glyphicon glyphicon-list-alt"
-              role="img"
             />
           </button>
         </div>
@@ -195,15 +193,14 @@ exports[`<Templates/> > Should render Templates 1`] = `
           role="presentation"
         >
           <button
-            aria-label="Ajout du code undefined"
+            aria-label="Ajout du code Restitution one column"
             class="af-btn--circle"
             id="add-restitution__oneColumn"
             type="button"
           >
             <i
-              aria-label="Icone ajout du code undefined"
+              aria-label="Icone ajout du code Restitution one column"
               class="glyphicon glyphicon-list-alt"
-              role="img"
             />
           </button>
         </div>
@@ -220,15 +217,14 @@ exports[`<Templates/> > Should render Templates 1`] = `
           role="presentation"
         >
           <button
-            aria-label="Ajout du code undefined"
+            aria-label="Ajout du code Modal"
             class="af-btn--circle"
             id="add-modal"
             type="button"
           >
             <i
-              aria-label="Icone ajout du code undefined"
+              aria-label="Icone ajout du code Modal"
               class="glyphicon glyphicon-modal-window"
-              role="img"
             />
           </button>
         </div>
@@ -245,15 +241,14 @@ exports[`<Templates/> > Should render Templates 1`] = `
           role="presentation"
         >
           <button
-            aria-label="Ajout du code undefined"
+            aria-label="Ajout du code Panel basic"
             class="af-btn--circle"
             id="add-panel__basic"
             type="button"
           >
             <i
-              aria-label="Icone ajout du code undefined"
+              aria-label="Icone ajout du code Panel basic"
               class="glyphicon glyphicon-credit-card"
-              role="img"
             />
           </button>
         </div>

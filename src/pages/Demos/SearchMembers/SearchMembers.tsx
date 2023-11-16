@@ -1,5 +1,6 @@
 import Layout, { type TLayoutPage } from 'Layout';
 import Loader, { type TLoader } from 'shared/components/Loader';
+import Alert from '@axa-fr/react-toolkit-alert/dist/esm/index';
 import Resilience from 'shared/components/Resilience';
 import Table from 'shared/components/Table';
 import DownloadLink from 'shared/components/DownloadLink';
@@ -40,6 +41,15 @@ type TSearchMembers = TLayoutPage &
 const SearchMembers = ({ titleBar = TITLE_BAR, title = TITLE, loaderMode, searchMembers, anomaly, submitFormSearchMembers }: TSearchMembers) => (
   <Layout propsTitle={{ title: titleBar, backHome: true }}>
     <h1 className="af-title--content">{title}</h1>
+    <Alert title="Des cas sont prévus sur la démo. Voici les valeurs à saisir :" classModifier="info">
+      <ul>
+        <li>Cas d'erreur 500 : saisir '500'</li>
+        <li>Cas d'erreur 404 : saisir '404'</li>
+        <li>Cas d'erreur 403 : saisir '403'</li>
+        <li>Cas vide : saisir 'vide'</li>
+        <li>Cas valide : saisir 'sam'</li>
+      </ul>
+    </Alert>
     <SearchForm submitFormSearchMembers={submitFormSearchMembers} />
     <Loader message="Recherche des membres en cours..." mode={loaderMode}>
       <Resilience anomaly={anomaly}>

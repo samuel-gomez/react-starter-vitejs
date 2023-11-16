@@ -177,7 +177,7 @@ Feature: Playground NumberInput
     Then une modal apparait avec le titre "Saisir la value de label"
     And un champ texte "Jsx Code Editor Input" est visible avec la valeur "My number"
     When je clique sur le bouton icone "Suppression du code"
-    And je clique sur le bouton icone "Ajout du code H1"
+    And je clique sur le bouton icone "Ajout du code Titre h1"
     Then un label "sample title" est visible
 
     Examples:

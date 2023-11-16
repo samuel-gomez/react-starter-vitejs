@@ -9,7 +9,7 @@ import { ModalCommonHeader, ModalCommonBody, ModalCommonFooter, useToggleModal }
 import '@uiw/react-textarea-code-editor/dist.css';
 import type { TonChange } from '../../Editor';
 import './CodeEditor.scss';
-import Templates, { Tlistelements } from './Templates';
+import Templates, { type TlistElements } from './Templates';
 
 export const getPathTemplate = (temlateName = 'add-text') => `../../../../../templates/${temlateName}.js`;
 
@@ -72,7 +72,7 @@ export type TReturnUseCodeEditor = ReturnType<typeof useCodeEditor>;
 type TCodeEditor = TuseCodeEditor & {
   useCodeEditorFn?: typeof useCodeEditor;
   useToggleModalFn?: typeof useToggleModal;
-  list?: Tlistelements;
+  list?: TlistElements;
   labelBtnOpenCodeEditor?: string;
 };
 const CodeEditor = ({

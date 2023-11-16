@@ -462,8 +462,8 @@ describe('NumberInput', () => {
     // When je clique sur le bouton icone "Suppression du code"
     await userEvent.click(dialog.getByLabelText('Suppression du code'));
 
-    // And je clique sur le bouton icone "Ajout du code H1"
-    await userEvent.click(dialog.getByLabelText('Ajout du code H1'));
+    // And je clique sur le bouton icone "Ajout du code Titre h1"
+    await userEvent.click(dialog.getByLabelText('Ajout du code Titre h1'));
 
     // Then un label "sample title" est visible
     const scopePreview = setScope(SCOPE_PREVIEW);
