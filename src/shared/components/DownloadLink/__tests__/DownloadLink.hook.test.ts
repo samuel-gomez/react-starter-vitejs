@@ -1,6 +1,6 @@
-import { renderHook, act } from '@testing-library/react';
+import { renderHook, act, customRenderHook } from 'shared/testsUtils';
 import { SUCCESS_DOWNLOAD_MESSAGE } from '../constants';
-import { useDownload, useSubmitDownload, setDownloadFile, onSuccess, onError } from '../DownloadLink.hook';
+import { useDownload, useSubmitDownload, onSuccess, onError, useDownloadFile } from '../DownloadLink.hook';
 
 describe('useSubmitDownload', () => {
   it('Should stateSubmitDownload to be false when clearSubmitDownload called', () => {
@@ -16,53 +16,59 @@ describe('useSubmitDownload', () => {
   });
 });
 
-describe('setDownloadFile', () => {
-  const downloadjsFnMock = vi.fn();
-
-  it('Should not call downloadjsFn When state.downloadFile is empty', () => {
-    setDownloadFile({
-      fileName: 'test.csv',
-      downloadFile: new Blob(),
-      isLoading: false,
-      hasSubmit: false,
-      downloadjsFn: downloadjsFnMock,
-    });
-
-    expect(downloadjsFnMock).not.toBeCalled();
-  });
-
-  it('Should call downloadjsFn When state.downloadFile is NOT empty', () => {
-    setDownloadFile({
-      fileName: 'test.csv',
-      downloadFile: new Blob(['test']),
-      isLoading: false,
-      hasSubmit: true,
-      downloadjsFn: downloadjsFnMock,
-    });
-
-    expect(downloadjsFnMock).toBeCalledWith(new Blob(['test']), 'test.csv', 'text/csv');
-  });
-});
-
 describe('useDownload', () => {
   const defaultProps = {
-    path: 'elections/12/resultats',
+    path: 'download/id',
     hasSubmit: false,
-    clearSubmitDownload: vi.fn(),
     useQueryFn: vi.fn().mockReturnValue({
       data: new Blob(['test']),
       isFetching: false,
+      error: { label: 'erreur' },
+      isError: true,
+      isSuccess: false,
     }),
   };
   it('Should return initial state when useDownload called with path: "elections/12/resultats" and hasSubmit: false', () => {
     const { result } = renderHook(() => useDownload({ ...defaultProps }));
-
     act(() => {
       expect(result.current).toEqual({
         isLoading: false,
         downloadFile: new Blob(['test']),
+        error: { label: 'erreur' },
+        isError: true,
+        isSuccess: false,
       });
     });
+  });
+});
+
+describe('useDownloadFile', () => {
+  const downloadjsMock = vi.fn();
+  const onSuccessMock = vi.fn();
+  const onErrorMock = vi.fn();
+  const clearSubmitDownloadMock = vi.fn();
+
+  const defaultProps = {
+    isLoading: false,
+    isSuccess: true,
+    isError: false,
+    error: null,
+    hasSubmit: true,
+    downloadFile: new Blob(['file']),
+    fileName: 'filename',
+    clearSubmitDownload: clearSubmitDownloadMock,
+    onSuccessFn: onSuccessMock,
+    onErrorFn: onErrorMock,
+    downloadjsFn: downloadjsMock,
+  };
+  it('Should call downloadjs and onSuccess when useDownloadFile called with isSuccess: true, hasSubmit: true, fileName: filename, isLoading: false and have downloadFile', () => {
+    customRenderHook()(() => useDownloadFile({ ...defaultProps }));
+    expect(downloadjsMock).toBeCalledWith(defaultProps.downloadFile, defaultProps.fileName, 'text/csv');
+    expect(onSuccessMock).toBeCalled();
+  });
+  it('Should return initial state when useDownloadFile called with isError: true, hasSubmit: true', () => {
+    customRenderHook()(() => useDownloadFile({ ...defaultProps, isError: true, error: { label: 'erreur' } }));
+    expect(onErrorMock).toBeCalled();
   });
 });
 
@@ -70,7 +76,7 @@ describe('onSuccess', () => {
   it('Should called clearSubmitDownloadMock and addNotificationMock', () => {
     const clearSubmitDownloadMock = vi.fn();
     const addNotificationMock = vi.fn();
-    onSuccess(clearSubmitDownloadMock, addNotificationMock)();
+    onSuccess(clearSubmitDownloadMock, addNotificationMock);
     expect(clearSubmitDownloadMock).toBeCalled();
     expect(addNotificationMock).toBeCalledWith({
       label: SUCCESS_DOWNLOAD_MESSAGE,
@@ -81,12 +87,24 @@ describe('onSuccess', () => {
 });
 
 describe('onError', () => {
-  it('Should called addNotificationMock', () => {
-    const addNotificationMock = vi.fn();
+  const clearSubmitDownloadMock = vi.fn();
+  const addNotificationMock = vi.fn();
+
+  it('Should called addNotificationMock with name error', () => {
     const error = { label: 'test' };
-    onError(addNotificationMock)(error);
+    onError(clearSubmitDownloadMock, addNotificationMock, error);
+    expect(clearSubmitDownloadMock).toBeCalled();
     expect(addNotificationMock).toBeCalledWith({
       label: error.label,
+      id: 'anomaly-alert-id',
+    });
+  });
+  it('Should called addNotificationMock with null error', () => {
+    const error = null;
+    onError(clearSubmitDownloadMock, addNotificationMock, error);
+    expect(clearSubmitDownloadMock).toBeCalled();
+    expect(addNotificationMock).toBeCalledWith({
+      label: 'Erreur de téléchargement',
       id: 'anomaly-alert-id',
     });
   });

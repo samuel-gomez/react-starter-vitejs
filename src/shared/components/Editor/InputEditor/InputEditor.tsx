@@ -6,14 +6,14 @@ import { DateInput } from '@axa-fr/react-toolkit-form-input-date';
 import { DEFAULT_OPTION_LABEL } from 'shared/constants';
 import CodeEditor from './CodeEditor';
 import JsonEditor from './JsonEditor';
-import type { Tlistelements } from './CodeEditor/Templates';
+import type { TlistElements } from './CodeEditor/Templates';
 import type { TonChange } from '../Editor';
 
 type TListSelect = {
   value: string;
   options?: Record<string, string>;
   type?: string;
-  list?: Tlistelements;
+  list?: TlistElements;
   labelBtnOpenCodeEditor?: string;
 };
 

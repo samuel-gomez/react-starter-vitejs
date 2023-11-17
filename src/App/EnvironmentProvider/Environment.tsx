@@ -20,7 +20,7 @@ const initState: TEnvironmentState = {
 export const EnvironmentContext = createContext<TEnvironmentState>(initState);
 EnvironmentContext.displayName = 'EnvironmentContext';
 
-export const getFileEnv = (nodeEnv = process.env.APP_MODE) => `environment.${nodeEnv}.json`;
+export const getFileEnv = (nodeEnv = import.meta.env.MODE) => `environment.${nodeEnv}.json`;
 
 type TfetchEnv = {
   setEnvState: Dispatch<SetStateAction<TEnvironmentState>>;

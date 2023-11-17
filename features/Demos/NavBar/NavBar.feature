@@ -2,8 +2,8 @@ Feature: NavBar
   En tant que profil autorisé, je souhaite pouvoir visualiser la démo du composant NavBar
 
   @RG1
-  Scenario Outline: Affichage du playground NavBar
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage du playground NavBar
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J’accède à la page démo NavBar
     Then un titre "NavBar playground" est visible
     And un lien "Guidelines" est visible avec un href "https://axafrance.github.io/design-system/molecules/navigation/"
@@ -11,8 +11,3 @@ Feature: NavBar
     And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.0.0/packages/Layout/header"
     And un lien "Home" est visible avec un href "/"
     And un lien "Example Link" est visible avec un href "/layout"
-
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |

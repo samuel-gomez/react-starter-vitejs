@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`ModalCommonBody > Should render ModalCommonBody with anomaly 1`] = `
 <DocumentFragment>

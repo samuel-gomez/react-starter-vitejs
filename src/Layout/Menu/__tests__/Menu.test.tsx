@@ -31,7 +31,7 @@ describe('<Menu/>', () => {
   it('Render <Menu/>', async () => {
     render(<Menu menuItems={expectedMock} isVisible />);
     checkContent();
-    // TODO: fix axe violations on Toolkit
+    // fix axe violations on Toolkit
     // expect(await axe(container)).toHaveNoViolations();
   });
 

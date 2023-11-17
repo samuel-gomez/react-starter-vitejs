@@ -65,7 +65,8 @@ type TuseSearchMembers = {
 export const useSearchMembers = ({ stateFormSearchMembers, useQueryFn = useQuery }: TuseSearchMembers) => {
   const { name, hasSubmit } = stateFormSearchMembers;
 
-  const { data, error, isFetching } = useQueryFn([`members/search?name=${name}`], {
+  const { data, error, isFetching } = useQueryFn({
+    queryKey: [`members/search?name=${name}`],
     select: computeDataQuery,
     enabled: hasSubmit,
   });

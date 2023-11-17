@@ -20,15 +20,16 @@ export const UnBoutonEstDesactive = (instruction: DefineStepFunction, parentLabe
   });
 
 export const UnBoutonSansLabelEstVisible = (instruction: DefineStepFunction, instructionName = /^un bouton est visible$/, parentLabel = '') =>
-  instruction(instructionName, () => {
+  instruction(instructionName, async () => {
     const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
-    const button = base.queryByRole('button');
+    const button = await base.findByRole('button');
     expect(button).toBeInTheDocument();
   });
 
 export const UnBoutonSansLabelEstMasque = (instruction: DefineStepFunction, instructionName = /^un bouton est masqué$/, parentLabel = '') =>
   instruction(instructionName, () => {
     const base = parentLabel ? within(screen.getByLabelText(parentLabel)) : screen;
+
     const button = base.queryByRole('button');
     expect(button).not.toBeInTheDocument();
   });

@@ -1,4 +1,4 @@
-<p align="center"><img src="src/assets/demo/slash.svg" width=250></p>
+<p align="center"><img src="https://raw.githubusercontent.com/samuel-gomez/react-starter-vitejs/main/src/assets/slash-logo.svg" width=250></p>
 <h2 align="center">React Starter Toolkit</h2>
 
 <p align="center">

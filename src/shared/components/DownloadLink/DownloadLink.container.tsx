@@ -27,9 +27,9 @@ const DownloadLinkEnhanced = ({
   ...rest
 }: TDownloadLinkEnhanced) => {
   const { stateSubmitDownload, submitDownload, clearSubmitDownload } = useSubmitDownloadFn();
-  const { isLoading, downloadFile } = useDownloadFn({ path, hasSubmit: stateSubmitDownload, clearSubmitDownload });
+  const { isLoading, downloadFile, isSuccess, isError, error } = useDownloadFn({ path, hasSubmit: stateSubmitDownload });
 
-  useDownloadFileFn({ isLoading, downloadFile, fileName, hasSubmit: stateSubmitDownload });
+  useDownloadFileFn({ downloadFile, fileName, hasSubmit: stateSubmitDownload, isSuccess, error, isError, clearSubmitDownload, isLoading });
 
   return <DownloadLinkCmpt {...rest} label={label} loaderMode={setLoaderModeFn({ isLoading })} onDownload={submitDownload} isDisabled={isDisabled} />;
 };

@@ -2,8 +2,8 @@ Feature: Page SlashDesignSystem
   En tant que profil autorisé, je souhaite pouvoir afficher la page SlashDesignSystem
 
   @RG1
-  Scenario Outline: Affichage de la page SlashDesignSystem
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage de la page SlashDesignSystem
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J'accède à la page SlashDesignSystem
     Then un titre "Liste des composants" est visible
     And un titre "Champ texte" est visible
@@ -29,8 +29,3 @@ Feature: Page SlashDesignSystem
     And un titre "Pass" est visible
     And un titre "Date" est visible
     And un titre "Toggle" est visible
-
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |

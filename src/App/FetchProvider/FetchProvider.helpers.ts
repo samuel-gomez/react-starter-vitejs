@@ -1,7 +1,7 @@
 import { API_URL, STATUS_API, STATUS_HTTP_MESSAGES } from 'shared/constants';
 import fetch from 'cross-fetch';
 import { QueryKey } from '@tanstack/react-query';
-import { mergeObj } from 'shared/helpers';
+import { isEmptyOrNull, mergeObj } from 'shared/helpers';
 import { useOidcAccessToken } from '@axa-fr/react-oidc';
 import { useOidcAccessTokenMock } from './constants';
 
@@ -21,7 +21,7 @@ export const setResponseError = ({ response }: TsetResponseError) => {
     case `${status}`.startsWith(`${STATUS_API.WARNING}`):
       return {
         ...anomaly,
-        label: anomaly?.label ?? STATUS_HTTP_MESSAGES[status],
+        label: isEmptyOrNull(anomaly?.label) ? STATUS_HTTP_MESSAGES[status] : anomaly?.label,
         detail: anomaly?.detail ?? '',
         type: 'danger',
         iconName: 'alert',
@@ -29,7 +29,7 @@ export const setResponseError = ({ response }: TsetResponseError) => {
     case `${status}`.startsWith(`${STATUS_API.ERROR}`):
       return {
         ...anomaly,
-        label: anomaly?.label ?? STATUS_HTTP_MESSAGES[status],
+        label: isEmptyOrNull(anomaly?.label) ? STATUS_HTTP_MESSAGES[status] : anomaly?.label,
         detail: anomaly?.detail ?? '',
       };
     default:

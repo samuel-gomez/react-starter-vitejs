@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`<Code /> > Render <Code /> with theme, code 1`] = `
 <DocumentFragment>

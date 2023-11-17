@@ -1,24 +1,6 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Line > Should render <Line/> when columns: [ { hover: undefined, …(2) } ], className: 'myclass', modifier: 'modifier', children: { …(9) } 1`] = `
-<tbody>
-  <tr
-    aria-label="table-body-line"
-    class="myclass myclass--modifier"
-  >
-    <td
-      class="af-table__cell"
-    >
-      F
-    </td>
-    <td>
-      child
-    </td>
-  </tr>
-</tbody>
-`;
-
-exports[`Line > Should render <Line/> when columns: [ { hover: undefined, …(2) } ], className: undefined, modifier: 'modifier', children: undefined 1`] = `
+exports[`Line > Should render <Line/> when columns: [ Array(1) ], className: undefined, modifier: 'modifier', children: undefined 1`] = `
 <tbody>
   <tr
     aria-label="table-body-line"
@@ -33,7 +15,7 @@ exports[`Line > Should render <Line/> when columns: [ { hover: undefined, …(2)
 </tbody>
 `;
 
-exports[`Line > Should render <Line/> when columns: [ { hover: undefined, …(2) } ], className: undefined, modifier: undefined, children: undefined 1`] = `
+exports[`Line > Should render <Line/> when columns: [ Array(1) ], className: undefined, modifier: undefined, children: undefined 1`] = `
 <tbody>
   <tr
     aria-label="table-body-line"

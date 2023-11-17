@@ -7,7 +7,6 @@ import 'github-markdown-css/github-markdown-light.css';
 import Resilience from 'shared/components/Resilience';
 import { ReactNode } from 'react';
 import Loader, { setLoaderMode } from 'shared/components/Loader';
-import { Tanomaly } from 'shared/types';
 import ClipBoard from '../ClipBoard';
 import type { THighlightWrapper, Token, TReadMe } from './ReadMe.type';
 import styleHighlight from './constants';
@@ -62,7 +61,7 @@ export const CodeMarkdown = ({ inline, className, children }: TCodeMarkdown) => 
 
 const ReadMe = ({ markdownContent, isFetching, error, refetch, CodeMarkdownFn = CodeMarkdown }: TReadMe) => (
   <Loader mode={setLoaderMode({ isLoading: isFetching })}>
-    <Resilience anomaly={error as Tanomaly} refetch={refetch as React.MouseEventHandler<HTMLButtonElement>}>
+    <Resilience anomaly={error} refetch={refetch as React.MouseEventHandler<HTMLButtonElement>}>
       <div className="markdown-body">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}

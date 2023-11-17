@@ -61,10 +61,10 @@ type TlistElement = {
   icon?: string;
   tooltipLabel?: string;
 };
-export type Tlistelements = TlistElement[];
+export type TlistElements = TlistElement[];
 
 type TTemplates = {
-  list?: Tlistelements;
+  list?: TlistElements;
   submitTemplate: TReturnUseCodeEditor['submitTemplate'];
   onClearCodeEditor: TReturnUseCodeEditor['onClearCodeEditor'];
 };
@@ -80,8 +80,8 @@ const Templates = ({ list = DEFAULT_LIST, submitTemplate, onClearCodeEditor }: T
     </HelpInfo>
     {list.map(({ id, label, icon, tooltipLabel }) => (
       <HelpInfo key={id} content={tooltipLabel} classModifier="editor">
-        <Button aria-label={`Ajout du code ${label}`} className="af-btn--circle" id={id} onClick={submitTemplate as TonClick}>
-          {!!icon && <i role="img" aria-label={`Icone ajout du code ${label}`} className={`glyphicon glyphicon-${icon}`} />}
+        <Button aria-label={`Ajout du code ${tooltipLabel}`} className="af-btn--circle" id={id} onClick={submitTemplate as TonClick}>
+          {!!icon && <i aria-label={`Icone ajout du code ${tooltipLabel}`} className={`glyphicon glyphicon-${icon}`} />}
           {label}
         </Button>
       </HelpInfo>

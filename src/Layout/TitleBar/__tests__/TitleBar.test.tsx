@@ -14,7 +14,7 @@ describe('<TitleBar/>', () => {
   it('Render <TitleBar />', async () => {
     render(<TitleBar {...defaultProps} />);
     checkContent();
-    // TODO: fix axe violations on Toolkit
+    // fix axe violations on Toolkit
     // expect(await axe(container)).toHaveNoViolations();
   });
 

@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`InputEditor > Should render when value: 'value' 1`] = `
 <DocumentFragment>
@@ -12,70 +12,7 @@ exports[`InputEditor > Should render when value: 'value' 1`] = `
 </DocumentFragment>
 `;
 
-exports[`InputEditor > Should render when value: { value: 'value', options: [] } 1`] = `
-<DocumentFragment>
-  <div
-    class="af-form__select"
-  >
-    <div
-      class="af-form__select-container"
-    >
-      <select
-        aria-label="select-name"
-        class="af-form__input-select"
-        id="name"
-        name="name"
-      />
-      <span
-        aria-controls="name"
-        class="glyphicon glyphicon-menu-down"
-      />
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`InputEditor > Should render when value: { value: 'value', type: 'json', …(1) } 1`] = `
-<DocumentFragment>
-  <button
-    class="btn af-btn af-btn--editor"
-    type="submit"
-  >
-    <span
-      class="af-btn__text"
-    >
-      Edit Json
-    </span>
-  </button>
-</DocumentFragment>
-`;
-
-exports[`InputEditor > Should render when value: { value: 'value', type: 'jsx', …(1) } 1`] = `
-<DocumentFragment>
-  <button
-    class="btn af-btn af-btn--editor"
-    type="submit"
-  >
-    <span
-      class="af-btn__text"
-    >
-      Edit JSX
-    </span>
-  </button>
-</DocumentFragment>
-`;
-
-exports[`InputEditor > Should render when value: { value: 'value', type: 'separator' } 1`] = `
-<DocumentFragment>
-  <h3
-    class="af-form-editor__separator"
-  >
-    value
-  </h3>
-</DocumentFragment>
-`;
-
-exports[`InputEditor > Should render when value: { …(2) } 1`] = `
+exports[`InputEditor > Should render when value: { Object (value, type) } 1`] = `
 <DocumentFragment>
   <div
     class="row af-form__group af-form__group--date-custom"
@@ -109,6 +46,69 @@ exports[`InputEditor > Should render when value: { …(2) } 1`] = `
       />
     </div>
   </div>
+</DocumentFragment>
+`;
+
+exports[`InputEditor > Should render when value: { Object (value, type, ...) } 1`] = `
+<DocumentFragment>
+  <button
+    class="btn af-btn af-btn--editor"
+    type="submit"
+  >
+    <span
+      class="af-btn__text"
+    >
+      Edit JSX
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`InputEditor > Should render when value: { Object (value, type, ...) } 2`] = `
+<DocumentFragment>
+  <button
+    class="btn af-btn af-btn--editor"
+    type="submit"
+  >
+    <span
+      class="af-btn__text"
+    >
+      Edit Json
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`InputEditor > Should render when value: { value: 'value', options: [] } 1`] = `
+<DocumentFragment>
+  <div
+    class="af-form__select"
+  >
+    <div
+      class="af-form__select-container"
+    >
+      <select
+        aria-label="select-name"
+        class="af-form__input-select"
+        id="name"
+        name="name"
+      />
+      <span
+        aria-controls="name"
+        class="glyphicon glyphicon-menu-down"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`InputEditor > Should render when value: { value: 'value', type: 'separator' } 1`] = `
+<DocumentFragment>
+  <h3
+    class="af-form-editor__separator"
+  >
+    value
+  </h3>
 </DocumentFragment>
 `;
 

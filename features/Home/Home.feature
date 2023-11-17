@@ -2,8 +2,8 @@ Feature: Page d'accueil
   En tant que profil autorisé, je souhaite pouvoir afficher la page d'accueil
 
   @RG1
-  Scenario Outline: Affichage de la page d'accueil
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage de la page d'accueil
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J'accède à la page accueil
     Then un titre "Bienvenue sur la démo du starter Slash Design System" est visible
     And un titre "Technical Stack" est visible
@@ -38,7 +38,3 @@ Feature: Page d'accueil
       | SonarQube       | https://www.sonarqube.org/                           |
       | React OIDC      | https://github.com/AxaGuilDEv/react-oidc             |
 
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |

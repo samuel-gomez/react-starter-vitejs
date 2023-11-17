@@ -6,7 +6,7 @@ import ProtectedPage from '../ProtectedPage';
 
 configure({ defaultHidden: true });
 
-const feature = loadFeature('features/ProtectedPage/ProtectedPage.feature');
+const feature = loadFeature('features/Demos/ProtectedPage/ProtectedPage.feature');
 
 defineFeature(feature, test => {
   let role: string;
