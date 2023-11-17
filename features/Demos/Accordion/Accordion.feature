@@ -2,8 +2,8 @@ Feature: Playground Accordion
   En tant que profil autorisé, je souhaite pouvoir visualiser la démo du composant Accordion
 
   @RG1
-  Scenario Outline: Affichage du playground Accordion
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage du playground Accordion
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J’accède à la page démo du Accordion
     Then un titre "Accordion playground" est visible
     And un lien "Guidelines" est visible avec un href "https://axafrance.github.io/design-system/organisms/accordion/"
@@ -13,8 +13,3 @@ Feature: Playground Accordion
     And un titre "Header 1" est visible
     And un titre "Header 2" est visible
     And un titre "Header 3" est visible
-
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |

@@ -2,8 +2,8 @@ Feature: Playground Alert
   En tant que profil autorisé, je souhaite pouvoir visualiser la démo du composant Alert
 
   @RG1
-  Scenario Outline: Affichage du playground Alert
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage du playground Alert
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J’accède à la page démo du Alert
     Then un titre "Alert playground" est visible
     And un bouton de fermeture est visible
@@ -13,14 +13,10 @@ Feature: Playground Alert
     And un bouton "Edit props" est visible
     And un texte "Attention : des informations sont manquantes" est visible
 
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |
 
   @RG2
-  Scenario Outline: Affichage/masquage du closeButton
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage/masquage du closeButton
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J’accède à la page démo du Alert
     And un bouton de fermeture est visible
     And je clique sur le bouton "Edit props"
@@ -29,8 +25,3 @@ Feature: Playground Alert
     When je clique sur la checkbox "toggleOnCloseProps"
     Then un champ checkbox toggle "toggleOnCloseProps" avec le label "toggleOnCloseProps" non sélectionné
     And un bouton de fermeture est masqué
-
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |

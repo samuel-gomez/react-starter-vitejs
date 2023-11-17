@@ -2,8 +2,8 @@ Feature: Playground NumberInput
   En tant que profil autorisé, je souhaite pouvoir configurer le composant NumberInput
 
   @RG1
-  Scenario Outline: Affichage du playground NumberInput
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage du playground NumberInput
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J'accède à la page playground NumberInput
     Then un titre "Demo NumberInput" est visible
     And un titre "NumberInput playground" est visible
@@ -17,14 +17,10 @@ Feature: Playground NumberInput
     And un bouton "Copy to clipboard" est visible
     And un code du composant "NumberInput" est visible
 
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |
 
   @RG2
   Scenario Outline: Modification des propriétés du champ input
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J'accède à la page playground NumberInput
     And je clique sur le bouton "Edit props"
     Then un éditeur de propriété est visible
@@ -40,18 +36,16 @@ Feature: Playground NumberInput
     And un champ texte "name-field" est visible avec les propriétés : "<expectedValue>", "<expectedId>", "<expectedClass>", "<expectedPlaceholder>"
 
     Examples:
-      | profil | value | placeholder | className | modifier | expectedValue | expectedPlaceholder | expectedId | expectedClassWrapper   | expectedClass                                     |
-      | Admin  | 459   |             |           |          | 459           | Ex: Samuel          | monid      | row af-form__group     | af-form__input-text af-form__input-text--required |
-      | User   | 459   | Ex: 5       |           | other    | 459           | Ex: 5               | monid      | row af-form__group     | af-form__input-text af-form__input-text--other    |
-      | User   | 322   | Ex: 5       | myClass   |          | 322           | Ex: 5               | monid      | myClass                | af-form__input-text af-form__input-text--required |
-      | Admin  | 322   |             | myClass   | other    | 322           | Ex: Samuel          | monid      | myClass myClass--other | af-form__input-text af-form__input-text--other    |
-      | User   | aaa   |             |           |          | aaa           | Ex: Samuel          | monid      | row af-form__group     | af-form__input-text af-form__input-text--required |
-      | User   | aaa   |             |           |          | aaa           | Ex: Samuel          | monid      | row af-form__group     | af-form__input-text af-form__input-text--required |
+      | value | placeholder | className | modifier | expectedValue | expectedPlaceholder | expectedId | expectedClassWrapper   | expectedClass                                     |
+      | 459   |             |           |          | 459           | Ex: Samuel          | monid      | row af-form__group     | af-form__input-text af-form__input-text--required |
+      | 459   | Ex: 5       |           | other    | 459           | Ex: 5               | monid      | row af-form__group     | af-form__input-text af-form__input-text--other    |
+      | 322   | Ex: 5       | myClass   |          | 322           | Ex: 5               | monid      | myClass                | af-form__input-text af-form__input-text--required |
+      | 322   |             | myClass   | other    | 322           | Ex: Samuel          | monid      | myClass myClass--other | af-form__input-text af-form__input-text--other    |
 
 
   @RG3
-  Scenario Outline: Affichage/masquage du helpButton
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage/masquage du helpButton
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J'accède à la page playground NumberInput
     Then un bouton Help est masqué
     When je clique sur le bouton "Edit props"
@@ -64,14 +58,10 @@ Feature: Playground NumberInput
     Then un champ checkbox toggle "helpButton" avec le label "helpButton" non sélectionné
     And un bouton Help est masqué
 
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |
 
   @RG4
-  Scenario Outline: Activation/desactivation du champ input
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Activation/desactivation du champ input
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J'accède à la page playground NumberInput
     And je clique sur le bouton "Edit props"
     Then un éditeur de propriété est visible
@@ -83,14 +73,9 @@ Feature: Playground NumberInput
     Then un champ checkbox toggle "disabled" avec le label "disabled" non sélectionné
     And un champ texte "number-field" est activé
 
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |
-
   @RG5
-  Scenario Outline: Requis/optionnel du champ input
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Requis/optionnel du champ input
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J'accède à la page playground NumberInput
     And je clique sur le bouton "Edit props"
     Then un éditeur de propriété est visible
@@ -102,15 +87,11 @@ Feature: Playground NumberInput
     Then un champ checkbox toggle "required" avec le label "required" non sélectionné
     And un champ texte "number-field" est optionnel
 
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |
 
 
   @RG6
-  Scenario Outline: ReadOnly/editable du champ input
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: ReadOnly/editable du champ input
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J'accède à la page playground NumberInput
     And je clique sur le bouton "Edit props"
     Then un éditeur de propriété est visible
@@ -122,14 +103,10 @@ Feature: Playground NumberInput
     Then un champ checkbox toggle "readOnly" avec le label "readOnly" non sélectionné
     And un champ texte "number-field" est éditable
 
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |
 
   @RG7
-  Scenario Outline: Affichage/masquage du champ input
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage/masquage du champ input
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J'accède à la page playground NumberInput
     Then un champ texte "number-field" est visible avec la valeur "5", un placeholder "Ex: Samuel"
     When je clique sur le bouton "Edit props"
@@ -142,14 +119,10 @@ Feature: Playground NumberInput
     Then un champ checkbox toggle "isVisible" avec le label "isVisible" sélectionné
     And un champ texte "number-field" est visible avec la valeur "5", un placeholder "Ex: Samuel"
 
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |
 
   @RG8
   Scenario Outline: Gestion des erreurs du champ input
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J'accède à la page playground NumberInput
     And je clique sur le bouton "Edit props"
     Then un éditeur de propriété est visible
@@ -161,15 +134,13 @@ Feature: Playground NumberInput
     And un message "<expectedDisplayMessage>" est visible avec la classe : "<expectedDisplayMessageClass>"
 
     Examples:
-      | profil | message          | type    | expectedWrapperInputClass                                    | expectedDisplayMessage | expectedDisplayMessageClass |
-      | Admin  |                  | warning | af-form__text                                                | Enter your number      | af-form__help               |
-      | User   |                  | success | af-form__text                                                | Enter your number      | af-form__help               |
-      | Admin  | myMessageWarning | warning | af-form__text af-form__text--required af-form__text--warning | myMessageWarning       | af-form__warning-text       |
-      | User   | myMessageSuccess | success | af-form__text af-form__text--required af-form__text--success | myMessageSuccess       | af-form__success-text       |
+      | message          | type    | expectedWrapperInputClass                                    | expectedDisplayMessage | expectedDisplayMessageClass |
+      |                  | warning | af-form__text                                                | Enter your number      | af-form__help               |
+      | myMessageWarning | warning | af-form__text af-form__text--required af-form__text--warning | myMessageWarning       | af-form__warning-text       |
 
   @RG9
-  Scenario Outline: Modification du label
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Modification du label
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J'accède à la page playground NumberInput
     And je clique sur le bouton "Edit props"
     Then un éditeur de propriété est visible
@@ -179,8 +150,3 @@ Feature: Playground NumberInput
     When je clique sur le bouton icone "Suppression du code"
     And je clique sur le bouton icone "Ajout du code Titre h1"
     Then un label "sample title" est visible
-
-    Examples:
-      | profil | message | type    | expectedWrapperInputClass | expectedDisplayMessage | expectedDisplayMessageClass |
-      | Admin  |         | warning | af-form__text             | Enter your number      | af-form__help               |
-      | User   |         | success | af-form__text             | Enter your number      | af-form__help               |

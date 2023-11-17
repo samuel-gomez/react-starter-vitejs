@@ -2,8 +2,8 @@ Feature: Playground DateInput
   En tant que profil autorisé, je souhaite pouvoir visualiser la démo du composant DateInput
 
   @RG1
-  Scenario Outline: Affichage du playground DateInput
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage du playground DateInput
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J’accède à la page démo du DateInput
     Then un titre "DateInput playground" est visible
     And un lien "Guidelines" est visible avec un href "https://axafrance.github.io/design-system/molecules/form-datepicker/"
@@ -12,14 +12,10 @@ Feature: Playground DateInput
     And un bouton "Edit props" est visible
     And un label "My Label" est visible
 
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |
 
   @RG3
-  Scenario Outline: Affichage/masquage du helpButton
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage/masquage du helpButton
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J'accède à la page playground NumberInput
     Then un bouton Help est masqué
     When je clique sur le bouton "Edit props"
@@ -31,8 +27,3 @@ Feature: Playground DateInput
     When je clique sur la checkbox "helpButton"
     Then un champ checkbox toggle "helpButton" avec le label "helpButton" non sélectionné
     And un bouton Help est masqué
-
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |

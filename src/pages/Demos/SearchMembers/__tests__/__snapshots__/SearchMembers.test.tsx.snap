@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`<DownloadLinkEnhanced /> > Should call getDownloadPathFn and setFileNameFn with proper params 1`] = `
 <DocumentFragment>

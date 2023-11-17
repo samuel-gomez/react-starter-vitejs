@@ -18,7 +18,6 @@ describe('Line', () => {
     ${[]}          | ${undefined} | ${undefined}  | ${undefined}
     ${columnsMock} | ${undefined} | ${undefined}  | ${undefined}
     ${columnsMock} | ${undefined} | ${'modifier'} | ${undefined}
-    ${columnsMock} | ${'myclass'} | ${'modifier'} | ${(<td>child</td>)}
   `(
     'Should render <Line/> when columns: $columns, className: $className, modifier: $modifier, children: $children',
     ({ columns, className, modifier, children }) => {

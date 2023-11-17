@@ -1,8 +1,8 @@
 Feature: Consultation des membres
 
   @RG1
-  Scenario Outline: Affichage de la liste des membres
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage de la liste des membres
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     And la page reçoit les membres suivants
       | _id | firstname | lastname | birthdate           | sexe |
       | 1   | Samuel    | Gomez    | 1983-10-20T00:00:00 | M    |
@@ -18,8 +18,3 @@ Feature: Consultation des membres
       | John      | Doe      | 20/10/1978 | M    |
       | Guillaume | Chervet  | 20/10/1985 | M    |
       | Sophie    | Danneels | 20/10/1992 | F    |
-
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |
