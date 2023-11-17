@@ -7,10 +7,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 
-export default defineConfig(({ mode }) => ({
-  define: {
-    'process.env.APP_MODE': JSON.stringify(mode),
-  },
+export default defineConfig({
   server: {
     port: 3000,
   },
@@ -31,6 +28,7 @@ export default defineConfig(({ mode }) => ({
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     coverage: {
       100: true,
+      provider: 'v8',
       reporter: ['json', 'lcov', 'text', 'clover', 'html'],
       exclude: [
         'src/setupTests.tsx',
@@ -43,4 +41,4 @@ export default defineConfig(({ mode }) => ({
       ],
     },
   },
-}));
+});
