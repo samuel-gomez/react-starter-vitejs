@@ -1,54 +1,33 @@
-import { rest } from 'msw';
-import type { ResponseResolver, RestRequest, PathParams, RestContext } from 'msw';
+import { http, HttpResponse } from 'msw';
 import { setupServer } from 'msw/node';
-import { STATUS_HTTP, STATUS_HTTP_MESSAGES } from 'shared/constants';
+import { STATUS_HTTP_MESSAGES } from 'shared/constants';
 import { MOCK_API_URL } from '.';
-
-type HandlerResolver = ResponseResolver<RestRequest<never, PathParams<string>>, RestContext>;
 
 type TcommonResponse<T> = {
   code?: number;
   responseBody?: T;
 };
 
-export const commonGetResponse =
-  <T>({ code = 200, responseBody }: TcommonResponse<T>): HandlerResolver =>
-  (req, res, ctx) =>
-    res(
-      ctx.status(code),
-      ctx.json({
+export const commonResponse =
+  <T>({ code = 200, responseBody }: TcommonResponse<T>) =>
+  () =>
+    HttpResponse.json(
+      {
         code,
         responseBody,
-      }),
+        statusHttp: code,
+        label: STATUS_HTTP_MESSAGES[code],
+      },
+      { status: code },
     );
-
-const commonPostResponse =
-  <T = Record<string, unknown>>({ code = 200, responseBody }: TcommonResponse<T>): HandlerResolver =>
-  async (req, res, ctx) => {
-    return `${code}` === `${STATUS_HTTP.SUCCESS}`
-      ? res(
-          ctx.json({
-            code,
-            responseBody,
-          }),
-        )
-      : res(
-          ctx.status(code),
-          ctx.json({
-            code,
-            statusHttp: code,
-            label: STATUS_HTTP_MESSAGES[STATUS_HTTP.SERVER_ERROR],
-          }),
-        );
-  };
 
 export const server = setupServer(
   // here your mock urls
 
   // POST example :
-  rest.post(
+  http.post(
     `${MOCK_API_URL.base}members/add`,
-    commonPostResponse({ responseBody: { civility: 'MME', firstname: 'Samuel', lastname: 'Gomez', id: '1234' } }),
+    commonResponse({ responseBody: { civility: 'MME', firstname: 'Samuel', lastname: 'Gomez', id: '1234' } }),
   ),
 );
 
@@ -68,8 +47,8 @@ type TserverUse<T> = {
  */
 
 export const serverUseGet = <T = Record<string, unknown>>({ base = MOCK_API_URL.base, route = '', code = 200, responseBody }: TserverUse<T>) =>
-  server.use(rest.get(`${base}${route}`, commonGetResponse<T>({ code, responseBody })));
+  server.use(http.get(`${base}${route}`, commonResponse<T>({ code, responseBody })));
 
 export const serverUsePost = <T = Record<string, unknown>>({ base = MOCK_API_URL.base, route = '', code = 200, responseBody }: TserverUse<T>) => {
-  server.use(rest.post(`${base}${route}`, commonPostResponse<T>({ code, responseBody })));
+  server.use(http.post(`${base}${route}`, commonResponse<T>({ code, responseBody })));
 };
