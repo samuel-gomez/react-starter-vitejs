@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unused-prop-types */
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
-import ReactCodeEditor from '@uiw/react-textarea-code-editor/esm/index';
+import ReactCodeEditor from '@uiw/react-textarea-code-editor';
 import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
 import Modal from '@axa-fr/react-toolkit-modal-default/dist/esm/index';
 import type { ClickEvent } from '@axa-fr/react-toolkit-core/dist/esm/index';
