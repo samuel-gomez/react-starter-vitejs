@@ -1,6 +1,6 @@
 import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
 import Modal from '@axa-fr/react-toolkit-modal-default/dist/esm/index';
-import ReactCodeEditor from '@uiw/react-textarea-code-editor/esm/index';
+import ReactCodeEditor from '@uiw/react-textarea-code-editor';
 import '@uiw/react-textarea-code-editor/dist.css';
 import { ChangeEvent, useCallback, useState } from 'react';
 import type { TEvent } from 'shared/types';
