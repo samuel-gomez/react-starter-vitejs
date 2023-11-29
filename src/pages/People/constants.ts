@@ -9,4 +9,5 @@ export const TABLE_HEADERS_PEOPLE = [
   { label: 'Nom', id: 'lastname', key: 'lastname' },
   { label: 'Date de naissance', id: 'birthDate', key: 'birthDate' },
   { label: 'Entité', id: 'entity', key: 'entity' },
+  { label: 'Actions', id: 'actions', key: 'actions' },
 ];

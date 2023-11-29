@@ -6,6 +6,7 @@ import Loader, { type TLoader, setLoaderMode } from 'shared/components/Loader';
 import Resilience from 'shared/components/Resilience';
 import { setAnomalyEmptyItems, setDate } from 'shared/helpers';
 import { TITLE_BAR, TITLE, TABLE_HEADERS_PEOPLE, SERVICE_NAME, ENDPOINT } from './constants';
+import PeopleDetail from './PeopleDetail';
 
 export type TPeopleData = Record<string, string>;
 
@@ -14,13 +15,17 @@ export type TPeopleDataResponse = {
 };
 
 export const computeInfos = (data: TPeopleData[]) =>
-  data?.map(({ _id, firstname, lastname, birthDate, entity }) => ({
+  data?.map(({ _id, firstname, lastname, birthDate, entity, photo }) => ({
     key: _id,
     cols: {
       ...setDisplay({ firstname }),
       ...setDisplay({ lastname }),
       ...setDisplay({ birthDate: setDate({ date: birthDate }) }),
       ...setDisplay({ entity }),
+      actions: {
+        classModifier: 'actions',
+        children: <PeopleDetail id={_id} entity={entity} photo={photo} firstname={firstname} lastname={lastname} />,
+      },
     },
   }));
 
