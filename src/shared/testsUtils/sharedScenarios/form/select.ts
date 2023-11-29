@@ -1,6 +1,7 @@
 import { screen, within, waitFor } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { DefineStepFunction } from 'jest-cucumber';
+import { act } from 'react-dom/test-utils';
 
 export const UnChampListeDeroulanteEstVisible = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^Un champ liste déroulante "(.*)" est visible$/, async fieldName => {
@@ -15,6 +16,8 @@ export const JeSelectionneUneValeurSurleChamp = (instruction: DefineStepFunction
 
     const selectInput = base.getByLabelText(fieldName);
 
-    await waitFor(() => userEvent.selectOptions(selectInput, type));
+    await act(async () => {
+      await waitFor(() => userEvent.selectOptions(selectInput, type));
+    });
     await waitFor(() => expect(base.getByDisplayValue(RegExp(type))).toBeInTheDocument());
   });
