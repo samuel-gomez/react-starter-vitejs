@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
+import { Button } from '@axa-fr/react-toolkit-all';
 import './ClipBoard.scss';
 
 export const useClipBoard = ({ content }: { content: string }) => {

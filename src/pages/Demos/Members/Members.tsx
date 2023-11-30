@@ -1,5 +1,5 @@
+import { Paging } from '@axa-fr/react-toolkit-all';
 import Resilience from 'shared/components/Resilience';
-import { Paging } from '@axa-fr/react-toolkit-table/dist/esm/index';
 import Layout, { type TLayoutPage } from 'Layout';
 import { Tanomaly } from 'shared/types';
 import Loader, { type TLoader } from 'shared/components/Loader';

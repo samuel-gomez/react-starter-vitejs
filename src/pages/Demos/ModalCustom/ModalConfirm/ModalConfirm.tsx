@@ -1,5 +1,4 @@
-import Alert from '@axa-fr/react-toolkit-alert/dist/esm/index';
-import Modal from '@axa-fr/react-toolkit-modal-default/dist/esm/index';
+import { Alert, Modal } from '@axa-fr/react-toolkit-all';
 import { ModalCommonHeader, ModalCommonBody, ModalCommonFooter, TReturnUseToggleModal } from 'shared/components/ModalCommon';
 import withClassNameModifier, { TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
 

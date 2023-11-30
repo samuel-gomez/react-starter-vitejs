@@ -1,4 +1,5 @@
-import Alert, { AlertCoreProps } from '@axa-fr/react-toolkit-alert/dist/esm/index';
+import type { ComponentPropsWithRef } from 'react';
+import { Alert } from '@axa-fr/react-toolkit-all';
 import { ALERT_ICON, ALERT_TYPE } from '../constants';
 
 export type TType = keyof typeof ALERT_TYPE;
@@ -6,7 +7,7 @@ export type TType = keyof typeof ALERT_TYPE;
 export type TNotification = {
   id: string;
   label: string;
-  onClose?: AlertCoreProps['onClose'];
+  onClose?: ComponentPropsWithRef<typeof Alert>['onClose'];
   detail?: string;
   classModifier?: string;
   type?: TType;

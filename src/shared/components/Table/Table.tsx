@@ -1,7 +1,7 @@
-import { ReactNode, ComponentPropsWithoutRef } from 'react';
-import TableTk from '@axa-fr/react-toolkit-table';
-import Body, { TBody } from './Body';
-import Header, { THeader } from './Header';
+import type { ReactNode, ComponentPropsWithoutRef } from 'react';
+import { Table as TableTk } from '@axa-fr/react-toolkit-all';
+import Body, { type TBody } from './Body';
+import Header, { type THeader } from './Header';
 
 export type TTable = THeader &
   TBody & {

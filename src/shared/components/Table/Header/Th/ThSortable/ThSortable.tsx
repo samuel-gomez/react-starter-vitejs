@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef } from 'react';
-import TableTk from '@axa-fr/react-toolkit-table';
+import { Table as TableTk } from '@axa-fr/react-toolkit-all';
 import SortingIcon from './SortingIcon';
 import type { Torder } from './ThSortable.container';
 

@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, FocusEvent } from 'react';
 import { render, renderHook, act } from '@testing-library/react';
-import { Text } from '@axa-fr/react-toolkit-form-input-text/dist/esm/index';
+import { Text } from '@axa-fr/react-toolkit-all';
 import type { TEvent } from 'shared/types';
 import { mergePropsAndKnobs, withEditor, setValue, useEditable, useToggleEditor, LabelEditor } from '../Editor';
 

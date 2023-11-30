@@ -1,6 +1,6 @@
-import { FocusEvent, memo } from 'react';
+import { type FocusEvent, memo } from 'react';
 import isEqual from 'lodash/isEqual';
-import MessageTypes from '@axa-fr/react-toolkit-form-core/dist/esm/MessageTypes';
+import { MessageTypes } from '@axa-fr/react-toolkit-all';
 import LiveCode from 'shared/components/LiveCode';
 import { withEditor, useEditable, type Tknobs, EditorHeader, type TReturnUseToggleEditor } from 'shared/components/Editor';
 import Layout, { type TLayoutPage } from 'Layout';

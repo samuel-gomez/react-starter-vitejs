@@ -1,4 +1,4 @@
-import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
+import { Button } from '@axa-fr/react-toolkit-all';
 import HelpInfo from 'shared/components/HelpInfo';
 import type { TReturnUseCodeEditor } from '../CodeEditor';
 

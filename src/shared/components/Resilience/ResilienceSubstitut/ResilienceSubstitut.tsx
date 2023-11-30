@@ -1,7 +1,5 @@
-import { ElementType, ReactNode } from 'react';
-import Alert from '@axa-fr/react-toolkit-alert/dist/esm/index';
-import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
-import { ArticleRestitution, SectionRestitution, SectionRestitutionRow } from '@axa-fr/react-toolkit-restitution/dist/esm/index';
+import type { ElementType, ReactNode } from 'react';
+import { ArticleRestitution, SectionRestitution, SectionRestitutionRow, Button, Alert } from '@axa-fr/react-toolkit-all';
 import type { Tanomaly } from 'shared/types';
 import { emptyFunction } from 'shared/helpers';
 import { RESILIENCE_MODE, DEFAULT_CLASS_ALERT, DEFAULT_CLASS_CONTAINER, WITH_ACTION_CLASS_MODIFIER } from './constants';

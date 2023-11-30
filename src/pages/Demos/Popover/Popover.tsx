@@ -1,6 +1,5 @@
-import PopoverModes from '@axa-fr/react-toolkit-popover/dist/esm/PopoverModes';
-import PopoverPlacements from '@axa-fr/react-toolkit-popover/dist/esm/PopoverPlacements';
-import type { ClickEvent } from '@axa-fr/react-toolkit-core/dist/esm/index';
+import { PopoverModes, PopoverPlacements } from '@axa-fr/react-toolkit-all';
+import type { ClickEvent } from '@axa-fr/react-toolkit-core';
 import Layout, { type TLayoutPage } from 'Layout';
 import type { TEvent } from 'shared/types';
 import LiveCode from 'shared/components/LiveCode';

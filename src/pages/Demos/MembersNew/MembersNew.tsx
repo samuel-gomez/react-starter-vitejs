@@ -1,4 +1,4 @@
-import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
+import { Button } from '@axa-fr/react-toolkit-all';
 import type { Control, FieldValues, UseFormReset } from 'react-hook-form';
 import { FieldTextInput, FieldSelectInput } from 'shared/components/form';
 import { Col, Row } from 'shared/components/Grid';

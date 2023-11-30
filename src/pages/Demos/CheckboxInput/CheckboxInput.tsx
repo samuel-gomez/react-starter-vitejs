@@ -1,5 +1,4 @@
-import MessageTypes from '@axa-fr/react-toolkit-form-core/dist/esm/MessageTypes';
-import CheckboxModes from '@axa-fr/react-toolkit-form-input-checkbox/dist/esm/CheckboxModes';
+import { MessageTypes, CheckboxModes } from '@axa-fr/react-toolkit-all';
 import Layout, { type TLayoutPage } from 'Layout';
 import LiveCode from 'shared/components/LiveCode';
 import type { TEvent } from 'shared/types';

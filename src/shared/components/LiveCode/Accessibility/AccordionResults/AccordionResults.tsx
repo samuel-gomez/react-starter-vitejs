@@ -1,6 +1,5 @@
 import { Result } from 'axe-core';
-import { Accordion, CollapseCard } from '@axa-fr/react-toolkit-collapse/dist/esm/index';
-import Badge from '@axa-fr/react-toolkit-badge/dist/esm/index';
+import { Badge, Accordion, CollapseCard } from '@axa-fr/react-toolkit-all';
 import colorTags from './constants';
 import './AccordionResults.scss';
 

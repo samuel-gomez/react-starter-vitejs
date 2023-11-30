@@ -1,6 +1,6 @@
 import Layout, { type TLayoutPage } from 'Layout';
 import Loader, { type TLoader } from 'shared/components/Loader';
-import Alert from '@axa-fr/react-toolkit-alert/dist/esm/index';
+import { Alert } from '@axa-fr/react-toolkit-all';
 import Resilience from 'shared/components/Resilience';
 import Table from 'shared/components/Table';
 import DownloadLink from 'shared/components/DownloadLink';

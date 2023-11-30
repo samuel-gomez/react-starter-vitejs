@@ -1,8 +1,5 @@
-import { ComponentPropsWithoutRef, OptionHTMLAttributes } from 'react';
-import { Text } from '@axa-fr/react-toolkit-form-input-text/dist/esm/index';
-import { Select } from '@axa-fr/react-toolkit-form-input-select/dist/esm/index';
-import { CheckboxItem } from '@axa-fr/react-toolkit-form-input-checkbox/dist/esm/index';
-import { DateInput } from '@axa-fr/react-toolkit-form-input-date';
+import type { ComponentPropsWithoutRef, OptionHTMLAttributes } from 'react';
+import { DateInput, Text, Select, CheckboxItem } from '@axa-fr/react-toolkit-all';
 import { DEFAULT_OPTION_LABEL } from 'shared/constants';
 import CodeEditor from './CodeEditor';
 import JsonEditor from './JsonEditor';

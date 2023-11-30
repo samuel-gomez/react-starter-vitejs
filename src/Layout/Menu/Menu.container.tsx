@@ -1,7 +1,6 @@
 import { useState, useCallback, Dispatch, SetStateAction, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import Action from '@axa-fr/react-toolkit-action/dist/esm/index';
-import { ToggleButton } from '@axa-fr/react-toolkit-layout-header/dist/esm/index';
+import { Action, ToggleButton } from '@axa-fr/react-toolkit-all';
 import { Menu, TMenu } from './Menu';
 import MENU_ITEMS, { CLASS_BODY_MENU_OPEN } from './constants';
 import type { TMenuItemBase } from './MenuItem';

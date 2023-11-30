@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import Popover from '@axa-fr/react-toolkit-popover/dist/esm/index';
+import type { ReactNode } from 'react';
+import { Popover } from '@axa-fr/react-toolkit-all';
 import './HelpInfo.scss';
 
 export type THelpInfo = {

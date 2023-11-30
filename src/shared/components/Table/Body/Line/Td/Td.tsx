@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import HelpHover, { THelpInfo } from 'shared/components/HelpInfo';
 import withClassNameModifier, { TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
-import TableTk from '@axa-fr/react-toolkit-table';
+import { Table as TableTk } from '@axa-fr/react-toolkit-all';
 
 export type TTdContainer = Omit<THelpInfo, 'children' | 'content'> & {
   children?: ReactNode;

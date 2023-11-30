@@ -1,4 +1,4 @@
-import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
+import { Button } from '@axa-fr/react-toolkit-all';
 import Loader, { MODES } from 'shared/components/Loader';
 import Icons from 'shared/components/Icons';
 import { LABEL_DOWNLOAD } from './constants';

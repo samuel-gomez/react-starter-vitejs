@@ -1,9 +1,9 @@
 import { ComponentType, FocusEvent, useCallback, useState } from 'react';
 import Draggable from 'react-draggable';
 import { useToggleModal } from 'shared/components/ModalCommon';
-import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
+import { Button } from '@axa-fr/react-toolkit-all';
 import Icons from 'shared/components/Icons';
-import type { ClickEvent } from '@axa-fr/react-toolkit-core/dist/esm/withClickId.hoc';
+import type { ClickEvent } from '@axa-fr/react-toolkit-core';
 import type { TEvent } from 'shared/types';
 import { DESIGN_SYSTEM, GITHUB, STORYBOOK } from 'shared/constants';
 import InputEditor, { TInputEditor } from './InputEditor';

@@ -1,5 +1,5 @@
 import { Controller } from 'react-hook-form';
-import { SelectInput } from '@axa-fr/react-toolkit-form-input-select/dist/esm/index';
+import { SelectInput } from '@axa-fr/react-toolkit-all';
 import { MessageTypes } from '@axa-fr/react-toolkit-form-core';
 import { ComponentPropsWithoutRef } from 'react';
 import { DEFAULT_OPTION_LABEL } from 'shared/constants';

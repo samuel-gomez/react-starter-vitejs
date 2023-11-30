@@ -1,6 +1,5 @@
-import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
-import Modal from '@axa-fr/react-toolkit-modal-default/dist/esm/index';
-import { MouseEventHandler, ReactNode } from 'react';
+import { Button, Modal } from '@axa-fr/react-toolkit-all';
+import type { MouseEventHandler, ReactNode } from 'react';
 
 export type TModalCommonFooter = {
   onCancel?: MouseEventHandler<HTMLButtonElement>;
