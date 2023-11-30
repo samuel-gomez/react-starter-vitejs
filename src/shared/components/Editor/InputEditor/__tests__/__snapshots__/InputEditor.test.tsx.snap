@@ -21,6 +21,7 @@ exports[`InputEditor > Should render when value: { Object (value, type) } 1`] = 
       class="col-md-0"
     >
       <label
+        aria-label="name"
         class="af-form__group-label"
         for="name"
       >
@@ -92,7 +93,13 @@ exports[`InputEditor > Should render when value: { value: 'value', options: [] }
         class="af-form__input-select"
         id="name"
         name="name"
-      />
+      >
+        <option
+          value=""
+        >
+          - Sélectionner -
+        </option>
+      </select>
       <span
         aria-controls="name"
         class="glyphicon glyphicon-menu-down"
