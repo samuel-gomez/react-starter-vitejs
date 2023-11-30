@@ -8,7 +8,7 @@ Feature: Playground RadioInput
     Then un titre "RadioInput playground" est visible
     And un lien "Guidelines" est visible avec un href "https://axafrance.github.io/design-system/molecules/form-radio/"
     And un lien "Storybook" est visible avec un href "https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/form-input-radio--radio"
-    And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.0.0/packages/Form/Input/radio"
+    And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.1.0/packages/Form/Input/radio"
     And un bouton "Edit props" est visible
     And un label "My Label Radio" est visible
 
