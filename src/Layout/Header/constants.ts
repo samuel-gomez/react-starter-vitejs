@@ -1,2 +1,2 @@
-export const TITLE = 'Toolkit React Starter';
-export const SUBTITLE = 'by Slash Design System';
+export const TITLE = 'Nom de mon application';
+export const SUBTITLE = 'Sous titre';
