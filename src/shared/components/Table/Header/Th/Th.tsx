@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import TableTk from '@axa-fr/react-toolkit-table';
+import type { ReactNode } from 'react';
+import { Table as TableTk } from '@axa-fr/react-toolkit-all';
 import ThSortableContainer, { TsetSort } from './ThSortable';
 
 export type TTh = Omit<TsetSort, 'onSort' | 'field'> & {

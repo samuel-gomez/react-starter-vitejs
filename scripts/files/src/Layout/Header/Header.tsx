@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import type { Tanomaly } from 'shared/types';
-import { Header, Name, User, Infos } from '@axa-fr/react-toolkit-layout-header/dist/esm/index';
+import { Header, Name, User, Infos } from '@axa-fr/react-toolkit-all';
 import logo from '@axa-fr/react-toolkit-core/dist/assets/logo-axa.svg';
 import Skeleton from 'shared/components/Skeleton';
 import Resilience from 'shared/components/Resilience';

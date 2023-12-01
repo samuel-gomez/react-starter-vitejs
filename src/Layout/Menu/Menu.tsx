@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef } from 'react';
-import { NavBar } from '@axa-fr/react-toolkit-layout-header/dist/esm/index';
+import { NavBar } from '@axa-fr/react-toolkit-all';
 import { emptyFunction } from 'shared/helpers';
 import { createMenu, TMenuItemBase } from './MenuItem';
 import './Menu.scss';

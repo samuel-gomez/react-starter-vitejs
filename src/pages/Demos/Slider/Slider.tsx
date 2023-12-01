@@ -1,4 +1,4 @@
-import MessageTypes from '@axa-fr/react-toolkit-form-core/dist/esm/MessageTypes';
+import { MessageTypes } from '@axa-fr/react-toolkit-all';
 import Layout, { type TLayoutPage } from 'Layout';
 import type { TEvent } from 'shared/types';
 import LiveCode from 'shared/components/LiveCode';

@@ -7,6 +7,6 @@ Feature: Playground TitleBar
     When J’accède à la page démo du TitleBar
     Then un titre "TitleBar playground" est visible
     And un lien "Storybook" est visible avec un href "https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/layout-header-title--default"
-    And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.0.0/packages/Layout/header/src/Title"
+    And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.1.0/packages/Layout/header/src/Title"
     And un bouton "Edit props" est visible
     And un titre "Demo Titlebar" est visible

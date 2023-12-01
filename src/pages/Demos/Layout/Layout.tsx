@@ -1,4 +1,4 @@
-import type { ClickEvent } from '@axa-fr/react-toolkit-core/dist/esm/withClickId.hoc';
+import type { ClickEvent } from '@axa-fr/react-toolkit-core';
 import type { TEvent } from 'shared/types';
 import { withEditor, useEditable, EditorHeader, type TReturnUseToggleEditor, type Tknobs } from 'shared/components/Editor';
 import LiveCode from 'shared/components/LiveCode';

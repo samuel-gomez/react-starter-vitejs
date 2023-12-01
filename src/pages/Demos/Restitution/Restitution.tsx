@@ -1,4 +1,4 @@
-import type { ClickEvent } from '@axa-fr/react-toolkit-core/dist/esm/index';
+import type { ClickEvent } from '@axa-fr/react-toolkit-core';
 import Layout, { type TLayoutPage } from 'Layout';
 import type { TEvent } from 'shared/types';
 import LiveCode from 'shared/components/LiveCode';

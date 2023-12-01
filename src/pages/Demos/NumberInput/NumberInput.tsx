@@ -1,6 +1,6 @@
 import isEqual from 'lodash/isEqual';
-import React, { FocusEvent } from 'react';
-import MessageTypes from '@axa-fr/react-toolkit-form-core/dist/esm/MessageTypes';
+import React, { type FocusEvent } from 'react';
+import { MessageTypes } from '@axa-fr/react-toolkit-all';
 import Layout, { type TLayoutPage } from 'Layout';
 import type { TEvent } from 'shared/types';
 import LiveCode from 'shared/components/LiveCode';

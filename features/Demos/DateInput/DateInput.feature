@@ -8,7 +8,7 @@ Feature: Playground DateInput
     Then un titre "DateInput playground" est visible
     And un lien "Guidelines" est visible avec un href "https://axafrance.github.io/design-system/molecules/form-datepicker/"
     And un lien "Storybook" est visible avec un href "https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/form-elements-date--date-input-story"
-    And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.0.0/packages/Form/Input/date"
+    And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.1.0/packages/Form/Input/date"
     And un bouton "Edit props" est visible
     And un label "My Label" est visible
 

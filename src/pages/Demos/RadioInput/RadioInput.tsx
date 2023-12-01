@@ -1,4 +1,4 @@
-import MessageTypes from '@axa-fr/react-toolkit-form-core/dist/esm/MessageTypes';
+import { MessageTypes } from '@axa-fr/react-toolkit-all';
 import Layout, { type TLayoutPage } from 'Layout';
 import type { TEvent } from 'shared/types';
 import LiveCode from 'shared/components/LiveCode';
@@ -20,7 +20,6 @@ const INITIAL_STATE = {
   className: '',
   label: 'My Label Radio',
   value: 'work',
-  helpMessage: 'Enter your name',
   message: '',
   messageType: MessageTypes.error,
   forceDisplayMessage: false,
@@ -48,7 +47,6 @@ const code = ({
   options,
   mode,
   name,
-  helpMessage,
   message,
   messageType,
   readOnly,
@@ -58,14 +56,13 @@ const code = ({
   classNameContainerInput,
 }: Props) => `
   <RadioInput
-    label={<>${label}</>}
+    label="${label}"
     name="${name}"
     id="${id}"
     options={${JSON.stringify(options)}}
     onChange={onChangeRadio}
     mode="${mode}"
     value="${value}"
-    helpMessage="${helpMessage}"
     message="${message}" 
     messageType="${messageType}"
     forceDisplayMessage={${forceDisplayMessage}}

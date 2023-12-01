@@ -1,6 +1,5 @@
-import { ReactNode } from 'react';
-import TableTk from '@axa-fr/react-toolkit-table';
-import HelpHover from 'shared/components/HelpInfo';
+import type { ReactNode } from 'react';
+import { Table as TableTk, HelpInfo } from '@axa-fr/react-toolkit-all';
 import Th, { TTh } from './Th';
 
 type Theaders = {
@@ -24,9 +23,9 @@ const Header = ({ headers = [], onSort, sorting, children, ariaLabel = 'table-he
         {!!headers.length &&
           headers.map(({ field, label, key, infobulle }) => (
             <Th key={key} sorting={sorting} field={field} onSort={onSort}>
-              <HelpHover content={infobulle}>
+              <HelpInfo content={infobulle}>
                 <span className="af-table__th-label">{label}</span>
-              </HelpHover>
+              </HelpInfo>
             </Th>
           ))}
         {children}

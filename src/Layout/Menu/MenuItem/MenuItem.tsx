@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { NavBarItem } from '@axa-fr/react-toolkit-layout-header/dist/esm/index';
+import { NavBarItem } from '@axa-fr/react-toolkit-all';
 import type { TActionElt, TMenuItem } from './MenuItem.d';
 
 export const ActionElt = ({ url, label }: TActionElt) =>

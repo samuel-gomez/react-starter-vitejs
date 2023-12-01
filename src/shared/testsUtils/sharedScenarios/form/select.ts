@@ -7,14 +7,14 @@ export const UnChampListeDeroulanteEstVisible = (instruction: DefineStepFunction
   instruction(/^Un champ liste déroulante "(.*)" est visible$/, async fieldName => {
     const base = parentLabel ? within(await screen.findByLabelText(parentLabel)) : screen;
 
-    expect(base.getByLabelText(fieldName)).toBeInTheDocument();
+    expect(base.getByRole('combobox', { name: RegExp(fieldName) })).toBeInTheDocument();
   });
 
 export const JeSelectionneUneValeurSurleChamp = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^Je sélectionne la valeur "(.*)" sur le champ "(.*)"$/, async (type, fieldName) => {
     const base = parentLabel ? within(await screen.findByLabelText(parentLabel)) : screen;
 
-    const selectInput = base.getByLabelText(fieldName);
+    const selectInput = screen.getByRole('combobox', { name: RegExp(fieldName) });
 
     await act(async () => {
       await waitFor(() => userEvent.selectOptions(selectInput, type));

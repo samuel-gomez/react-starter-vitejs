@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef } from 'react';
-import TableTk from '@axa-fr/react-toolkit-table';
+import { Table as TableTk } from '@axa-fr/react-toolkit-all';
 import Td, { TTdContainer } from './Td';
 
 export type TLine = ComponentPropsWithoutRef<typeof TableTk.Tr> & {

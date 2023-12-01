@@ -1,5 +1,5 @@
-import HeaderBase from '@axa-fr/react-toolkit-modal-default/dist/esm/HeaderBase';
-import { MouseEventHandler, ReactNode } from 'react';
+import { Modal } from '@axa-fr/react-toolkit-all';
+import type { MouseEventHandler, ReactNode } from 'react';
 
 export type TModalCommonHeader = {
   onCancel: MouseEventHandler<HTMLButtonElement>;
@@ -7,12 +7,12 @@ export type TModalCommonHeader = {
 };
 
 const ModalCommonHeader = ({ title = 'Title of modal', onCancel }: TModalCommonHeader) => (
-  <HeaderBase>
+  <Modal.HeaderBase>
     <h4 className="af-modal__header-title">{title}</h4>
     <button className="af-modal__header-close-btn" type="button" aria-label="Close" onClick={onCancel}>
       <span className="glyphicon glyphicon-close" aria-hidden="true" />
     </button>
-  </HeaderBase>
+  </Modal.HeaderBase>
 );
 
 export default ModalCommonHeader;

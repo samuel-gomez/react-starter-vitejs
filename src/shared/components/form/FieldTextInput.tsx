@@ -1,5 +1,5 @@
 import { Controller } from 'react-hook-form';
-import { TextInput } from '@axa-fr/react-toolkit-form-input-text/dist/esm/index';
+import { TextInput } from '@axa-fr/react-toolkit-all';
 import { MessageTypes } from '@axa-fr/react-toolkit-form-core';
 import { ComponentPropsWithoutRef } from 'react';
 import { onChangeValue } from './form.helper';

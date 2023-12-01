@@ -1,4 +1,4 @@
-import { createId } from '@axa-fr/react-toolkit-core/dist/esm/useId';
+import { createId } from '@axa-fr/react-toolkit-core';
 import { Highlight, Prism as defautProps } from 'prism-react-renderer/dist/index';
 import { LiveProvider } from 'react-live';
 

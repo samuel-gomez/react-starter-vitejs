@@ -1,17 +1,17 @@
-import ClassManager from '@axa-fr/react-toolkit-core/dist/esm/ClassManager';
+import { getComponentClassName as getComponentClassNameFn } from '@axa-fr/react-toolkit-core';
 import Notifications, { type TNotifications } from './Notifications';
 import { DEFAULT_CLASS_NOTIFICATION, MODIFIER_OPEN } from './constants';
 
 type TNotificationsContainer = Omit<TNotifications, 'notifications'> & {
   notifications?: TNotifications['notifications'];
-  getComponentClassName?: typeof ClassManager.getComponentClassName;
+  getComponentClassName?: typeof getComponentClassNameFn;
   NotificationsCmpt?: typeof Notifications;
 };
 
 const NotificationsContainer = ({
   className = DEFAULT_CLASS_NOTIFICATION,
   notifications = [],
-  getComponentClassName = ClassManager.getComponentClassName,
+  getComponentClassName = getComponentClassNameFn,
   NotificationsCmpt = Notifications,
   ...rest
 }: TNotificationsContainer) => {

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { ASCENDING } from 'shared/components/Table/constants';
 import ThSortableContainer, { toggleOrder, toggleSorting, setOrder, setClassModifierActive, setSort } from '../ThSortable.container';
 

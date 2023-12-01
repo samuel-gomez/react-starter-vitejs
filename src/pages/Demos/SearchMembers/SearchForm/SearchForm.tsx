@@ -1,7 +1,6 @@
-import { Controller, UseFormStateReturn, ControllerRenderProps } from 'react-hook-form';
-import { Text } from '@axa-fr/react-toolkit-form-input-text/dist/esm/index';
-import Button from '@axa-fr/react-toolkit-button/dist/esm/index';
-import { FieldForm, FieldError, HelpMessage, FieldInput, MessageTypes } from '@axa-fr/react-toolkit-form-core/dist/esm/index';
+import { Controller, type UseFormStateReturn, type ControllerRenderProps } from 'react-hook-form';
+import { Button, Text, HelpMessage, FieldInput, MessageTypes, FieldError } from '@axa-fr/react-toolkit-all';
+import { FieldForm } from '@axa-fr/react-toolkit-form-core';
 import { setConfirmClassModifier } from 'shared/helpers';
 import { NAME, LABEL_NAME, PLACEHOLDER_NAME, FORM_SEARCH_MEMBERS, LABEL_SUBMIT, MIN_SEARCH_BY_NAME, rules } from './constants';
 import type { FormValues, TReturnTypeSetOnSubmitSearchForm, TUseForm } from './SearchForm.container';

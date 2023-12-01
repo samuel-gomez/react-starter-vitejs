@@ -1,7 +1,6 @@
+import { PopoverModes, PopoverPlacements } from '@axa-fr/react-toolkit-all';
 import Layout, { type TLayoutPage } from 'Layout';
 import type { TEvent } from 'shared/types';
-import PopoverModes from '@axa-fr/react-toolkit-popover/dist/esm/PopoverModes';
-import PopoverPlacements from '@axa-fr/react-toolkit-popover/dist/esm/PopoverPlacements';
 import LiveCode from 'shared/components/LiveCode';
 import { withEditor, useEditable, type Tknobs, EditorHeader, type TReturnUseToggleEditor } from 'shared/components/Editor';
 import { TITLE_BAR, TITLE, STORYBOOK_PATH, GITHUB_PACKAGE, NPM_NAME } from './constants';

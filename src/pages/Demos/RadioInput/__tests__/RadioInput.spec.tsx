@@ -1,4 +1,4 @@
-import { configure, render, screen } from 'shared/testsUtils/customRender';
+import { configure, render, screen, waitFor, within } from 'shared/testsUtils/customRender';
 import { SCOPE_EDITOR, SCOPE_PREVIEW } from 'shared/testsUtils/constants';
 import {
   JeCliqueSurLaCheckbox,
@@ -10,7 +10,6 @@ import {
   UnChampCheckboxToggleAvecUnLabelEtUneValeurNonSelectionne,
   UnChampCheckboxToggleAvecUnLabelEtUneValeurSelectionne,
   UnEditeurEstVisible,
-  UnLabelEstVisible,
   UnLienEstVisible,
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
@@ -41,7 +40,10 @@ defineFeature(feature, test => {
     UnLienEstVisible(and);
     UnLienEstVisible(and);
     UnBoutonEstVisible(and);
-    UnLabelEstVisible(and, SCOPE_PREVIEW);
+    and(/^un label "(.*)" est visible$/, async name => {
+      const preview = within(screen.getByLabelText(SCOPE_PREVIEW));
+      await waitFor(() => expect(preview.getByText(RegExp(name))).toBeInTheDocument());
+    });
   });
 
   test('Affichage/masquage du helpButton', ({ given, when, then, and }) => {

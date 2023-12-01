@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import Skeleton from 'shared/components/Skeleton';
 
 const SkeletonInputField = ({ label, id }: { label: ReactNode; id?: string }) => (

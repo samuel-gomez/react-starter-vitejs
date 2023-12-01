@@ -1,8 +1,8 @@
 import React from 'react';
 import { themes } from 'prism-react-renderer/dist/index';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
-import * as reactTookitAll from 'shared/toolkit';
-import withClassNameModifier, { TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
+import * as reactTookitAll from '@axa-fr/react-toolkit-all';
+import withClassNameModifier, { type TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
 import TabsLiveCode from './TabsLiveCode';
 import Accessibility from './Accessibility';
 import Code from './Code';

@@ -1,5 +1,5 @@
 import { ComponentType } from 'react';
-import { ClassManager } from '@axa-fr/react-toolkit-core';
+import { getComponentClassName } from '@axa-fr/react-toolkit-core';
 
 export type TwithClassNameModifier = {
   className?: string;
@@ -13,7 +13,7 @@ const withClassNameModifier = <P extends object>(
   displayName = '',
 ): ComponentType<P & TwithClassNameModifier> => {
   const Hoc = ({ className = '', classModifier = '', defaultClassName = '', ...props }: TwithClassNameModifier & P) => (
-    <Component {...(props as P)} className={ClassManager.getComponentClassName(className, classModifier, defaultClassName)} />
+    <Component {...(props as P)} className={getComponentClassName(className, classModifier, defaultClassName)} />
   );
 
   Hoc.displayName = `WithClassModifier(${Component.name || Component.displayName || displayName}`;

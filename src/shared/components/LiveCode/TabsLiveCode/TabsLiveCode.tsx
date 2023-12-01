@@ -1,4 +1,4 @@
-import Tabs from '@axa-fr/react-toolkit-tabs/dist/esm/index';
+import { Tabs } from '@axa-fr/react-toolkit-all';
 import TitleTabsLiveCode from './TitleTabsLiveCode';
 import './TabsLiveCode.scss';
 

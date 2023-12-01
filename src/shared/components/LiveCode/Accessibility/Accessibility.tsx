@@ -1,4 +1,4 @@
-import Tabs from '@axa-fr/react-toolkit-tabs/dist/esm/index';
+import { Tabs } from '@axa-fr/react-toolkit-all';
 import { TResults } from './Accessibility.hook';
 import AccordionResults from './AccordionResults';
 import EmptyResultsAccessiblity from './EmptyResultsAccessiblity';

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import LasyImage from 'shared/components/LazyImage';
 import { STORYBOOK, DESIGN_SYSTEM } from 'shared/constants';
 import Icons from 'shared/components/Icons';

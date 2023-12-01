@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { Title } from '@axa-fr/react-toolkit-layout-header/dist/esm/index';
+import { HeaderTitle as Title } from '@axa-fr/react-toolkit-all';
 import withClassNameModifier, { TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
 import './TitleBar.scss';
 

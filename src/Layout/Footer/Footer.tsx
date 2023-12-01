@@ -1,5 +1,5 @@
 import logo from '@axa-fr/react-toolkit-core/dist/assets/logo-axa.svg';
-import { Footer } from '@axa-fr/react-toolkit-layout-footer/dist/esm/index';
+import { Footer } from '@axa-fr/react-toolkit-all';
 import packageJson from '../../../package.json';
 import './Footer.scss';
 
