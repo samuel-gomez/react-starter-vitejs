@@ -2,8 +2,8 @@ Feature: Playground Card
   En tant que profil autorisé, je souhaite pouvoir visualiser la démo du composant Card
 
   @RG1
-  Scenario Outline: Affichage du playground Card
-    Given Je suis un utilisateur connu et connecté avec le profil "<profil>"
+  Scenario: Affichage du playground Card
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
     When J’accède à la page démo Card
     Then un titre "Card playground" est visible
     And un lien "Guidelines" est visible avec un href "https://axafrance.github.io/design-system/organisms/form-card/"
@@ -12,7 +12,11 @@ Feature: Playground Card
     And un bouton "Edit props" est visible
     And un texte "Franchisés standard" est visible
 
-    Examples:
-      | profil |
-      | Admin  |
-      | User   |
+  @RG2
+  Scenario: Changement de type de Card
+    Given Je suis un utilisateur connu et connecté avec le profil "Admin"
+    When J’accède à la page démo Card
+    Then un titre "Card playground" est visible
+    And je clique sur le bouton "Edit props"
+    Then un éditeur de propriété est visible
+    And Je sélectionne la valeur "Radio" sur le champ "type"

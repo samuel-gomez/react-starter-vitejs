@@ -1,9 +1,12 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
-import { SCOPE_PREVIEW } from 'shared/testsUtils/constants';
+import { SCOPE_EDITOR, SCOPE_PREVIEW } from 'shared/testsUtils/constants';
 import { configure, render, screen } from 'shared/testsUtils/customRender';
 import {
+  JeCliqueSurLeBouton,
+  JeSelectionneUneValeurSurleChamp,
   JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,
   UnBoutonEstVisible,
+  UnEditeurEstVisible,
   UnLienEstVisible,
   UnTexteEstVisible,
   UnTitreEstVisible,
@@ -35,5 +38,14 @@ defineFeature(feature, test => {
     UnLienEstVisible(and);
     UnBoutonEstVisible(and);
     UnTexteEstVisible(and, SCOPE_PREVIEW);
+  });
+
+  test('Changement de type de Card', ({ given, when, then, and }) => {
+    JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
+    when('J’accède à la page démo Card', renderPage);
+    UnTitreEstVisible(then);
+    JeCliqueSurLeBouton(when);
+    UnEditeurEstVisible(then);
+    JeSelectionneUneValeurSurleChamp(and, SCOPE_EDITOR);
   });
 });
