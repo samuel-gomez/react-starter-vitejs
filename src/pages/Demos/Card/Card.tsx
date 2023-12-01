@@ -9,9 +9,9 @@ import knobs from './knobs.json';
 type TState = {
   type: 'checkbox' | 'radio';
   title: string;
-  checkboxValues: Array<string>;
+  checkboxValues: string[];
   radioValue: string;
-  cards: Array<{
+  cards: {
     name: string;
     id: string;
     value: string;
@@ -19,7 +19,7 @@ type TState = {
     subtitle: string;
     content: ReactNode;
     footer: string;
-  }>;
+  }[];
 };
 
 const INITIAL_STATE: TState = {
