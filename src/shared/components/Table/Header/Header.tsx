@@ -22,7 +22,7 @@ const Header = ({ headers = [], onSort, sorting, children, ariaLabel = 'table-he
       <>
         {!!headers.length &&
           headers.map(({ field, label, key, infobulle }) => (
-            <Th key={key} sorting={sorting} field={field} onSort={onSort}>
+            <Th key={key} scope="col" sorting={sorting} field={field} onSort={onSort}>
               <HelpInfo content={infobulle}>
                 <span className="af-table__th-label">{label}</span>
               </HelpInfo>

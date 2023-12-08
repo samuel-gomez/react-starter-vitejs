@@ -9,6 +9,7 @@ export type TTh = Omit<TsetSort, 'onSort' | 'field'> & {
   classModifier?: string;
   onSort?: TsetSort['onSort'];
   field?: TsetSort['field'];
+  scope?: string | undefined;
 };
 
 const Th = ({ field, sorting, onSort, ThSortableCmpt = ThSortableContainer, ThCmpt = TableTk.Th, ...rest }: TTh) =>
