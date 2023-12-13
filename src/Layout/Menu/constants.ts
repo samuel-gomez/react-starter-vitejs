@@ -131,6 +131,10 @@ const MENU_ITEMS = [
     basePathChildren: ROUTE_URL.DEMOS,
     children: [
       {
+        label: 'Card',
+        url: ROUTE_URL.CARD,
+      },
+      {
         label: 'Checkbox Input',
         url: ROUTE_URL.CHECKBOX_INPUT,
       },

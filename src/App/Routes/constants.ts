@@ -1,10 +1,10 @@
-import { ROUTE_URL_HOME as HOME } from 'pages/Home/constants';
 import { ROUTE_URL_MEMBERS as MEMBERS } from 'pages/Demos/Members/constants';
 import { ROUTE_URL_MEMBERSNEW as MEMBERSNEW } from 'pages/Demos/MembersNew/constants';
-import { ROUTE_URL_PROTECTEDPAGE as PROTECTEDPAGE } from 'pages/Demos/ProtectedPage/constants';
-import { ROUTE_URL_SEARCHMEMBERS as SEARCHMEMBERS } from 'pages/Demos/SearchMembers/constants';
 import { ROUTE_URL_MODAL_CUSTOM as MODAL_CUSTOM } from 'pages/Demos/ModalCustom/constants';
 import { ROUTE_URL_NOTIFICATION as NOTIFICATION } from 'pages/Demos/Notification/constants';
+import { ROUTE_URL_PROTECTEDPAGE as PROTECTEDPAGE } from 'pages/Demos/ProtectedPage/constants';
+import { ROUTE_URL_SEARCHMEMBERS as SEARCHMEMBERS } from 'pages/Demos/SearchMembers/constants';
+import { ROUTE_URL_HOME as HOME } from 'pages/Home/constants';
 
 import { ROUTE_URL_ACCORDION as ACCORDION } from 'pages/Demos/Accordion/constants';
 import { ROUTE_URL_ACTION as ACTION } from 'pages/Demos/Action/constants';
@@ -12,6 +12,7 @@ import { ROUTE_URL_ALERT as ALERT } from 'pages/Demos/Alert/constants';
 import { ROUTE_URL_BADGE as BADGE } from 'pages/Demos/Badge/constants';
 import { ROUTE_URL_BUTTON as BUTTON } from 'pages/Demos/Button/constants';
 import { ROUTE_URL_CHECKBOX_INPUT as CHECKBOX_INPUT } from 'pages/Demos/CheckboxInput/constants';
+import { ROUTE_URL_CARD as CARD } from 'pages/Demos/Card/constants';
 import { ROUTE_URL_DATE_INPUT as DATE_INPUT } from 'pages/Demos/DateInput/constants';
 import { ROUTE_URL_FILE_INPUT as FILE_INPUT } from 'pages/Demos/FileInput/constants';
 import { ROUTE_URL_FOOTER as FOOTER } from 'pages/Demos/Footer/constants';
@@ -62,6 +63,7 @@ const URLS_TOOLKIT_DEMOS = {
   BADGE,
   BUTTON,
   CHECKBOX_INPUT,
+  CARD,
   DATE_INPUT,
   FILE_INPUT,
   FOOTER,

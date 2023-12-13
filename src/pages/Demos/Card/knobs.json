@@ -1,0 +1,23 @@
+{
+  "type": {
+    "value": "",
+    "options": [
+      {
+        "label": "Checkbox",
+        "value": "checkbox"
+      },
+      {
+        "label": "Radio",
+        "value": "radio"
+      }
+    ]
+  },
+  "checkboxValues": {
+    "type": "json",
+    "labelBtnOpenCodeEditor": "Edit checkbox values"
+  },
+  "cards": {
+    "type": "json",
+    "labelBtnOpenCodeEditor": "Edit cards values"
+  }
+}

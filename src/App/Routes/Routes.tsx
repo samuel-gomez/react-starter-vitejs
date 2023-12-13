@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Loader, { MODES } from 'shared/components/Loader';
 import ROUTE_URLS from './constants';
 import { RouteSecure } from './RouteSecure';
@@ -16,6 +16,7 @@ const Action = lazy(() => import('pages/Demos/Action'));
 const Alert = lazy(() => import('pages/Demos/Alert'));
 const Badge = lazy(() => import('pages/Demos/Badge'));
 const Button = lazy(() => import('pages/Demos/Button'));
+const Card = lazy(() => import('pages/Demos/Card'));
 const CheckboxInput = lazy(() => import('pages/Demos/CheckboxInput'));
 const DateInput = lazy(() => import('pages/Demos/DateInput'));
 const FileInput = lazy(() => import('pages/Demos/FileInput'));
@@ -67,6 +68,7 @@ const RoutesCmpt = ({ RouteSecureCmpt = RouteSecure }: TRoutesCmpt) => (
         <Route path={ROUTE_URLS.ALERT} element={<Alert />} />
         <Route path={ROUTE_URLS.BADGE} element={<Badge />} />
         <Route path={ROUTE_URLS.BUTTON} element={<Button />} />
+        <Route path={ROUTE_URLS.CARD} element={<Card />} />
         <Route path={ROUTE_URLS.CHECKBOX_INPUT} element={<CheckboxInput />} />
         <Route path={ROUTE_URLS.DATE_INPUT} element={<DateInput />} />
         <Route path={ROUTE_URLS.FILE_INPUT} element={<FileInput />} />
