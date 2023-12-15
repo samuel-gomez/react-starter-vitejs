@@ -5,6 +5,9 @@ exports[`Table > Render <Table/> with 1 header and 1 item 1`] = `
   <table
     class="af-table af-table--classModifier"
   >
+    <caption>
+      my title
+    </caption>
     <thead
       aria-label="En-tête du tableau de données"
       class="af-table__thead"
@@ -50,6 +53,9 @@ exports[`Table > Render <Table/> with empty items 1`] = `
   <table
     class="af-table af-table--classModifier"
   >
+    <caption>
+      my title
+    </caption>
     <thead
       aria-label="En-tête du tableau de données"
       class="af-table__thead"

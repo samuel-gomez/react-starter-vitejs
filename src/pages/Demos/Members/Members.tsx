@@ -16,6 +16,7 @@ export type TMembers = TLayoutPage & {
   sorting: TReturnUseMembers['sorting'];
   members: TReturnUseMembers['members'];
   anomaly: Tanomaly | null;
+  title?: string;
   headers?: typeof TABLE_HEADERS_MEMBERS;
 };
 
@@ -36,7 +37,7 @@ const Members = ({
     <h1 className="af-title--content">{title}</h1>
     <Loader mode={loaderMode}>
       <Resilience anomaly={anomaly} refetch={refetch as React.MouseEventHandler<HTMLButtonElement>}>
-        <Table items={members} itemsType={TABLE_ITEMS_TYPE} headers={headers} onSort={onChangeSorting} sorting={sorting} />
+        <Table title={title} items={members} itemsType={TABLE_ITEMS_TYPE} headers={headers} onSort={onChangeSorting} sorting={sorting} />
         <Paging {...pagination} onChange={onChangePaging} id="paging" />
       </Resilience>
     </Loader>

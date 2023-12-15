@@ -3,6 +3,7 @@ import Table from '../Table';
 
 const defaultProps = {
   classModifier: 'classModifier',
+  title: 'my title',
   headers: [],
   items: [],
 };

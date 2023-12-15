@@ -8,11 +8,13 @@ export type TTable = THeader &
   TBody & {
     childrenHeader?: ReactNode;
     className?: string;
+    title: string;
     itemsType?: string;
   } & ComponentPropsWithoutRef<typeof TableTk>;
 
-const Table = ({ onSort, sorting, headers, items, childrenHeader, itemsType = DEFAULT_TABLE_ITEMS_TYPE, ...rest }: TTable) => (
+const Table = ({ onSort, sorting, headers, title, items, childrenHeader, itemsType = DEFAULT_TABLE_ITEMS_TYPE, ...rest }: TTable) => (
   <TableTk {...rest}>
+    <caption>{title}</caption>
     <Header headers={headers} onSort={onSort} sorting={sorting} itemsType={itemsType}>
       {childrenHeader}
     </Header>

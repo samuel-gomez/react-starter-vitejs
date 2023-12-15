@@ -36,6 +36,7 @@ type TSearchMembers = TLayoutPage &
   Omit<TReturnUseSearchMembers, 'isLoading'> & {
     loaderMode: TLoader['mode'];
     submitFormSearchMembers: TReturnUseFormSearchMembers['submitFormSearchMembers'];
+    title?: string;
   };
 
 const SearchMembers = ({ titleBar = TITLE_BAR, title = TITLE, loaderMode, searchMembers, anomaly, submitFormSearchMembers }: TSearchMembers) => (
@@ -54,7 +55,7 @@ const SearchMembers = ({ titleBar = TITLE_BAR, title = TITLE, loaderMode, search
     <Loader message="Recherche des membres en cours..." mode={loaderMode}>
       <Resilience anomaly={anomaly}>
         <h2 className="af-title">{SUBTITLE}</h2>
-        <Table itemsType={TABLE_ITEMS_TYPE} items={searchMembers} headers={TABLE_HEADERS_SEARCHMEMBERS} />
+        <Table itemsType={TABLE_ITEMS_TYPE} title={title} items={searchMembers} headers={TABLE_HEADERS_SEARCHMEMBERS} />
       </Resilience>
     </Loader>
   </Layout>
