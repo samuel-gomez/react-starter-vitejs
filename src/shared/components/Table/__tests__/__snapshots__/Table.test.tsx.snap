@@ -6,11 +6,11 @@ exports[`Table > Render <Table/> with 1 header and 1 item 1`] = `
     class="af-table af-table--classModifier"
   >
     <thead
-      aria-label="table-header"
+      aria-label="En-tête du tableau de données"
       class="af-table__thead"
     >
       <tr
-        aria-label="table-header-line"
+        aria-label="Ligne de l'en-tête du tableau de données"
         class="af-table__tr"
       >
         <th
@@ -27,11 +27,11 @@ exports[`Table > Render <Table/> with 1 header and 1 item 1`] = `
       </tr>
     </thead>
     <tbody
-      aria-label="table-body"
+      aria-label="Corps du tableau de données"
       class="af-table__body"
     >
       <tr
-        aria-label="table-body-line"
+        aria-label="Ligne 1 du tableau de données"
         class="af-table__tr"
       >
         <td
@@ -51,16 +51,16 @@ exports[`Table > Render <Table/> with empty items 1`] = `
     class="af-table af-table--classModifier"
   >
     <thead
-      aria-label="table-header"
+      aria-label="En-tête du tableau de données"
       class="af-table__thead"
     >
       <tr
-        aria-label="table-header-line"
+        aria-label="Ligne de l'en-tête du tableau de données"
         class="af-table__tr"
       />
     </thead>
     <tbody
-      aria-label="table-body"
+      aria-label="Corps du tableau de données"
       class="af-table__body"
     />
   </table>

@@ -10,4 +10,4 @@ const EORDER = {
 
 export default EORDER;
 
-export const DEFAULT_TABLE_ARIA_LABEL = 'Tableau de données';
+export const DEFAULT_TABLE_ITEMS_TYPE = 'données';

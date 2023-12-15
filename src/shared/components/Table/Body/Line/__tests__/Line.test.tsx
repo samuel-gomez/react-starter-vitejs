@@ -11,18 +11,20 @@ const columnsMock = [
   },
 ];
 
+const itemsType = 'users';
+
 describe('Line', () => {
   it.each`
-    columns        | className    | modifier      | children
-    ${undefined}   | ${undefined} | ${undefined}  | ${undefined}
-    ${[]}          | ${undefined} | ${undefined}  | ${undefined}
-    ${columnsMock} | ${undefined} | ${undefined}  | ${undefined}
-    ${columnsMock} | ${undefined} | ${'modifier'} | ${undefined}
+    columns        | className    | modifier      | children     | lineNumber
+    ${undefined}   | ${undefined} | ${undefined}  | ${undefined} | ${1}
+    ${[]}          | ${undefined} | ${undefined}  | ${undefined} | ${2}
+    ${columnsMock} | ${undefined} | ${undefined}  | ${undefined} | ${3}
+    ${columnsMock} | ${undefined} | ${'modifier'} | ${undefined} | ${4}
   `(
-    'Should render <Line/> when columns: $columns, className: $className, modifier: $modifier, children: $children',
-    ({ columns, className, modifier, children }) => {
+    'Should render <Line/> when columns: $columns, className: $className, modifier: $modifier, children: $children, lineNumber: $lineNumber',
+    ({ columns, className, modifier, children, lineNumber }) => {
       const { baseElement } = renderWithContainer(
-        <Line className={className} columns={columns} classModifier={modifier}>
+        <Line className={className} itemsType={itemsType} lineNumber={lineNumber} columns={columns} classModifier={modifier}>
           {children}
         </Line>,
         container,

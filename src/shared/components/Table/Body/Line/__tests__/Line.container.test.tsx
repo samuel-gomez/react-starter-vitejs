@@ -17,7 +17,7 @@ const cols = [
 
 describe('LineContainer', () => {
   it('Render <LineContainer/> with cols and actions', () => {
-    renderWithContainer(<LineContainer {...defaultProps} cols={cols} />, container);
+    renderWithContainer(<LineContainer {...defaultProps} cols={cols} lineNumber={1} itemsType="users" />, container);
 
     expect(LineCmpt).toHaveBeenCalledWith(
       {
@@ -39,6 +39,8 @@ describe('LineContainer', () => {
             label: 'F',
           },
         ],
+        lineNumber: 1,
+        itemsType: 'users',
       },
       {},
     );

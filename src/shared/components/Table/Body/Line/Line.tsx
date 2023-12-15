@@ -4,11 +4,12 @@ import Td, { TTdContainer } from './Td';
 
 export type TLine = ComponentPropsWithoutRef<typeof TableTk.Tr> & {
   columns: (TTdContainer & { keyCol: string })[];
-  ariaLabel?: string;
+  itemsType: string;
+  lineNumber: number;
 };
 
-const Line = ({ className, columns = [], classModifier = '', children, ariaLabel = 'table-body-line' }: TLine) => (
-  <TableTk.Tr classModifier={classModifier} className={className} aria-label={ariaLabel}>
+const Line = ({ className, columns = [], classModifier = '', children, lineNumber, itemsType }: TLine) => (
+  <TableTk.Tr classModifier={classModifier} className={className} aria-label={`Ligne ${lineNumber} du tableau de ${itemsType}`}>
     <>
       {columns.map(({ keyCol, ...restTd }) => (
         <Td key={keyCol} {...restTd} />

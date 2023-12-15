@@ -5,7 +5,7 @@ import Resilience from 'shared/components/Resilience';
 import Table from 'shared/components/Table';
 import DownloadLink from 'shared/components/DownloadLink';
 import { formatDate } from 'shared/helpers/formatDate';
-import { TITLE_BAR, TITLE, SUBTITLE, TABLE_HEADERS_SEARCHMEMBERS } from './constants';
+import { TITLE_BAR, TITLE, SUBTITLE, TABLE_HEADERS_SEARCHMEMBERS, TABLE_ITEMS_TYPE } from './constants';
 import SearchForm from './SearchForm';
 import type { TReturnUseFormSearchMembers, TReturnUseSearchMembers } from './SearchMembers.hook';
 
@@ -54,7 +54,7 @@ const SearchMembers = ({ titleBar = TITLE_BAR, title = TITLE, loaderMode, search
     <Loader message="Recherche des membres en cours..." mode={loaderMode}>
       <Resilience anomaly={anomaly}>
         <h2 className="af-title">{SUBTITLE}</h2>
-        <Table items={searchMembers} headers={TABLE_HEADERS_SEARCHMEMBERS} />
+        <Table itemsType={TABLE_ITEMS_TYPE} items={searchMembers} headers={TABLE_HEADERS_SEARCHMEMBERS} />
       </Resilience>
     </Loader>
   </Layout>

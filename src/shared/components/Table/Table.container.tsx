@@ -1,13 +1,13 @@
 import { ElementType, ReactNode } from 'react';
 import { emptyFunction } from 'shared/helpers';
 import Table, { TTable } from './Table';
-import { DEFAULT_TABLE_ARIA_LABEL } from './constants';
+import { DEFAULT_TABLE_ITEMS_TYPE } from './constants';
 
 type TTableContainer = TTable & {
   children?: ReactNode;
   TableCmpt?: typeof Table;
   Fallback?: ElementType;
-  ariaLabel?: string;
+  itemsType?: string;
 };
 
 const TableContainer = ({
@@ -16,11 +16,11 @@ const TableContainer = ({
   items = [],
   headers = [],
   Fallback = emptyFunction,
-  ariaLabel = DEFAULT_TABLE_ARIA_LABEL,
+  itemsType = DEFAULT_TABLE_ITEMS_TYPE,
   ...restTable
 }: TTableContainer) =>
   items.length > 0 ? (
-    <TableCmpt items={items} headers={headers} aria-label={ariaLabel} {...restTable}>
+    <TableCmpt items={items} headers={headers} itemsType={itemsType} aria-label={`Tableau de ${itemsType}`} {...restTable}>
       {children}
     </TableCmpt>
   ) : (

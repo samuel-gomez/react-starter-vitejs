@@ -27,27 +27,31 @@ describe('TableContainer', () => {
     },
   ];
 
+  const itemsType = 'prénoms';
+
   it('Render <TableContainer/> with 1 header and 1 item', () => {
-    render(<TableContainer {...defaultProps} items={items} headers={headers} />);
+    render(<TableContainer {...defaultProps} items={items} itemsType={itemsType} headers={headers} />);
     expect(TableCmpt).toHaveBeenCalledWith(
       {
         children: undefined,
         headers,
         items,
-        'aria-label': 'Tableau de données',
+        itemsType,
+        'aria-label': `Tableau de ${itemsType}`,
       },
       {},
     );
   });
 
   it('Render <TableContainer/> with 1 header and 1 item without headers', () => {
-    render(<TableContainer {...defaultProps} items={items} />);
+    render(<TableContainer {...defaultProps} items={items} itemsType={itemsType} />);
     expect(TableCmpt).toHaveBeenCalledWith(
       {
         children: undefined,
         headers: [],
         items,
-        'aria-label': 'Tableau de données',
+        itemsType,
+        'aria-label': `Tableau de ${itemsType}`,
       },
       {},
     );
@@ -60,7 +64,7 @@ describe('TableContainer', () => {
 
   it('Render <TableContainer/> with 1 header and 1 item and children', () => {
     render(
-      <TableContainer {...defaultProps} items={items} headers={headers}>
+      <TableContainer {...defaultProps} items={items} itemsType={itemsType} headers={headers}>
         <tr>
           <td>hello</td>
         </tr>
@@ -75,7 +79,8 @@ describe('TableContainer', () => {
         ),
         headers,
         items,
-        'aria-label': 'Tableau de données',
+        itemsType,
+        'aria-label': `Tableau de ${itemsType}`,
       },
       {},
     );
