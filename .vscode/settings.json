@@ -9,5 +9,8 @@
   },
   "[feature]": {
     "editor.defaultFormatter": "alexkrechik.cucumberautocomplete"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
   }
 }
