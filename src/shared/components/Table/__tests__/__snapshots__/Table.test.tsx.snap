@@ -5,7 +5,9 @@ exports[`Table > Render <Table/> with 1 header and 1 item 1`] = `
   <table
     class="af-table af-table--classModifier"
   >
-    <caption>
+    <caption
+      class=""
+    >
       my title
     </caption>
     <thead
@@ -53,7 +55,9 @@ exports[`Table > Render <Table/> with empty items 1`] = `
   <table
     class="af-table af-table--classModifier"
   >
-    <caption>
+    <caption
+      class=""
+    >
       my title
     </caption>
     <thead

@@ -7,7 +7,6 @@ type TTableContainer = TTable & {
   children?: ReactNode;
   TableCmpt?: typeof Table;
   Fallback?: ElementType;
-  itemsType?: string;
 };
 
 const TableContainer = ({
