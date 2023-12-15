@@ -13,6 +13,7 @@ exports[`Header > Should render Header when headers: [ Array(1) ], sorting: { fi
       <th
         class="af-table__th af-table__th--sortable af-table__th--active"
         role="button"
+        scope="col"
       >
         <span
           class="af-table__th-label"
@@ -41,6 +42,7 @@ exports[`Header > Should render Header when headers: [ Array(1) ], sorting: { fi
       <th
         class="af-table__th af-table__th--sortable af-table__th--active"
         role="button"
+        scope="col"
       >
         <span
           class="af-table__th-label"
@@ -72,6 +74,7 @@ exports[`Header > Should render Header when headers: [ Array(1) ], sorting: unde
       <th
         class="af-table__th af-table__th--sortable af-table__th--active"
         role="button"
+        scope="col"
       >
         <span
           class="af-table__th-label"

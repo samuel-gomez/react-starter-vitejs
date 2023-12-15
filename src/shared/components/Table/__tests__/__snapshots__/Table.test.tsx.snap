@@ -16,6 +16,7 @@ exports[`Table > Render <Table/> with 1 header and 1 item 1`] = `
         <th
           class="af-table__th"
           role="columnheader"
+          scope="col"
         >
           <span
             class="af-table__th-label"
