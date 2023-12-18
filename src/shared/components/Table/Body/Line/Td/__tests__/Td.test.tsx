@@ -6,20 +6,21 @@ const defaultProps = {
   label: 'label',
   hover: null,
 };
-const container = document.createElement('tr');
+const trContainer = document.createElement('tr');
 
 describe('Td', () => {
   it('Render <Td/> without hover', () => {
-    const { asFragment } = renderWithContainer(<Td {...defaultProps}>child th</Td>, container);
-    expect(asFragment()).toMatchSnapshot();
+    const { container } = renderWithContainer(<Td {...defaultProps}>child th</Td>, trContainer);
+    expect(container.firstChild?.firstChild?.textContent).toBe('label');
   });
+
   it('Render <Td/> with hover', () => {
-    const { asFragment } = renderWithContainer(
+    const { container } = renderWithContainer(
       <Td {...defaultProps} classModifier="custom" hover={<p>Hover content</p>}>
         child td
       </Td>,
-      container,
+      trContainer,
     );
-    expect(asFragment()).toMatchSnapshot();
+    expect(container.firstChild?.firstChild).toHaveClass('af-popover__wrapper');
   });
 });

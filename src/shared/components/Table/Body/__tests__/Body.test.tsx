@@ -1,12 +1,13 @@
 import { renderWithContainer } from 'shared/testsUtils';
+import { screen, within } from 'shared/testsUtils/customRender';
 import Body from '../Body';
 
 const container = document.createElement('table');
 
 describe('Body', () => {
   it('Render <Body/> with empty items', () => {
-    const { baseElement } = renderWithContainer(<Body />, container);
-    expect(baseElement).toMatchSnapshot();
+    renderWithContainer(<Body />, container);
+    expect(screen.queryAllByRole('row').length).toBe(0);
   });
 
   const items = [
@@ -23,6 +24,10 @@ describe('Body', () => {
 
   it('Render <Body/> with 1 item', () => {
     const { baseElement } = renderWithContainer(<Body items={items} />, container);
-    expect(baseElement).toMatchSnapshot();
+    expect(screen.getAllByRole('row').length).toBe(1);
+    within(baseElement).getByText(items[0].cols.firstname.label);
+    within(baseElement).getByText(items[0].cols.lastname.label);
+    within(baseElement).getByText(items[0].cols.birthdate.label);
+    within(baseElement).getByText(items[0].cols.sexe.label);
   });
 });

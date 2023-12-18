@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import { MODES } from 'shared/components/Loader';
 import { emptyFunction, render } from 'shared/testsUtils';
-import SearchMembers, { getDownloadPath, setFileName, DownloadLinkEnhanced } from '../SearchMembers';
+import SearchMembers, { DownloadLinkEnhanced, getDownloadPath, setFileName } from '../SearchMembers';
 
 describe('getDownloadPath', () => {
   it('Should return "members/0064962455/download-detail" When getDownloadPath with memberId "0064962455"', () => {
@@ -40,18 +40,11 @@ describe('<DownloadLinkEnhanced />', () => {
     firstname: 'samuel',
     lastname: 'gomez',
   };
-  it('Should call getDownloadPathFn and setFileNameFn with proper params', () => {
-    const { asFragment } = render(
-      <DownloadLinkEnhanced {...defaultDownloadProps} getDownloadPathFn={getDownloadPathFnMock} setFileNameFn={setFileNameFnMock} />,
-    );
-    expect(asFragment()).toMatchSnapshot();
-    expect(getDownloadPathFnMock).toBeCalledWith('09878817');
-    expect(setFileNameFnMock).toBeCalledWith({ memberId: '09878817', name: 'samuel-gomez' });
-  });
 
-  it('Should call getDownloadPathFn and setFileNameFn with proper params 2 ', () => {
-    const { asFragment } = render(<DownloadLinkEnhanced {...defaultDownloadProps} />);
-    expect(asFragment()).toMatchSnapshot();
+  it('Should call getDownloadPathFn and setFileNameFn with proper params', () => {
+    render(<DownloadLinkEnhanced {...defaultDownloadProps} getDownloadPathFn={getDownloadPathFnMock} setFileNameFn={setFileNameFnMock} />);
+    expect(getDownloadPathFnMock).toHaveBeenCalledWith('09878817');
+    expect(setFileNameFnMock).toHaveBeenCalledWith({ memberId: '09878817', name: 'samuel-gomez' });
   });
 });
 

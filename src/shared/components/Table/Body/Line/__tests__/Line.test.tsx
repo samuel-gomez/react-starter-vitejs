@@ -1,7 +1,8 @@
 import { renderWithContainer } from 'shared/testsUtils';
+import { within } from 'shared/testsUtils/customRender';
 import Line from '../Line';
 
-const container = document.createElement('tbody');
+const tbodyContainer = document.createElement('tbody');
 
 const columnsMock = [
   {
@@ -11,25 +12,32 @@ const columnsMock = [
   },
 ];
 
-const itemsType = 'users';
-
 describe('Line', () => {
   it.each`
-    columns        | className    | modifier      | children     | lineNumber
-    ${undefined}   | ${undefined} | ${undefined}  | ${undefined} | ${1}
-    ${[]}          | ${undefined} | ${undefined}  | ${undefined} | ${2}
-    ${columnsMock} | ${undefined} | ${undefined}  | ${undefined} | ${3}
-    ${columnsMock} | ${undefined} | ${'modifier'} | ${undefined} | ${4}
+    columns        | className    | modifier      | children
+    ${undefined}   | ${undefined} | ${undefined}  | ${undefined}
+    ${[]}          | ${undefined} | ${undefined}  | ${undefined}
+    ${columnsMock} | ${undefined} | ${undefined}  | ${undefined}
+    ${columnsMock} | ${undefined} | ${'modifier'} | ${undefined}
   `(
-    'Should render <Line/> when columns: $columns, className: $className, modifier: $modifier, children: $children, lineNumber: $lineNumber',
-    ({ columns, className, modifier, children, lineNumber }) => {
-      const { baseElement } = renderWithContainer(
-        <Line className={className} itemsType={itemsType} lineNumber={lineNumber} columns={columns} classModifier={modifier}>
+    'Should render <Line/> when columns: $columns, className: $className, modifier: $modifier, children: $children',
+    ({ columns, className, modifier, children }) => {
+      const { baseElement, container } = renderWithContainer(
+        <Line className={className} columns={columns} classModifier={modifier}>
           {children}
         </Line>,
-        container,
+        tbodyContainer,
       );
-      expect(baseElement).toMatchSnapshot();
+
+      if (columns && columns.length > 0) {
+        within(baseElement).getByText('F');
+      } else {
+        expect(within(baseElement).queryByText('F')).toBeNull();
+      }
+
+      if (modifier) {
+        expect(container.firstChild).toHaveClass('af-table__tr--modifier');
+      }
     },
   );
 });
