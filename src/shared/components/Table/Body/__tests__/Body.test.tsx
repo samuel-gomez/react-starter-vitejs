@@ -24,7 +24,7 @@ describe('Body', () => {
 
   it('Render <Body/> with 1 item', () => {
     const { baseElement } = renderWithContainer(<Body items={items} />, container);
-    expect(screen.getAllByRole('row').length).toBe(1);
+    expect(within(baseElement).getAllByRole('row').length).toBe(1);
     within(baseElement).getByText(items[0].cols.firstname.label);
     within(baseElement).getByText(items[0].cols.lastname.label);
     within(baseElement).getByText(items[0].cols.birthdate.label);

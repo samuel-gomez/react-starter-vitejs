@@ -1,5 +1,5 @@
 import { renderWithContainer } from 'shared/testsUtils';
-import { screen } from 'shared/testsUtils/customRender';
+import { screen, within } from 'shared/testsUtils/customRender';
 import Header from '../Header';
 
 const defaultProps = {
@@ -30,7 +30,7 @@ describe('Header', () => {
     ${undefined}   | ${sortingMock} | ${undefined}
     ${headersMock} | ${sortingMock} | ${(<th>child header</th>)}
   `('Should render Header when headers: $headers, sorting: $sorting', ({ headers, sorting, children }) => {
-    renderWithContainer(
+    const { baseElement } = renderWithContainer(
       <Header {...defaultProps} headers={headers} sorting={sorting}>
         {children}
       </Header>,
@@ -47,7 +47,7 @@ describe('Header', () => {
       columnHeaderNumber += 1;
     }
 
-    expect(screen.queryAllByRole('columnheader').length).toBe(columnHeaderNumber);
+    expect(within(baseElement).queryAllByRole('columnheader').length).toBe(columnHeaderNumber);
     if (headers?.length > 0) {
       screen.getByText('label');
     }
