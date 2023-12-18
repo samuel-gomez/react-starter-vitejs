@@ -11,6 +11,6 @@
     "editor.defaultFormatter": "alexkrechik.cucumberautocomplete"
   },
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
+    "source.organizeImports": "always"
   }
 }
