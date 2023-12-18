@@ -26,8 +26,8 @@ export type TBody = {
 
 const Body = ({ items = [], children }: TBody) => (
   <TableTk.Body>
-    {items.map(({ key, classModifier, cols }, index) => (
-      <Line key={key} lineNumber={index + 1} classModifier={classModifier} cols={Object.entries({ ...cols })} />
+    {items.map(({ key, classModifier, cols }) => (
+      <Line key={key} classModifier={classModifier} cols={Object.entries({ ...cols })} />
     ))}
     {children}
   </TableTk.Body>

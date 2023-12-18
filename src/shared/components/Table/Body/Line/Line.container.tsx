@@ -4,7 +4,6 @@ import Line, { TLine } from './Line';
 export type TLineContainer = Omit<TLine, 'columns'> & {
   LineCmpt?: typeof Line;
   cols: [string, Tcol][];
-  lineNumber: number;
 };
 
 const LineContainer = ({ LineCmpt = Line, cols, ...restLineProps }: TLineContainer) => {
