@@ -10,7 +10,7 @@ export type TTable = THeader &
     className?: string;
     title: string;
     itemsType?: string;
-    isVisible?: boolean;
+    isCaptionVisible?: boolean;
   } & ComponentPropsWithoutRef<typeof TableTk>;
 
 const Table = ({
@@ -21,11 +21,11 @@ const Table = ({
   items,
   childrenHeader,
   itemsType = DEFAULT_TABLE_ITEMS_TYPE,
-  isVisible = true,
+  isCaptionVisible = true,
   ...rest
 }: TTable) => (
   <TableTk {...rest}>
-    <caption className={isVisible ? '' : 'sr-only'}>{title}</caption>
+    <caption className={isCaptionVisible ? '' : 'sr-only'}>{title}</caption>
     <Header headers={headers} onSort={onSort} sorting={sorting} itemsType={itemsType}>
       {childrenHeader}
     </Header>

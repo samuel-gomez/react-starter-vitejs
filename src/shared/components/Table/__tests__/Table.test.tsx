@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from 'shared/testsUtils/customRender';
 import Table from '../Table';
 
 const defaultProps = {
@@ -35,5 +35,10 @@ describe('Table', () => {
   it('Render <Table/> with 1 header and 1 item', () => {
     const { asFragment } = render(<Table {...defaultProps} headers={headers} items={items} />);
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('Render <Table/> without visible caption', async () => {
+    render(<Table {...defaultProps} isCaptionVisible={false} />);
+    expect(screen.getByText(defaultProps.title)).toHaveClass('sr-only');
   });
 });
