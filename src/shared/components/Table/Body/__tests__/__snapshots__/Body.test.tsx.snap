@@ -3,11 +3,9 @@
 exports[`Body > Render <Body/> with 1 item 1`] = `
 <table>
   <tbody
-    aria-label="Corps du tableau de données"
     class="af-table__body"
   >
     <tr
-      aria-label="Ligne 1 du tableau de données"
       class="af-table__tr"
     >
       <td
@@ -38,7 +36,6 @@ exports[`Body > Render <Body/> with 1 item 1`] = `
 exports[`Body > Render <Body/> with empty items 1`] = `
 <table>
   <tbody
-    aria-label="Corps du tableau de données"
     class="af-table__body"
   />
 </table>

@@ -3,7 +3,6 @@
 exports[`Line > Should render <Line/> when columns: [ Array(1) ], className: undefined, modifier: 'modifier', children: undefined, lineNumber: 4 1`] = `
 <tbody>
   <tr
-    aria-label="Ligne 4 du tableau de users"
     class="af-table__tr af-table__tr--modifier"
   >
     <td
@@ -18,7 +17,6 @@ exports[`Line > Should render <Line/> when columns: [ Array(1) ], className: und
 exports[`Line > Should render <Line/> when columns: [ Array(1) ], className: undefined, modifier: undefined, children: undefined, lineNumber: 3 1`] = `
 <tbody>
   <tr
-    aria-label="Ligne 3 du tableau de users"
     class="af-table__tr"
   >
     <td
@@ -33,7 +31,6 @@ exports[`Line > Should render <Line/> when columns: [ Array(1) ], className: und
 exports[`Line > Should render <Line/> when columns: [], className: undefined, modifier: undefined, children: undefined, lineNumber: 2 1`] = `
 <tbody>
   <tr
-    aria-label="Ligne 2 du tableau de users"
     class="af-table__tr"
   />
 </tbody>
@@ -42,7 +39,6 @@ exports[`Line > Should render <Line/> when columns: [], className: undefined, mo
 exports[`Line > Should render <Line/> when columns: undefined, className: undefined, modifier: undefined, children: undefined, lineNumber: 1 1`] = `
 <tbody>
   <tr
-    aria-label="Ligne 1 du tableau de users"
     class="af-table__tr"
   />
 </tbody>

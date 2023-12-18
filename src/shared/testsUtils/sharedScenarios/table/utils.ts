@@ -7,36 +7,32 @@ export const getTableByRole = async (itemsType: string) => {
   return table;
 };
 
-export const getTheadByRole = (table: HTMLElement, itemsType = DEFAULT_TABLE_ITEMS_TYPE) =>
-  within(table).getByRole('rowgroup', { name: `En-tête du tableau de ${itemsType}` });
+export const getTheadByRole = (table: HTMLElement) => within(table).getAllByRole('rowgroup')[0];
 
-export const getTheadLineByRole = (thead: HTMLElement, itemsType = DEFAULT_TABLE_ITEMS_TYPE) =>
-  within(thead).getByRole('row', { name: `Ligne de l'en-tête du tableau de ${itemsType}` });
+export const getTheadLineByRole = (thead: HTMLElement) => within(thead).getByRole('row');
 
 export const getTheadCellsByRole = (theadLine: HTMLElement) => within(theadLine).getAllByRole('columnheader');
 
 export const getTheadCellsButtonLineByRole = (theadLine: HTMLElement) => within(theadLine).getAllByRole('button');
 
-export const getTbodyByRole = (table: HTMLElement, itemsType = DEFAULT_TABLE_ITEMS_TYPE) =>
-  within(table).getByRole('rowgroup', { name: `Corps du tableau de ${itemsType}` });
+export const getTbodyByRole = (table: HTMLElement) => within(table).getAllByRole('rowgroup')[1];
 
-export const getTbodyLineByRole = (tbody: HTMLElement, itemsType = DEFAULT_TABLE_ITEMS_TYPE) =>
-  within(tbody).getAllByRole('row', { name: RegExp(`Ligne \\d+ du tableau de ${itemsType}`) });
+export const getTbodyLineByRole = (tbody: HTMLElement) => within(tbody).getAllByRole('row');
 
 export const getTbodyLineCellByRole = (tbodyLine: HTMLElement) => within(tbodyLine).getAllByRole('cell');
 
 export const getTableHeadElements = async ({ tableItemsType, isButton = false }: { tableItemsType: string; isButton?: boolean }) => {
   const table = await getTableByRole(tableItemsType);
-  const thead = getTheadByRole(table, tableItemsType);
-  const theadLine = getTheadLineByRole(thead, tableItemsType);
+  const thead = getTheadByRole(table);
+  const theadLine = getTheadLineByRole(thead);
   const cells = isButton ? getTheadCellsButtonLineByRole(theadLine) : getTheadCellsByRole(theadLine);
   return { table, thead, theadLine, cells };
 };
 
 export const getTableBodyElements = async ({ tableItemsType }: { tableItemsType: string }) => {
   const table = await getTableByRole(tableItemsType);
-  const tbody = getTbodyByRole(table, tableItemsType);
-  const tbodyLines = getTbodyLineByRole(tbody, tableItemsType);
+  const tbody = getTbodyByRole(table);
+  const tbodyLines = getTbodyLineByRole(tbody);
   return { table, tbody, tbodyLines };
 };
 

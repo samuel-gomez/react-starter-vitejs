@@ -7,6 +7,7 @@ type TTableContainer = TTable & {
   children?: ReactNode;
   TableCmpt?: typeof Table;
   Fallback?: ElementType;
+  itemsType?: string;
 };
 
 const TableContainer = ({
@@ -19,7 +20,7 @@ const TableContainer = ({
   ...restTable
 }: TTableContainer) =>
   items.length > 0 ? (
-    <TableCmpt items={items} headers={headers} itemsType={itemsType} aria-label={`Tableau de ${itemsType}`} {...restTable}>
+    <TableCmpt items={items} headers={headers} aria-label={`Tableau de ${itemsType}`} {...restTable}>
       {children}
     </TableCmpt>
   ) : (

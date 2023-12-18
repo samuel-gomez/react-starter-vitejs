@@ -3,11 +3,9 @@
 exports[`Header > Should render Header when headers: [ Array(1) ], sorting: { field: 'name', order: 1 } 1`] = `
 <table>
   <thead
-    aria-label="En-tête du tableau de données"
     class="af-table__thead"
   >
     <tr
-      aria-label="Ligne de l'en-tête du tableau de données"
       class="af-table__tr"
     >
       <th
@@ -32,11 +30,9 @@ exports[`Header > Should render Header when headers: [ Array(1) ], sorting: { fi
 exports[`Header > Should render Header when headers: [ Array(1) ], sorting: { field: 'name', order: 1 } 2`] = `
 <table>
   <thead
-    aria-label="En-tête du tableau de données"
     class="af-table__thead"
   >
     <tr
-      aria-label="Ligne de l'en-tête du tableau de données"
       class="af-table__tr"
     >
       <th
@@ -64,11 +60,9 @@ exports[`Header > Should render Header when headers: [ Array(1) ], sorting: { fi
 exports[`Header > Should render Header when headers: [ Array(1) ], sorting: undefined 1`] = `
 <table>
   <thead
-    aria-label="En-tête du tableau de données"
     class="af-table__thead"
   >
     <tr
-      aria-label="Ligne de l'en-tête du tableau de données"
       class="af-table__tr"
     >
       <th
@@ -93,11 +87,9 @@ exports[`Header > Should render Header when headers: [ Array(1) ], sorting: unde
 exports[`Header > Should render Header when headers: [], sorting: undefined 1`] = `
 <table>
   <thead
-    aria-label="En-tête du tableau de données"
     class="af-table__thead"
   >
     <tr
-      aria-label="Ligne de l'en-tête du tableau de données"
       class="af-table__tr"
     />
   </thead>
@@ -107,11 +99,9 @@ exports[`Header > Should render Header when headers: [], sorting: undefined 1`] 
 exports[`Header > Should render Header when headers: undefined, sorting: { field: 'name', order: 1 } 1`] = `
 <table>
   <thead
-    aria-label="En-tête du tableau de données"
     class="af-table__thead"
   >
     <tr
-      aria-label="Ligne de l'en-tête du tableau de données"
       class="af-table__tr"
     />
   </thead>
@@ -121,11 +111,9 @@ exports[`Header > Should render Header when headers: undefined, sorting: { field
 exports[`Header > Should render Header when headers: undefined, sorting: undefined 1`] = `
 <table>
   <thead
-    aria-label="En-tête du tableau de données"
     class="af-table__thead"
   >
     <tr
-      aria-label="Ligne de l'en-tête du tableau de données"
       class="af-table__tr"
     />
   </thead>
