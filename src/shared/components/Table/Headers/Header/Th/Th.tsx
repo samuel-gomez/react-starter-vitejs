@@ -12,7 +12,11 @@ export type TTh = Omit<TsetSort, 'onSort' | 'field'> & {
   scope?: string;
 };
 
-const Th = ({ field, sorting, onSort, ThSortableCmpt = ThSortableContainer, ThCmpt = TableTk.Th, ...rest }: TTh) =>
-  field && onSort ? <ThSortableCmpt {...rest} sorting={sorting} onSort={onSort} field={field} /> : <ThCmpt role="columnheader" {...rest} />;
+const Th = ({ field, sorting, onSort, ThSortableCmpt = ThSortableContainer, ThCmpt = TableTk.Th, scope, ...rest }: TTh) =>
+  field && onSort ? (
+    <ThSortableCmpt {...rest} scope={scope} sorting={sorting} onSort={onSort} field={field} />
+  ) : (
+    <ThCmpt role={scope === 'row' ? 'rowheader' : 'columnheader'} scope={scope} {...rest} />
+  );
 
 export default Th;

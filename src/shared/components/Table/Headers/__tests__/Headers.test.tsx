@@ -1,6 +1,6 @@
 import { renderWithContainer } from 'shared/testsUtils';
 import { screen, within } from 'shared/testsUtils/customRender';
-import Header from '../Header';
+import Headers from '../Headers';
 
 const defaultProps = {
   onSort: vi.fn(),
@@ -20,7 +20,7 @@ const sortingMock = {
   order: 1,
 };
 
-describe('Header', () => {
+describe('Headers', () => {
   it.each`
     headers        | sorting        | children
     ${undefined}   | ${undefined}   | ${undefined}
@@ -31,9 +31,9 @@ describe('Header', () => {
     ${headersMock} | ${sortingMock} | ${(<th>child header</th>)}
   `('Should render Header when headers: $headers, sorting: $sorting', ({ headers, sorting, children }) => {
     const { baseElement } = renderWithContainer(
-      <Header {...defaultProps} headers={headers} sorting={sorting}>
+      <Headers {...defaultProps} headers={headers} sorting={sorting}>
         {children}
-      </Header>,
+      </Headers>,
       container,
     );
 
