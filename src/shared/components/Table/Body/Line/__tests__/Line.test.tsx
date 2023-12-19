@@ -11,14 +11,21 @@ const columnsMock = [
     label: 'F',
   },
 ];
+const headerColumnsMock = [
+  {
+    ...columnsMock[0],
+    isHeader: true,
+  },
+];
 
 describe('Line', () => {
   it.each`
-    columns        | className    | modifier      | children
-    ${undefined}   | ${undefined} | ${undefined}  | ${undefined}
-    ${[]}          | ${undefined} | ${undefined}  | ${undefined}
-    ${columnsMock} | ${undefined} | ${undefined}  | ${undefined}
-    ${columnsMock} | ${undefined} | ${'modifier'} | ${undefined}
+    columns              | className    | modifier      | children
+    ${undefined}         | ${undefined} | ${undefined}  | ${undefined}
+    ${[]}                | ${undefined} | ${undefined}  | ${undefined}
+    ${columnsMock}       | ${undefined} | ${undefined}  | ${undefined}
+    ${headerColumnsMock} | ${undefined} | ${undefined}  | ${undefined}
+    ${columnsMock}       | ${undefined} | ${'modifier'} | ${undefined}
   `(
     'Should render <Line/> when columns: $columns, className: $className, modifier: $modifier, children: $children',
     ({ columns, className, modifier, children }) => {
@@ -31,6 +38,12 @@ describe('Line', () => {
 
       if (columns && columns.length > 0) {
         within(baseElement).getByText('F');
+
+        if (columns[0]?.isHeader) {
+          within(baseElement).getByRole('rowheader');
+        } else {
+          expect(within(baseElement).queryByRole('rowheader')).toBeNull();
+        }
       } else {
         expect(within(baseElement).queryByText('F')).toBeNull();
       }
