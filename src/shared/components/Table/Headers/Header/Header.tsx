@@ -8,7 +8,7 @@ export type THeaderProps = TTh &
   };
 
 const Header = ({ field, infobulle, label, scope, onSort, sorting }: THeaderProps) => (
-  <Th scope={scope} sorting={sorting} field={field} onSort={onSort}>
+  <Th classModifier={label ? '' : 'inactive'} scope={scope} sorting={sorting} field={field} onSort={onSort}>
     <HelpInfo content={infobulle}>
       <span className="af-table__th-label">{label}</span>
     </HelpInfo>

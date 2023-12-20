@@ -117,6 +117,10 @@
   background-color: $color-table-sorting;
 }
 
+.af-table__th--inactive {
+  background-color: inherit;
+}
+
 .af-table__cell--actions {
   padding: 0.2rem 0.5rem;
   text-align: center;
