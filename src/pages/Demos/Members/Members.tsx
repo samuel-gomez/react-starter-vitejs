@@ -3,7 +3,7 @@ import Layout, { type TLayoutPage } from 'Layout';
 import Loader, { type TLoader } from 'shared/components/Loader';
 import Resilience from 'shared/components/Resilience';
 import Table from 'shared/components/Table';
-import { Tanomaly } from 'shared/types';
+import type { Tanomaly } from 'shared/types';
 import type { TReturnUseMembers } from './Members.hook';
 import { TABLE_HEADERS_MEMBERS, TABLE_ITEMS_TYPE, TITLE, TITLE_BAR } from './constants';
 

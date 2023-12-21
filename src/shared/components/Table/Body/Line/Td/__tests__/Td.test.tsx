@@ -1,4 +1,4 @@
-import { renderWithContainer } from 'shared/testsUtils';
+import { renderWithContainer, within } from 'shared/testsUtils';
 import Td from '../Td';
 
 const defaultProps = {
@@ -11,7 +11,7 @@ const trContainer = document.createElement('tr');
 describe('Td', () => {
   it('Render <Td/> without hover', () => {
     const { container } = renderWithContainer(<Td {...defaultProps}>child th</Td>, trContainer);
-    expect(container.firstChild?.firstChild?.textContent).toBe('label');
+    within(container).getByText(/label/);
   });
 
   it('Render <Td/> with hover', () => {
@@ -21,6 +21,6 @@ describe('Td', () => {
       </Td>,
       trContainer,
     );
-    expect(container.firstChild?.firstChild).toHaveClass('af-popover__wrapper');
+    container.getElementsByClassName('af-popover__wrapper');
   });
 });

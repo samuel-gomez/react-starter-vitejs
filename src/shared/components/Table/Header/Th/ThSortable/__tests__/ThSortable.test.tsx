@@ -27,7 +27,7 @@ describe('ThSortable', () => {
         trContainer,
       );
 
-      expect(container.querySelector('span')).toHaveClass(`glyphicon-${orderIcons(order)}`);
+      expect(container.querySelector(`.glyphicon-${orderIcons(order)}`)).toBeInTheDocument();
 
       if (children) {
         within(baseElement).getByText(children);
