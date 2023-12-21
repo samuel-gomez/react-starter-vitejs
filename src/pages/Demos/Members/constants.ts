@@ -3,6 +3,7 @@ import { ASCENDING, Torder } from 'shared/components/Table';
 export const TITLE_BAR = 'Gestion des membres';
 export const TITLE = 'Liste des membres';
 export const ROUTE_URL_MEMBERS = 'members';
+export const TABLE_ITEMS_TYPE = 'membres';
 
 export const TABLE_HEADERS_MEMBERS = [
   { label: 'Prénom', field: 'firstname', id: 'firstname', key: 'firstname' },

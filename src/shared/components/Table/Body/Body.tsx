@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react';
 import { Table as TableTk } from '@axa-fr/react-toolkit-all';
+import type { ReactNode } from 'react';
 import Line from './Line';
 
 export type Tcol = {
@@ -20,13 +20,12 @@ type TItems = {
 };
 
 export type TBody = {
-  ariaLabel?: string;
   items?: TItems[];
   children?: ReactNode;
 };
 
-const Body = ({ items = [], children, ariaLabel = 'table-body' }: TBody) => (
-  <TableTk.Body aria-label={ariaLabel}>
+const Body = ({ items = [], children }: TBody) => (
+  <TableTk.Body>
     {items.map(({ key, classModifier, cols }) => (
       <Line key={key} classModifier={classModifier} cols={Object.entries({ ...cols })} />
     ))}

@@ -17,16 +17,16 @@ describe('orderIcons', () => {
 
 describe('SortingIcon', () => {
   it('Should render SortingIcon with order equal NONE', () => {
-    const { asFragment } = render(<SortingIcon />);
-    expect(asFragment()).toMatchSnapshot();
+    const { container } = render(<SortingIcon />);
+    expect(container.querySelector('span')).toHaveClass('glyphicon-sorting');
   });
 
   it('Should render SortingIcon with order equal 1', () => {
-    const { asFragment } = render(<SortingIcon order={1} />);
-    expect(asFragment()).toMatchSnapshot();
+    const { container } = render(<SortingIcon order={1} />);
+    expect(container.querySelector('span')).toHaveClass('glyphicon-arrow-xs-up');
   });
   it('Should render SortingIcon with order equal -1', () => {
-    const { asFragment } = render(<SortingIcon order={-1} />);
-    expect(asFragment()).toMatchSnapshot();
+    const { container } = render(<SortingIcon order={-1} />);
+    expect(container.querySelector('span')).toHaveClass('glyphicon-arrow-xs-down');
   });
 });

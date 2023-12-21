@@ -1,14 +1,13 @@
-import { ComponentPropsWithoutRef } from 'react';
 import { Table as TableTk } from '@axa-fr/react-toolkit-all';
+import { ComponentPropsWithoutRef } from 'react';
 import Td, { TTdContainer } from './Td';
 
 export type TLine = ComponentPropsWithoutRef<typeof TableTk.Tr> & {
   columns: (TTdContainer & { keyCol: string })[];
-  ariaLabel?: string;
 };
 
-const Line = ({ className, columns = [], classModifier = '', children, ariaLabel = 'table-body-line' }: TLine) => (
-  <TableTk.Tr classModifier={classModifier} className={className} aria-label={ariaLabel}>
+const Line = ({ className, columns = [], classModifier = '', children }: TLine) => (
+  <TableTk.Tr classModifier={classModifier} className={className}>
     <>
       {columns.map(({ keyCol, ...restTd }) => (
         <Td key={keyCol} {...restTd} />

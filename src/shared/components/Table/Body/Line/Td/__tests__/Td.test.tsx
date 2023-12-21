@@ -1,4 +1,4 @@
-import { renderWithContainer } from 'shared/testsUtils';
+import { renderWithContainer, within } from 'shared/testsUtils';
 import Td from '../Td';
 
 const defaultProps = {
@@ -6,20 +6,21 @@ const defaultProps = {
   label: 'label',
   hover: null,
 };
-const container = document.createElement('tr');
+const trContainer = document.createElement('tr');
 
 describe('Td', () => {
   it('Render <Td/> without hover', () => {
-    const { asFragment } = renderWithContainer(<Td {...defaultProps}>child th</Td>, container);
-    expect(asFragment()).toMatchSnapshot();
+    const { container } = renderWithContainer(<Td {...defaultProps}>child th</Td>, trContainer);
+    within(container).getByText(/label/);
   });
+
   it('Render <Td/> with hover', () => {
-    const { asFragment } = renderWithContainer(
+    const { container } = renderWithContainer(
       <Td {...defaultProps} classModifier="custom" hover={<p>Hover content</p>}>
         child td
       </Td>,
-      container,
+      trContainer,
     );
-    expect(asFragment()).toMatchSnapshot();
+    expect(container.getElementsByClassName('af-popover__wrapper').length).toBe(1);
   });
 });

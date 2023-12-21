@@ -1,7 +1,7 @@
-import { DefineStepFunction } from 'jest-cucumber';
 import { within } from '@testing-library/dom';
-import { DEFAULT_TABLE_ARIA_LABEL } from 'shared/components/Table/constants';
-import { getTableHeadElements, expectTable, expectCellsContent, getTableBodyElements, getTbodyLineCellByRole } from './utils';
+import { DefineStepFunction } from 'jest-cucumber';
+import { DEFAULT_TABLE_ITEMS_TYPE } from 'shared/components/Table/constants';
+import { expectCellsContent, expectTable, getTableBodyElements, getTableHeadElements, getTbodyLineCellByRole } from './utils';
 
 /**
  * Méthode de scénario permettant de vérifier le contenu des cellules du header d'un tableau
@@ -9,11 +9,11 @@ import { getTableHeadElements, expectTable, expectCellsContent, getTableBodyElem
 export const LeTableauPresenteDesEntetesDeColonnesDansLOrdreSuivant = (
   instruction: DefineStepFunction,
   scenarioName: string | RegExp,
-  tableName = DEFAULT_TABLE_ARIA_LABEL,
+  tableItemsType = DEFAULT_TABLE_ITEMS_TYPE,
 ) =>
   instruction(scenarioName, async (...args: string[]) => {
     const expectedHeaders = args.filter(header => header !== '');
-    const { cells } = await getTableHeadElements({ tableName });
+    const { cells } = await getTableHeadElements({ tableItemsType });
     expectCellsContent(cells, ...expectedHeaders);
   });
 
@@ -23,11 +23,11 @@ export const LeTableauPresenteDesEntetesDeColonnesDansLOrdreSuivant = (
 export const LeTableauPresenteDesEntetesDeTriDeColonnesDansLOrdreSuivant = (
   instruction: DefineStepFunction,
   scenarioName: string | RegExp,
-  tableName = DEFAULT_TABLE_ARIA_LABEL,
+  tableItemsType = DEFAULT_TABLE_ITEMS_TYPE,
 ) =>
   instruction(scenarioName, async (...args: string[]) => {
     const expectedHeaders = args.filter(header => header !== '');
-    const { cells } = await getTableHeadElements({ tableName, isButton: true });
+    const { cells } = await getTableHeadElements({ tableItemsType, isButton: true });
     expectCellsContent(cells, ...expectedHeaders);
   });
 
@@ -38,10 +38,10 @@ export const LeTableauPresenteDesEntetesDeTriDeColonnesDansLOrdreSuivant = (
 export const LeTableauContientLesLignesCorrespondantAuxDonneesRecues = (
   instruction: DefineStepFunction,
   scenarioName: string | RegExp,
-  tableName = DEFAULT_TABLE_ARIA_LABEL,
+  tableItemsType = DEFAULT_TABLE_ITEMS_TYPE,
 ) =>
   instruction(scenarioName, async (lines, cols, items: string[]) => {
-    const { tbodyLines } = await getTableBodyElements({ tableName });
+    const { tbodyLines } = await getTableBodyElements({ tableItemsType });
     expect(tbodyLines).toHaveLength(lines);
 
     tbodyLines.forEach((tbodyLine, index) => {
@@ -66,8 +66,8 @@ export const LeTableauContientLesLignesCorrespondantAuxDonneesRecues = (
 export const LaPageContientUnTableau = (
   instruction: DefineStepFunction,
   scenarioName = 'la page contient un tableau',
-  tableName = DEFAULT_TABLE_ARIA_LABEL,
+  tableItemsType = DEFAULT_TABLE_ITEMS_TYPE,
 ) =>
   instruction(scenarioName, async () => {
-    await expectTable(tableName);
+    await expectTable(tableItemsType);
   });

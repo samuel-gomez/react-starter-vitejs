@@ -1,10 +1,12 @@
 import { renderWithContainer } from 'shared/testsUtils';
+import { within } from 'shared/testsUtils/customRender';
+import { orderIcons } from '../SortingIcon';
 import ThSortable from '../ThSortable';
 
 const defaultProps = {
   sort: vi.fn(),
 };
-const container = document.createElement('tr');
+const trContainer = document.createElement('tr');
 
 describe('ThSortable', () => {
   it.each`
@@ -17,15 +19,19 @@ describe('ThSortable', () => {
     ${-1}     | ${'child'}   | ${'variant'}
   `(
     'Should render <ThSortable/> when order: $order, children: $children, className: $className, classModifier: $classModifier',
-    ({ children, ...rest }) => {
-      const { baseElement } = renderWithContainer(
-        <ThSortable {...defaultProps} {...rest}>
+    ({ order, children, ...rest }) => {
+      const { baseElement, container } = renderWithContainer(
+        <ThSortable {...defaultProps} {...rest} order={order}>
           {children}
         </ThSortable>,
-        container,
+        trContainer,
       );
 
-      expect(baseElement).toMatchSnapshot();
+      expect(container.querySelector(`.glyphicon-${orderIcons(order)}`)).toBeInTheDocument();
+
+      if (children) {
+        within(baseElement).getByText(children);
+      }
     },
   );
 });

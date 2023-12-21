@@ -1,11 +1,11 @@
 import { Paging } from '@axa-fr/react-toolkit-all';
-import Resilience from 'shared/components/Resilience';
 import Layout, { type TLayoutPage } from 'Layout';
-import { Tanomaly } from 'shared/types';
 import Loader, { type TLoader } from 'shared/components/Loader';
+import Resilience from 'shared/components/Resilience';
 import Table from 'shared/components/Table';
-import { TITLE_BAR, TITLE, TABLE_HEADERS_MEMBERS } from './constants';
+import type { Tanomaly } from 'shared/types';
 import type { TReturnUseMembers } from './Members.hook';
+import { TABLE_HEADERS_MEMBERS, TABLE_ITEMS_TYPE, TITLE, TITLE_BAR } from './constants';
 
 export type TMembers = TLayoutPage & {
   loaderMode: TLoader['mode'];
@@ -16,6 +16,7 @@ export type TMembers = TLayoutPage & {
   sorting: TReturnUseMembers['sorting'];
   members: TReturnUseMembers['members'];
   anomaly: Tanomaly | null;
+  title?: string;
   headers?: typeof TABLE_HEADERS_MEMBERS;
 };
 
@@ -36,7 +37,7 @@ const Members = ({
     <h1 className="af-title--content">{title}</h1>
     <Loader mode={loaderMode}>
       <Resilience anomaly={anomaly} refetch={refetch as React.MouseEventHandler<HTMLButtonElement>}>
-        <Table items={members} headers={headers} onSort={onChangeSorting} sorting={sorting} aria-label={`Tableau ${title}`} />
+        <Table title={title} items={members} itemsType={TABLE_ITEMS_TYPE} headers={headers} onSort={onChangeSorting} sorting={sorting} />
         <Paging {...pagination} onChange={onChangePaging} id="paging" />
       </Resilience>
     </Loader>

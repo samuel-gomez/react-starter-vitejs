@@ -3,16 +3,16 @@ import { render, screen } from 'shared/testsUtils/customRender';
 import { serverUseGet } from 'shared/testsUtils/msw';
 import {
   JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,
+  LaPageContientUnTableau,
   LeTableauContientLesLignesCorrespondantAuxDonneesRecues,
   LeTableauPresenteDesEntetesDeTriDeColonnesDansLOrdreSuivant,
-  LaPageContientUnTableau,
 } from 'shared/testsUtils/sharedScenarios';
 import Members from '..';
-import { totals } from './Members.mock';
 import type { TresponseBody } from '../Members.hook';
+import { totals } from './Members.mock';
 
 const feature = loadFeature('features/Demos/Members/Members.feature');
-const tableAriaLabel = 'Tableau Liste des membres';
+const tableItemsType = 'membres';
 
 defineFeature(feature, test => {
   let role: string;
@@ -31,18 +31,18 @@ defineFeature(feature, test => {
       expect(await screen.findByText('Samuel')).toBeInTheDocument();
     });
 
-    LaPageContientUnTableau(then, 'la page contient un tableau répertoriant la liste des membres', tableAriaLabel);
+    LaPageContientUnTableau(then, 'la page contient un tableau répertoriant la liste des membres', tableItemsType);
 
     LeTableauPresenteDesEntetesDeTriDeColonnesDansLOrdreSuivant(
       and,
       /^le tableau présente des entêtes de tri de colonnes dans l’ordre suivant : "(.*)", "(.*)", "(.*)", "(.*)"$/,
-      tableAriaLabel,
+      tableItemsType,
     );
 
     LeTableauContientLesLignesCorrespondantAuxDonneesRecues(
       and,
       /^le tableau contient (\d+) lignes avec (\d+) colonnes dans l'ordre suivant :$/,
-      tableAriaLabel,
+      tableItemsType,
     );
   });
 });

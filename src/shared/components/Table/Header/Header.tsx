@@ -1,5 +1,5 @@
+import { HelpInfo, Table as TableTk } from '@axa-fr/react-toolkit-all';
 import type { ReactNode } from 'react';
-import { Table as TableTk, HelpInfo } from '@axa-fr/react-toolkit-all';
 import Th, { TTh } from './Th';
 
 type Theaders = {
@@ -12,17 +12,15 @@ type Theaders = {
 export type THeader = TTh & {
   headers?: Theaders[];
   children?: ReactNode;
-  ariaLabel?: string;
-  ariaLabelLine?: string;
 };
 
-const Header = ({ headers = [], onSort, sorting, children, ariaLabel = 'table-header', ariaLabelLine = 'table-header-line' }: THeader) => (
-  <TableTk.Header className="af-table__thead" aria-label={ariaLabel}>
-    <TableTk.Tr aria-label={ariaLabelLine}>
+const Header = ({ headers = [], onSort, sorting, children }: THeader) => (
+  <TableTk.Header className="af-table__thead">
+    <TableTk.Tr>
       <>
         {!!headers.length &&
           headers.map(({ field, label, key, infobulle }) => (
-            <Th key={key} sorting={sorting} field={field} onSort={onSort}>
+            <Th key={key} scope="col" sorting={sorting} field={field} onSort={onSort}>
               <HelpInfo content={infobulle}>
                 <span className="af-table__th-label">{label}</span>
               </HelpInfo>
