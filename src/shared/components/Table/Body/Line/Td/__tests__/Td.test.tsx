@@ -21,6 +21,6 @@ describe('Td', () => {
       </Td>,
       trContainer,
     );
-    container.getElementsByClassName('af-popover__wrapper');
+    expect(container.getElementsByClassName('af-popover__wrapper').length).toBe(1);
   });
 });
