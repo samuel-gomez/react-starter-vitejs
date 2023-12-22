@@ -9,7 +9,7 @@ export const TABLE_HEADERS = [
   { id: 'employee2', key: 'employee2', label: 'Collaborateur 2', field: 'employee2' },
 ];
 
-export const SERVICE_NAME = 'requests';
+export const SERVICE_NAME = 'employees';
 
 export const TABLE_DATA = [
   {
