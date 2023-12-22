@@ -1,4 +1,4 @@
-import type { Tcol } from '../Body';
+import { type Tcol } from '../types';
 import Line, { TLine } from './Line';
 
 export type TLineContainer = Omit<TLine, 'columns'> & {
