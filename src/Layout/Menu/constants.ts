@@ -13,6 +13,10 @@ const MENU_ITEMS = [
     basePathChildren: ROUTE_URL.DEMOS,
     children: [
       {
+        label: 'Collaborateurs',
+        url: ROUTE_URL.EMPLOYEES,
+      },
+      {
         label: 'Membres',
         url: ROUTE_URL.MEMBERS,
       },

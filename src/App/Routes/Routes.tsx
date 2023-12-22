@@ -6,6 +6,7 @@ import { RouteSecure } from './RouteSecure';
 
 const Home = lazy(() => import('pages/Home'));
 const Members = lazy(() => import('pages/Demos/Members'));
+const Employees = lazy(() => import('pages/Demos/Employees'));
 const MembersNew = lazy(() => import('pages/Demos/MembersNew'));
 const ProtectedPage = lazy(() => import('pages/Demos/ProtectedPage'));
 const SearchMembers = lazy(() => import('pages/Demos/SearchMembers'));
@@ -61,6 +62,7 @@ const RoutesCmpt = ({ RouteSecureCmpt = RouteSecure }: TRoutesCmpt) => (
         <Route path={ROUTE_URLS.MEMBERS} element={<Members />} />
         <Route path={ROUTE_URLS.MEMBERSNEW} element={<MembersNew />} />
         <Route path={ROUTE_URLS.SEARCHMEMBERS} element={<SearchMembers />} />
+        <Route path={ROUTE_URLS.EMPLOYEES} element={<Employees />} />
         <Route path={ROUTE_URLS.MODAL_CUSTOM} element={<ModalCustom />} />
         <Route path={ROUTE_URLS.NOTIFICATION} element={<Notification />} />
         <Route path={ROUTE_URLS.ACCORDION} element={<Accordion />} />

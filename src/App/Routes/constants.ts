@@ -1,3 +1,4 @@
+import { ROUTE_URL_EMPLOYEES as EMPLOYEES } from 'pages/Demos/Employees/constants';
 import { ROUTE_URL_MEMBERS as MEMBERS } from 'pages/Demos/Members/constants';
 import { ROUTE_URL_MEMBERSNEW as MEMBERSNEW } from 'pages/Demos/MembersNew/constants';
 import { ROUTE_URL_MODAL_CUSTOM as MODAL_CUSTOM } from 'pages/Demos/ModalCustom/constants';
@@ -11,8 +12,8 @@ import { ROUTE_URL_ACTION as ACTION } from 'pages/Demos/Action/constants';
 import { ROUTE_URL_ALERT as ALERT } from 'pages/Demos/Alert/constants';
 import { ROUTE_URL_BADGE as BADGE } from 'pages/Demos/Badge/constants';
 import { ROUTE_URL_BUTTON as BUTTON } from 'pages/Demos/Button/constants';
-import { ROUTE_URL_CHECKBOX_INPUT as CHECKBOX_INPUT } from 'pages/Demos/CheckboxInput/constants';
 import { ROUTE_URL_CARD as CARD } from 'pages/Demos/Card/constants';
+import { ROUTE_URL_CHECKBOX_INPUT as CHECKBOX_INPUT } from 'pages/Demos/CheckboxInput/constants';
 import { ROUTE_URL_DATE_INPUT as DATE_INPUT } from 'pages/Demos/DateInput/constants';
 import { ROUTE_URL_FILE_INPUT as FILE_INPUT } from 'pages/Demos/FileInput/constants';
 import { ROUTE_URL_FOOTER as FOOTER } from 'pages/Demos/Footer/constants';
@@ -35,8 +36,8 @@ import { ROUTE_URL_STEPPER as STEPPER } from 'pages/Demos/Stepper/constants';
 import { ROUTE_URL_SWITCH as SWITCH } from 'pages/Demos/Switch/constants';
 import { ROUTE_URL_TABLE as TABLE } from 'pages/Demos/Table/constants';
 import { ROUTE_URL_TABS as TABS } from 'pages/Demos/Tabs/constants';
-import { ROUTE_URL_TEXTAREA_INPUT as TEXTAREA_INPUT } from 'pages/Demos/TextareaInput/constants';
 import { ROUTE_URL_TEXT_INPUT as TEXT_INPUT } from 'pages/Demos/TextInput/constants';
+import { ROUTE_URL_TEXTAREA_INPUT as TEXTAREA_INPUT } from 'pages/Demos/TextareaInput/constants';
 import { ROUTE_URL_TITLE as TITLE } from 'pages/Demos/Title/constants';
 import { ROUTE_URL_TITLE_BAR as TITLE_BAR } from 'pages/Demos/TitleBar/constants';
 
@@ -51,6 +52,7 @@ const URLS_FULL_DEMOS = {
   MEMBERS,
   MEMBERSNEW,
   SEARCHMEMBERS,
+  EMPLOYEES,
   MODAL_CUSTOM,
   NOTIFICATION,
 };
