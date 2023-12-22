@@ -22,14 +22,14 @@ const sortingMock = {
 describe('Header', () => {
   it.each`
     header        | sorting        | scope
-    ${headerMock} | ${undefined}   | ${'col'}
+    ${headerMock} | ${undefined}   | ${undefined}
     ${headerMock} | ${sortingMock} | ${'col'}
     ${headerMock} | ${undefined}   | ${'row'}
     ${headerMock} | ${sortingMock} | ${'row'}
   `('Should render Header when header: $header, sorting: $sorting, scope: $scope', ({ header, sorting, scope }) => {
     const { baseElement } = renderWithContainer(<Header scope={scope} label={header.label} sorting={sorting} {...defaultProps} />, container);
 
-    within(baseElement).getByRole(scope === 'col' ? 'columnheader' : 'rowheader');
+    within(baseElement).getByRole(scope === 'col' || scope === undefined ? 'columnheader' : 'rowheader');
     screen.getByText('label');
   });
 });

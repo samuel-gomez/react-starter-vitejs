@@ -13,10 +13,6 @@ export type TTh = Omit<TsetSort, 'onSort' | 'field'> & {
 };
 
 const Th = ({ field, sorting, onSort, ThSortableCmpt = ThSortableContainer, ThCmpt = TableTk.Th, scope, ...rest }: TTh) =>
-  field && onSort ? (
-    <ThSortableCmpt {...rest} scope={scope} sorting={sorting} onSort={onSort} field={field} />
-  ) : (
-    <ThCmpt role={scope === 'row' ? 'rowheader' : 'columnheader'} scope={scope} {...rest} />
-  );
+  field && onSort ? <ThSortableCmpt scope={scope} sorting={sorting} onSort={onSort} field={field} {...rest} /> : <ThCmpt scope={scope} {...rest} />;
 
 export default Th;

@@ -11,6 +11,7 @@ const defaultProps = {
     order: ASCENDING,
   },
   field: '',
+  scope: 'row',
   onSort,
   ThSortableCmpt,
   ThCmpt,
@@ -22,7 +23,7 @@ describe('ThContainer', () => {
     expect(ThCmpt).toHaveBeenCalledWith(
       {
         children: 'child th',
-        role: 'columnheader',
+        scope: 'row',
       },
       {},
     );
@@ -31,6 +32,7 @@ describe('ThContainer', () => {
   it('Render <ThContainer/> with field not empty (sortable)', () => {
     const customProps = {
       ...defaultProps,
+      scope: 'col',
       field: 'myfield',
       sorting: { field: 'name', order: ASCENDING },
     } as const;
@@ -39,6 +41,7 @@ describe('ThContainer', () => {
       {
         sorting: { field: 'name', order: ASCENDING },
         field: 'myfield',
+        scope: 'col',
         children: 'child th',
         onSort,
       },

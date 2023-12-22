@@ -4,14 +4,17 @@ import { THeader as Theaders } from './type';
 
 export type THeaderProps = TTh &
   Omit<Theaders, 'key'> & {
-    scope: 'col' | 'row';
+    scope?: 'col' | 'row';
+    isBlank?: boolean;
   };
 
-const Header = ({ field, infobulle, label, scope, onSort, sorting }: THeaderProps) => (
-  <Th classModifier={label ? '' : 'inactive'} scope={scope} sorting={sorting} field={field} onSort={onSort}>
-    <HelpInfo content={infobulle}>
-      <span className="af-table__th-label">{label}</span>
-    </HelpInfo>
+const Header = ({ field, infobulle, label, scope = 'col', onSort, sorting, isBlank = false, ...rest }: THeaderProps) => (
+  <Th {...(isBlank ? { classModifier: 'blank' } : { scope, sorting, field, onSort, ...rest })}>
+    {!isBlank && (
+      <HelpInfo content={infobulle}>
+        <span className="af-table__th-label">{label}</span>
+      </HelpInfo>
+    )}
   </Th>
 );
 

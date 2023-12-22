@@ -12,8 +12,7 @@ const Headers = ({ headers = [], onSort, sorting, children }: THeaders) => (
   <TableTk.Header className="af-table__thead">
     <TableTk.Tr>
       <>
-        {!!headers.length &&
-          headers.map(({ label, key, ...rest }) => <Header key={key} scope="col" label={label} onSort={onSort} sorting={sorting} {...rest} />)}
+        {!!headers.length && headers.map(({ label, key, ...rest }) => <Header key={key} label={label} onSort={onSort} sorting={sorting} {...rest} />)}
         {children}
       </>
     </TableTk.Tr>
