@@ -1,0 +1,56 @@
+[
+  {
+    "key": "1",
+    "cols": {
+      "header": {
+        "id": "contact",
+        "label": "Contact",
+        "isHeader": true
+      },
+      "employee1": {
+        "label": "James Philips",
+        "headers": "employee1 contact"
+      },
+      "employee2": {
+        "label": "Marie Beauchamp",
+        "headers": "employee2 contact"
+      }
+    }
+  },
+  {
+    "key": "2",
+    "cols": {
+      "header": {
+        "id": "position",
+        "label": "Position",
+        "isHeader": true
+      },
+      "employee1": {
+        "label": "Directeur des ventes",
+        "headers": "employee1 position"
+      },
+      "employee2": {
+        "label": "Manager des ventes",
+        "headers": "employee2 position"
+      }
+    }
+  },
+  {
+    "key": "3",
+    "cols": {
+      "header": {
+        "id": "email",
+        "label": "Email",
+        "isHeader": true
+      },
+      "employee1": {
+        "label": "jp@1ltd.example.com",
+        "headers": "employee1 email"
+      },
+      "employee2": {
+        "label": "marie@2co.example.com",
+        "headers": "employee2 email"
+      }
+    }
+  }
+]
