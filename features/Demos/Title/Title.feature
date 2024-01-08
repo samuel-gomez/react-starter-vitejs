@@ -8,7 +8,7 @@ Feature: Playground Title
     Then un titre "Title playground" est visible
     And un lien "Guidelines" est visible avec un href "https://axafrance.github.io/design-system/atoms/title/"
     And un lien "Storybook" est visible avec un href "https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/title--default"
-    And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.1.0/packages/title"
+    And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.2.0/packages/title"
     And un bouton "Edit props" est visible
     And un titre "My title" est visible
 

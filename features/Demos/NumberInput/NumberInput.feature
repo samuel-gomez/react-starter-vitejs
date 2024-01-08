@@ -9,7 +9,7 @@ Feature: Playground NumberInput
     And un titre "NumberInput playground" est visible
     And un lien "Guidelines" est visible avec un href "https://axafrance.github.io/design-system/molecules/form-text/"
     And un lien "Storybook" est visible avec un href "https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/form-input-number--number"
-    And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.1.0/packages/Form/Input/number"
+    And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.2.0/packages/Form/Input/number"
     And un bouton "Edit props" est visible
     And un label "My number" est visible
     And un champ texte "number-field" est visible avec la valeur "5", un placeholder "Ex: Samuel"
