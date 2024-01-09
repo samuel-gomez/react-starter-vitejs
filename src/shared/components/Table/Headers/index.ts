@@ -1,2 +1,1 @@
-export { default } from './Headers';
-export type { THeaders } from './Headers';
+export { default, type THeaders } from './Headers';

@@ -1,7 +1,7 @@
 import { Table as TableTk } from '@axa-fr/react-toolkit-all';
-import type { ReactNode } from 'react';
-import Header, { THeader } from './Header';
-import { TTh } from './Header/Th';
+import { type ReactNode } from 'react';
+import Header, { type THeader } from './Header';
+import { type TTh } from './Header/Th';
 
 export type THeaders = TTh & {
   headers?: THeader[];

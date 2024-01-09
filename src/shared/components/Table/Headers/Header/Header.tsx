@@ -1,9 +1,9 @@
 import { HelpInfo } from '@axa-fr/react-toolkit-all';
-import Th, { TTh } from './Th';
-import { THeader as Theaders } from './type';
+import Th, { type TTh } from './Th';
+import { type THeader } from './types';
 
 export type THeaderProps = TTh &
-  Omit<Theaders, 'key'> & {
+  Omit<THeader, 'key'> & {
     scope?: 'col' | 'row';
     isBlank?: boolean;
   };

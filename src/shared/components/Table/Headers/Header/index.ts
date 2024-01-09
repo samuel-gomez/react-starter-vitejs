@@ -1,3 +1,2 @@
-export { default } from './Header';
-export type { THeaderProps } from './Header';
-export type { THeader } from './type';
+export { default, type THeaderProps } from './Header';
+export { type THeader } from './types';
