@@ -28,7 +28,7 @@ defineFeature(feature, test => {
 
     LeTableauPresenteDesEntetesDeColonnesDansLOrdreSuivant(
       and,
-      /^le tableau présente des entêtes de tri de colonnes dans l’ordre suivant : "(.*)", "(.*)", "(.*)"$/,
+      /^le tableau présente des entêtes de colonnes dans l’ordre suivant : "(.*)", "(.*)", "(.*)"$/,
       tableItemsType,
     );
 
