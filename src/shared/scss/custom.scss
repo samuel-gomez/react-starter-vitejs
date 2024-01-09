@@ -102,14 +102,19 @@
 }
 
 /* FIX/CUSTOM : TABLE ***********************************************************/
-.af-table__th--sortable {
-  padding: 1rem;
-  cursor: pointer;
-  &:hover {
-    background-color: $color-table-sorting;
+.af-table__th {
+  &--row {
+    position: inherit;
   }
-  .af-table__th-label {
+  &--sortable {
     padding: 1rem;
+    cursor: pointer;
+    &:hover {
+      background-color: $color-table-sorting;
+    }
+    .af-table__th-label {
+      padding: 1rem;
+    }
   }
 }
 

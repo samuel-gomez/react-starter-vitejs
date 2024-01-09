@@ -12,7 +12,7 @@ const Line = ({ className, columns = [], classModifier = '', children }: TLine) 
   <TableTk.Tr classModifier={classModifier} className={className}>
     <>
       {columns.map(({ keyCol, isHeader = false, ...restTd }) =>
-        isHeader ? <Header key={keyCol} scope="row" {...restTd} /> : <Td key={keyCol} {...restTd} />,
+        isHeader ? <Header key={keyCol} scope="row" {...restTd} classModifier="row" /> : <Td key={keyCol} {...restTd} />,
       )}
       {children}
     </>
