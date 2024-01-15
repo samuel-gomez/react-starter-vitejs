@@ -12,9 +12,8 @@ export const LeTableauPresenteDesEntetesDeColonnesDansLOrdreSuivant = (
   tableItemsType = DEFAULT_TABLE_ITEMS_TYPE,
 ) =>
   instruction(scenarioName, async (...args: string[]) => {
-    const expectedHeaders = args.filter(header => header !== '');
     const { cells } = await getTableHeadElements({ tableItemsType });
-    expectCellsContent(cells, ...expectedHeaders);
+    expectCellsContent(cells, ...args);
   });
 
 /**
@@ -26,9 +25,8 @@ export const LeTableauPresenteDesEntetesDeTriDeColonnesDansLOrdreSuivant = (
   tableItemsType = DEFAULT_TABLE_ITEMS_TYPE,
 ) =>
   instruction(scenarioName, async (...args: string[]) => {
-    const expectedHeaders = args.filter(header => header !== '');
     const { cells } = await getTableHeadElements({ tableItemsType, isButton: true });
-    expectCellsContent(cells, ...expectedHeaders);
+    expectCellsContent(cells, ...args);
   });
 
 /**

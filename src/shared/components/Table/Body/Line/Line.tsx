@@ -1,17 +1,19 @@
 import { Table as TableTk } from '@axa-fr/react-toolkit-all';
 import { ComponentPropsWithoutRef } from 'react';
-import Td, { TTdContainer } from './Td';
+import Header from '../../Headers/Header';
+import { type Tcol } from '../types';
+import Td, { type TTdContainer } from './Td';
 
 export type TLine = ComponentPropsWithoutRef<typeof TableTk.Tr> & {
-  columns: (TTdContainer & { keyCol: string })[];
+  columns: (TTdContainer & Tcol & { keyCol: string })[];
 };
 
 const Line = ({ className, columns = [], classModifier = '', children }: TLine) => (
   <TableTk.Tr classModifier={classModifier} className={className}>
     <>
-      {columns.map(({ keyCol, ...restTd }) => (
-        <Td key={keyCol} {...restTd} />
-      ))}
+      {columns.map(({ keyCol, isHeader = false, ...restTd }) =>
+        isHeader ? <Header key={keyCol} scope="row" {...restTd} classModifier="row" /> : <Td key={keyCol} {...restTd} />,
+      )}
       {children}
     </>
   </TableTk.Tr>

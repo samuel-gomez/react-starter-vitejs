@@ -19,7 +19,8 @@ export const getTbodyByRole = (table: HTMLElement) => within(table).getAllByRole
 
 export const getTbodyLineByRole = (tbody: HTMLElement) => within(tbody).getAllByRole('row');
 
-export const getTbodyLineCellByRole = (tbodyLine: HTMLElement) => within(tbodyLine).getAllByRole('cell');
+export const getTbodyLineCellByRole = (tbodyLine: HTMLElement) =>
+  within(tbodyLine).queryAllByRole('rowheader').concat(within(tbodyLine).getAllByRole('cell'));
 
 export const getTableHeadElements = async ({ tableItemsType, isButton = false }: { tableItemsType: string; isButton?: boolean }) => {
   const table = await getTableByRole(tableItemsType);

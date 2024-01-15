@@ -1,19 +1,13 @@
 import { Table as TableTk } from '@axa-fr/react-toolkit-all';
 import type { ReactNode } from 'react';
 import Line from './Line';
-
-export type Tcol = {
-  label?: string;
-  hover?: string;
-  children?: ReactNode;
-  classModifier?: string;
-};
+import { type Tcol } from './types';
 
 export type TCols = {
   [k: string]: Tcol;
 };
 
-type TItems = {
+export type TItems = {
   key: string;
   classModifier?: string;
   cols: TCols;
