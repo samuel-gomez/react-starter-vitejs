@@ -16,4 +16,18 @@ describe('Header', () => {
     within(baseElement).getByRole(scope === 'col' || scope === undefined ? 'columnheader' : 'rowheader');
     screen.getByText('label');
   });
+
+  it('Should render Header with class "af-table__th--blank" when isBlank is true', () => {
+    const { baseElement } = renderWithContainer(<Header isBlank />, container);
+
+    const header = within(baseElement).getByRole('columnheader');
+    expect(header).toHaveClass('af-table__th af-table__th--blank');
+  });
+
+  it('Should render Header without class "af-table__th--blank" when isBlank is false', () => {
+    const { baseElement } = renderWithContainer(<Header isBlank={false} />, container);
+
+    const header = within(baseElement).getByRole('columnheader');
+    expect(header).toHaveClass('af-table__th');
+  });
 });
