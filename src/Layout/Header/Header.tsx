@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import type { Tanomaly } from 'shared/types';
 import { Header, Name, User, Infos } from '@axa-fr/react-toolkit-all';
-import logo from 'assets/slash-logo.svg';
+import logo from '@axa-fr/react-toolkit-core/dist/assets/logo-axa.svg';
 import Skeleton from 'shared/components/Skeleton';
 import Resilience from 'shared/components/Resilience';
 import './Header.scss';
@@ -38,7 +38,7 @@ export const HeaderApp = ({
   anomaly,
 }: THeaderApp) => (
   <Header classModifier={fullScreen ? 'fullscreen' : ''}>
-    <Name title={title} img={logo} alt={title} subtitle={subtitle} classModifier="slash" />
+    <Name title={title} img={logo} alt={title} subtitle={subtitle} />
     {infos && (
       <Resilience anomaly={anomaly} classModifier="simple infos">
         <HeaderInfo isLoaded={infos.length > 0}>

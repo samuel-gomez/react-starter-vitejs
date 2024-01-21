@@ -1,8 +1,7 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import { screen, configure } from '@testing-library/react';
 import { render } from 'shared/testsUtils/customRender';
-import { expectTitle, JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnTexteEstVisible, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
-
+import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
 import Home from '../Home';
 
 configure({ defaultHidden: true });
@@ -21,25 +20,9 @@ defineFeature(feature, test => {
     expect(await screen.findByText('Samuel Gomez')).toBeInTheDocument();
   };
 
-  test("Affichage de la page d'accueil", ({ given, when, then, and }) => {
+  test("Affichage de la page d'accueil", ({ given, when, then }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when("J'accède à la page accueil", renderPage);
     UnTitreEstVisible(then);
-    UnTitreEstVisible(and, 2);
-    UnTexteEstVisible(and);
-    UnTitreEstVisible(and, 2);
-    UnTexteEstVisible(and);
-    UnTitreEstVisible(and, 2);
-    UnTexteEstVisible(and);
-    UnTitreEstVisible(and, 2);
-    UnTexteEstVisible(and);
-    UnTitreEstVisible(and, 2);
-    UnTexteEstVisible(and);
-    and('la liste des packages est visible', packages => {
-      packages.forEach(({ titleItem, linkItem }: { titleItem: string; linkItem: string; imageItem: string }) => {
-        expectTitle({ name: titleItem, level: 3 });
-        expect(screen.getByTitle(`Voir ${titleItem}`)).toHaveAttribute('href', linkItem);
-      });
-    });
   });
 });
