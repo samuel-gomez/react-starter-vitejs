@@ -43,7 +43,10 @@ export const expectTable = async (tableItemsType = DEFAULT_TABLE_ITEMS_TYPE) => 
 };
 
 export const expectCellsContent = (cells: HTMLElement[], ...args: string[]) => {
-  args
+  const argsWithoutLast = [...args];
+  argsWithoutLast.pop();
+
+  argsWithoutLast
     .filter(item => !isNull(item))
     .forEach((headerLabel, index) => {
       expect(cells[index]).toHaveTextContent(RegExp(headerLabel));
