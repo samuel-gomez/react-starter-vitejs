@@ -5,6 +5,7 @@ import Resilience from 'shared/components/Resilience';
 import Table, { setDisplay } from 'shared/components/Table';
 import { setAnomalyEmptyItems, setDate } from 'shared/helpers';
 import { type Tanomaly } from 'shared/types';
+import PeopleDetail from './PeopleDetail';
 import { ENDPOINT, SERVICE_NAME, TABLE_HEADERS_PEOPLE, TITLE, TITLE_BAR } from './constants';
 
 export type TPeopleData = Record<string, string>;
@@ -14,13 +15,17 @@ export type TPeopleDataResponse = {
 };
 
 export const computeInfos = (data: TPeopleData[]) =>
-  data?.map(({ _id, firstname, lastname, birthDate, entity }) => ({
+  data?.map(({ _id, firstname, lastname, birthDate, entity, photo }) => ({
     key: _id,
     cols: {
       ...setDisplay({ firstname }),
       ...setDisplay({ lastname }),
       ...setDisplay({ birthDate: setDate({ date: birthDate }) }),
       ...setDisplay({ entity }),
+      actions: {
+        classModifier: 'actions',
+        children: <PeopleDetail id={_id} entity={entity} photo={photo} firstname={firstname} lastname={lastname} />,
+      },
     },
   }));
 

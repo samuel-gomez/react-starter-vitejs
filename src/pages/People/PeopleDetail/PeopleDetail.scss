@@ -1,0 +1,28 @@
+@import '@axa-fr/react-toolkit-core/dist/assets/scss/core.scss';
+
+.af-modal--people-detail {
+  min-width: 50vw;
+}
+
+.af-people-detail {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 1rem;
+  &__img {
+    border-radius: 100%;
+    border: 3px solid $color-axa;
+    box-shadow: 0 15px 23px 0px hsla(240, 100%, 28%, 0.502);
+    height: 100px;
+    width: 100px;
+  }
+  &__title {
+    color: $color-axa;
+    text-align: center;
+  }
+  &__subtitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: $color-scorpion;
+  }
+}
