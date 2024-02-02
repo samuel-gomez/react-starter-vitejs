@@ -1,11 +1,11 @@
-import { type FocusEvent, memo } from 'react';
-import isEqual from 'lodash/isEqual';
 import { MessageTypes } from '@axa-fr/react-toolkit-all';
-import LiveCode from 'shared/components/LiveCode';
-import { withEditor, useEditable, type Tknobs, EditorHeader, type TReturnUseToggleEditor } from 'shared/components/Editor';
 import Layout, { type TLayoutPage } from 'Layout';
+import isEqual from 'lodash/isEqual';
+import { memo, type FocusEvent } from 'react';
+import { EditorHeader, useEditable, withEditor, type TReturnUseToggleEditor, type Tknobs } from 'shared/components/Editor';
+import LiveCode from 'shared/components/LiveCode';
 import type { TEvent } from 'shared/types';
-import { TITLE_BAR, TITLE, DESIGN_SYSTEM_PATH, STORYBOOK_PATH, GITHUB_PACKAGE, NPM_NAME } from './constants';
+import { DESIGN_SYSTEM_PATH, GITHUB_PACKAGE, NPM_NAME, STORYBOOK_PATH, TITLE, TITLE_BAR } from './constants';
 import knobs from './knobs.json';
 
 const INITIAL_STATE = {
@@ -112,7 +112,7 @@ type TTextareaInputPage = TLayoutPage;
 
 const TextareaInputPage = ({ titleBar = TITLE_BAR, title = TITLE }: TTextareaInputPage) => (
   <Layout propsTitle={{ title: titleBar }}>
-    <h1 className="af-title--content">{title}</h1>
+    <h2 className="af-title--content">{title}</h2>
     <TextareaInputEditable />
   </Layout>
 );

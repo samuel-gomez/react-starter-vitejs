@@ -1,20 +1,20 @@
-import { render, screen } from 'shared/testsUtils/customRender';
+import { defineFeature, loadFeature } from 'jest-cucumber';
 import { SCOPE_EDITOR, SCOPE_PREVIEW } from 'shared/testsUtils/constants';
+import { render, screen } from 'shared/testsUtils/customRender';
 import {
   JeCliqueSurLaCheckbox,
   JeCliqueSurLeBouton,
   JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,
   UnBoutonEstVisible,
+  UnBoutonSansLabelEstMasque,
+  UnBoutonSansLabelEstVisible,
   UnChampCheckboxToggleAvecUnLabelEtUneValeurNonSelectionne,
   UnChampCheckboxToggleAvecUnLabelEtUneValeurSelectionne,
   UnEditeurEstVisible,
   UnLienEstVisible,
-  UnTitreEstVisible,
   UnTexteEstVisible,
-  UnBoutonSansLabelEstVisible,
-  UnBoutonSansLabelEstMasque,
+  UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
-import { defineFeature, loadFeature } from 'jest-cucumber';
 
 import AlertPage from '../Alert';
 
@@ -35,7 +35,7 @@ defineFeature(feature, test => {
   test('Affichage du playground Alert', ({ given, when, then, and }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when('J’accède à la page démo du Alert', renderPage);
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnBoutonSansLabelEstVisible(and, /^un bouton de fermeture est visible$/, SCOPE_PREVIEW);
     UnLienEstVisible(and);
     UnLienEstVisible(and);

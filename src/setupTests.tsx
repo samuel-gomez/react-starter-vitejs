@@ -1,8 +1,8 @@
-import { expect, afterEach, beforeAll, afterAll } from 'vitest';
-import { cleanup } from '@testing-library/react';
 import * as matchers from '@testing-library/jest-dom/matchers';
-import { server } from 'shared/testsUtils/msw';
+import { cleanup } from '@testing-library/react';
 import { toHaveNoViolations } from 'jest-axe';
+import { server } from 'shared/testsUtils/msw';
+import { afterAll, afterEach, beforeAll, expect } from 'vitest';
 import 'whatwg-fetch';
 
 expect.extend(toHaveNoViolations);

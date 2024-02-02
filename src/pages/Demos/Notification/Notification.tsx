@@ -1,10 +1,10 @@
-import { themes } from 'prism-react-renderer/dist/index';
-import { LiveProvider, LiveEditor } from 'react-live';
-import { Button, Accordion, CollapseCard } from '@axa-fr/react-toolkit-all';
+import { Accordion, Button, CollapseCard } from '@axa-fr/react-toolkit-all';
 import Layout, { type TLayoutPage } from 'Layout';
+import { themes } from 'prism-react-renderer/dist/index';
+import { LiveEditor, LiveProvider } from 'react-live';
 import LiveCode from 'shared/components/LiveCode';
-import { TITLE_BAR, TITLE } from './constants';
 import { TReturnUseNotify } from './Notification.hook';
+import { TITLE, TITLE_BAR } from './constants';
 
 const scope = { Button };
 
@@ -65,7 +65,7 @@ type TNotificationPage = TLayoutPage & TReturnUseNotify;
 
 const NotificationPage = ({ notifyError, notifySuccess, notifyWarning, titleBar = TITLE_BAR, title = TITLE }: TNotificationPage) => (
   <Layout propsTitle={{ title: titleBar }}>
-    <h1 className="af-title--content">{title}</h1>
+    <h2 className="af-title--content">{title}</h2>
     <Accordion>
       <CollapseCard id="collapse-hook" key="hook" isOpen={false}>
         <CollapseCard.Header key="hook-header">Hook example</CollapseCard.Header>

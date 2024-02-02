@@ -42,7 +42,7 @@ exports[`withEditor > Should render Component with FormEditor when apply withEdi
       value="hello"
     />
     <div
-      aria-label="Edit props"
+      aria-label="Editor props"
       class="af-draggable-container react-draggable"
       style="transform: translate(0px,0px);"
     >

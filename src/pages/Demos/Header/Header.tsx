@@ -1,11 +1,11 @@
 import Layout, { type TLayoutPage } from 'Layout';
-import type { TEvent } from 'shared/types';
 import logo from 'assets/slash-logo.svg';
+import { EditorHeader, useEditable, withEditor, type TReturnUseToggleEditor, type Tknobs } from 'shared/components/Editor';
 import LiveCode from 'shared/components/LiveCode';
-import { withEditor, useEditable, type Tknobs, EditorHeader, type TReturnUseToggleEditor } from 'shared/components/Editor';
-import { TITLE_BAR, TITLE, STORYBOOK_PATH, GITHUB_PACKAGE, NPM_NAME } from './constants';
-import knobs from './knobs.json';
+import type { TEvent } from 'shared/types';
 import './Header.scss';
+import { GITHUB_PACKAGE, NPM_NAME, STORYBOOK_PATH, TITLE, TITLE_BAR } from './constants';
+import knobs from './knobs.json';
 
 const INITIAL_STATE = {
   classModifier: 'custom-width',
@@ -48,7 +48,7 @@ type THeaderPage = TLayoutPage;
 
 const HeaderPage = ({ titleBar = TITLE_BAR, title = TITLE }: THeaderPage) => (
   <Layout propsTitle={{ title: titleBar }}>
-    <h1 className="af-title--content">{title}</h1>
+    <h2 className="af-title--content">{title}</h2>
     <HeaderEditable />
   </Layout>
 );

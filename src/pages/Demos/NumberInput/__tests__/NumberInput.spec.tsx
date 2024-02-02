@@ -1,5 +1,6 @@
+import { configure, screen } from '@testing-library/react';
 import { defineFeature, loadFeature } from 'jest-cucumber';
-import { screen, configure } from '@testing-library/react';
+import { ROLE_NUMBER, SCOPE_CODE, SCOPE_EDITOR, SCOPE_PREVIEW } from 'shared/testsUtils/constants';
 import { render } from 'shared/testsUtils/customRender';
 import {
   JeCliqueSurLaCheckbox,
@@ -26,13 +27,12 @@ import {
   UnChampTextEstVisibleAvecSonWrapper,
   UnCodeDecomposantEstVisible,
   UnEditeurEstVisible,
-  UneModaleApparaitAvecLeTitre,
   UnLabelEstVisible,
   UnLienEstVisible,
   UnMessageEstVisibleAvecLaClass,
   UnTitreEstVisible,
+  UneModaleApparaitAvecLeTitre,
 } from 'shared/testsUtils/sharedScenarios';
-import { ROLE_NUMBER, SCOPE_CODE, SCOPE_EDITOR, SCOPE_PREVIEW } from 'shared/testsUtils/constants';
 import NumberInput from '../NumberInput';
 
 configure({ defaultHidden: true });
@@ -55,7 +55,7 @@ defineFeature(feature, test => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when("J'accède à la page playground NumberInput", renderPage);
     UnTitreEstVisible(then);
-    UnTitreEstVisible(and);
+    UnTitreEstVisible(and, 2);
     UnLienEstVisible(and);
     UnLienEstVisible(and);
     UnLienEstVisible(and);

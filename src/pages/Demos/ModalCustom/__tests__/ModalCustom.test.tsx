@@ -3,7 +3,7 @@ import { expectTitle } from 'shared/testsUtils/sharedScenarios';
 import ModalPageContainer from '../ModalCustom.container';
 
 const checkContent = () => {
-  expectTitle({ name: 'Custom Modal', level: 1 });
+  expectTitle({ name: 'Custom Modal', level: 2 });
 
   const button = screen.getByRole('button', { name: /Click me to launch modal/ });
   expect(button).toBeInTheDocument();

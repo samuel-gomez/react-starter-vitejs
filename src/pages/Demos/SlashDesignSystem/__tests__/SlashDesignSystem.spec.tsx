@@ -1,7 +1,7 @@
+import { configure, screen } from '@testing-library/react';
 import { defineFeature, loadFeature } from 'jest-cucumber';
-import { screen, configure } from '@testing-library/react';
-import { render } from 'shared/testsUtils/customRender';
 import { SCOPE_MAIN } from 'shared/testsUtils/constants';
+import { render } from 'shared/testsUtils/customRender';
 import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
 
 import SlashDesignSystem from '../SlashDesignSystem';
@@ -25,7 +25,7 @@ defineFeature(feature, test => {
   test('Affichage de la page SlashDesignSystem', ({ given, when, then, and }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when("J'accède à la page SlashDesignSystem", renderPage);
-    UnTitreEstVisible(then, 1, SCOPE_MAIN);
+    UnTitreEstVisible(then, 2, SCOPE_MAIN);
     UnTitreEstVisible(and, 3, SCOPE_MAIN);
     UnTitreEstVisible(and, 3, SCOPE_MAIN);
     UnTitreEstVisible(and, 3, SCOPE_MAIN);

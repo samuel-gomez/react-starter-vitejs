@@ -1,3 +1,4 @@
+import { defineFeature, loadFeature } from 'jest-cucumber';
 import { configure, render, screen } from 'shared/testsUtils/customRender';
 import {
   JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,
@@ -5,7 +6,6 @@ import {
   UnLienEstVisible,
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
-import { defineFeature, loadFeature } from 'jest-cucumber';
 
 import ModalPage from '../Modal';
 
@@ -28,7 +28,7 @@ defineFeature(feature, test => {
   test('Affichage du playground Modal', ({ given, when, then, and }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when('J’accède à la page démo Modal', renderPage);
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnLienEstVisible(and);
     UnLienEstVisible(and);
     UnLienEstVisible(and);

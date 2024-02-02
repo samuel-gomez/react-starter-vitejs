@@ -115,7 +115,7 @@ type TTabsPage = TLayoutPage;
 
 const CardPage = ({ titleBar = TITLE_BAR, title = TITLE }: TTabsPage) => (
   <Layout propsTitle={{ title: titleBar }}>
-    <h1 className="af-title--content">{title}</h1>
+    <h2 className="af-title--content">{title}</h2>
     <CardEditable />
   </Layout>
 );

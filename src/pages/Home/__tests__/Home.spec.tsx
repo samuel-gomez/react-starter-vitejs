@@ -1,7 +1,7 @@
+import { configure, screen } from '@testing-library/react';
 import { defineFeature, loadFeature } from 'jest-cucumber';
-import { screen, configure } from '@testing-library/react';
 import { render } from 'shared/testsUtils/customRender';
-import { expectTitle, JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnTexteEstVisible, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
+import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnTexteEstVisible, UnTitreEstVisible, expectTitle } from 'shared/testsUtils/sharedScenarios';
 
 import Home from '../Home';
 
@@ -24,7 +24,7 @@ defineFeature(feature, test => {
   test("Affichage de la page d'accueil", ({ given, when, then, and }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when("J'accède à la page accueil", renderPage);
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnTitreEstVisible(and, 2);
     UnTexteEstVisible(and);
     UnTitreEstVisible(and, 2);

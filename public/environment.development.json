@@ -3,7 +3,6 @@
     "base": "https://react-starter-api.vercel.app/api/",
     "github": "https://raw.githubusercontent.com/"
   },
-  "baseUrl": "",
   "fetchConfig": {
     "headers": {
       "Content-type": "application/json; charset=UTF-8"

@@ -1,13 +1,13 @@
-import Layout, { type TLayoutPage } from 'Layout';
-import Loader, { type TLoader } from 'shared/components/Loader';
 import { Alert } from '@axa-fr/react-toolkit-all';
+import Layout, { type TLayoutPage } from 'Layout';
+import DownloadLink from 'shared/components/DownloadLink';
+import Loader, { type TLoader } from 'shared/components/Loader';
 import Resilience from 'shared/components/Resilience';
 import Table from 'shared/components/Table';
-import DownloadLink from 'shared/components/DownloadLink';
 import { formatDate } from 'shared/helpers/formatDate';
-import { TITLE_BAR, TITLE, SUBTITLE, TABLE_HEADERS_SEARCHMEMBERS, TABLE_ITEMS_TYPE } from './constants';
 import SearchForm from './SearchForm';
 import type { TReturnUseFormSearchMembers, TReturnUseSearchMembers } from './SearchMembers.hook';
+import { SUBTITLE, TABLE_HEADERS_SEARCHMEMBERS, TABLE_ITEMS_TYPE, TITLE, TITLE_BAR } from './constants';
 
 export const getDownloadPath = (memberId: string) => `members/${memberId}/download-detail`;
 
@@ -41,7 +41,7 @@ type TSearchMembers = TLayoutPage &
 
 const SearchMembers = ({ titleBar = TITLE_BAR, title = TITLE, loaderMode, searchMembers, anomaly, submitFormSearchMembers }: TSearchMembers) => (
   <Layout propsTitle={{ title: titleBar, backHome: true }}>
-    <h1 className="af-title--content">{title}</h1>
+    <h2 className="af-title--content">{title}</h2>
     <Alert title="Des cas sont prévus sur la démo. Voici les valeurs à saisir :" classModifier="info">
       <ul>
         <li>Cas erreur 500 : saisir `500`</li>

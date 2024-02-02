@@ -1,7 +1,7 @@
-import { configure, render, screen } from 'shared/testsUtils/customRender';
-import { SCOPE_PREVIEW } from 'shared/testsUtils/constants';
-import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnLienEstVisible, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
 import { defineFeature, loadFeature } from 'jest-cucumber';
+import { SCOPE_PREVIEW } from 'shared/testsUtils/constants';
+import { configure, render, screen } from 'shared/testsUtils/customRender';
+import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnLienEstVisible, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
 
 import NavBarPage from '../NavBar';
 
@@ -24,7 +24,7 @@ defineFeature(feature, test => {
   test('Affichage du playground NavBar', ({ given, when, then, and }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when('J’accède à la page démo NavBar', renderPage);
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnLienEstVisible(and);
     UnLienEstVisible(and);
     UnLienEstVisible(and);

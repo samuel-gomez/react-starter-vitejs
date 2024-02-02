@@ -15,14 +15,14 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src",
-    "types": ["vite/client", "@testing-library/jest-dom", "vitest/globals"]
+    "baseUrl": "./src",
+    "types": ["vite/client", "@testing-library/jest-dom", "vitest/globals"],
   },
   "include": ["vite.config.ts", ".eslintrc.cjs", "src", "scripts"],
   "exclude": ["scripts"],
   "references": [
     {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+      "path": "./tsconfig.node.json",
+    },
+  ],
 }

@@ -1,13 +1,13 @@
+import { Button } from '@axa-fr/react-toolkit-all';
+import type { ClickEvent } from '@axa-fr/react-toolkit-core';
 import { ComponentType, FocusEvent, useCallback, useState } from 'react';
 import Draggable from 'react-draggable';
-import { useToggleModal } from 'shared/components/ModalCommon';
-import { Button } from '@axa-fr/react-toolkit-all';
 import Icons from 'shared/components/Icons';
-import type { ClickEvent } from '@axa-fr/react-toolkit-core';
-import type { TEvent } from 'shared/types';
+import { useToggleModal } from 'shared/components/ModalCommon';
 import { DESIGN_SYSTEM, GITHUB, STORYBOOK } from 'shared/constants';
-import InputEditor, { TInputEditor } from './InputEditor';
+import type { TEvent } from 'shared/types';
 import './Editor.scss';
+import InputEditor, { TInputEditor } from './InputEditor';
 
 const omittedProps = ['onChange', 'knobs', 'onClick', 'values'];
 
@@ -103,7 +103,7 @@ export const withEditor =
         <Component {...props} openEditor={openEditor} isOpenEditor={isOpenEditor} />
         {isOpenEditor && (
           <Draggable cancel=".glyphicon-close" handle=".af-draggable__title">
-            <div aria-label="Edit props" className="af-draggable-container">
+            <div aria-label="Editor props" className="af-draggable-container">
               <div className="af-draggable">
                 <h3 className="af-draggable__title">
                   Props Editor

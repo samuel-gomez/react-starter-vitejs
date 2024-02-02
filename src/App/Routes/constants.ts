@@ -55,7 +55,7 @@ const URLS_FULL_DEMOS = {
   EMPLOYEES,
   MODAL_CUSTOM,
   NOTIFICATION,
-};
+} as const;
 
 const URLS_TOOLKIT_DEMOS = {
   DEMOS,
@@ -92,19 +92,19 @@ const URLS_TOOLKIT_DEMOS = {
   TEXT_INPUT,
   TITLE,
   TITLE_BAR,
-};
+} as const;
 
 const URLS_OTHER_PAGES = {
   PROTECTEDPAGE,
   NOTFOUND,
   UNAUTHORIZE,
   LAYOUT,
-};
+} as const;
 
 const ROUTE_URLS = {
   ...URLS_FULL_DEMOS,
   ...URLS_TOOLKIT_DEMOS,
   ...URLS_OTHER_PAGES,
-};
+} as const;
 
 export default ROUTE_URLS;

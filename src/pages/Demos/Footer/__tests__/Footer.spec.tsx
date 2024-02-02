@@ -1,5 +1,6 @@
-import { render, screen } from 'shared/testsUtils/customRender';
+import { defineFeature, loadFeature } from 'jest-cucumber';
 import { SCOPE_PREVIEW } from 'shared/testsUtils/constants';
+import { render, screen } from 'shared/testsUtils/customRender';
 import {
   JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,
   UnBoutonEstVisible,
@@ -7,7 +8,6 @@ import {
   UnTexteEstVisible,
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
-import { defineFeature, loadFeature } from 'jest-cucumber';
 import FooterPage from '../Footer';
 
 const feature = loadFeature('features/Demos/Footer/Footer.feature');
@@ -25,7 +25,7 @@ defineFeature(feature, test => {
       expect(await screen.findByText(/Samuel/)).toBeInTheDocument();
     });
 
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnLienEstVisible(and);
     UnLienEstVisible(and);
     UnLienEstVisible(and);

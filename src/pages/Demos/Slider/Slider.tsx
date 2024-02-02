@@ -1,9 +1,9 @@
 import { MessageTypes } from '@axa-fr/react-toolkit-all';
 import Layout, { type TLayoutPage } from 'Layout';
-import type { TEvent } from 'shared/types';
+import { EditorHeader, useEditable, withEditor, type TReturnUseToggleEditor, type Tknobs } from 'shared/components/Editor';
 import LiveCode from 'shared/components/LiveCode';
-import { withEditor, useEditable, type Tknobs, EditorHeader, type TReturnUseToggleEditor } from 'shared/components/Editor';
-import { TITLE_BAR, TITLE, DESIGN_SYSTEM_PATH, STORYBOOK_PATH, GITHUB_PACKAGE, NPM_NAME } from './constants';
+import type { TEvent } from 'shared/types';
+import { DESIGN_SYSTEM_PATH, GITHUB_PACKAGE, NPM_NAME, STORYBOOK_PATH, TITLE, TITLE_BAR } from './constants';
 import knobs from './knobs.json';
 
 const INITIAL_STATE = {
@@ -101,7 +101,7 @@ type TSliderPage = TLayoutPage;
 
 const SliderDemo = ({ titleBar = TITLE_BAR, title = TITLE }: TSliderPage) => (
   <Layout propsTitle={{ title: titleBar }}>
-    <h1 className="af-title--content">{title}</h1>
+    <h2 className="af-title--content">{title}</h2>
     <SliderEditable />
   </Layout>
 );

@@ -28,7 +28,7 @@ const ResiliencePage = withClassNameModifier(
     <>
       <TitleBar backHome={backhome} classModifier="hasstepper" title={title} />
       <main aria-label={ariaLabel} className={`container ${className}`}>
-        <h1 className="af-resilience-page__title">
+        <h2 className="af-resilience-page__title">
           <div className="af-resilience-page__title-covernumber">
             <span className="af-resilience-page__title-number">{code}</span>
           </div>
@@ -39,7 +39,7 @@ const ResiliencePage = withClassNameModifier(
               {subtitlePartTwo}
             </span>
           </div>
-        </h1>
+        </h2>
         {!!message && <p className="af-resilience-page__message">{message}</p>}
       </main>
     </>
