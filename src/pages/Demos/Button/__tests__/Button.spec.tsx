@@ -1,3 +1,4 @@
+import { defineFeature, loadFeature } from 'jest-cucumber';
 import { configure, render, screen } from 'shared/testsUtils/customRender';
 import {
   JeCliqueSurLeBouton,
@@ -9,7 +10,6 @@ import {
   UnLienEstVisible,
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
-import { defineFeature, loadFeature } from 'jest-cucumber';
 
 import { SCOPE_EDITOR, SCOPE_PREVIEW } from 'shared/testsUtils/constants';
 import ButtonPage from '../Button';
@@ -33,7 +33,7 @@ defineFeature(feature, test => {
   test('Affichage du playground Button', ({ given, when, then, and }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when('J’accède à la page démo du Button', renderPage);
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnLienEstVisible(and);
     UnLienEstVisible(and);
     UnLienEstVisible(and);

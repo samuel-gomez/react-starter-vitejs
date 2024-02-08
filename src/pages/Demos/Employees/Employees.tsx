@@ -11,8 +11,8 @@ export type TRequests = TLayoutPage & {
 
 const Employees = ({ requests = TABLE_DATA, titleBar = TITLE_BAR, title = TITLE, headers = TABLE_HEADERS }: TRequests) => (
   <Layout propsTitle={{ title: titleBar, backHome: true }}>
-    <h1 className="af-title--content">{title}</h1>
-    <Table title={title} items={requests} headers={headers} itemsType={TABLE_ITEMS_TYPE} />
+    <h2 className="af-title--content">{title}</h2>
+    <Table title="Tableau des collaborateurs" items={requests} headers={headers} itemsType={TABLE_ITEMS_TYPE} />
   </Layout>
 );
 

@@ -1,5 +1,6 @@
-import { configure, render, screen } from 'shared/testsUtils/customRender';
+import { defineFeature, loadFeature } from 'jest-cucumber';
 import { SCOPE_PREVIEW } from 'shared/testsUtils/constants';
+import { configure, render, screen } from 'shared/testsUtils/customRender';
 import {
   JeCliqueSurLeBouton,
   JeSelectionneUneValeurSurleChamp,
@@ -11,7 +12,6 @@ import {
   UnTexteEstVisible,
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
-import { defineFeature, loadFeature } from 'jest-cucumber';
 
 import StepperPage from '../Stepper';
 
@@ -34,7 +34,7 @@ defineFeature(feature, test => {
   test('Affichage du playground Stepper', ({ given, when, then, and }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when('J’accède à la page démo du Stepper', renderPage);
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnLienEstVisible(and);
     UnLienEstVisible(and);
     UnLienEstVisible(and);

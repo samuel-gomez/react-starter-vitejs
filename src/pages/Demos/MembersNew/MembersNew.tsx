@@ -1,23 +1,23 @@
 import { Button } from '@axa-fr/react-toolkit-all';
-import type { Control, FieldValues, UseFormReset } from 'react-hook-form';
-import { FieldTextInput, FieldSelectInput } from 'shared/components/form';
-import { Col, Row } from 'shared/components/Grid';
 import Layout, { type TLayoutPage } from 'Layout';
-import {
-  TITLE_BAR,
-  TITLE,
-  CIVILITY,
-  LABEL_CIVILITY,
-  OPTIONS_CIVILITY,
-  LABEL_SUBMIT,
-  FIRSTNAME,
-  LABEL_FIRSTNAME,
-  LASTNAME,
-  LABEL_LASTNAME,
-  LABEL_CANCEL,
-  FORM_ADD_MEMBERS,
-} from './constants';
+import type { Control, FieldValues, UseFormReset } from 'react-hook-form';
+import { Col, Row } from 'shared/components/Grid';
+import { FieldSelectInput, FieldTextInput } from 'shared/components/form';
 import type { TReturnSetRules } from './MembersNew.helper';
+import {
+  CIVILITY,
+  FIRSTNAME,
+  FORM_ADD_MEMBERS,
+  LABEL_CANCEL,
+  LABEL_CIVILITY,
+  LABEL_FIRSTNAME,
+  LABEL_LASTNAME,
+  LABEL_SUBMIT,
+  LASTNAME,
+  OPTIONS_CIVILITY,
+  TITLE,
+  TITLE_BAR,
+} from './constants';
 
 export const ButtonIconLoading = ({ isLoading }: { isLoading: boolean }) => (
   <>
@@ -39,7 +39,7 @@ export type TMembersNew = TLayoutPage & {
 
 const MembersNew = ({ rules, onSubmit, control, reset, titleBar = TITLE_BAR, title = TITLE, isLoading = false }: TMembersNew) => (
   <Layout propsTitle={{ title: titleBar, backHome: true }}>
-    <h1 className="af-title--content">{title}</h1>
+    <h2 className="af-title--content">{title}</h2>
 
     <form onSubmit={onSubmit} id={FORM_ADD_MEMBERS}>
       <fieldset>

@@ -1,3 +1,4 @@
+import { defineFeature, loadFeature } from 'jest-cucumber';
 import { configure, render, screen } from 'shared/testsUtils/customRender';
 import {
   JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,
@@ -5,7 +6,6 @@ import {
   UnTexteEstVisible,
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
-import { defineFeature, loadFeature } from 'jest-cucumber';
 
 import { SCOPE_PREVIEW } from 'shared/testsUtils/constants';
 import LayoutPage from '../Layout';
@@ -29,7 +29,7 @@ defineFeature(feature, test => {
   test('Affichage du playground Layout', ({ given, when, then, and }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when('J’accède à la page démo du Layout', renderPage);
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnBoutonEstVisible(and);
     UnTexteEstVisible(and, SCOPE_PREVIEW);
   });

@@ -34,7 +34,7 @@ const Members = ({
   headers = TABLE_HEADERS_MEMBERS,
 }: TMembers) => (
   <Layout propsTitle={{ title: titleBar, backHome: true }}>
-    <h1 className="af-title--content">{title}</h1>
+    <h2 className="af-title--content">{title}</h2>
     <Loader mode={loaderMode}>
       <Resilience anomaly={anomaly} refetch={refetch as React.MouseEventHandler<HTMLButtonElement>}>
         <Table title={title} items={members} itemsType={TABLE_ITEMS_TYPE} headers={headers} onSort={onChangeSorting} sorting={sorting} />

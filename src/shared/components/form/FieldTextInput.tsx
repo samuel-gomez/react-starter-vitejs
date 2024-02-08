@@ -1,7 +1,7 @@
-import { Controller } from 'react-hook-form';
 import { TextInput } from '@axa-fr/react-toolkit-all';
 import { MessageTypes } from '@axa-fr/react-toolkit-form-core';
 import { ComponentPropsWithoutRef } from 'react';
+import { Controller } from 'react-hook-form';
 import { onChangeValue } from './form.helper';
 
 type TTextInput = ComponentPropsWithoutRef<typeof TextInput>;
@@ -34,7 +34,7 @@ const FieldTextInput = ({
         label={label}
         forceDisplayMessage={forceDisplayMessage}
         messageType={messageType}
-        message={fieldState.error?.message ?? null}
+        message={fieldState.error?.message}
         {...otherTextInputProps}
       />
     )}

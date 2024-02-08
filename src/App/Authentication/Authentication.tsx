@@ -1,11 +1,11 @@
-import { ReactNode, useContext } from 'react';
 import { OidcProvider } from '@axa-fr/react-oidc';
 import { EnvironmentContext } from 'App/EnvironmentProvider';
+import { ReactNode, useContext } from 'react';
 
-const Authentication = ({ children }: { children: ReactNode }) => {
+const Authentication = ({ children, OidcProviderCmpt = OidcProvider }: { children: ReactNode; OidcProviderCmpt?: typeof OidcProvider }) => {
   const { environment } = useContext(EnvironmentContext);
 
-  return environment?.oidc?.isEnabled ? <OidcProvider configuration={environment?.oidc}>{children}</OidcProvider> : <>{children}</>;
+  return environment?.oidc?.isEnabled ? <OidcProviderCmpt configuration={environment?.oidc}>{children}</OidcProviderCmpt> : <>{children}</>;
 };
 
 export default Authentication;

@@ -1,8 +1,8 @@
 import { Alert, Button, Modal } from '@axa-fr/react-toolkit-all';
 import Layout, { type TLayoutPage } from 'Layout';
 import LiveCode from 'shared/components/LiveCode';
-import { ModalCommonHeader, ModalCommonBody, ModalCommonFooter, TReturnUseToggleModal } from 'shared/components/ModalCommon';
-import { TITLE_BAR, TITLE } from './constants';
+import { ModalCommonBody, ModalCommonFooter, ModalCommonHeader, TReturnUseToggleModal } from 'shared/components/ModalCommon';
+import { TITLE, TITLE_BAR } from './constants';
 
 const scope = { Button, Modal, ModalCommonHeader, ModalCommonBody, ModalCommonFooter, Alert };
 const code = `
@@ -25,7 +25,7 @@ type TModalPage = TLayoutPage & TReturnUseToggleModal;
 
 const ModalCustomPage = ({ titleBar = TITLE_BAR, title = TITLE, openModal, isOpen, onCancel }: TModalPage) => (
   <Layout propsTitle={{ title: titleBar }}>
-    <h1 className="af-title--content">{title}</h1>
+    <h2 className="af-title--content">{title}</h2>
     <a
       className="af-link af-link--hasIconRight"
       href="https://codesandbox.io/embed/modal-default-l6sq5"

@@ -1,17 +1,17 @@
 import type { ClickEvent } from '@axa-fr/react-toolkit-core';
-import type { TEvent } from 'shared/types';
-import { withEditor, useEditable, EditorHeader, type TReturnUseToggleEditor, type Tknobs } from 'shared/components/Editor';
+import Layout from 'Layout';
+import { EditorHeader, useEditable, withEditor, type TReturnUseToggleEditor, type Tknobs } from 'shared/components/Editor';
 import LiveCode from 'shared/components/LiveCode';
 import { useToggleModal } from 'shared/components/ModalCommon';
-import Layout from 'Layout';
-import knobs from './knobs.json';
+import type { TEvent } from 'shared/types';
 import './Layout.scss';
+import knobs from './knobs.json';
 
 const INITIAL_STATE = {
   className: 'af-main',
   classModifier: '',
   children: `
-  <h1 className="af-title--content">Layout playground</h1>
+  <h2 className="af-title--content">Layout playground</h2>
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt repudiandae corporis expedita illo minima, aut nostrum vitae. Fuga quo
     facilis dolorum fugit? Cumque necessitatibus unde nostrum possimus voluptas nisi.

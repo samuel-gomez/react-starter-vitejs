@@ -1,5 +1,5 @@
-import { render, act, waitFor } from '@testing-library/react';
-import LasyImage, { loadImage } from '../index';
+import { act, render, waitFor } from '@testing-library/react';
+import LasyImage, { loadImage } from '../LazyImage';
 
 const defaultProps = { alt: 'alt', name: '' };
 

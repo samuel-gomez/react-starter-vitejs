@@ -1,9 +1,9 @@
-import { MessageTypes, CheckboxModes } from '@axa-fr/react-toolkit-all';
+import { CheckboxModes, MessageTypes } from '@axa-fr/react-toolkit-all';
 import Layout, { type TLayoutPage } from 'Layout';
+import { EditorHeader, useEditable, withEditor, type TReturnUseToggleEditor, type Tknobs } from 'shared/components/Editor';
 import LiveCode from 'shared/components/LiveCode';
 import type { TEvent } from 'shared/types';
-import { withEditor, useEditable, type Tknobs, EditorHeader, type TReturnUseToggleEditor } from 'shared/components/Editor';
-import { TITLE_BAR, TITLE, DESIGN_SYSTEM_PATH, STORYBOOK_PATH, GITHUB_PACKAGE, NPM_NAME } from './constants';
+import { DESIGN_SYSTEM_PATH, GITHUB_PACKAGE, NPM_NAME, STORYBOOK_PATH, TITLE, TITLE_BAR } from './constants';
 import knobs from './knobs.json';
 
 const INITIAL_STATE = {
@@ -106,7 +106,7 @@ type TTabsPage = TLayoutPage;
 
 const CheckboxInputPage = ({ titleBar = TITLE_BAR, title = TITLE }: TTabsPage) => (
   <Layout propsTitle={{ title: titleBar }}>
-    <h1 className="af-title--content">{title}</h1>
+    <h2 className="af-title--content">{title}</h2>
     <CheckboxInputEditable />
   </Layout>
 );

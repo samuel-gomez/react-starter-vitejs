@@ -1,5 +1,6 @@
-import { configure, render, screen } from 'shared/testsUtils/customRender';
+import { defineFeature, loadFeature } from 'jest-cucumber';
 import { SCOPE_PREVIEW } from 'shared/testsUtils/constants';
+import { configure, render, screen } from 'shared/testsUtils/customRender';
 import {
   JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,
   UnBoutonEstVisible,
@@ -7,7 +8,6 @@ import {
   UnTexteEstVisible,
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
-import { defineFeature, loadFeature } from 'jest-cucumber';
 
 import SliderPage from '../Slider';
 
@@ -30,7 +30,7 @@ defineFeature(feature, test => {
   test('Affichage du playground Slider', ({ given, when, then, and }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when('J’accède à la page démo du Slider', renderPage);
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnLienEstVisible(and);
     UnLienEstVisible(and);
     UnLienEstVisible(and);

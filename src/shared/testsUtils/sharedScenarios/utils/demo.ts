@@ -1,5 +1,5 @@
-import { DefineStepFunction } from 'jest-cucumber';
 import { screen, within } from '@testing-library/dom';
+import { DefineStepFunction } from 'jest-cucumber';
 
 export const UnCodeDecomposantEstVisible = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^un code du composant "(.*)" est visible$/, name => {
@@ -9,6 +9,7 @@ export const UnCodeDecomposantEstVisible = (instruction: DefineStepFunction, par
 
 export const UnEditeurEstVisible = (instruction: DefineStepFunction) =>
   instruction(/^un éditeur de propriété est visible$/, async () => {
-    const base = await screen.findByLabelText('Edit props');
+    const main = await screen.findByLabelText('Main Content');
+    const base = await within(main).findByLabelText('Editor props');
     expect(base).toHaveAttribute('class', 'af-draggable-container react-draggable');
   });

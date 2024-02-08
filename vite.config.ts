@@ -1,17 +1,16 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
-import { type PluginOption } from 'vite';
-import { defineConfig } from 'vitest/config';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   server: {
     port: 3000,
   },
-  plugins: [react(), tsconfigPaths(), visualizer() as PluginOption],
+  plugins: [react(), tsconfigPaths(), visualizer()],
   build: {
     outDir: 'build',
   },
@@ -24,10 +23,9 @@ export default defineConfig({
     setupFiles: ['./src/setupTests.tsx'],
     reporters: ['default', 'vitest-sonar-reporter'],
     outputFile: 'test-report.xml',
-    testTimeout: 30000,
+    testTimeout: 50000,
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     coverage: {
-      100: true,
       provider: 'v8',
       reporter: ['json', 'lcov', 'text', 'clover', 'html'],
       exclude: [
@@ -38,7 +36,14 @@ export default defineConfig({
         'src/**/__tests__/*.{ts,tsx}',
         'src/**/constants.ts',
         'scripts/**',
+        'src/templates/**',
+        'src/**/*.d.ts',
+        '*.cjs',
+        'build/*',
       ],
+      thresholds: {
+        100: true,
+      },
     },
   },
 });

@@ -1,3 +1,4 @@
+import { defineFeature, loadFeature } from 'jest-cucumber';
 import { render, screen } from 'shared/testsUtils/customRender';
 import {
   JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,
@@ -5,7 +6,6 @@ import {
   UnLienEstVisible,
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
-import { defineFeature, loadFeature } from 'jest-cucumber';
 
 import ActionPage from '../Action';
 
@@ -24,7 +24,7 @@ defineFeature(feature, test => {
       expect(await screen.findByText(/Samuel/)).toBeInTheDocument();
     });
 
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnLienEstVisible(and);
     UnLienEstVisible(and);
     UnBoutonEstVisible(and);

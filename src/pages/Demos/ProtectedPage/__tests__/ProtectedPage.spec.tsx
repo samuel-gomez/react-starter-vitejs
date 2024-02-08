@@ -1,5 +1,5 @@
+import { configure, screen } from '@testing-library/react';
 import { defineFeature, loadFeature } from 'jest-cucumber';
-import { screen, configure } from '@testing-library/react';
 import { render } from 'shared/testsUtils/customRender';
 import { JeSuisUnUtilisateurConnuEtConnecteAvecleProfil, UnTexteEstVisible, UnTitreEstVisible } from 'shared/testsUtils/sharedScenarios';
 import ProtectedPage from '../ProtectedPage';
@@ -23,7 +23,7 @@ defineFeature(feature, test => {
   test('Affichage de la page privée', ({ given, when, then, and }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when("J'accède à la page privée", renderPage);
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnTexteEstVisible(and);
   });
 });

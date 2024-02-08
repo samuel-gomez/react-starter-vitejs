@@ -19,7 +19,7 @@ defineFeature(feature, test => {
       expect(await screen.findByText(/Samuel/)).toBeInTheDocument();
     });
 
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnTitreEstVisible(and, 3);
     UnTitreEstVisible(and, 3);
     UnTitreEstVisible(and, 3);

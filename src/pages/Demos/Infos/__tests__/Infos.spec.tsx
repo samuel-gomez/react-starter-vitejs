@@ -1,3 +1,4 @@
+import { defineFeature, loadFeature } from 'jest-cucumber';
 import { configure, render, screen } from 'shared/testsUtils/customRender';
 import {
   JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,
@@ -6,7 +7,6 @@ import {
   UnTexteEstVisible,
   UnTitreEstVisible,
 } from 'shared/testsUtils/sharedScenarios';
-import { defineFeature, loadFeature } from 'jest-cucumber';
 
 import { SCOPE_PREVIEW } from 'shared/testsUtils/constants';
 import InfosPage from '../Infos';
@@ -30,7 +30,7 @@ defineFeature(feature, test => {
   test('Affichage du playground Infos', ({ given, when, then, and }) => {
     JeSuisUnUtilisateurConnuEtConnecteAvecleProfil(given, setRoleMock);
     when('J’accède à la page démo du Infos', renderPage);
-    UnTitreEstVisible(then);
+    UnTitreEstVisible(then, 2);
     UnLienEstVisible(and);
     UnLienEstVisible(and);
     UnLienEstVisible(and);

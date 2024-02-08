@@ -1,20 +1,20 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import { render, screen } from 'shared/testsUtils/customRender';
-import {
-  JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,
-  UnChampTextEstVisible,
-  UnChampListeDeroulanteEstVisible,
-  UnTitreEstVisible,
-  UnBoutonEstVisible,
-  JeSelectionneUneValeurSurleChamp,
-  JeSaisieDansLeChamp,
-  JeCliqueSurLeBouton,
-  UnChampTextEstVisibleAvecLaValeur,
-  UneAlertSuccessContenantLeMessage,
-  UnTexteEstVisible,
-  UneAlertErrorContenantLeMessage,
-} from 'shared/testsUtils/sharedScenarios';
 import { serverUsePost } from 'shared/testsUtils/msw';
+import {
+  JeCliqueSurLeBouton,
+  JeSaisieDansLeChamp,
+  JeSelectionneUneValeurSurleChamp,
+  JeSuisUnUtilisateurConnuEtConnecteAvecleProfil,
+  UnBoutonEstVisible,
+  UnChampListeDeroulanteEstVisible,
+  UnChampTextEstVisible,
+  UnChampTextEstVisibleAvecLaValeur,
+  UnTexteEstVisible,
+  UnTitreEstVisible,
+  UneAlertErrorContenantLeMessage,
+  UneAlertSuccessContenantLeMessage,
+} from 'shared/testsUtils/sharedScenarios';
 import MembersNew from '..';
 
 const feature = loadFeature('features/Demos/MembersNew/MembersNew.feature');
@@ -33,7 +33,7 @@ defineFeature(feature, test => {
     });
 
     UnTitreEstVisible(and);
-    UnTitreEstVisible(and);
+    UnTitreEstVisible(and, 2);
     UnChampListeDeroulanteEstVisible(and);
     UnChampTextEstVisible(and);
     UnChampTextEstVisible(and);
