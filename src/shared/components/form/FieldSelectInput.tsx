@@ -1,7 +1,7 @@
-import { Controller } from 'react-hook-form';
 import { SelectInput } from '@axa-fr/react-toolkit-all';
 import { MessageTypes } from '@axa-fr/react-toolkit-form-core';
 import { ComponentPropsWithoutRef } from 'react';
+import { Controller } from 'react-hook-form';
 import { DEFAULT_OPTION_LABEL } from 'shared/constants';
 import { onChangeValue } from './form.helper';
 
@@ -38,7 +38,7 @@ const FieldSelectInput = ({
         label={label}
         forceDisplayMessage={forceDisplayMessage}
         messageType={messageType}
-        message={fieldState.error?.message ?? null}
+        message={fieldState.error?.message}
         placeholder={placeholder}
         forceDisplayPlaceholder={forceDisplayPlaceholder}
         {...otherSelectInputProps}
