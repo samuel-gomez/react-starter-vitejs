@@ -1,7 +1,7 @@
 import { Table as TableTk } from '@axa-fr/react-toolkit-all';
 import type { ReactNode } from 'react';
 import Line from './Line';
-import { type Tcol } from './types';
+import { type Tcol } from './types.d';
 
 export type TCols = {
   [k: string]: Tcol;

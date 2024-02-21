@@ -1,6 +1,6 @@
 import { HelpInfo } from '@axa-fr/react-toolkit-all';
 import Th, { type TTh } from './Th';
-import { type THeader } from './types';
+import { type THeader } from './types.d';
 
 export type THeaderProps = TTh &
   Omit<THeader, 'key'> & {

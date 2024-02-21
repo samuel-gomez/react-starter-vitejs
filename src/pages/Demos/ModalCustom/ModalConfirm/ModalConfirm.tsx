@@ -1,6 +1,6 @@
 import { Alert, Modal } from '@axa-fr/react-toolkit-all';
-import { ModalCommonHeader, ModalCommonBody, ModalCommonFooter, TReturnUseToggleModal } from 'shared/components/ModalCommon';
-import withClassNameModifier, { TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
+import { ModalCommonBody, ModalCommonFooter, ModalCommonHeader, type TReturnUseToggleModal } from 'shared/components/ModalCommon';
+import withClassNameModifier, { type TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
 
 /**
  * NOTE: Ce composant est un snippet, il n'est pas utilisé dans la démo

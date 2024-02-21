@@ -2,7 +2,7 @@ import type { ClickEvent } from '@axa-fr/react-toolkit-core';
 import Layout, { type TLayoutPage } from 'Layout';
 import { EditorHeader, useEditable, withEditor, type TReturnUseToggleEditor, type Tknobs } from 'shared/components/Editor';
 import LiveCode from 'shared/components/LiveCode';
-import type { TEvent } from 'shared/types';
+import type { TEvent } from 'shared/types.d';
 import './NavBar.scss';
 import { DESIGN_SYSTEM_PATH, GITHUB_PACKAGE, NPM_NAME, STORYBOOK_PATH, TITLE, TITLE_BAR } from './constants';
 import knobs from './knobs.json';

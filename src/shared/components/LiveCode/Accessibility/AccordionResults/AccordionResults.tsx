@@ -1,7 +1,7 @@
-import { Result } from 'axe-core';
-import { Badge, Accordion, CollapseCard } from '@axa-fr/react-toolkit-all';
-import colorTags from './constants';
+import { Accordion, Badge, CollapseCard } from '@axa-fr/react-toolkit-all';
+import { type Result } from 'axe-core';
 import './AccordionResults.scss';
+import colorTags from './constants';
 
 const AccordionResults = ({ results }: { results: Result[] }) => (
   <Accordion classModifier="light accessibility" onlyOne={false}>

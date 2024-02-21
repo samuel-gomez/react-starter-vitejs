@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
-import type { Tanomaly } from 'shared/types';
 import { Alert, Modal } from '@axa-fr/react-toolkit-all';
+import type { ReactNode } from 'react';
+import type { Tanomaly } from 'shared/types.d';
 import './ModalCommon.scss';
 
 export type TModalCommonBody = {

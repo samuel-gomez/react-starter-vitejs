@@ -1,7 +1,7 @@
-import { ComponentProps } from 'react';
+import { type ComponentProps } from 'react';
 import { setLoaderMode } from 'shared/components/Loader';
 import DownloadLink from './DownloadLink';
-import { useDownload, useSubmitDownload, useDownloadFile } from './DownloadLink.hook';
+import { useDownload, useDownloadFile, useSubmitDownload } from './DownloadLink.hook';
 
 type TDownloadLinkEnhanced = Omit<ComponentProps<typeof DownloadLink>, 'onDownload' | 'loaderMode'> & {
   fileName: string;

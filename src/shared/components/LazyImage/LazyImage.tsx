@@ -1,5 +1,5 @@
 import loaderSVG from 'assets/puff.svg';
-import { Dispatch, ImgHTMLAttributes, SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState, type Dispatch, type ImgHTMLAttributes, type SetStateAction } from 'react';
 import './LazyImage.scss';
 
 const getPath = (name: string, ext = 'svg') => `../../../../public/images/${name}.${ext}`;

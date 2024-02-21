@@ -1,5 +1,5 @@
-import { renderHook, act } from '@testing-library/react';
-import { TNotificationContext } from 'App/NotificationProvider/NotificationProvider';
+import { act, renderHook } from '@testing-library/react';
+import { type TNotificationContext } from 'App/NotificationProvider/NotificationProvider';
 import { createContext } from 'react';
 import useNotify from '../Notification.hook';
 

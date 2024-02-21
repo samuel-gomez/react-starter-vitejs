@@ -1,5 +1,5 @@
-import { type Tcol } from '../types';
-import Line, { TLine } from './Line';
+import { type Tcol } from '../types.d';
+import Line, { type TLine } from './Line';
 
 export type TLineContainer = Omit<TLine, 'columns'> & {
   LineCmpt?: typeof Line;

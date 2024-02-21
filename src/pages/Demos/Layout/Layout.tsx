@@ -3,7 +3,7 @@ import Layout from 'Layout';
 import { EditorHeader, useEditable, withEditor, type TReturnUseToggleEditor, type Tknobs } from 'shared/components/Editor';
 import LiveCode from 'shared/components/LiveCode';
 import { useToggleModal } from 'shared/components/ModalCommon';
-import type { TEvent } from 'shared/types';
+import type { TEvent } from 'shared/types.d';
 import './Layout.scss';
 import knobs from './knobs.json';
 

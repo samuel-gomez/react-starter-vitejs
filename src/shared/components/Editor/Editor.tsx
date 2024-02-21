@@ -1,13 +1,13 @@
 import { Button } from '@axa-fr/react-toolkit-all';
 import type { ClickEvent } from '@axa-fr/react-toolkit-core';
-import { ComponentType, FocusEvent, useCallback, useState } from 'react';
+import { useCallback, useState, type ComponentType, type FocusEvent } from 'react';
 import Draggable from 'react-draggable';
 import Icons from 'shared/components/Icons';
 import { useToggleModal } from 'shared/components/ModalCommon';
 import { DESIGN_SYSTEM, GITHUB, STORYBOOK } from 'shared/constants';
-import type { TEvent } from 'shared/types';
+import type { TEvent } from 'shared/types.d';
 import './Editor.scss';
-import InputEditor, { TInputEditor } from './InputEditor';
+import InputEditor, { type TInputEditor } from './InputEditor';
 
 const omittedProps = ['onChange', 'knobs', 'onClick', 'values'];
 

@@ -1,6 +1,6 @@
-import { createContext, ReactNode, useMemo, useContext } from 'react';
 import type { QueryKey } from '@tanstack/react-query';
 import { EnvironmentContext } from 'App/EnvironmentProvider';
+import { createContext, useContext, useMemo, type ReactNode } from 'react';
 import { mergeObj } from 'shared/helpers';
 import { getAccessToken, setFetchCustom } from './FetchProvider.helpers';
 

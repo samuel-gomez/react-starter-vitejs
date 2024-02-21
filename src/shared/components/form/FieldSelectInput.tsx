@@ -1,6 +1,6 @@
 import { SelectInput } from '@axa-fr/react-toolkit-all';
 import { MessageTypes } from '@axa-fr/react-toolkit-form-core';
-import { ComponentPropsWithoutRef } from 'react';
+import { type ComponentPropsWithoutRef } from 'react';
 import { Controller } from 'react-hook-form';
 import { DEFAULT_OPTION_LABEL } from 'shared/constants';
 import { onChangeValue } from './form.helper';

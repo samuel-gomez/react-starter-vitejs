@@ -1,8 +1,8 @@
-import { ReactNode, useContext } from 'react';
-import { DefaultOptions, QueryClient, QueryClientProvider, QueryKey } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider, type DefaultOptions, type QueryKey } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { FetchContext } from 'App/FetchProvider';
 import type { FetchContextType, TFetchCustom } from 'App/FetchProvider';
+import { FetchContext } from 'App/FetchProvider';
+import { useContext, type ReactNode } from 'react';
 import { CACHE_TIME, REFETCH_ON_WINDOWS_FOCUS, RETRY_REQUEST } from './constants';
 
 export const defaultQueryWithAuth = async (queryKey: QueryKey, fetchCustom: TFetchCustom) => fetchCustom(queryKey);

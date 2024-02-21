@@ -1,6 +1,6 @@
 import { screen, within } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
-import { DefineStepFunction } from 'jest-cucumber';
+import { type DefineStepFunction } from 'jest-cucumber';
 
 import expectButton from './expectButton';
 

@@ -1,5 +1,5 @@
-import ResiliencePage, { TResiliencePageContainer } from 'shared/components/ResiliencePage';
-import { TITLE, MESSAGE, CODE } from './constants';
+import ResiliencePage, { type TResiliencePageContainer } from 'shared/components/ResiliencePage';
+import { CODE, MESSAGE, TITLE } from './constants';
 
 type TNotFound = Omit<TResiliencePageContainer, 'title'> & {
   title?: TResiliencePageContainer['title'];

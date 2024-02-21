@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useContext, useMemo } from 'react';
 import { EnvironmentContext } from 'App/EnvironmentProvider';
+import { createContext, useContext, useMemo, type ReactNode } from 'react';
 import { extractDataFromOAuthToken, getUserInfos } from './UserProvider.helpers';
 
 export type TUserContext = ReturnType<typeof extractDataFromOAuthToken> & {

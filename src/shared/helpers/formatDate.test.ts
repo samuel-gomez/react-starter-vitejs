@@ -1,4 +1,4 @@
-import { setDate, TsetDate, isValidDate, TisValidDate, formatDate } from './formatDate';
+import { formatDate, isValidDate, setDate, type TisValidDate, type TsetDate } from './formatDate';
 
 type TsetDateTest = TsetDate & {
   expected: ReturnType<typeof setDate>;

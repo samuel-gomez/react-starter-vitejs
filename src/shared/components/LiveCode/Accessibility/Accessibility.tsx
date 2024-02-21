@@ -1,9 +1,9 @@
 import { Tabs } from '@axa-fr/react-toolkit-all';
-import { TResults } from './Accessibility.hook';
+import { type TResults } from './Accessibility.hook';
+import './Accessibility.scss';
 import AccordionResults from './AccordionResults';
 import EmptyResultsAccessiblity from './EmptyResultsAccessiblity';
 import TitleTab from './TitleTab';
-import './Accessibility.scss';
 
 const Accessibility = ({ results }: TResults) => (
   <Tabs classModifier="accessibility-content">

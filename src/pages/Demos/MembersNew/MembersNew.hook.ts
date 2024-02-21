@@ -1,11 +1,11 @@
-import { FetchContext, FetchContextType } from 'App/FetchProvider';
-import { useContext } from 'react';
 import { useMutation } from '@tanstack/react-query';
+import { FetchContext, type FetchContextType } from 'App/FetchProvider';
 import { ALERT_TYPE, NotificationContext } from 'App/NotificationProvider';
-import { TNotificationContext } from 'App/NotificationProvider/NotificationProvider';
-import { FieldValues, UseFormReset } from 'react-hook-form';
-import type { Tanomaly } from 'shared/types';
+import { type TNotificationContext } from 'App/NotificationProvider/NotificationProvider';
+import { useContext } from 'react';
+import type { FieldValues, UseFormReset } from 'react-hook-form';
 import { STATUS_API } from 'shared/constants';
+import type { Tanomaly } from 'shared/types.d';
 import { ENDPOINT } from './constants';
 
 type TData = Record<string, unknown>;

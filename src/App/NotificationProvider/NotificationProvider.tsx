@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useMemo } from 'react';
+import { createContext, useMemo, type ReactNode } from 'react';
 import { emptyFunction } from 'shared/helpers';
 import Notifications from './Notifications';
 import useNotifications, { type TaddNotification } from './Notifications.hook';

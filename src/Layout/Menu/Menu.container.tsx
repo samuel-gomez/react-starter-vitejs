@@ -1,9 +1,9 @@
-import { useState, useCallback, Dispatch, SetStateAction, useMemo } from 'react';
-import { useLocation } from 'react-router-dom';
 import { Action, ToggleButton } from '@axa-fr/react-toolkit-all';
-import { Menu, TMenu } from './Menu';
-import MENU_ITEMS, { CLASS_BODY_MENU_OPEN } from './constants';
+import { useCallback, useMemo, useState, type Dispatch, type SetStateAction } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Menu, type TMenu } from './Menu';
 import type { TMenuItemBase } from './MenuItem';
+import MENU_ITEMS, { CLASS_BODY_MENU_OPEN } from './constants';
 
 const isNotNull = (item: unknown) => item !== null;
 

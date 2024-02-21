@@ -1,5 +1,5 @@
-import { NONE, ASCENDING, DESCENDING } from 'shared/components/Table/constants';
-import ThSortable, { TThSortable } from './ThSortable';
+import { ASCENDING, DESCENDING, NONE } from 'shared/components/Table/constants';
+import ThSortable, { type TThSortable } from './ThSortable';
 
 export type Torder = typeof ASCENDING | typeof DESCENDING | typeof NONE;
 export const toggleOrder = (order: Torder) => (order === ASCENDING ? DESCENDING : ASCENDING);

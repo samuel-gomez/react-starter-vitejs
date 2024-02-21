@@ -1,5 +1,5 @@
-import { renderHook, act } from '@testing-library/react';
-import { useAxe, axeRunAccessibility, TResults } from '../Accessibility.hook';
+import { act, renderHook } from '@testing-library/react';
+import { axeRunAccessibility, useAxe, type TResults } from '../Accessibility.hook';
 
 const expected = { errors: undefined, results: [] as unknown as TResults['results'] };
 const axeRunAccessibilityFnMock = (html: string, setter: ({ errors, results }: TResults) => void) => {

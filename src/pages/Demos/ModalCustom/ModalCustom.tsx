@@ -1,7 +1,7 @@
 import { Alert, Button, Modal } from '@axa-fr/react-toolkit-all';
 import Layout, { type TLayoutPage } from 'Layout';
 import LiveCode from 'shared/components/LiveCode';
-import { ModalCommonBody, ModalCommonFooter, ModalCommonHeader, TReturnUseToggleModal } from 'shared/components/ModalCommon';
+import { ModalCommonBody, ModalCommonFooter, ModalCommonHeader, type TReturnUseToggleModal } from 'shared/components/ModalCommon';
 import { TITLE, TITLE_BAR } from './constants';
 
 const scope = { Button, Modal, ModalCommonHeader, ModalCommonBody, ModalCommonFooter, Alert };

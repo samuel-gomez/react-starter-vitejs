@@ -1,5 +1,5 @@
 import { act, render, renderHook } from '@testing-library/react';
-import { ChangeEvent } from 'react';
+import { type ChangeEvent } from 'react';
 import JsonEditor, { useJsonEditor } from '..';
 
 const onChange = vi.fn();

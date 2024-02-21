@@ -1,18 +1,18 @@
-import { renderHook, act } from '@testing-library/react';
-import { TCols } from 'shared/components/Table/Body/Body';
+import { act, renderHook } from '@testing-library/react';
+import { type TCols } from 'shared/components/Table/Body/Body';
 import { emptyFunction } from 'shared/testsUtils';
-import { SERVICE_NAME } from '../constants';
 import {
-  computeInfos,
-  useMembers,
-  setPaging,
-  setOnChangePaging,
-  setNumberPages,
-  setCurrentPage,
-  computeSuccess,
   computeDataQuery,
+  computeInfos,
+  computeSuccess,
+  setCurrentPage,
+  setNumberPages,
+  setOnChangePaging,
   setPagination,
+  setPaging,
+  useMembers,
 } from '../Members.hook';
+import { SERVICE_NAME } from '../constants';
 import { membersMock } from './Members.mock';
 
 const totals = {

@@ -1,5 +1,5 @@
 import { within } from '@testing-library/dom';
-import { DefineStepFunction } from 'jest-cucumber';
+import { type DefineStepFunction } from 'jest-cucumber';
 import { DEFAULT_TABLE_ITEMS_TYPE } from 'shared/components/Table/constants';
 import { expectCellsContent, expectTable, getTableBodyElements, getTableHeadElements, getTbodyLineCellByRole } from './utils';
 

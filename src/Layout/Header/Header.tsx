@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react';
-import type { Tanomaly } from 'shared/types';
-import { Header, Name, User, Infos } from '@axa-fr/react-toolkit-all';
+import { Header, Infos, Name, User } from '@axa-fr/react-toolkit-all';
 import logo from 'assets/slash-logo.svg';
-import Skeleton from 'shared/components/Skeleton';
+import type { ReactNode } from 'react';
 import Resilience from 'shared/components/Resilience';
+import Skeleton from 'shared/components/Skeleton';
+import type { Tanomaly } from 'shared/types.d';
 import './Header.scss';
 
 type THeaderInfo = {

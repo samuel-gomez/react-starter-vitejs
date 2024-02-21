@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import EnvironmentProvider from 'App/EnvironmentProvider';
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import Authentication from '../Authentication';
 
 const setOidc = (isEnabled = true) => ({

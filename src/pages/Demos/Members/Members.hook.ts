@@ -1,8 +1,8 @@
-import { Dispatch, type SetStateAction, useCallback, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useCallback, useState, type Dispatch, type SetStateAction } from 'react';
 import { setDisplay, type Torder } from 'shared/components/Table';
-import type { Tanomaly } from 'shared/types';
 import { setAnomalyEmptyItems, setDate } from 'shared/helpers';
+import type { Tanomaly } from 'shared/types.d';
 import { DEFAULT_STATE_VALUE, INITIAL_STATE_PAGING, INITIAL_STATE_SORTING, SERVICE_NAME } from './constants';
 
 export const setNumberPages = ({ total = 1, max = 1 }) => Math.ceil(max >= total ? 1 : Number(total / max) - 1);

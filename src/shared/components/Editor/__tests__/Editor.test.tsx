@@ -1,8 +1,8 @@
-import { ComponentPropsWithoutRef, FocusEvent } from 'react';
-import { render, renderHook, act } from '@testing-library/react';
 import { Text } from '@axa-fr/react-toolkit-all';
-import type { TEvent } from 'shared/types';
-import { mergePropsAndKnobs, withEditor, setValue, useEditable, useToggleEditor, LabelEditor } from '../Editor';
+import { act, render, renderHook } from '@testing-library/react';
+import { type ComponentPropsWithoutRef, type FocusEvent } from 'react';
+import type { TEvent } from 'shared/types.d';
+import { LabelEditor, mergePropsAndKnobs, setValue, useEditable, useToggleEditor, withEditor } from '../Editor';
 
 describe('setValue', () => {
   it.each`

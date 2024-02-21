@@ -1,4 +1,4 @@
-import Card, { TCard } from 'shared/components/Cards/Card';
+import Card, { type TCard } from 'shared/components/Cards/Card';
 import './Cards.scss';
 
 type TCards = {

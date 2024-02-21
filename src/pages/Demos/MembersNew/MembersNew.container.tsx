@@ -1,8 +1,8 @@
-import { ComponentPropsWithoutRef } from 'react';
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { useAddMember } from './MembersNew.hook';
+import { type ComponentPropsWithoutRef } from 'react';
+import { useForm, type FieldValues, type SubmitHandler } from 'react-hook-form';
 import MembersNew from './MembersNew';
 import { setRules } from './MembersNew.helper';
+import { useAddMember } from './MembersNew.hook';
 
 export type TMembersNewEnhanced = Partial<ComponentPropsWithoutRef<typeof MembersNew>>;
 

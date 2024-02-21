@@ -1,6 +1,6 @@
-import { screen, within, waitFor } from '@testing-library/dom';
+import { screen, waitFor, within } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
-import { DefineStepFunction } from 'jest-cucumber';
+import { type DefineStepFunction } from 'jest-cucumber';
 
 export const UnChampTextEstVisibleAvecLaValeurEtUnPlaceholder = (instruction: DefineStepFunction, parentLabel = '', inputRole = 'textbox') =>
   instruction(/^un champ texte "(.*)" est visible avec la valeur "(.*)", un placeholder "(.*)"$/, (name, value, placeholder) => {

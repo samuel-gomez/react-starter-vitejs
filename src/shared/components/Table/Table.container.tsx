@@ -1,6 +1,6 @@
-import { ElementType, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 import { emptyFunction } from 'shared/helpers';
-import Table, { TTable } from './Table';
+import Table, { type TTable } from './Table';
 import { DEFAULT_TABLE_ITEMS_TYPE } from './constants';
 
 type TTableContainer = TTable & {
