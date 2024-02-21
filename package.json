@@ -1,7 +1,7 @@
 {
   "name": "react-starter-vitejs",
   "description": "This repository is a starter project that use React Toolkit Axa and Vite.",
-  "version": "0.5.5",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
