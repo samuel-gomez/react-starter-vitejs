@@ -1,6 +1,6 @@
 import { Table as TableTk } from '@axa-fr/react-toolkit-all';
 import type { ReactNode } from 'react';
-import ThSortableContainer, { TsetSort } from './ThSortable';
+import ThSortableContainer, { type TsetSort } from './ThSortable';
 
 export type TTh = Omit<TsetSort, 'onSort' | 'field'> & {
   ThSortableCmpt?: typeof ThSortableContainer;

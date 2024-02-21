@@ -1,5 +1,5 @@
 import { screen, within } from '@testing-library/dom';
-import { DefineStepFunction } from 'jest-cucumber';
+import { type DefineStepFunction } from 'jest-cucumber';
 
 export const UnBoutonHelpEstVisible = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^un bouton Help est visible$/, () => {

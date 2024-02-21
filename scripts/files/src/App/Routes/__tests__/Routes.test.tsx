@@ -1,10 +1,10 @@
-import { PropsWithChildren } from 'react';
-import { render, screen, waitFor, act } from 'shared/testsUtils/customRender';
+import { type PropsWithChildren } from 'react';
+import { act, render, screen, waitFor } from 'shared/testsUtils/customRender';
 
-import { PROFILS } from 'shared/constants';
 import { TITLE as TITLE_HOME } from 'pages/Home';
 import { TITLE as TITLE_NOTFOUND } from 'pages/NotFound';
 import { TITLE as TITLE_UNAUTHORIZE } from 'pages/Unauthorize';
+import { PROFILS } from 'shared/constants';
 import Routes, { ROUTE_URLS } from '..';
 import { RouteSecure } from '../RouteSecure';
 

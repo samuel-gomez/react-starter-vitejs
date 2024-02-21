@@ -3,7 +3,7 @@ import Layout, { type TLayoutPage } from 'Layout';
 import { themes } from 'prism-react-renderer/dist/index';
 import { LiveEditor, LiveProvider } from 'react-live';
 import LiveCode from 'shared/components/LiveCode';
-import { TReturnUseNotify } from './Notification.hook';
+import { type TReturnUseNotify } from './Notification.hook';
 import { TITLE, TITLE_BAR } from './constants';
 
 const scope = { Button };

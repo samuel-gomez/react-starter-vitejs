@@ -1,11 +1,11 @@
-import { render, renderHook, RenderOptions } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { render, renderHook, type RenderOptions } from '@testing-library/react';
 import EnvironmentProvider from 'App/EnvironmentProvider';
-import UserProvider from 'App/UserProvider';
 import FetchProvider from 'App/FetchProvider';
-import QueryProvider from 'App/QueryProvider';
 import NotificationProvider from 'App/NotificationProvider';
-import { ReactElement, ReactNode } from 'react';
+import QueryProvider from 'App/QueryProvider';
+import UserProvider from 'App/UserProvider';
+import { type ReactElement, type ReactNode } from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import MOCK_API_URL from './constants';
 
 type TMockProvider = {
@@ -74,4 +74,4 @@ export { default as userEvent } from '@testing-library/user-event';
 export { axe } from 'jest-axe';
 
 // override render method
-export { customRender as render, customRenderHook };
+export { customRenderHook, customRender as render };

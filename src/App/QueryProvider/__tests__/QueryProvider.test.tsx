@@ -1,5 +1,5 @@
-import { QueryKey } from '@tanstack/react-query';
-import { showReactQueryDevtools, setQueryClient, setQuery, defaultQueryWithAuth } from '../QueryProvider';
+import { type QueryKey } from '@tanstack/react-query';
+import { defaultQueryWithAuth, setQuery, setQueryClient, showReactQueryDevtools } from '../QueryProvider';
 
 describe('defaultQueryWithAuth', () => {
   it('Should call fetchCustom with querykey when defaultQueryWithAuthFn have been called with fetchcustom and querykey', async () => {

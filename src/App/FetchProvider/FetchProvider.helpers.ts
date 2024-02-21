@@ -1,8 +1,8 @@
-import { API_URL, STATUS_API, STATUS_HTTP_MESSAGES } from 'shared/constants';
-import fetch from 'cross-fetch';
-import { QueryKey } from '@tanstack/react-query';
-import { isEmptyOrNull, mergeObj } from 'shared/helpers';
 import { useOidcAccessToken } from '@axa-fr/react-oidc';
+import { type QueryKey } from '@tanstack/react-query';
+import fetch from 'cross-fetch';
+import { API_URL, STATUS_API, STATUS_HTTP_MESSAGES } from 'shared/constants';
+import { isEmptyOrNull, mergeObj } from 'shared/helpers';
 import { useOidcAccessTokenMock } from './constants';
 
 type TsetResponseError = {

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import TitleTab, { TTitleTab } from '../TitleTab';
+import TitleTab, { type TTitleTab } from '../TitleTab';
 
 const resultsFnMock = [
   {

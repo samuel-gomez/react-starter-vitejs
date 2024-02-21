@@ -1,7 +1,7 @@
 import { act, render, renderHook } from '@testing-library/react';
-import { ChangeEvent } from 'react';
+import { type ChangeEvent } from 'react';
 import clearString from 'shared/testsUtils/clearString';
-import CodeEditor, { useCodeEditor, getTemplate } from '..';
+import CodeEditor, { getTemplate, useCodeEditor } from '..';
 import { getPathTemplate } from '../CodeEditor';
 
 const defaultProps = {

@@ -1,8 +1,8 @@
-import { useForm, UseFormReturn } from 'react-hook-form';
+import { useForm, type UseFormReturn } from 'react-hook-form';
 import setConfirmClassModifier from 'shared/helpers/setConfirmClassModifier';
+import type { TReturnUseFormSearchMembers } from '../SearchMembers.hook';
 import SearchForm from './SearchForm';
 import { NAME, defaultValues, modeValidationStrategy } from './constants';
-import type { TReturnUseFormSearchMembers } from '../SearchMembers.hook';
 
 export type TsetOnSubmitSearchForm = {
   fields: FormValues;

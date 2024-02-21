@@ -1,5 +1,5 @@
 import { renderWithContainer } from 'shared/testsUtils';
-import LineContainer, { TLineContainer } from '../Line.container';
+import LineContainer, { type TLineContainer } from '../Line.container';
 
 const LineCmpt = vi.fn();
 

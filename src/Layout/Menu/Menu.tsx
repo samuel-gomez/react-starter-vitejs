@@ -1,8 +1,8 @@
-import { ComponentPropsWithoutRef } from 'react';
 import { NavBar } from '@axa-fr/react-toolkit-all';
+import { type ComponentPropsWithoutRef } from 'react';
 import { emptyFunction } from 'shared/helpers';
-import { createMenu, TMenuItemBase } from './MenuItem';
 import './Menu.scss';
+import { createMenu, type TMenuItemBase } from './MenuItem';
 
 export type TMenu = Omit<ComponentPropsWithoutRef<typeof NavBar>, 'children' | 'onClick'> & {
   menuItems?: TMenuItemBase[];

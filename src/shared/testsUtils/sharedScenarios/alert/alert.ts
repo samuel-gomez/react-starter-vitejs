@@ -1,4 +1,4 @@
-import { DefineStepFunction } from 'jest-cucumber';
+import { type DefineStepFunction } from 'jest-cucumber';
 import { getBase } from '../utils';
 
 const expectAlertHaveTextContent = async ({ parentLabel = '', messageAlert }: { parentLabel: string; messageAlert: string }) => {

@@ -1,5 +1,5 @@
-import { OidcConfiguration } from '@axa-fr/react-oidc';
-import { useState, useEffect, createContext, Dispatch, SetStateAction } from 'react';
+import { type OidcConfiguration } from '@axa-fr/react-oidc';
+import { createContext, useEffect, useState, type Dispatch, type SetStateAction } from 'react';
 
 export type TEnvironment = {
   apiUrl: Record<string, string>;

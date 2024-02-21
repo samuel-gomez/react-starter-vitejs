@@ -1,6 +1,6 @@
-import ResiliencePage, { TResiliencePageContainer } from 'shared/components/ResiliencePage';
-import { TITLE, MESSAGE, CODE } from './constants';
+import ResiliencePage, { type TResiliencePageContainer } from 'shared/components/ResiliencePage';
 import './Unauthorize.scss';
+import { CODE, MESSAGE, TITLE } from './constants';
 
 type TUnauthorize = Omit<TResiliencePageContainer, 'title'> & {
   title?: TResiliencePageContainer['title'];

@@ -1,9 +1,9 @@
-import { useCallback, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useCallback, useState } from 'react';
 import { setAnomalyEmptyItems } from 'shared/helpers';
-import { Tanomaly } from 'shared/types';
-import { SERVICE_NAME } from './constants';
+import { type Tanomaly } from 'shared/types.d';
 import { DownloadLinkEnhanced } from './SearchMembers';
+import { SERVICE_NAME } from './constants';
 
 export const computeInfos = ({ members }: { members?: Record<string, string>[] }) =>
   members?.map(({ _id, firstname, lastname }) => ({

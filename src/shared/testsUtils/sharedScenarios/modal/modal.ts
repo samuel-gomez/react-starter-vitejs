@@ -1,5 +1,5 @@
-import { DefineStepFunction } from 'jest-cucumber';
 import { screen, within } from '@testing-library/dom';
+import { type DefineStepFunction } from 'jest-cucumber';
 
 export const UneModaleApparaitAvecLeTitre = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^une modal apparait avec le titre "(.*)"$/, async modalTitle => {

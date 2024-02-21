@@ -1,9 +1,8 @@
-import { createRef } from 'react';
-
-import { useForm, useController, ControllerRenderProps } from 'react-hook-form';
 import { render } from '@testing-library/react';
+import { createRef } from 'react';
+import { useController, useForm, type ControllerRenderProps } from 'react-hook-form';
 import { emptyFunction } from 'shared/helpers';
-import SearchForm, { onChangeValue, InputCustom } from '../SearchForm';
+import SearchForm, { InputCustom, onChangeValue } from '../SearchForm';
 import type { FormValues } from '../SearchForm.container';
 
 describe('SearchForm', () => {

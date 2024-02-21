@@ -1,8 +1,8 @@
+import { Alert, ArticleRestitution, Button, SectionRestitution, SectionRestitutionRow } from '@axa-fr/react-toolkit-all';
 import type { ElementType, ReactNode } from 'react';
-import { ArticleRestitution, SectionRestitution, SectionRestitutionRow, Button, Alert } from '@axa-fr/react-toolkit-all';
-import type { Tanomaly } from 'shared/types';
 import { emptyFunction } from 'shared/helpers';
-import { RESILIENCE_MODE, DEFAULT_CLASS_ALERT, DEFAULT_CLASS_CONTAINER, WITH_ACTION_CLASS_MODIFIER } from './constants';
+import type { Tanomaly } from 'shared/types.d';
+import { DEFAULT_CLASS_ALERT, DEFAULT_CLASS_CONTAINER, RESILIENCE_MODE, WITH_ACTION_CLASS_MODIFIER } from './constants';
 
 type TsetClassModifier<T> = {
   type: string;

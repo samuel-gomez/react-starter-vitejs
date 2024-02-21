@@ -1,6 +1,6 @@
+import { HelpInfo, Table as TableTk } from '@axa-fr/react-toolkit-all';
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
-import withClassNameModifier, { TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
-import { Table as TableTk, HelpInfo } from '@axa-fr/react-toolkit-all';
+import withClassNameModifier, { type TwithClassNameModifier } from 'shared/hoc/WithClassNameModifier';
 
 export type TTdContainer = Omit<ComponentPropsWithoutRef<typeof HelpInfo>, 'children' | 'content'> & {
   children?: ReactNode;

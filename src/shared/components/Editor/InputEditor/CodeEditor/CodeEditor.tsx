@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unused-prop-types */
-import { ChangeEvent, useCallback, useEffect, useState } from 'react';
-import ReactCodeEditor from '@uiw/react-textarea-code-editor';
 import { Button, Modal } from '@axa-fr/react-toolkit-all';
 import type { ClickEvent } from '@axa-fr/react-toolkit-core';
-import type { TEvent } from 'shared/types';
-import { ModalCommonHeader, ModalCommonBody, ModalCommonFooter, useToggleModal } from 'shared/components/ModalCommon';
+import ReactCodeEditor from '@uiw/react-textarea-code-editor';
 import '@uiw/react-textarea-code-editor/dist.css';
+import { useCallback, useEffect, useState, type ChangeEvent } from 'react';
+import { ModalCommonBody, ModalCommonFooter, ModalCommonHeader, useToggleModal } from 'shared/components/ModalCommon';
+import type { TEvent } from 'shared/types.d';
 import type { TonChange } from '../../Editor';
 import './CodeEditor.scss';
 import Templates, { type TlistElements } from './Templates';

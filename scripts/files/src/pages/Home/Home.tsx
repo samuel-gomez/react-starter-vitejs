@@ -1,4 +1,4 @@
-import Layout, { TLayoutPage } from 'Layout';
+import Layout, { type TLayoutPage } from 'Layout';
 import { TITLE, TITLE_BAR } from './constants';
 
 export type THome = TLayoutPage;

@@ -1,6 +1,6 @@
 import { Button } from '@axa-fr/react-toolkit-all';
-import { ReactElement } from 'react';
-import { Control, FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { type ReactElement } from 'react';
+import { useForm, type Control, type FieldValues, type SubmitHandler } from 'react-hook-form';
 
 export const LABEL_SUBMIT = 'Valider';
 export const FORM_ADD_MEMBERS = 'form-add-members';

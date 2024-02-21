@@ -1,9 +1,8 @@
 import { createContext, useMemo } from 'react';
 import { setLoaderMode } from 'shared/components/Loader';
 import { emptyFunction } from 'shared/helpers';
-
-import Members, { TMembers } from './Members';
-import { TReturnUseMembers, useMembers } from './Members.hook';
+import Members, { type TMembers } from './Members';
+import { useMembers, type TReturnUseMembers } from './Members.hook';
 import { INITIAL_STATE_SORTING } from './constants';
 
 export type TMembersContext = {

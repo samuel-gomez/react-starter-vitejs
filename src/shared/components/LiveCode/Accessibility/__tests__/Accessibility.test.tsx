@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import Accessibility from '../Accessibility';
-import { TResults } from '../Accessibility.hook';
+import { type TResults } from '../Accessibility.hook';
 
 const resultsFnMock = {
   violations: [

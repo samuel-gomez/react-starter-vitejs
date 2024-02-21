@@ -1,4 +1,4 @@
-import { Result } from 'axe-core';
+import { type Result } from 'axe-core';
 
 export type TTitleTab = { results: Result[] | undefined; label: string; icon: string };
 

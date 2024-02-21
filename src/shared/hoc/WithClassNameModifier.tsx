@@ -1,5 +1,5 @@
-import { ComponentType } from 'react';
 import { getComponentClassName } from '@axa-fr/react-toolkit-core';
+import { type ComponentType } from 'react';
 
 export type TwithClassNameModifier = {
   className?: string;

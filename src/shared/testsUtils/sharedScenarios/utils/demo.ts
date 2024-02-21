@@ -1,5 +1,5 @@
 import { screen, within } from '@testing-library/dom';
-import { DefineStepFunction } from 'jest-cucumber';
+import { type DefineStepFunction } from 'jest-cucumber';
 
 export const UnCodeDecomposantEstVisible = (instruction: DefineStepFunction, parentLabel = '') =>
   instruction(/^un code du composant "(.*)" est visible$/, name => {

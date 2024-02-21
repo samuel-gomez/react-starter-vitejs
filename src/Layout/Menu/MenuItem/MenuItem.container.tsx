@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import isEmpty from 'lodash/isEmpty';
-import { AriaAttributes } from 'react';
+import { type AriaAttributes } from 'react';
 import Authorize from 'shared/components/Authorize';
 import { MenuItem } from './MenuItem';
-import type { TMenuItemEnhanced, TMenuItemBase } from './MenuItem.d';
+import type { TMenuItemBase, TMenuItemEnhanced } from './MenuItem.d';
 
 export const createMenu = (menuItems: TMenuItemBase[], onClick?: (event: React.MouseEvent<HTMLElement>) => void, basePath?: string) =>
   menuItems.map(menuItem => (

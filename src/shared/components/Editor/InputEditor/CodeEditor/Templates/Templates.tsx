@@ -52,6 +52,11 @@ const DEFAULT_LIST = [
     icon: 'credit-card',
     tooltipLabel: 'Panel basic',
   },
+  {
+    id: 'add-accordion',
+    icon: 'credit-card',
+    tooltipLabel: 'Accordion',
+  },
 ];
 
 type TlistElement = {

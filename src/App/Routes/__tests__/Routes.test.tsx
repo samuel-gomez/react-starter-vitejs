@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { type PropsWithChildren } from 'react';
 import { act, render, screen, waitFor } from 'shared/testsUtils/customRender';
 
 import { TITLE as TITLE_ACCORDION } from 'pages/Demos/Accordion';

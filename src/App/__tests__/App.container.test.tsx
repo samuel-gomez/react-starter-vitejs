@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { TEnvironmentState } from 'App/EnvironmentProvider';
+import { type TEnvironmentState } from 'App/EnvironmentProvider';
 import { createContext } from 'react';
 import { act } from 'react-dom/test-utils';
 import AppWithEnvironment, { AppContainer } from '../App.container';

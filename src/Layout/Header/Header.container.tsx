@@ -1,5 +1,5 @@
-import { ComponentProps, useContext } from 'react';
 import { UserContext } from 'App/UserProvider';
+import { useContext, type ComponentProps } from 'react';
 import Header from './Header';
 import { SUBTITLE, TITLE } from './constants';
 

@@ -1,4 +1,4 @@
-import { ASCENDING, Torder } from 'shared/components/Table';
+import { ASCENDING, type Torder } from 'shared/components/Table';
 
 export const TITLE_BAR = 'Gestion des membres';
 export const TITLE = 'Liste des membres';

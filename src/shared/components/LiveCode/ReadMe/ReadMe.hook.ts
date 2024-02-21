@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { API_URL, GITHUB_API } from 'shared/constants';
-import type { Tanomaly } from 'shared/types';
+import type { Tanomaly } from 'shared/types.d';
 
 type TuseGithubReadme = {
   githubPackage?: string;

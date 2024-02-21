@@ -1,4 +1,4 @@
-import { DefineStepFunction } from 'jest-cucumber';
+import { type DefineStepFunction } from 'jest-cucumber';
 import expectLink from './expectLink';
 
 export const UnLienEstMasque = (instruction: DefineStepFunction, role = 'link') =>

@@ -1,4 +1,4 @@
-import { DefineStepFunction } from 'jest-cucumber';
+import { type DefineStepFunction } from 'jest-cucumber';
 import expectTitle from './expectTitle';
 
 const UnTitreEstVisible = (instruction: DefineStepFunction, level = 1, parentLabel = '') =>

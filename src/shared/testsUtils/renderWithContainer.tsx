@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 
 const renderWithContainer = (Component: ReactElement, container: HTMLElement) =>
   render(Component, {
