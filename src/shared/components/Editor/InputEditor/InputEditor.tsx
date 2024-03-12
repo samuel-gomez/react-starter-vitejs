@@ -1,10 +1,10 @@
+import { CheckboxItem, DateInput, Select, Text } from '@axa-fr/react-toolkit-all';
 import type { ComponentPropsWithoutRef, OptionHTMLAttributes } from 'react';
-import { DateInput, Text, Select, CheckboxItem } from '@axa-fr/react-toolkit-all';
 import { DEFAULT_OPTION_LABEL } from 'shared/constants';
-import CodeEditor from './CodeEditor';
-import JsonEditor from './JsonEditor';
-import type { TlistElements } from './CodeEditor/Templates';
 import type { TonChange } from '../Editor';
+import CodeEditor from './CodeEditor';
+import type { TlistElements } from './CodeEditor/Templates';
+import JsonEditor from './JsonEditor';
 
 type TListSelect = {
   value: string;
@@ -82,7 +82,7 @@ const InputEditor = ({ value, ...props }: TInputEditor) => (
           );
 
         case typeof value === 'object':
-          return <InputEditorObject value={value as TListSelect} {...props} />;
+          return <InputEditorObject value={value} {...props} />;
 
         default:
           return <Text {...commonProps(props)} type="text" value={`${value}`} />;
