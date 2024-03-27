@@ -65,7 +65,7 @@
     "jest-cucumber": "3.0.1",
     "jsdom": "24.0.0",
     "lint-staged": "15.2.2",
-    "msw": "2.2.3",
+    "msw": "2.2.13",
     "prettier": "3.2.5",
     "rollup-plugin-visualizer": "5.12.0",
     "sass": "1.71.1",
