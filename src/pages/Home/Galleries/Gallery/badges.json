@@ -1,13 +1,18 @@
 [
   {
     "href": "https://twitter.com/gamuez",
-    "src": "https://badgen.net/twitter/follow/gamuez",
+    "src": "https://img.shields.io/twitter/follow/gamuez?style=plastic&logo=x&label=Samuel%20Gomez&labelColor=%2300008f",
     "alt": "Follow @Gamuez"
   },
   {
     "href": "https://www.npmjs.com/package/@axa-fr/react-toolkit-all",
-    "src": "https://img.shields.io/badge/toolkit-v2.1.0-blue",
+    "src": "https://img.shields.io/badge/toolkit-v2.3.1-blue",
     "alt": "Toolkit Slash"
+  },
+  {
+    "href": "https://github.com/samuel-gomez/react-starter-vitejs",
+    "src": "https://img.shields.io/github/stars/samuel-gomez/react-starter-vitejs?style=flat",
+    "alt": "Github Stars"
   },
   {
     "href": "https://github.com/samuel-gomez/react-starter-vitejs/actions/workflows/build.yml",

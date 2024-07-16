@@ -8,7 +8,7 @@ Feature: Playground CheckboxInput
     Then un titre "CheckboxInput playground" est visible
     And un lien "Guidelines" est visible avec un href "https://axafrance.github.io/design-system/molecules/form-checkbox/"
     And un lien "Storybook" est visible avec un href "https://axafrance.github.io/react-toolkit/latest/storybook/?path=/story/form-input-checkbox--checkboxinput-classic"
-    And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.2.0/packages/Form/Input/checkbox"
+    And un lien "Github" est visible avec un href "https://github.com/AxaGuilDEv/react-toolkit/tree/v2.3.1/packages/Form/Input/checkbox"
     And un bouton "Edit props" est visible
     And un label "Monies" est visible
 

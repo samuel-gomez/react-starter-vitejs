@@ -38,6 +38,8 @@
 .af-menu {
   padding: 0;
   margin: 0;
+  position: relative;
+  z-index: 120;
   &--fullscreen {
     .container {
       width: 100%;
