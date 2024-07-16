@@ -15,7 +15,9 @@ describe('<Templates/>', () => {
           class="af-templates"
         >
           <div
-            class="af-popover__wrapper"
+            class="af-popover__wrapper af-popover__wrapper--over"
+            role="button"
+            tabindex="0"
           >
             <div
               class="af-popover__container af-popover__container--editor"
@@ -39,7 +41,9 @@ describe('<Templates/>', () => {
             </div>
           </div>
           <div
-            class="af-popover__wrapper"
+            class="af-popover__wrapper af-popover__wrapper--over"
+            role="button"
+            tabindex="0"
           >
             <div
               class="af-popover__container af-popover__container--editor"
@@ -63,7 +67,9 @@ describe('<Templates/>', () => {
             </div>
           </div>
           <div
-            class="af-popover__wrapper"
+            class="af-popover__wrapper af-popover__wrapper--over"
+            role="button"
+            tabindex="0"
           >
             <div
               class="af-popover__container af-popover__container--editor"
@@ -84,7 +90,9 @@ describe('<Templates/>', () => {
             </div>
           </div>
           <div
-            class="af-popover__wrapper"
+            class="af-popover__wrapper af-popover__wrapper--over"
+            role="button"
+            tabindex="0"
           >
             <div
               class="af-popover__container af-popover__container--editor"
@@ -105,7 +113,9 @@ describe('<Templates/>', () => {
             </div>
           </div>
           <div
-            class="af-popover__wrapper"
+            class="af-popover__wrapper af-popover__wrapper--over"
+            role="button"
+            tabindex="0"
           >
             <div
               class="af-popover__container af-popover__container--editor"
@@ -126,7 +136,9 @@ describe('<Templates/>', () => {
             </div>
           </div>
           <div
-            class="af-popover__wrapper"
+            class="af-popover__wrapper af-popover__wrapper--over"
+            role="button"
+            tabindex="0"
           >
             <div
               class="af-popover__container af-popover__container--editor"
@@ -147,7 +159,9 @@ describe('<Templates/>', () => {
             </div>
           </div>
           <div
-            class="af-popover__wrapper"
+            class="af-popover__wrapper af-popover__wrapper--over"
+            role="button"
+            tabindex="0"
           >
             <div
               class="af-popover__container af-popover__container--editor"
@@ -168,7 +182,9 @@ describe('<Templates/>', () => {
             </div>
           </div>
           <div
-            class="af-popover__wrapper"
+            class="af-popover__wrapper af-popover__wrapper--over"
+            role="button"
+            tabindex="0"
           >
             <div
               class="af-popover__container af-popover__container--editor"
@@ -192,7 +208,9 @@ describe('<Templates/>', () => {
             </div>
           </div>
           <div
-            class="af-popover__wrapper"
+            class="af-popover__wrapper af-popover__wrapper--over"
+            role="button"
+            tabindex="0"
           >
             <div
               class="af-popover__container af-popover__container--editor"
@@ -216,7 +234,9 @@ describe('<Templates/>', () => {
             </div>
           </div>
           <div
-            class="af-popover__wrapper"
+            class="af-popover__wrapper af-popover__wrapper--over"
+            role="button"
+            tabindex="0"
           >
             <div
               class="af-popover__container af-popover__container--editor"
@@ -240,7 +260,9 @@ describe('<Templates/>', () => {
             </div>
           </div>
           <div
-            class="af-popover__wrapper"
+            class="af-popover__wrapper af-popover__wrapper--over"
+            role="button"
+            tabindex="0"
           >
             <div
               class="af-popover__container af-popover__container--editor"
@@ -264,7 +286,9 @@ describe('<Templates/>', () => {
             </div>
           </div>
           <div
-            class="af-popover__wrapper"
+            class="af-popover__wrapper af-popover__wrapper--over"
+            role="button"
+            tabindex="0"
           >
             <div
               class="af-popover__container af-popover__container--editor"
