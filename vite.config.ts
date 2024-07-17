@@ -40,6 +40,8 @@ export default defineConfig({
         'src/**/*.d.ts',
         '*.cjs',
         'build/*',
+        'vite.config.ts',
+        'eslint.config.mjs',
       ],
       thresholds: {
         100: true,

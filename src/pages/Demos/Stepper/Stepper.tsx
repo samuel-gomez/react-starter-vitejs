@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import type { ClickEvent } from '@axa-fr/react-toolkit-core';
 import Layout, { type TLayoutPage } from 'Layout';
 import { EditorHeader, useEditable, withEditor, type TReturnUseToggleEditor, type Tknobs } from 'shared/components/Editor';
