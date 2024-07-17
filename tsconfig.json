@@ -19,7 +19,7 @@
     "types": ["vite/client", "@testing-library/jest-dom", "vitest/globals"],
     "verbatimModuleSyntax": true
   },
-  "include": ["vite.config.ts", ".eslintrc.cjs", "src", "scripts"],
+  "include": ["eslint.config.mjs", "src", "scripts"],
   "exclude": ["scripts"],
   "references": [
     {
