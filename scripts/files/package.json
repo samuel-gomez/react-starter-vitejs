@@ -32,7 +32,7 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-hook-form": "7.52.1",
-    "react-router-dom": "6.25.0"
+    "react-router-dom": "6.27.0"
   },
   "devDependencies": {
     "@commitlint/cli": "19.3.0",
