@@ -37,7 +37,7 @@ export type TQueryProvider = {
   children: ReactNode;
   queryClientObj?: QueryClient;
   setQueryClientFn?: typeof setQueryClient;
-  showReactQueryDevtoolsComponent?: (process?: string) => JSX.Element | boolean;
+  showReactQueryDevtoolsComponent?: (process?: string) => ReactNode;
   queriesOptions?: DefaultOptions<unknown>['queries'];
 };
 

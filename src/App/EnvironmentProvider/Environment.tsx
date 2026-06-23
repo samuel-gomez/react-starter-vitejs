@@ -1,5 +1,5 @@
 import { type OidcConfiguration } from '@axa-fr/react-oidc';
-import { createContext, useEffect, useState, type Dispatch, type SetStateAction } from 'react';
+import { createContext, useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from 'react';
 
 export type TEnvironment = {
   apiUrl: Record<string, string>;
@@ -60,7 +60,7 @@ export const useEnv = (fetchEnvFn = fetchEnv, initStateCt = initState) => {
  * Component wrapper to add environment context
  * @param {Component} children
  */
-const EnvironmentProvider = ({ children, useEnvFn = useEnv }: { children: JSX.Element; useEnvFn?: typeof useEnv }) => {
+const EnvironmentProvider = ({ children, useEnvFn = useEnv }: { children: ReactNode; useEnvFn?: typeof useEnv }) => {
   const { envState } = useEnvFn();
 
   return <EnvironmentContext.Provider value={envState}>{children}</EnvironmentContext.Provider>;
