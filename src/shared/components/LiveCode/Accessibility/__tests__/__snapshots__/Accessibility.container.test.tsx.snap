@@ -165,7 +165,7 @@ exports[`<AccessibilityContainer /> > Render <AccessibilityContainer /> with ari
               class="af-accordion__collapse af-accordion__collapse--close"
               id="id-testbody"
               role="tabpanel"
-              style="max-height: 0;"
+              style="max-height: 0px;"
             >
               <div
                 class="af-accordion__block"
