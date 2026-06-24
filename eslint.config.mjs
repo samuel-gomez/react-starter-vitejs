@@ -24,7 +24,6 @@ export default [
   ...fixupConfigRules(
     compat.extends(
       'airbnb',
-      'airbnb-typescript',
       'airbnb/hooks',
       'plugin:react/recommended',
       'plugin:@typescript-eslint/recommended',
@@ -52,6 +51,14 @@ export default [
       },
     },
 
+    settings: {
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json',
+        },
+      },
+    },
+
     rules: {
       'react/react-in-jsx-scope': 0,
       'react/prop-types': 0,
@@ -75,6 +82,12 @@ export default [
 
       'no-restricted-exports': 'off',
       'react/function-component-definition': 'off',
+      'import/extensions': 'off',
+      'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+      '@typescript-eslint/no-unused-vars': 'off',
+      'no-use-before-define': 'off',
+      'default-param-last': 'off',
+      'no-shadow': 'off',
 
       '@typescript-eslint/naming-convention': [
         'warn',
