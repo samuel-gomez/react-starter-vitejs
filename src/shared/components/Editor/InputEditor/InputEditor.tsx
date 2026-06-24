@@ -39,6 +39,8 @@ const InputEditorObject = ({ value, ...props }: TInputEditorObject) => (
           return (
             <DateInput
               crossOrigin={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
               {...commonProps(props)}
               label={props.name}
               onChange={props.onChange as unknown as ComponentPropsWithoutRef<typeof DateInput>['onChange']}
