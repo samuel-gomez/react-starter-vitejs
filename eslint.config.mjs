@@ -19,7 +19,7 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ['scripts/*', 'vite.config.ts'],
+    ignores: ['scripts/*', 'vite.config.ts', 'src/templates/*.js'],
   },
   ...fixupConfigRules(
     compat.extends(
